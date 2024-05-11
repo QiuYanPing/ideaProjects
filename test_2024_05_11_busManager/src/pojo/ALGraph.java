@@ -121,7 +121,9 @@ public class ALGraph {
 
     /**
      * 功能：删除图中顶点
-     *
+     *      先删除边再删除顶点，
+     * 如果先删除顶点，每个顶点的索引都改变了位置
+     * 而顶点的边集中的顶点的索引没有随之改变，就导致了逻辑上的错误
      * @param u 顶点id
      * @return
      */
@@ -130,11 +132,6 @@ public class ALGraph {
         if (uIndex < 0) {
             return false;
         }
-        //删除顶点表中的节点
-        for (int i = uIndex + 1; i < vexNum; i++) {
-            vexs[i - 1] = vexs[i];
-        }
-        vexNum--;
         //删除节点时，还需要在每个顶点的边节点链表中查找是否有改节点并删除
         for (int i = 0; i < vexNum; i++) {
             /*ArcNode p = vexs[i].firstArc;
@@ -154,7 +151,7 @@ public class ALGraph {
                 p = p.nextArc;
             }*/
             int v = vexs[i].id;
-            if (isAdjVertex(u, v)) {
+            if (isAdjVertex(v, u)) {
                 //为邻接点，一定有边要删除
                 ArcNode p = vexs[i].firstArc;
 
@@ -174,6 +171,11 @@ public class ALGraph {
             }
 
         }
+        //删除顶点表中的节点
+        for (int i = uIndex + 1; i < vexNum; i++) {
+            vexs[i - 1] = vexs[i];
+        }
+        vexNum--;
         return true;
     }
 
@@ -230,11 +232,11 @@ public class ALGraph {
         System.out.println("\t结点\t相邻边");
         ArcNode p;
         for (int i = 0; i < vexNum; i++) {
-            System.out.println("\t"+vexs[i].id+"("+vexs[i].info+")");
+            System.out.print("\t"+vexs[i].id+"("+vexs[i].info+")");
             p = vexs[i].firstArc;
             while(p!=null){
                 VNode v = vexs[p.adjVex];
-                System.out.println("\t"+v.id+"("+v.info+")");
+                System.out.print("\t"+v.id+"("+v.info+")");
                 p = p.nextArc;
             }
             System.out.println();
