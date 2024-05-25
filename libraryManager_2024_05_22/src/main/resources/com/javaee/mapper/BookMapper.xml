@@ -19,6 +19,9 @@
             <if test="price != 0 ">
                 price = #{price}
             </if>
+            <if test="borrowNum != 0 ">
+                borrow_num = #{borrowNum}
+            </if>
             <if test="state != null and state !=''">
                 state = #{state}
             </if>

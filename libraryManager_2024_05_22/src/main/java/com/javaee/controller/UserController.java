@@ -53,7 +53,7 @@ public class UserController {
     @DeleteMapping("/user/{ids}")
     public Result delete(@PathVariable List<Integer> ids){
         userService.delete(ids);
-        log.info("根据ids查询用户：{}",ids);
+        log.info("根据ids删除用户：{}",ids);
         return Result.success();
     }
 

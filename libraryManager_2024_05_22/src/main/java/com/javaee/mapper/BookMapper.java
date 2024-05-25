@@ -16,8 +16,8 @@ public interface BookMapper {
     @Select("select * from book where id = #{id}")
     Book selectById(int id);
     @Options(useGeneratedKeys = true,keyProperty = "id")
-    @Insert("insert into book (name,author,category,price) " +
-            "values (#{name},#{author},#{category},#{price})")
+    @Insert("insert into book (name,author,category,price,borrow_num) " +
+            "values (#{name},#{author},#{category},#{price},#{borrowNum})")
     void insert(Book book);
 
     void update(Book book);

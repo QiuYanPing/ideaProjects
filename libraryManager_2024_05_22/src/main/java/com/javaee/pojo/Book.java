@@ -14,4 +14,5 @@ public class Book {
     private String category;
     private float price;
     private String state;
+    private int borrowNum;
 }
