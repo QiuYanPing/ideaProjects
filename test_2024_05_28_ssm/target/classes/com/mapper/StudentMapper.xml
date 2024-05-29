@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.StudentMapper">
+    <!--按学号查询学生信息 -->
+    <select id="selectStudentBySno" parameterType="String" resultType="Student">
+        select * from stu where sno=#{sno};
+    </select>
+    <!-- 按姓名查询学生信息  -->
+    <select id="selectStudentBySname" parameterType="String" resultType="Student">
+        <bind name="sname" value="'%'+sname+'%'" />
+        select * from stu
+        <where>
+            <if test="sname!=null and sname!=''">
+                and sname like #{sname}
+            </if>
+        </where>
+    </select>
+    <!--按所有学生信息 -->
+    <select id="selectStudents" resultType="Student">
+        select * from stu;
+    </select>
+    <insert id="insertStudent" parameterType="Student">
+        insert into stu(sno,sname,ssex,snative,mno) values(#{sno},#{sname},#{ssex},#{snative},#{mno});
+    </insert>
+    <delete id="deleteStudentBySno" parameterType="String">
+        delete from stu where sno=#{sno};
+    </delete>
+    <update id="updateStudent" parameterType="Student">
+        update stu
+        <set>
+            <if test="sname!=null and sname!=''">
+                sname=#{sname},
+            </if>
+            <if test="ssex!=null and ssex!=''">
+                ssex=#{ssex},
+            </if>
+            <if test="snative!=null">
+                snative=#{snative},
+            </if>
+            <if test="mno!=null and mno!=''">
+                mno=#{mno},
+            </if>
+        </set>
+        where sno=#{sno};
+    </update>
+</mapper>
