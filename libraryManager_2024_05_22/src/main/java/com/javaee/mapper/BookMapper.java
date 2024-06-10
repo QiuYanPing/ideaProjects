@@ -10,8 +10,9 @@ import java.util.List;
 
 @Mapper
 public interface BookMapper {
-    @Select("select * from book")
-    List<Book> list();
+    //@Select("select * from book")
+    List<Book> list(String name,String author,String category,
+                    Float price,String state,Integer borrowNum);
 
     @Select("select * from book where id = #{id}")
     Book selectById(int id);

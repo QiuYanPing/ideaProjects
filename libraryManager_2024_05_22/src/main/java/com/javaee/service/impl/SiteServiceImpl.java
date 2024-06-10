@@ -44,7 +44,8 @@ public class SiteServiceImpl implements SiteService {
         }else{
             user.setSite(site.getSite());
         }
-        userMapper.update(user);
+        userMapper.update(user.getUserName(),user.getPassword(),user.getName(),user.getGender(),
+                user.getImage(),user.getSite(),user.getUpdateTime().toString(),user.getId());
 
         siteMapper.update(site);
     }

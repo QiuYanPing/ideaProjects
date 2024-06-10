@@ -48,7 +48,15 @@ public class UserServiceImpl implements UserService {
     @Override
     public void update(User user) {
         user.setUpdateTime(LocalDateTime.now());
-        userMapper.update(user);
+        String updateTime = user.getUpdateTime().toString();
+        String userName = user.getUserName();
+        String password = user.getPassword();
+        String name = user.getName();
+        int gender = user.getGender();
+        String image = user.getImage();
+        String site = user.getSite();
+        int id = user.getId();
+        userMapper.update(userName,password,name,gender,image,site,updateTime,id);
     }
 
     @Override

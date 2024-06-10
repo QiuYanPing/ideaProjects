@@ -22,7 +22,10 @@ public interface UserMapper {
             " values (#{userName},#{password},#{name},#{gender},#{image},#{site},#{createTime},#{updateTime})")
     void insert(User user);
 
-    void update(User user);
+    void update(String userName, String password, String name,Integer gender,
+                String image,
+                String site,
+                String updateTime,Integer id);
 
     void delete(List<Integer> ids);
     @Select("select * from user where user_name = #{userName} and password = #{password}")

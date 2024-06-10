@@ -28,9 +28,10 @@ public class LogAspect {
     OperateLogMapper operateLogMapper;
     @Around("@annotation(com.javaee.anno.Log)")
     public Object recordLog(ProceedingJoinPoint joinPoint) throws Throwable {
-        String jwt = request.getHeader("token");
+        /*String jwt = request.getHeader("token");
         Claims claims = JwtUtils.parseJwt(jwt);
-        Integer operateUser = (Integer) claims.get("id");
+        Integer operateUser = (Integer) claims.get("id");*/
+        Integer operateUser =1;
 
         LocalDateTime operateTime = LocalDateTime.now();
         String className = joinPoint.getTarget().getClass().getName();

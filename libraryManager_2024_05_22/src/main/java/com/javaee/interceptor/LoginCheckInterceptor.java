@@ -19,7 +19,7 @@ public class LoginCheckInterceptor implements HandlerInterceptor {
         String url = request.getRequestURI().toString();
         log.info("请求的url:{}",url);
 
-        if(url.contains("login")){
+        /*if(url.contains("login")){
             log.info("登录操作，放行.....");
             return true;
         }
@@ -40,7 +40,7 @@ public class LoginCheckInterceptor implements HandlerInterceptor {
             String notLogin = JSONObject.toJSONString(error);
             response.getWriter().write(notLogin);
             return false;
-        }
+        }*/
         return true;
     }
 

@@ -2,6 +2,7 @@ package com.javaee.controller;
 
 import com.javaee.anno.Log;
 import com.javaee.pojo.Book;
+import com.javaee.pojo.PageBean;
 import com.javaee.pojo.Result;
 import com.javaee.service.BookService;
 import lombok.extern.slf4j.Slf4j;
@@ -17,10 +18,13 @@ public class BookController {
     BookService bookService;
 
     @GetMapping("/book")
-    public Result list(){
-        List<Book> bookList = bookService.list();
-        log.info("查询所用图书信息");
-        return Result.success(bookList);
+    public Result list(@RequestParam(defaultValue = "1")Integer page,
+                       @RequestParam(defaultValue = "10")Integer pageSize,
+                       String name,String author,String category,
+                       Float price,String state,Integer borrowNum){
+        log.info("分页查询，参数：{},{}",page,pageSize);
+        PageBean pageBean = bookService.list(page,pageSize,name,author,category,price,state,borrowNum);
+        return Result.success(pageBean);
     }
     @GetMapping("/book/{id}")
     public Result selectById(@PathVariable int id){

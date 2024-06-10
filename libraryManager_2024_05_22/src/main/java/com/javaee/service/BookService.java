@@ -1,12 +1,13 @@
 package com.javaee.service;
 
 import com.javaee.pojo.Book;
+import com.javaee.pojo.PageBean;
 
 import java.util.List;
 
 public interface BookService {
 
-    List<Book> list();
+   
 
     Book selectById(int id);
 
@@ -15,4 +16,6 @@ public interface BookService {
     void update(Book book);
 
     void delete(List<Integer> ids);
+
+    PageBean list(Integer page, Integer pageSize, String name, String author, String category, Float price, String state, Integer borrowNum);
 }

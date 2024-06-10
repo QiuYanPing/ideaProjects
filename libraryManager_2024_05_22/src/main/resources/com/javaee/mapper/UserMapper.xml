@@ -7,26 +7,29 @@
     <update id="update" parameterType="com.javaee.pojo.User">
         update user
         <set>
-            <if test="userName != null and userName != ''">
-                user_name = #{userName}
+            <if test="param1 != null and param1 != ''">
+                user_name = #{param1},
             </if>
-            <if test="password != null and password != ''">
-                password = #{password}
+            <if test="param2 != null and param2 != ''">
+                password = #{param2},
             </if>
-            <if test="name != null and name != ''">
-                name = #{name}
+            <if test="param3 != null and param3 != ''">
+                name = #{param3},
             </if>
-            <if test="gender != null ">
-                gender = #{gender}
+            <if test="param4 != null ">
+                gender = #{param4},
             </if>
-            <if test="image != null and image != ''">
-                image = #{image}
+            <if test="param5 != null and param5 != ''">
+                image = #{param5},
             </if>
-            <if test="site != null and site != ''">
-                site = #{site}
+            <if test="param6 != null and param6 != ''">
+                site = #{param6},
+            </if>
+            <if test="param7 != null and param7 != ''">
+                update_time = #{param7},
             </if>
         </set>
-        where id = #{id}
+        where id = #{param8}
 
     </update>
     <delete id="delete">
