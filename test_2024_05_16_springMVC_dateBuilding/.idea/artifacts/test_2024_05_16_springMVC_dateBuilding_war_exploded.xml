@@ -1,0 +1,35 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="test_2024_05_16_springMVC_dateBuilding:war exploded">
+    <output-path>$PROJECT_DIR$/target/test_2024_04_28</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <exploded>true</exploded>
+        <module>test_2024_05_16_springMVC_dateBuilding</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="test_2024_05_16_springMVC_dateBuilding" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: org.springframework:spring-context:6.1.4" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-aop:6.1.4" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-beans:6.1.4" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-core:6.1.4" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-jcl:6.1.4" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-expression:6.1.4" />
+          <element id="library" level="project" name="Maven: io.micrometer:micrometer-observation:1.12.3" />
+          <element id="library" level="project" name="Maven: io.micrometer:micrometer-commons:1.12.3" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:6.1.4" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-web:6.1.4" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/target/test_2024_04_28/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="test_2024_05_23_springMVC_dateBuilding/web/Web" />
+    </root>
+  </artifact>
+</component>

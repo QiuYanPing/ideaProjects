@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="jstl">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../大二/上/DataStructure/lib/jakarta-taglibs-standard-1.0.1/jakarta-taglibs-standard-1.0.1/jstl.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

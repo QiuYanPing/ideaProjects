@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="test_2024_05_16_springMVC_dateBuiding:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>test_2024_05_16_springMVC_dateBuiding</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="test_2024_05_16_springMVC_dateBuiding-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="test_2024_05_16_springMVC_dateBuiding:war exploded" />
+    </root>
+  </artifact>
+</component>
