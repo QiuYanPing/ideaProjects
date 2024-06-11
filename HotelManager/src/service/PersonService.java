@@ -4,6 +4,7 @@ import data.*;
 import pojo.*;
 
 import java.text.DecimalFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -33,7 +34,7 @@ public class PersonService {
     public SchedulingDatas schedulingDatas = new SchedulingDatas();
     public DecimalFormat df = new DecimalFormat("#.00");
     public SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-    public void getDatas(){
+    public void getDatas() throws ParseException {
         users = UserDatas.getUsers();
         managers = ManagerDatas.getManagers();
         employees = EmployeeDatas.getEmployees();
@@ -114,7 +115,8 @@ public class PersonService {
                     return false;
                 }
                 manager.setPassword(newPwd);
-                managers.set(curPersonIndex, manager);
+                //managers.set(curPersonIndex, manager);
+                managerDatas.modifyManager(manager);
                 System.out.println("密码修改成功！");
                 change = true; // 数据更改
                 break;
@@ -135,7 +137,8 @@ public class PersonService {
                     return false;
                 }
                 user.setPassword(newPwd);
-                users.set(curPersonIndex, user);
+                //users.set(curPersonIndex, user);
+                userDatas.modifyUser(user);
                 System.out.println("密码修改成功！");
                 change = true; // 数据更改
                 break;
@@ -156,7 +159,8 @@ public class PersonService {
                     return false;
                 }
                 employee.setPassword(newPwd);
-                employees.set(curPersonIndex, employee);
+                //employees.set(curPersonIndex, employee);
+                employeeDatas.modifyEmployee(employee);
                 System.out.println("密码修改成功！");
                 change = true; // 数据更改
                 break;
@@ -179,6 +183,11 @@ public class PersonService {
         System.exit(0);
     }
     public void saveDatas(){
-
+        userDatas.saveUsers();
+        managerDatas.saveManagers();
+        employeeDatas.saveEmployees();
+        orderDatas.saveOrders();
+        roomDatas.saveRooms();
+        schedulingDatas.saveSchedulings();
     }
 }

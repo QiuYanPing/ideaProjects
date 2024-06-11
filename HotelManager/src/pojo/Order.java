@@ -56,4 +56,10 @@ public class Order {
         this.enterTime = enterTime;
         this.leaveTime = leaveTime;
     }
+
+    public Order(String userId, String roomId, Date enterTime) {
+        UserId = userId;
+        RoomId = roomId;
+        this.enterTime = enterTime;
+    }
 }
