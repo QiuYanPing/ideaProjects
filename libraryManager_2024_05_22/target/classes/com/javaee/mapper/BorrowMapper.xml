@@ -6,7 +6,7 @@
 
     <delete id="delete">
         delete from borrow
-        where id in
+        where book_id in
         <foreach collection="list" item="id" separator="," open="(" close=")">
             #{id}
         </foreach>

@@ -47,4 +47,13 @@ public class BookServiceImpl implements BookService {
         PageBean pageBean = new PageBean(p.getTotal(), p.getResult());
         return pageBean;
     }
+
+    @Override
+    public PageBean orderBy(Integer page, Integer pageSize, String name, String author, String category, Float price, String state, Integer borrowNum) {
+        PageHelper.startPage(page,pageSize);
+        List<Book> bookList = bookMapper.orderBy(name,author,category,price,state,borrowNum);
+        Page<Book> p = (Page<Book>) bookList;
+        PageBean pageBean = new PageBean(p.getTotal(), p.getResult());
+        return pageBean;
+    }
 }

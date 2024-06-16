@@ -11,6 +11,7 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServlet;
@@ -26,12 +27,15 @@ public class LogAspect {
     HttpServletRequest request;
     @Autowired
     OperateLogMapper operateLogMapper;
+    @Value("${myToken}")
+    String jwt;
     @Around("@annotation(com.javaee.anno.Log)")
     public Object recordLog(ProceedingJoinPoint joinPoint) throws Throwable {
-        /*String jwt = request.getHeader("token");
+
+        /*request.getHeader("token")*/
         Claims claims = JwtUtils.parseJwt(jwt);
-        Integer operateUser = (Integer) claims.get("id");*/
-        Integer operateUser =1;
+        Integer operateUser = (Integer) claims.get("id");
+
 
         LocalDateTime operateTime = LocalDateTime.now();
         String className = joinPoint.getTarget().getClass().getName();

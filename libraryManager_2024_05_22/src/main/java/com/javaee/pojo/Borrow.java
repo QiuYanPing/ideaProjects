@@ -15,6 +15,10 @@ public class Borrow {
     private int userId;
     private int bookId;
     private LocalDateTime returnTime;
-
     private LocalDateTime borrowTime;
+    private int id;
+    private String name;
+    private String author;
+    private String category;
+    private float price;
 }

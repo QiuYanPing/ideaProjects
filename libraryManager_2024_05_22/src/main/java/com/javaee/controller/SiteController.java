@@ -4,8 +4,12 @@ import com.javaee.anno.Log;
 import com.javaee.pojo.Result;
 import com.javaee.pojo.Site;
 import com.javaee.service.SiteService;
+import com.javaee.utils.JwtUtils;
+import io.jsonwebtoken.Claims;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,6 +19,8 @@ import java.util.List;
 public class SiteController {
     @Autowired
     SiteService siteService;
+    @Value("myToken")
+    String jwt;
     @GetMapping("/site")
     public Result list(){
         List<Site> siteList = siteService.list();
@@ -32,7 +38,7 @@ public class SiteController {
     @PutMapping("/site")
     public Result update(@RequestBody Site site){
         siteService.update(site);
-        log.info("修改座位");
+        log.info("修改座位状态");
         return Result.success();
     }
     @Log
@@ -42,4 +48,12 @@ public class SiteController {
         log.info("删除座位");
         return Result.success();
     }
+
+    @GetMapping("/site/{site}")
+    public Result showSites(@PathVariable Integer site){
+        List<Site> siteList = siteService.showSites(site);
+        log.info("根据楼层查询位置："+site);
+        return Result.success(siteList);
+    }
+
 }

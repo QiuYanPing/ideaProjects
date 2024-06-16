@@ -5,8 +5,11 @@ import com.javaee.pojo.PageBean;
 import com.javaee.pojo.Result;
 import com.javaee.pojo.User;
 import com.javaee.service.UserService;
+import com.javaee.utils.JwtUtils;
+import io.jsonwebtoken.Claims;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,7 +21,8 @@ import java.util.List;
 public class UserController {
     @Autowired
     UserService userService;
-
+    @Value("${myToken}")
+    String jwt;
     @GetMapping("/user")
     public Result list(@RequestParam(defaultValue = "1") Integer page,
                        @RequestParam(defaultValue = "10") Integer pageSize,
@@ -56,6 +60,13 @@ public class UserController {
         log.info("根据ids删除用户：{}",ids);
         return Result.success();
     }
-
+    @GetMapping("/myself")
+    public Result getMyself(){
+        Claims claims = JwtUtils.parseJwt(jwt);
+        Integer id = (Integer) claims.get("id");
+        User user = userService.selectById(id);
+        log.info("根据id查询用户：{}",id);
+        return Result.success(user);
+    }
 
 }

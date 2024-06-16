@@ -12,4 +12,7 @@ public interface SiteService {
     void update(Site site);
 
     void delete(List<String> sites);
+
+    List<Site> showSites(Integer site);
+
 }

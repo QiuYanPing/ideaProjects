@@ -4,6 +4,7 @@ import com.javaee.pojo.Site;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 
@@ -17,4 +18,6 @@ public interface SiteMapper {
     void update(Site site);
 
     void delete(List<String> sites);
+
+    List<Site> showSites(Integer site);
 }

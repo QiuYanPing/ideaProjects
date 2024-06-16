@@ -18,4 +18,6 @@ public interface BookService {
     void delete(List<Integer> ids);
 
     PageBean list(Integer page, Integer pageSize, String name, String author, String category, Float price, String state, Integer borrowNum);
+
+    PageBean orderBy(Integer page, Integer pageSize, String name, String author, String category, Float price, String state, Integer borrowNum);
 }

@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.javaee.pojo.Result;
 import com.javaee.utils.JwtUtils;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -14,16 +15,19 @@ import java.util.Locale;
 @Slf4j
 @Component
 public class LoginCheckInterceptor implements HandlerInterceptor {
+    @Value("${myToken}")
+    String jwt ;
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         String url = request.getRequestURI().toString();
         log.info("请求的url:{}",url);
 
-        /*if(url.contains("login")){
+        if(url.contains("login")){
             log.info("登录操作，放行.....");
             return true;
         }
-        String jwt = request.getHeader("token");
+
+         /*request.getHeader("token")*/
         if(jwt == null || jwt.length() == 0){
             log.info("请求头token为空，返回未登录的信息");
             Result error = Result.error("NOT_LOGIN");
@@ -40,7 +44,7 @@ public class LoginCheckInterceptor implements HandlerInterceptor {
             String notLogin = JSONObject.toJSONString(error);
             response.getWriter().write(notLogin);
             return false;
-        }*/
+        }
         return true;
     }
 

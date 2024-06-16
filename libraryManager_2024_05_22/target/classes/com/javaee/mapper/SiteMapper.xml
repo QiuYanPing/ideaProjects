@@ -3,23 +3,27 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.javaee.mapper.SiteMapper">
-
-    <update id="update" parameterType="com.javaee.pojo.Site">
+    <update id="update">
         update site
-            <set>
-                <if test="site!=null and site!=''">
-                    site = #{site}
-                </if>
-                <if test="state!=null and state!=''">
-                    state = #{state}
-                </if>
-            </set>
+        <set>
+            <if test="state !=null and state!=''">
+                state = #{state}
+            </if>
+        </set>
+        where site = #{site}
     </update>
+
+
     <delete id="delete">
         delete from site
-            where site in
-                <foreach collection="list" item="site" separator="," open="(" close=")">
-                    #{site}
-                </foreach>
+        where site in
+        <foreach collection="list" item="site" separator="," open="(" close=")">
+            #{site}
+        </foreach>
     </delete>
+    <select id="showSites" resultType="com.javaee.pojo.Site">
+        select *
+        from site
+        where site like concat(#{param1}, '%')
+    </select>
 </mapper>

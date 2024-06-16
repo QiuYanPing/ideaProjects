@@ -33,7 +33,7 @@ public class BorrowServiceImpl implements BorrowService {
     @Transactional
     @Override
     public void insert(Integer userId,Integer bookId,LocalDateTime returnTime) {
-        Book book = bookMapper.selectById(userId);
+        Book book = bookMapper.selectById(bookId);
         book.setState("已借");
         book.setBorrowNum(book.getBorrowNum()+1);
         bookMapper.update(book);

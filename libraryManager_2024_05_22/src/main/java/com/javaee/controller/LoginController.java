@@ -32,4 +32,10 @@ public class LoginController {
         }
         return Result.error("用户或者密码错误");
     }
+    @PostMapping("/register")
+    public Result register(@RequestBody User user){
+        userService.insert(user);
+        log.info("注册用户：{}",user.getId());
+        return Result.success();
+    }
 }

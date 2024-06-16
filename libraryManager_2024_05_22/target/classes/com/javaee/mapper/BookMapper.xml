@@ -58,4 +58,9 @@
             </if>
         </where>
     </select>
+    <select id="orderBy" resultType="com.javaee.pojo.Book">
+        select * from book
+            where category = #{param3}
+                order by borrow_num desc
+    </select>
 </mapper>

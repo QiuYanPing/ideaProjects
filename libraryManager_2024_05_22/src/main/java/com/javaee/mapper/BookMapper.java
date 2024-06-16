@@ -24,4 +24,6 @@ public interface BookMapper {
     void update(Book book);
 
     void delete(List<Integer> ids);
+    //@Select("select * from book where category = #{category} order by borrow_num desc")
+    List<Book> orderBy(String name, String author, String category, Float price, String state, Integer borrowNum);
 }

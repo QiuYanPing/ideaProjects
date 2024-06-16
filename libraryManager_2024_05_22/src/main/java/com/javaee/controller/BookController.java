@@ -16,6 +16,15 @@ import java.util.List;
 public class BookController {
     @Autowired
     BookService bookService;
+    @GetMapping("/book/orderBy")
+    public Result orderBy(@RequestParam(defaultValue = "1")Integer page,
+                          @RequestParam(defaultValue = "10")Integer pageSize,
+                          String name,String author,String category,
+                          Float price,String state,Integer borrowNum){
+        log.info("查询借出图书的前十：{}",category);
+        PageBean pageBean = bookService.orderBy(page,pageSize,name,author,category,price,state,borrowNum);
+        return Result.success(pageBean);
+    }
 
     @GetMapping("/book")
     public Result list(@RequestParam(defaultValue = "1")Integer page,

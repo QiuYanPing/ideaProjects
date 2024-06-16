@@ -8,6 +8,7 @@ import com.javaee.service.SiteService;
 import com.javaee.utils.JwtUtils;
 import io.jsonwebtoken.Claims;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,6 +23,9 @@ public class SiteServiceImpl implements SiteService {
     SiteMapper siteMapper;
     @Autowired
     UserMapper userMapper;
+    @Value("${myToken}")
+    String jwt;
+
     @Override
     public List<Site> list() {
         List<Site> siteList = siteMapper.list();
@@ -32,20 +36,21 @@ public class SiteServiceImpl implements SiteService {
     public void insert(Site site) {
         siteMapper.insert(site);
     }
+
     @Transactional
     @Override
     public void update(Site site) {
-        String jwt = request.getHeader("token");
+        /*request.getHeader("token")*/
         Claims claims = JwtUtils.parseJwt(jwt);
-        Integer id = (Integer)claims.get("id");
+        Integer id = (Integer) claims.get("id");
         User user = userMapper.selectById(id);
-        if(site.getState() == "未预定"){
-            user.setSite(null);
-        }else{
+        if (site.getState().equals("已预约")) {
             user.setSite(site.getSite());
+        } else {
+            user.setSite("");
         }
-        userMapper.update(user.getUserName(),user.getPassword(),user.getName(),user.getGender(),
-                user.getImage(),user.getSite(),user.getUpdateTime().toString(),user.getId());
+        userMapper.update(user.getUserName(), user.getPassword(), user.getName(), user.getGender(),
+                user.getImage(), user.getSite(), user.getUpdateTime().toString(), user.getId());
 
         siteMapper.update(site);
     }
@@ -53,5 +58,11 @@ public class SiteServiceImpl implements SiteService {
     @Override
     public void delete(List<String> sites) {
         siteMapper.delete(sites);
+    }
+
+    @Override
+    public List<Site> showSites(Integer site) {
+        List<Site> siteList = siteMapper.showSites(site);
+        return siteList;
     }
 }
