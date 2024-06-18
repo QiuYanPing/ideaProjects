@@ -23,8 +23,7 @@ public class SiteServiceImpl implements SiteService {
     SiteMapper siteMapper;
     @Autowired
     UserMapper userMapper;
-    @Value("${myToken}")
-    String jwt;
+
 
     @Override
     public List<Site> list() {
@@ -40,6 +39,7 @@ public class SiteServiceImpl implements SiteService {
     @Transactional
     @Override
     public void update(Site site) {
+        String jwt = request.getHeader("token");
         /*request.getHeader("token")*/
         Claims claims = JwtUtils.parseJwt(jwt);
         Integer id = (Integer) claims.get("id");

@@ -27,11 +27,10 @@ public class LogAspect {
     HttpServletRequest request;
     @Autowired
     OperateLogMapper operateLogMapper;
-    @Value("${myToken}")
-    String jwt;
+
     @Around("@annotation(com.javaee.anno.Log)")
     public Object recordLog(ProceedingJoinPoint joinPoint) throws Throwable {
-
+        String jwt = request.getHeader("token");
         /*request.getHeader("token")*/
         Claims claims = JwtUtils.parseJwt(jwt);
         Integer operateUser = (Integer) claims.get("id");

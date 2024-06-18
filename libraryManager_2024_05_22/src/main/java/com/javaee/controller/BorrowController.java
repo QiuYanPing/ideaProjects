@@ -15,11 +15,14 @@ import org.springframework.cglib.core.Local;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDateTime;
 import java.util.List;
 @Slf4j
 @RestController
 public class BorrowController {
+    @Autowired
+    HttpServletRequest request;
     @Autowired
     BorrowService borrowService;
     @Autowired
@@ -30,10 +33,10 @@ public class BorrowController {
         log.info("查询借书历史");
         return Result.success(borrowList);
     }*/
-    @Value("${myToken}")
-    String jwt;
+
     @GetMapping("/borrow")
     public Result selectByUserId(){
+        String jwt = request.getHeader("token");
         /*request.getHeader("token")*/
         Claims claims = JwtUtils.parseJwt(jwt);
         Integer id = (Integer) claims.get("id");
@@ -45,6 +48,7 @@ public class BorrowController {
     @Log
     @PostMapping("/borrow")
     public Result insert(Integer bookId,@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")LocalDateTime returnTime){
+        String jwt = request.getHeader("token");
         Claims claims = JwtUtils.parseJwt(jwt);
         Integer userId = (Integer) claims.get("id");
         borrowService.insert(userId,bookId,returnTime);

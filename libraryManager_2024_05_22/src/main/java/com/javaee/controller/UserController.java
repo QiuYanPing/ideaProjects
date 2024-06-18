@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -21,8 +22,9 @@ import java.util.List;
 public class UserController {
     @Autowired
     UserService userService;
-    @Value("${myToken}")
-    String jwt;
+    @Autowired
+    HttpServletRequest request;
+
     @GetMapping("/user")
     public Result list(@RequestParam(defaultValue = "1") Integer page,
                        @RequestParam(defaultValue = "10") Integer pageSize,
@@ -62,6 +64,7 @@ public class UserController {
     }
     @GetMapping("/myself")
     public Result getMyself(){
+        String jwt = request.getHeader("token");
         Claims claims = JwtUtils.parseJwt(jwt);
         Integer id = (Integer) claims.get("id");
         User user = userService.selectById(id);

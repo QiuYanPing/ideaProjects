@@ -15,8 +15,7 @@ import java.util.Locale;
 @Slf4j
 @Component
 public class LoginCheckInterceptor implements HandlerInterceptor {
-    @Value("${myToken}")
-    String jwt ;
+
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         String url = request.getRequestURI().toString();
@@ -26,7 +25,8 @@ public class LoginCheckInterceptor implements HandlerInterceptor {
             log.info("登录操作，放行.....");
             return true;
         }
-
+        String jwt = request.getHeader("token");
+        log.info("令牌：{}",jwt);
          /*request.getHeader("token")*/
         if(jwt == null || jwt.length() == 0){
             log.info("请求头token为空，返回未登录的信息");
