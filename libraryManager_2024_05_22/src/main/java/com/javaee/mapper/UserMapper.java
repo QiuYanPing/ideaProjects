@@ -8,8 +8,6 @@ import java.util.List;
 
 @Mapper
 public interface UserMapper {
-
-
     //@Select("select * from user")
     List<User> list(String userName, String name, Integer gender,
                     LocalDateTime begin, LocalDateTime end);

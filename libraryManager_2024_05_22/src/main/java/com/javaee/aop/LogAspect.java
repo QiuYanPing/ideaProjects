@@ -33,10 +33,10 @@ public class LogAspect {
         String jwt = request.getHeader("token");
         /*request.getHeader("token")*/
         Claims claims = JwtUtils.parseJwt(jwt);
-        Integer operateUser = (Integer) claims.get("id");
+        Integer operateUser = (Integer) claims.get("id");   //记录操作者的id
 
 
-        LocalDateTime operateTime = LocalDateTime.now();
+        LocalDateTime operateTime = LocalDateTime.now();   //记录操作的时间
         String className = joinPoint.getTarget().getClass().getName();
         String methodName = joinPoint.getSignature().getName();
         Object[] args = joinPoint.getArgs();
@@ -45,7 +45,7 @@ public class LogAspect {
         Object result = joinPoint.proceed();
         long end = System.currentTimeMillis();
         String resultValue = JSONObject.toJSONString(result);
-        Long costTime = end - begin;
+        Long costTime = end - begin;    //记录操作所耗费的时间
         OperateLog operateLog = new OperateLog(null,operateUser,operateTime,className,methodName,methodParams,resultValue,costTime);
         operateLogMapper.insert(operateLog);
         log.info("AOP记录操作日志：{}",operateLog);

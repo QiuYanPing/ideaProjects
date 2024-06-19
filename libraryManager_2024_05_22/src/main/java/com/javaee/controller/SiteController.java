@@ -19,8 +19,7 @@ import java.util.List;
 public class SiteController {
     @Autowired
     SiteService siteService;
-    @Value("myToken")
-    String jwt;
+
     @GetMapping("/site")
     public Result list(){
         List<Site> siteList = siteService.list();
