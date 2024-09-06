@@ -1,0 +1,127 @@
+00:52:46:391  INFO 33616 --- [main] com.hmall.item.ItemServiceApplication    : Starting ItemServiceApplication using Java 11.0.12 on LAPTOP-C6F2EJ6P with PID 33616 (D:\qyp\Documents\ideaProjects\hmall\item-service\target\classes started by qyp in D:\qyp\Documents\ideaProjects\hmall)
+00:52:46:392 DEBUG 33616 --- [main] com.hmall.item.ItemServiceApplication    : Running with Spring Boot v2.7.12, Spring v5.3.27
+00:52:46:393  INFO 33616 --- [main] com.hmall.item.ItemServiceApplication    : The following 1 profile is active: "local"
+00:52:47:041  WARN 33616 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.heima.item.mapper]' package. Please check your configuration.
+00:52:47:362  INFO 33616 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+00:52:47:372  INFO 33616 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+00:52:47:372  INFO 33616 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
+00:52:47:466  INFO 33616 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+00:52:47:466  INFO 33616 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1038 ms
+00:52:47:520  WARN 33616 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'itemController' defined in file [D:\qyp\Documents\ideaProjects\hmall\item-service\target\classes\com\hmall\item\controller\ItemController.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'itemServiceImpl': Unsatisfied dependency expressed through field 'baseMapper'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.hmall.item.mapper.ItemMapper' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+00:52:47:521  INFO 33616 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+00:52:47:533  INFO 33616 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+00:52:47:555 ERROR 33616 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'itemController' defined in file [D:\qyp\Documents\ideaProjects\hmall\item-service\target\classes\com\hmall\item\controller\ItemController.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'itemServiceImpl': Unsatisfied dependency expressed through field 'baseMapper'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.hmall.item.mapper.ItemMapper' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:800) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:229) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1372) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1222) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:955) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:920) ~[spring-context-5.3.27.jar:5.3.27]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.27.jar:5.3.27]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.12.jar:2.7.12]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:731) ~[spring-boot-2.7.12.jar:2.7.12]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.12.jar:2.7.12]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307) ~[spring-boot-2.7.12.jar:2.7.12]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303) ~[spring-boot-2.7.12.jar:2.7.12]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292) ~[spring-boot-2.7.12.jar:2.7.12]
+	at com.hmall.item.ItemServiceApplication.main(ItemServiceApplication.java:12) ~[classes/:na]
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'itemServiceImpl': Unsatisfied dependency expressed through field 'baseMapper'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.hmall.item.mapper.ItemMapper' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:660) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1431) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1391) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:887) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-5.3.27.jar:5.3.27]
+	... 19 common frames omitted
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.hmall.item.mapper.ItemMapper' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoMatchingBeanFound(DefaultListableBeanFactory.java:1801) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1357) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:657) ~[spring-beans-5.3.27.jar:5.3.27]
+	... 34 common frames omitted
+
+00:53:32:994  INFO 19856 --- [main] com.hmall.item.ItemServiceApplication    : Starting ItemServiceApplication using Java 11.0.12 on LAPTOP-C6F2EJ6P with PID 19856 (D:\qyp\Documents\ideaProjects\hmall\item-service\target\classes started by qyp in D:\qyp\Documents\ideaProjects\hmall)
+00:53:32:997 DEBUG 19856 --- [main] com.hmall.item.ItemServiceApplication    : Running with Spring Boot v2.7.12, Spring v5.3.27
+00:53:32:997  INFO 19856 --- [main] com.hmall.item.ItemServiceApplication    : The following 1 profile is active: "local"
+00:53:33:764  INFO 19856 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+00:53:33:770  INFO 19856 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+00:53:33:771  INFO 19856 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
+00:53:33:840  INFO 19856 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+00:53:33:840  INFO 19856 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 803 ms
+00:53:34:820  INFO 19856 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
+00:53:34:878  INFO 19856 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+00:53:34:880  INFO 19856 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
+00:53:34:882  INFO 19856 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+00:53:34:899  INFO 19856 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+00:53:34:908  INFO 19856 --- [main] com.hmall.item.ItemServiceApplication    : Started ItemServiceApplication in 2.199 seconds (JVM running for 2.942)
+00:53:39:325  INFO 19856 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+00:53:39:326  INFO 19856 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+00:53:39:326  INFO 19856 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+00:57:50:148  INFO 20980 --- [main] com.hmall.item.ItemServiceApplication    : Starting ItemServiceApplication using Java 11.0.12 on LAPTOP-C6F2EJ6P with PID 20980 (D:\qyp\Documents\ideaProjects\hmall\item-service\target\classes started by qyp in D:\qyp\Documents\ideaProjects\hmall)
+00:57:50:150 DEBUG 20980 --- [main] com.hmall.item.ItemServiceApplication    : Running with Spring Boot v2.7.12, Spring v5.3.27
+00:57:50:151  INFO 20980 --- [main] com.hmall.item.ItemServiceApplication    : The following 1 profile is active: "local"
+00:57:50:908  INFO 20980 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+00:57:50:914  INFO 20980 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+00:57:50:914  INFO 20980 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
+00:57:50:986  INFO 20980 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+00:57:50:986  INFO 20980 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 801 ms
+00:57:51:834  INFO 20980 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
+00:57:51:884  INFO 20980 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+00:57:51:885  INFO 20980 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
+00:57:51:887  INFO 20980 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+00:57:51:905  INFO 20980 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+00:57:51:914  INFO 20980 --- [main] com.hmall.item.ItemServiceApplication    : Started ItemServiceApplication in 2.046 seconds (JVM running for 2.786)
+00:57:57:458  INFO 20980 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+00:57:57:459  INFO 20980 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+00:57:57:461  INFO 20980 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+01:02:57:111  INFO 36964 --- [main] com.hmall.item.ItemServiceApplication    : Starting ItemServiceApplication using Java 11.0.12 on LAPTOP-C6F2EJ6P with PID 36964 (D:\qyp\Documents\ideaProjects\hmall\item-service\target\classes started by qyp in D:\qyp\Documents\ideaProjects\hmall)
+01:02:57:113 DEBUG 36964 --- [main] com.hmall.item.ItemServiceApplication    : Running with Spring Boot v2.7.12, Spring v5.3.27
+01:02:57:113  INFO 36964 --- [main] com.hmall.item.ItemServiceApplication    : The following 1 profile is active: "local"
+01:02:57:884  INFO 36964 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+01:02:57:891  INFO 36964 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+01:02:57:891  INFO 36964 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
+01:02:57:966  INFO 36964 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+01:02:57:967  INFO 36964 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 826 ms
+01:02:58:845  INFO 36964 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
+01:02:58:899  INFO 36964 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+01:02:58:899  INFO 36964 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
+01:02:58:901  INFO 36964 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+01:02:58:918  INFO 36964 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+01:02:59:006  INFO 36964 --- [main] com.hmall.item.ItemServiceApplication    : Started ItemServiceApplication in 2.197 seconds (JVM running for 2.861)
+01:03:38:209  INFO 36964 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+01:03:38:210  INFO 36964 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+01:03:38:211  INFO 36964 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+01:05:13:812  INFO 36964 --- [http-nio-8081-exec-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+01:05:14:571  INFO 36964 --- [http-nio-8081-exec-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+01:05:14:583 DEBUG 36964 --- [http-nio-8081-exec-6] c.h.i.mapper.ItemMapper.selectBatchIds   : ==>  Preparing: SELECT id,name,price,stock,image,category,brand,spec,sold,comment_count,isAD,status,create_time,update_time,creater,updater FROM item WHERE id IN ( ? , ? )
+01:05:14:618 DEBUG 36964 --- [http-nio-8081-exec-6] c.h.i.mapper.ItemMapper.selectBatchIds   : ==> Parameters: 1(Long), 2(Long)
+01:05:14:666 DEBUG 36964 --- [http-nio-8081-exec-6] c.h.i.mapper.ItemMapper.selectBatchIds   : <==      Total: 0
+01:05:33:447 DEBUG 36964 --- [http-nio-8081-exec-7] c.h.i.mapper.ItemMapper.selectBatchIds   : ==>  Preparing: SELECT id,name,price,stock,image,category,brand,spec,sold,comment_count,isAD,status,create_time,update_time,creater,updater FROM item WHERE id IN ( ? )
+01:05:33:448 DEBUG 36964 --- [http-nio-8081-exec-7] c.h.i.mapper.ItemMapper.selectBatchIds   : ==> Parameters: 1(Long)
+01:05:33:450 DEBUG 36964 --- [http-nio-8081-exec-7] c.h.i.mapper.ItemMapper.selectBatchIds   : <==      Total: 0
+01:06:42:652 DEBUG 36964 --- [http-nio-8081-exec-9] c.h.i.m.ItemMapper.selectPage_mpCount    : ==>  Preparing: SELECT COUNT(*) FROM item
+01:06:42:653 DEBUG 36964 --- [http-nio-8081-exec-9] c.h.i.m.ItemMapper.selectPage_mpCount    : ==> Parameters: 
+01:06:42:680 DEBUG 36964 --- [http-nio-8081-exec-9] c.h.i.m.ItemMapper.selectPage_mpCount    : <==      Total: 1
+01:06:42:695 DEBUG 36964 --- [http-nio-8081-exec-9] c.h.item.mapper.ItemMapper.selectPage    : ==>  Preparing: SELECT id, name, price, stock, image, category, brand, spec, sold, comment_count, isAD, status, create_time, update_time, creater, updater FROM item ORDER BY update_time DESC LIMIT ?
+01:06:42:695 DEBUG 36964 --- [http-nio-8081-exec-9] c.h.item.mapper.ItemMapper.selectPage    : ==> Parameters: 5(Long)
+01:06:42:711 DEBUG 36964 --- [http-nio-8081-exec-9] c.h.item.mapper.ItemMapper.selectPage    : <==      Total: 5
