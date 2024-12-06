@@ -10,8 +10,8 @@
         <module name="libraryManager_2024_05_22" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="libraryManager_2024_05_22" target="1.8" />
+    <bytecodeTargetLevel target="11">
+      <module name="libraryManager_2024_05_22" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>

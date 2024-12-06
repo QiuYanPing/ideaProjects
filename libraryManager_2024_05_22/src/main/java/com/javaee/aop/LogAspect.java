@@ -41,9 +41,12 @@ public class LogAspect {
         String methodName = joinPoint.getSignature().getName();
         Object[] args = joinPoint.getArgs();
         String methodParams = Arrays.toString(args);
+
         long begin = System.currentTimeMillis();
         Object result = joinPoint.proceed();
         long end = System.currentTimeMillis();
+
+
         String resultValue = JSONObject.toJSONString(result);
         Long costTime = end - begin;    //记录操作所耗费的时间
         OperateLog operateLog = new OperateLog(null,operateUser,operateTime,className,methodName,methodParams,resultValue,costTime);

@@ -1,0 +1,7 @@
+qyp:
+  db:
+    host: local
+    password: 101900
+  redis:
+    host: 192.168.15.155
+    password: 123321
