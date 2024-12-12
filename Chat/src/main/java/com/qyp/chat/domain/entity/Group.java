@@ -29,7 +29,7 @@ public class Group implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @ApiModelProperty(value = "群id")
-    @TableId(value = "group_id", type = IdType.AUTO)
+    @TableId(value = "group_id")
     private String groupId;
 
     @ApiModelProperty(value = "群名")
@@ -45,10 +45,10 @@ public class Group implements Serializable {
     private String groupNotice;
 
     @ApiModelProperty(value = "加入群聊类型 0：直接加入 1：管理员同意后加入")
-    private Boolean joinType;
+    private Integer joinType;
 
     @ApiModelProperty(value = "状态1：正常 0：解散")
-    private Boolean status;
+    private Integer status;
 
 
 }

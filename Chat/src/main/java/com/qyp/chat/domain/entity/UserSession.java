@@ -28,7 +28,7 @@ public class UserSession implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @ApiModelProperty(value = "用户id")
-    @TableId(value = "user_id", type = IdType.AUTO)
+    @TableId(value = "user_id")
     private String userId;
 
     @ApiModelProperty(value = "联系人id")

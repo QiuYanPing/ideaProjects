@@ -29,7 +29,7 @@ public class User implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @ApiModelProperty(value = "id")
-    @TableId(value = "user_id", type = IdType.AUTO)
+    @TableId(value = "user_id")
     private String userId;
 
     @ApiModelProperty(value = "邮箱")
@@ -39,10 +39,10 @@ public class User implements Serializable {
     private String nickName;
 
     @ApiModelProperty(value = "添加好友设置0：直接加入 1：同意后加好友")
-    private Boolean joinType;
+    private Integer joinType;
 
     @ApiModelProperty(value = "性别0：女 1：男")
-    private Boolean sex;
+    private Integer sex;
 
     @ApiModelProperty(value = "密码")
     private String password;
@@ -50,8 +50,8 @@ public class User implements Serializable {
     @ApiModelProperty(value = "个性签名")
     private String personalSignature;
 
-    @ApiModelProperty(value = "状态")
-    private Boolean status;
+    @ApiModelProperty(value = "状态0：禁用 1：启用")
+    private Integer status;
 
     @ApiModelProperty(value = "创建时间")
     private LocalDateTime createTime;

@@ -1,0 +1,25 @@
+20:41:53:552  INFO 53940 --- [main] com.qyp.chat.ChatApplication             : Starting ChatApplication using Java 11.0.12 on LAPTOP-C6F2EJ6P with PID 53940 (D:\Users\qyp\Documents\ideaProjects\Chat\target\classes started by qyp in D:\Users\qyp\Documents\ideaProjects\Chat)
+20:41:53:554 DEBUG 53940 --- [main] com.qyp.chat.ChatApplication             : Running with Spring Boot v2.7.12, Spring v5.3.27
+20:41:53:555  INFO 53940 --- [main] com.qyp.chat.ChatApplication             : The following 1 profile is active: "dev"
+20:41:54:175  INFO 53940 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+20:41:54:177  INFO 53940 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+20:41:54:234  INFO 53940 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 20 ms. Found 0 Redis repository interfaces.
+20:41:54:704  INFO 53940 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
+20:41:54:712  INFO 53940 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+20:41:54:713  INFO 53940 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
+20:41:54:822  INFO 53940 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+20:41:54:822  INFO 53940 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1224 ms
+20:41:56:623  INFO 53940 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+20:41:56:693  INFO 53940 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
+20:41:56:842  INFO 53940 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path '/api'
+20:41:56:843  INFO 53940 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
+20:41:56:846  INFO 53940 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+20:41:56:865  INFO 53940 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+20:41:56:946  INFO 53940 --- [main] com.qyp.chat.ChatApplication             : Started ChatApplication in 3.751 seconds (JVM running for 4.91)
+20:41:56:948  INFO 53940 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+20:41:57:246  INFO 53940 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+20:41:57:541  INFO 53940 --- [main] com.qyp.chat.InitRun                     : 服务启动成功。
+20:41:57:549  INFO 53940 --- [Thread-2] c.q.c.w.netty.NettyWebSocketStarter      : netty启动
+20:43:31:066  INFO 53940 --- [http-nio-8000-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+20:43:31:066  INFO 53940 --- [http-nio-8000-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+20:43:31:067  INFO 53940 --- [http-nio-8000-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms

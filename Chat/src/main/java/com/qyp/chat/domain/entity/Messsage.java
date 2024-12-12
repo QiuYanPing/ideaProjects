@@ -35,7 +35,7 @@ public class Messsage implements Serializable {
     private String sessionId;
 
     @ApiModelProperty(value = "消息类型")
-    private Boolean messageType;
+    private Integer messageType;
 
     @ApiModelProperty(value = "消息内容")
     private String messageContent;
@@ -53,7 +53,7 @@ public class Messsage implements Serializable {
     private String contactId;
 
     @ApiModelProperty(value = "联系人类型0：单聊 1：群聊")
-    private Boolean contactType;
+    private Integer contactType;
 
     @ApiModelProperty(value = "文件大小")
     private Long fileSize;
@@ -62,10 +62,10 @@ public class Messsage implements Serializable {
     private String fileName;
 
     @ApiModelProperty(value = "文件类型")
-    private Boolean fileType;
+    private Integer fileType;
 
     @ApiModelProperty(value = "状态0：正在发送中 1：已发送")
-    private Boolean status;
+    private Integer status;
 
 
 }

@@ -1,5 +1,7 @@
 server:
   port: 8000
+  servlet:
+    context-path: /api
 spring:
   application:
     name: chat
@@ -27,7 +29,7 @@ mybatis-plus:
     default-enum-type-handler: com.baomidou.mybatisplus.core.handlers.MybatisEnumTypeHandler
 logging:
   level:
-    com.qyp: debug
+    com.qyp.chat: debug
   pattern:
     dateformat: HH:mm:ss:SSS
   file:
@@ -47,3 +49,11 @@ knife4j:
         api-rule: package
         api-rule-resources:
           - com.qyp.chat.controller
+
+
+project:
+  folder: d:/web/chat/
+admin:
+  emails: 123@qq.com
+ws:
+  port: 5051

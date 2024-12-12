@@ -1,6 +1,7 @@
 qyp:
   db:
-    host: local
+    host: localhost
+    username: root
     password: 101900
   redis:
     host: 192.168.15.155

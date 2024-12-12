@@ -1,9 +1,13 @@
 package com.qyp.chat.controller;
 
 
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import org.springframework.web.bind.annotation.RestController;
+import com.qyp.chat.domain.R;
+import com.qyp.chat.domain.dto.UserInfoDTO;
+import com.qyp.chat.domain.entity.Group;
+import com.qyp.chat.domain.entity.User;
+import com.qyp.chat.util.UserUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * <p>
@@ -16,5 +20,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/group")
 public class GroupController {
+    @Autowired
+    UserUtils userUtils;
+
+    @PostMapping("/saveGroup")
+    public R saveGroup(@RequestBody Group group){
+        UserInfoDTO userInfoDTO = userUtils.get();
+        return R.success(null);
+    }
+
 
 }

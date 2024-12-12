@@ -29,20 +29,20 @@ public class Contact implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @ApiModelProperty(value = "用户id")
-    @TableId(value = "user_id", type = IdType.AUTO)
+    @TableId(value = "user_id")
     private String userId;
 
     @ApiModelProperty(value = "联系人id或群聊id")
     private String contactId;
 
     @ApiModelProperty(value = "联系人类型0：好友 1：群聊")
-    private Boolean contactType;
+    private Integer contactType;
 
     @ApiModelProperty(value = "创建时间")
     private LocalDateTime createTime;
 
     @ApiModelProperty(value = "状态0：非好友 2：好友 3：已删除好友 4：被好友删除 5：已拉黑好友 6：被好友拉黑")
-    private Boolean status;
+    private Integer status;
 
     @ApiModelProperty(value = "最后更新时间")
     private LocalDateTime lastUpdateTime;

@@ -28,7 +28,7 @@ public class Session implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @ApiModelProperty(value = "会话id")
-    @TableId(value = "session_id", type = IdType.AUTO)
+    @TableId(value = "session_id")
     private String sessionId;
 
     @ApiModelProperty(value = "最后接受的消息")

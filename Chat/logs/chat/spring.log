@@ -1,82 +1,343 @@
-11:30:19:354 ERROR 49496 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+09:53:31:674  INFO 46432 --- [lettuce-eventExecutorLoop-4-10] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was 192.168.15.155:6379
+09:53:32:145  WARN 46432 --- [lettuce-nioEventLoop-6-9] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [192.168.15.155:6379]: Network is unreachable: no further information: /192.168.15.155:6379
 
-***************************
-APPLICATION FAILED TO START
-***************************
+io.netty.channel.AbstractChannel$AnnotatedSocketException: Network is unreachable: no further information: /192.168.15.155:6379
+Caused by: java.net.SocketException: Network is unreachable: no further information
+	at java.base/sun.nio.ch.SocketChannelImpl.checkConnect(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:779) ~[na:na]
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337) ~[netty-transport-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334) ~[netty-transport-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776) ~[netty-transport-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724) ~[netty-transport-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650) ~[netty-transport-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[netty-transport-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
 
-Description:
-
-Failed to bind properties under 'logging.level' to java.util.Map<java.lang.String, org.springframework.boot.logging.LogLevel>:
-
-    Property: logging.level
-    Value: "debug"
-    Origin: class path resource [application.yaml] - 18:10
-    Reason: org.springframework.core.convert.ConverterNotFoundException: No converter found capable of converting from type [java.lang.String] to type [java.util.Map<java.lang.String, org.springframework.boot.logging.LogLevel>]
-
-Action:
-
-Update your application's configuration
-
-11:31:06:376  INFO 51916 --- [main] com.qyp.chat.ChatApplication             : Starting ChatApplication using Java 11.0.12 on LAPTOP-C6F2EJ6P with PID 51916 (D:\Users\qyp\Documents\ideaProjects\Chat\target\classes started by qyp in D:\Users\qyp\Documents\ideaProjects\Chat)
-11:31:06:378 DEBUG 51916 --- [main] com.qyp.chat.ChatApplication             : Running with Spring Boot v2.7.12, Spring v5.3.27
-11:31:06:379  INFO 51916 --- [main] com.qyp.chat.ChatApplication             : The following 1 profile is active: "dev"
-11:31:07:226  INFO 51916 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-11:31:07:229  INFO 51916 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-11:31:07:256  INFO 51916 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12 ms. Found 0 Redis repository interfaces.
-11:31:07:848  INFO 51916 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
-11:31:07:860  INFO 51916 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-11:31:07:861  INFO 51916 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
-11:31:08:017  INFO 51916 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-11:31:08:018  INFO 51916 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1588 ms
-11:31:09:613  INFO 51916 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-11:31:09:683  INFO 51916 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
-11:31:10:087  INFO 51916 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path ''
-11:31:10:087  INFO 51916 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
-11:31:10:089  INFO 51916 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-11:31:10:108  INFO 51916 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-11:31:10:121  INFO 51916 --- [main] com.qyp.chat.ChatApplication             : Started ChatApplication in 4.14 seconds (JVM running for 5.184)
-11:32:43:797  INFO 51916 --- [http-nio-8000-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-11:32:43:800  INFO 51916 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-11:32:43:809  INFO 51916 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
-11:37:33:487  INFO 53680 --- [main] com.qyp.chat.ChatApplication             : Starting ChatApplication using Java 11.0.12 on LAPTOP-C6F2EJ6P with PID 53680 (D:\Users\qyp\Documents\ideaProjects\Chat\target\classes started by qyp in D:\Users\qyp\Documents\ideaProjects\Chat)
-11:37:33:490 DEBUG 53680 --- [main] com.qyp.chat.ChatApplication             : Running with Spring Boot v2.7.12, Spring v5.3.27
-11:37:33:490  INFO 53680 --- [main] com.qyp.chat.ChatApplication             : The following 1 profile is active: "dev"
-11:37:34:284  INFO 53680 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-11:37:34:288  INFO 53680 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-11:37:34:314  INFO 53680 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14 ms. Found 0 Redis repository interfaces.
-11:37:34:874  INFO 53680 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
-11:37:34:885  INFO 53680 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-11:37:34:885  INFO 53680 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
-11:37:35:097  INFO 53680 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-11:37:35:097  INFO 53680 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1570 ms
-11:37:36:679  INFO 53680 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-11:37:36:760  INFO 53680 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
-11:37:37:111  INFO 53680 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path ''
-11:37:37:114  INFO 53680 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
-11:37:37:117  INFO 53680 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-11:37:37:142  INFO 53680 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-11:37:37:191  INFO 53680 --- [main] com.qyp.chat.ChatApplication             : Started ChatApplication in 4.022 seconds (JVM running for 5.107)
-11:37:45:802  INFO 53680 --- [http-nio-8000-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-11:37:45:803  INFO 53680 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-11:37:45:811  INFO 53680 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
-11:39:35:221  INFO 33668 --- [main] com.qyp.chat.ChatApplication             : Starting ChatApplication using Java 11.0.12 on LAPTOP-C6F2EJ6P with PID 33668 (D:\Users\qyp\Documents\ideaProjects\Chat\target\classes started by qyp in D:\Users\qyp\Documents\ideaProjects\Chat)
-11:39:35:223 DEBUG 33668 --- [main] com.qyp.chat.ChatApplication             : Running with Spring Boot v2.7.12, Spring v5.3.27
-11:39:35:224  INFO 33668 --- [main] com.qyp.chat.ChatApplication             : The following 1 profile is active: "dev"
-11:39:35:876  INFO 33668 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-11:39:35:877  INFO 33668 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-11:39:35:896  INFO 33668 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11 ms. Found 0 Redis repository interfaces.
-11:39:36:281  INFO 33668 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
-11:39:36:288  INFO 33668 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-11:39:36:288  INFO 33668 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
-11:39:36:389  INFO 33668 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-11:39:36:389  INFO 33668 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1131 ms
-11:39:37:990  INFO 33668 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-11:39:38:064  INFO 33668 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
-11:39:38:398  INFO 33668 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path ''
-11:39:38:399  INFO 33668 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
-11:39:38:403  INFO 33668 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-11:39:38:424  INFO 33668 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-11:39:38:474  INFO 33668 --- [main] com.qyp.chat.ChatApplication             : Started ChatApplication in 3.69 seconds (JVM running for 4.721)
-11:39:44:552  INFO 33668 --- [http-nio-8000-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-11:39:44:554  INFO 33668 --- [http-nio-8000-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-11:39:44:558  INFO 33668 --- [http-nio-8000-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+09:53:41:254  WARN 46432 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=12h11m24s745ms315µs800ns).
+09:53:46:697  INFO 46432 --- [lettuce-eventExecutorLoop-4-5] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was 192.168.15.155:6379
+09:53:56:706  WARN 46432 --- [lettuce-nioEventLoop-6-13] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [192.168.15.155:6379]: connection timed out: /192.168.15.155:6379
+09:54:00:897  INFO 46432 --- [lettuce-eventExecutorLoop-4-6] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was 192.168.15.155:6379
+09:54:10:911  WARN 46432 --- [lettuce-nioEventLoop-6-14] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [192.168.15.155:6379]: connection timed out: /192.168.15.155:6379
+09:54:19:198  INFO 46432 --- [lettuce-eventExecutorLoop-4-7] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was 192.168.15.155:6379
+09:54:29:203  WARN 46432 --- [lettuce-nioEventLoop-6-15] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [192.168.15.155:6379]: connection timed out: /192.168.15.155:6379
+09:54:45:604  INFO 46432 --- [lettuce-eventExecutorLoop-4-12] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was 192.168.15.155:6379
+09:54:55:609  WARN 46432 --- [lettuce-nioEventLoop-6-16] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [192.168.15.155:6379]: connection timed out: /192.168.15.155:6379
+09:55:25:692  INFO 46432 --- [lettuce-eventExecutorLoop-4-16] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was 192.168.15.155:6379
+09:55:35:708  WARN 46432 --- [lettuce-nioEventLoop-6-1] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [192.168.15.155:6379]: connection timed out: /192.168.15.155:6379
+09:56:05:793  INFO 46432 --- [lettuce-eventExecutorLoop-4-2] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was 192.168.15.155:6379
+09:56:15:801  WARN 46432 --- [lettuce-nioEventLoop-6-2] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [192.168.15.155:6379]: connection timed out: /192.168.15.155:6379
+09:56:45:896  INFO 46432 --- [lettuce-eventExecutorLoop-4-4] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was 192.168.15.155:6379
+09:56:55:906  WARN 46432 --- [lettuce-nioEventLoop-6-3] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [192.168.15.155:6379]: connection timed out: /192.168.15.155:6379
+09:57:25:996  INFO 46432 --- [lettuce-eventExecutorLoop-4-6] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was 192.168.15.155:6379
+09:57:36:008  WARN 46432 --- [lettuce-nioEventLoop-6-4] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [192.168.15.155:6379]: connection timed out: /192.168.15.155:6379
+09:58:06:097  INFO 46432 --- [lettuce-eventExecutorLoop-4-8] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was 192.168.15.155:6379
+09:58:16:105  WARN 46432 --- [lettuce-nioEventLoop-6-5] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [192.168.15.155:6379]: connection timed out: /192.168.15.155:6379
+09:58:46:191  INFO 46432 --- [lettuce-eventExecutorLoop-4-10] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was 192.168.15.155:6379
+09:58:56:206  WARN 46432 --- [lettuce-nioEventLoop-6-6] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [192.168.15.155:6379]: connection timed out: /192.168.15.155:6379
+09:59:26:296  INFO 46432 --- [lettuce-eventExecutorLoop-4-12] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was 192.168.15.155:6379
+09:59:26:329  INFO 46432 --- [lettuce-nioEventLoop-6-7] i.l.core.protocol.ReconnectionHandler    : Reconnected to 192.168.15.155:6379
+10:01:43:193  INFO 46432 --- [lettuce-eventExecutorLoop-4-14] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was /192.168.15.155:6379
+10:01:43:708  INFO 46432 --- [lettuce-nioEventLoop-6-8] i.l.core.protocol.ReconnectionHandler    : Reconnected to 192.168.15.155:6379
+10:02:51:000  INFO 19732 --- [main] com.qyp.chat.ChatApplication             : Starting ChatApplication using Java 11.0.12 on LAPTOP-C6F2EJ6P with PID 19732 (D:\Users\qyp\Documents\ideaProjects\Chat\target\classes started by qyp in D:\Users\qyp\Documents\ideaProjects\Chat)
+10:02:51:002 DEBUG 19732 --- [main] com.qyp.chat.ChatApplication             : Running with Spring Boot v2.7.12, Spring v5.3.27
+10:02:51:002  INFO 19732 --- [main] com.qyp.chat.ChatApplication             : The following 1 profile is active: "dev"
+10:02:51:774  INFO 19732 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+10:02:51:775  INFO 19732 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+10:02:51:806  INFO 19732 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 18 ms. Found 0 Redis repository interfaces.
+10:02:52:336  INFO 19732 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
+10:02:52:347  INFO 19732 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+10:02:52:347  INFO 19732 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
+10:02:52:493  INFO 19732 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+10:02:52:494  INFO 19732 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1453 ms
+10:02:54:537  INFO 19732 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+10:02:54:622  INFO 19732 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
+10:02:54:793  INFO 19732 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path '/api'
+10:02:54:794  INFO 19732 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
+10:02:54:797  INFO 19732 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+10:02:54:816  INFO 19732 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+10:02:54:897  INFO 19732 --- [main] com.qyp.chat.ChatApplication             : Started ChatApplication in 4.302 seconds (JVM running for 5.21)
+10:02:54:899  INFO 19732 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+10:02:55:243  INFO 19732 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+10:02:55:610  INFO 19732 --- [main] com.qyp.chat.InitRun                     : 服务启动成功。
+10:02:55:620  INFO 19732 --- [Thread-2] c.q.c.w.netty.NettyWebSocketStarter      : netty启动
+10:04:47:600  INFO 19732 --- [http-nio-8000-exec-4] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+10:04:47:601  INFO 19732 --- [http-nio-8000-exec-4] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+10:04:47:604  INFO 19732 --- [http-nio-8000-exec-4] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+10:04:47:900 DEBUG 19732 --- [http-nio-8000-exec-4] c.qyp.chat.mapper.UserMapper.selectOne   : ==>  Preparing: SELECT user_id,email,nick_name,join_type,sex,password,personal_signature,status,create_time,last_login_time,area_name,area_code,last_off_time FROM user WHERE (email = ?)
+10:04:47:938 DEBUG 19732 --- [http-nio-8000-exec-4] c.qyp.chat.mapper.UserMapper.selectOne   : ==> Parameters: 2740123221@qq.com(String)
+10:04:47:987 DEBUG 19732 --- [http-nio-8000-exec-4] c.qyp.chat.mapper.UserMapper.selectOne   : <==      Total: 0
+10:04:48:029 DEBUG 19732 --- [http-nio-8000-exec-4] com.qyp.chat.mapper.UserMapper.insert    : ==>  Preparing: INSERT INTO user ( user_id, email, nick_name, join_type, password, status, create_time, last_off_time ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ? )
+10:04:48:034 DEBUG 19732 --- [http-nio-8000-exec-4] com.qyp.chat.mapper.UserMapper.insert    : ==> Parameters: Uga6hklbhncl(String), 2740123221@qq.com(String), 第一人(String), 1(Integer), e10adc3949ba59abbe56e057f20f883e(String), 1(Integer), 2024-12-12T10:04:48.025781900(LocalDateTime), 1733997888(Long)
+10:04:48:049 DEBUG 19732 --- [http-nio-8000-exec-4] com.qyp.chat.mapper.UserMapper.insert    : <==    Updates: 1
+10:07:36:660 ERROR 19732 --- [http-nio-8000-exec-2] c.q.c.exception.GlobalExceptionHandler   : 请求地址:/api/account/login错误
+10:10:38:308  INFO 34988 --- [main] com.qyp.chat.ChatApplication             : Starting ChatApplication using Java 11.0.12 on LAPTOP-C6F2EJ6P with PID 34988 (D:\Users\qyp\Documents\ideaProjects\Chat\target\classes started by qyp in D:\Users\qyp\Documents\ideaProjects\Chat)
+10:10:38:309 DEBUG 34988 --- [main] com.qyp.chat.ChatApplication             : Running with Spring Boot v2.7.12, Spring v5.3.27
+10:10:38:310  INFO 34988 --- [main] com.qyp.chat.ChatApplication             : The following 1 profile is active: "dev"
+10:10:38:946  INFO 34988 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+10:10:38:948  INFO 34988 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+10:10:38:976  INFO 34988 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 18 ms. Found 0 Redis repository interfaces.
+10:10:39:487  INFO 34988 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
+10:10:39:495  INFO 34988 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+10:10:39:496  INFO 34988 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
+10:10:39:610  INFO 34988 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+10:10:39:610  INFO 34988 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1273 ms
+10:10:42:268  INFO 34988 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+10:10:42:361  INFO 34988 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
+10:10:42:564  INFO 34988 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path '/api'
+10:10:42:566  INFO 34988 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
+10:10:42:569  INFO 34988 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+10:10:42:594  INFO 34988 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+10:10:42:716  INFO 34988 --- [main] com.qyp.chat.ChatApplication             : Started ChatApplication in 4.738 seconds (JVM running for 5.89)
+10:10:42:720  INFO 34988 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+10:10:43:042  INFO 34988 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+10:10:43:405  INFO 34988 --- [main] com.qyp.chat.InitRun                     : 服务启动成功。
+10:10:43:414  INFO 34988 --- [Thread-2] c.q.c.w.netty.NettyWebSocketStarter      : netty启动
+10:10:48:106  INFO 34988 --- [http-nio-8000-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+10:10:48:107  INFO 34988 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+10:10:48:110  INFO 34988 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+10:10:48:412 DEBUG 34988 --- [http-nio-8000-exec-1] c.qyp.chat.mapper.UserMapper.selectOne   : ==>  Preparing: SELECT user_id,email,nick_name,join_type,sex,password,personal_signature,status,create_time,last_login_time,area_name,area_code,last_off_time FROM user WHERE (email = ?)
+10:10:48:446 DEBUG 34988 --- [http-nio-8000-exec-1] c.qyp.chat.mapper.UserMapper.selectOne   : ==> Parameters: 2740123221@qq.com(String)
+10:10:48:481 DEBUG 34988 --- [http-nio-8000-exec-1] c.qyp.chat.mapper.UserMapper.selectOne   : <==      Total: 1
+10:10:48:492 ERROR 34988 --- [http-nio-8000-exec-1] c.q.c.exception.GlobalExceptionHandler   : 请求地址:/api/account/login错误
+10:12:03:844  INFO 34128 --- [main] com.qyp.chat.ChatApplication             : Starting ChatApplication using Java 11.0.12 on LAPTOP-C6F2EJ6P with PID 34128 (D:\Users\qyp\Documents\ideaProjects\Chat\target\classes started by qyp in D:\Users\qyp\Documents\ideaProjects\Chat)
+10:12:03:846 DEBUG 34128 --- [main] com.qyp.chat.ChatApplication             : Running with Spring Boot v2.7.12, Spring v5.3.27
+10:12:03:846  INFO 34128 --- [main] com.qyp.chat.ChatApplication             : The following 1 profile is active: "dev"
+10:12:04:420  INFO 34128 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+10:12:04:422  INFO 34128 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+10:12:04:446  INFO 34128 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14 ms. Found 0 Redis repository interfaces.
+10:12:04:907  INFO 34128 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
+10:12:04:917  INFO 34128 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+10:12:04:933  INFO 34128 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
+10:12:05:100  INFO 34128 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+10:12:05:101  INFO 34128 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1227 ms
+10:12:07:064  INFO 34128 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+10:12:07:131  INFO 34128 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
+10:12:07:317  INFO 34128 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path '/api'
+10:12:07:318  INFO 34128 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
+10:12:07:320  INFO 34128 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+10:12:07:339  INFO 34128 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+10:12:07:419  INFO 34128 --- [main] com.qyp.chat.ChatApplication             : Started ChatApplication in 3.888 seconds (JVM running for 4.887)
+10:12:07:421  INFO 34128 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+10:12:07:663  INFO 34128 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+10:12:07:964  INFO 34128 --- [main] com.qyp.chat.InitRun                     : 服务启动成功。
+10:12:07:972  INFO 34128 --- [Thread-2] c.q.c.w.netty.NettyWebSocketStarter      : netty启动
+10:12:15:157  INFO 34128 --- [http-nio-8000-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+10:12:15:167  INFO 34128 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+10:12:15:172  INFO 34128 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+10:12:15:620 DEBUG 34128 --- [http-nio-8000-exec-1] c.qyp.chat.mapper.UserMapper.selectOne   : ==>  Preparing: SELECT user_id,email,nick_name,join_type,sex,password,personal_signature,status,create_time,last_login_time,area_name,area_code,last_off_time FROM user WHERE (email = ?)
+10:12:15:655 DEBUG 34128 --- [http-nio-8000-exec-1] c.qyp.chat.mapper.UserMapper.selectOne   : ==> Parameters: 2740123221@qq.com(String)
+10:12:15:719 DEBUG 34128 --- [http-nio-8000-exec-1] c.qyp.chat.mapper.UserMapper.selectOne   : <==      Total: 1
+10:12:15:736 ERROR 34128 --- [http-nio-8000-exec-1] c.q.c.exception.GlobalExceptionHandler   : 请求地址:/api/account/login错误
+10:13:11:743  INFO 28004 --- [main] com.qyp.chat.ChatApplication             : Starting ChatApplication using Java 11.0.12 on LAPTOP-C6F2EJ6P with PID 28004 (D:\Users\qyp\Documents\ideaProjects\Chat\target\classes started by qyp in D:\Users\qyp\Documents\ideaProjects\Chat)
+10:13:11:745 DEBUG 28004 --- [main] com.qyp.chat.ChatApplication             : Running with Spring Boot v2.7.12, Spring v5.3.27
+10:13:11:745  INFO 28004 --- [main] com.qyp.chat.ChatApplication             : The following 1 profile is active: "dev"
+10:13:12:382  INFO 28004 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+10:13:12:384  INFO 28004 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+10:13:12:411  INFO 28004 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 18 ms. Found 0 Redis repository interfaces.
+10:13:12:812  INFO 28004 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
+10:13:12:819  INFO 28004 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+10:13:12:819  INFO 28004 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
+10:13:12:958  INFO 28004 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+10:13:12:958  INFO 28004 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1179 ms
+10:13:14:960  INFO 28004 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+10:13:15:044  INFO 28004 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
+10:13:15:193  INFO 28004 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path '/api'
+10:13:15:194  INFO 28004 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
+10:13:15:198  INFO 28004 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+10:13:15:222  INFO 28004 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+10:13:15:333  INFO 28004 --- [main] com.qyp.chat.ChatApplication             : Started ChatApplication in 3.963 seconds (JVM running for 5.043)
+10:13:15:336  INFO 28004 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+10:13:15:572  INFO 28004 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+10:13:15:939  INFO 28004 --- [main] com.qyp.chat.InitRun                     : 服务启动成功。
+10:13:15:950  INFO 28004 --- [Thread-2] c.q.c.w.netty.NettyWebSocketStarter      : netty启动
+10:13:19:465  INFO 28004 --- [http-nio-8000-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+10:13:19:465  INFO 28004 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+10:13:19:466  INFO 28004 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+10:13:19:596 DEBUG 28004 --- [http-nio-8000-exec-1] c.qyp.chat.mapper.UserMapper.selectOne   : ==>  Preparing: SELECT user_id,email,nick_name,join_type,sex,password,personal_signature,status,create_time,last_login_time,area_name,area_code,last_off_time FROM user WHERE (email = ?)
+10:13:19:616 DEBUG 28004 --- [http-nio-8000-exec-1] c.qyp.chat.mapper.UserMapper.selectOne   : ==> Parameters: 2740123221@qq.com(String)
+10:13:19:634 DEBUG 28004 --- [http-nio-8000-exec-1] c.qyp.chat.mapper.UserMapper.selectOne   : <==      Total: 1
+10:13:19:640 ERROR 28004 --- [http-nio-8000-exec-1] c.q.c.exception.GlobalExceptionHandler   : 请求地址:/api/account/login错误
+10:21:33:722  INFO 29864 --- [main] com.qyp.chat.ChatApplication             : Starting ChatApplication using Java 11.0.12 on LAPTOP-C6F2EJ6P with PID 29864 (D:\Users\qyp\Documents\ideaProjects\Chat\target\classes started by qyp in D:\Users\qyp\Documents\ideaProjects\Chat)
+10:21:33:723 DEBUG 29864 --- [main] com.qyp.chat.ChatApplication             : Running with Spring Boot v2.7.12, Spring v5.3.27
+10:21:33:724  INFO 29864 --- [main] com.qyp.chat.ChatApplication             : The following 1 profile is active: "dev"
+10:21:34:342  INFO 29864 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+10:21:34:343  INFO 29864 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+10:21:34:368  INFO 29864 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 15 ms. Found 0 Redis repository interfaces.
+10:21:34:821  INFO 29864 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
+10:21:34:829  INFO 29864 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+10:21:34:830  INFO 29864 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
+10:21:34:967  INFO 29864 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+10:21:34:967  INFO 29864 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1199 ms
+10:21:37:039  INFO 29864 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+10:21:37:098  INFO 29864 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
+10:21:37:284  INFO 29864 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path '/api'
+10:21:37:285  INFO 29864 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
+10:21:37:287  INFO 29864 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+10:21:37:301  INFO 29864 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+10:21:37:380  INFO 29864 --- [main] com.qyp.chat.ChatApplication             : Started ChatApplication in 4.033 seconds (JVM running for 5.145)
+10:21:37:382  INFO 29864 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+10:21:37:609  INFO 29864 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+10:21:37:983  INFO 29864 --- [main] com.qyp.chat.InitRun                     : 服务启动成功。
+10:21:38:019  INFO 29864 --- [Thread-2] c.q.c.w.netty.NettyWebSocketStarter      : netty启动
+10:21:39:609  INFO 29864 --- [http-nio-8000-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+10:21:39:610  INFO 29864 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+10:21:39:613  INFO 29864 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+10:21:39:812 DEBUG 29864 --- [http-nio-8000-exec-1] c.qyp.chat.mapper.UserMapper.selectOne   : ==>  Preparing: SELECT user_id,email,nick_name,join_type,sex,password,personal_signature,status,create_time,last_login_time,area_name,area_code,last_off_time FROM user WHERE (email = ?)
+10:21:39:837 DEBUG 29864 --- [http-nio-8000-exec-1] c.qyp.chat.mapper.UserMapper.selectOne   : ==> Parameters: 2740123221@qq.com(String)
+10:21:39:863 DEBUG 29864 --- [http-nio-8000-exec-1] c.qyp.chat.mapper.UserMapper.selectOne   : <==      Total: 1
+10:21:39:872 ERROR 29864 --- [http-nio-8000-exec-1] c.q.c.exception.GlobalExceptionHandler   : 请求地址:/api/account/login错误
+10:21:52:514  INFO 52600 --- [main] com.qyp.chat.ChatApplication             : Starting ChatApplication using Java 11.0.12 on LAPTOP-C6F2EJ6P with PID 52600 (D:\Users\qyp\Documents\ideaProjects\Chat\target\classes started by qyp in D:\Users\qyp\Documents\ideaProjects\Chat)
+10:21:52:516 DEBUG 52600 --- [main] com.qyp.chat.ChatApplication             : Running with Spring Boot v2.7.12, Spring v5.3.27
+10:21:52:517  INFO 52600 --- [main] com.qyp.chat.ChatApplication             : The following 1 profile is active: "dev"
+10:21:53:315  INFO 52600 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+10:21:53:317  INFO 52600 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+10:21:53:351  INFO 52600 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 21 ms. Found 0 Redis repository interfaces.
+10:21:53:852  INFO 52600 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
+10:21:53:862  INFO 52600 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+10:21:53:862  INFO 52600 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
+10:21:54:063  INFO 52600 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+10:21:54:064  INFO 52600 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1494 ms
+10:21:56:953  INFO 52600 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+10:21:57:072  INFO 52600 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
+10:21:57:324  INFO 52600 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path '/api'
+10:21:57:328  INFO 52600 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
+10:21:57:331  INFO 52600 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+10:21:57:387  INFO 52600 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+10:21:57:523  INFO 52600 --- [main] com.qyp.chat.ChatApplication             : Started ChatApplication in 5.412 seconds (JVM running for 7.181)
+10:21:57:527  INFO 52600 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+10:21:57:869  INFO 52600 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+10:21:58:430  INFO 52600 --- [main] com.qyp.chat.InitRun                     : 服务启动成功。
+10:21:58:449  INFO 52600 --- [Thread-2] c.q.c.w.netty.NettyWebSocketStarter      : netty启动
+10:23:04:187  INFO 52600 --- [http-nio-8000-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+10:23:04:187  INFO 52600 --- [http-nio-8000-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+10:23:04:189  INFO 52600 --- [http-nio-8000-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+10:23:04:584 DEBUG 52600 --- [http-nio-8000-exec-2] c.qyp.chat.mapper.UserMapper.selectOne   : ==>  Preparing: SELECT user_id,email,nick_name,join_type,sex,password,personal_signature,status,create_time,last_login_time,area_name,area_code,last_off_time FROM user WHERE (email = ?)
+10:23:04:627 DEBUG 52600 --- [http-nio-8000-exec-2] c.qyp.chat.mapper.UserMapper.selectOne   : ==> Parameters: 2740123221@qq.com(String)
+10:23:04:669 DEBUG 52600 --- [http-nio-8000-exec-2] c.qyp.chat.mapper.UserMapper.selectOne   : <==      Total: 1
+10:35:51:736  WARN 52600 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=12m53s743ms265µs600ns).
+10:35:51:758 ERROR 52600 --- [http-nio-8000-exec-2] c.q.c.exception.GlobalExceptionHandler   : 请求地址:/api/account/login错误
+10:35:52:262  INFO 52600 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+10:35:52:275  INFO 52600 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+10:36:58:352  INFO 55604 --- [main] com.qyp.chat.MyTest                      : Starting MyTest using Java 11.0.12 on LAPTOP-C6F2EJ6P with PID 55604 (started by qyp in D:\Users\qyp\Documents\ideaProjects\Chat)
+10:36:58:353 DEBUG 55604 --- [main] com.qyp.chat.MyTest                      : Running with Spring Boot v2.7.12, Spring v5.3.27
+10:36:58:353  INFO 55604 --- [main] com.qyp.chat.MyTest                      : The following 1 profile is active: "dev"
+10:36:59:351  INFO 55604 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+10:36:59:354  INFO 55604 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+10:36:59:422  INFO 55604 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 23 ms. Found 0 Redis repository interfaces.
+10:37:03:952  INFO 55604 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+10:37:04:217  INFO 55604 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
+10:37:04:550  INFO 55604 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
+10:37:04:553  INFO 55604 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+10:37:04:577  INFO 55604 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+10:37:04:677  INFO 55604 --- [main] com.qyp.chat.MyTest                      : Started MyTest in 6.752 seconds (JVM running for 8.072)
+10:37:04:679  INFO 55604 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+10:37:05:003  INFO 55604 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+10:37:05:474  INFO 55604 --- [main] com.qyp.chat.InitRun                     : 服务启动成功。
+10:37:05:484  INFO 55604 --- [Thread-2] c.q.c.w.netty.NettyWebSocketStarter      : netty启动
+10:37:05:909  INFO 55604 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+10:37:05:961  INFO 55604 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+10:37:30:603  INFO 24456 --- [main] com.qyp.chat.MyTest                      : Starting MyTest using Java 11.0.12 on LAPTOP-C6F2EJ6P with PID 24456 (started by qyp in D:\Users\qyp\Documents\ideaProjects\Chat)
+10:37:30:604 DEBUG 24456 --- [main] com.qyp.chat.MyTest                      : Running with Spring Boot v2.7.12, Spring v5.3.27
+10:37:30:605  INFO 24456 --- [main] com.qyp.chat.MyTest                      : The following 1 profile is active: "dev"
+10:37:31:630  INFO 24456 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+10:37:31:633  INFO 24456 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+10:37:31:670  INFO 24456 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 16 ms. Found 0 Redis repository interfaces.
+10:37:36:524  INFO 24456 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+10:37:36:876  INFO 24456 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
+10:37:37:337  INFO 24456 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
+10:37:37:341  INFO 24456 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+10:37:37:365  INFO 24456 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+10:37:37:477  INFO 24456 --- [main] com.qyp.chat.MyTest                      : Started MyTest in 7.223 seconds (JVM running for 8.599)
+10:37:37:480  INFO 24456 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+10:37:37:866  INFO 24456 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+10:37:38:388  INFO 24456 --- [main] com.qyp.chat.InitRun                     : 服务启动成功。
+10:37:38:399  INFO 24456 --- [Thread-2] c.q.c.w.netty.NettyWebSocketStarter      : netty启动
+10:37:38:744  INFO 24456 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+10:37:38:767  INFO 24456 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+10:37:42:791  INFO 14592 --- [main] com.qyp.chat.ChatApplication             : Starting ChatApplication using Java 11.0.12 on LAPTOP-C6F2EJ6P with PID 14592 (D:\Users\qyp\Documents\ideaProjects\Chat\target\classes started by qyp in D:\Users\qyp\Documents\ideaProjects\Chat)
+10:37:42:792 DEBUG 14592 --- [main] com.qyp.chat.ChatApplication             : Running with Spring Boot v2.7.12, Spring v5.3.27
+10:37:42:793  INFO 14592 --- [main] com.qyp.chat.ChatApplication             : The following 1 profile is active: "dev"
+10:37:43:462  INFO 14592 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+10:37:43:464  INFO 14592 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+10:37:43:502  INFO 14592 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 27 ms. Found 0 Redis repository interfaces.
+10:37:47:180  INFO 5660 --- [main] com.qyp.chat.ChatApplication             : Starting ChatApplication using Java 11.0.12 on LAPTOP-C6F2EJ6P with PID 5660 (D:\Users\qyp\Documents\ideaProjects\Chat\target\classes started by qyp in D:\Users\qyp\Documents\ideaProjects\Chat)
+10:37:47:182 DEBUG 5660 --- [main] com.qyp.chat.ChatApplication             : Running with Spring Boot v2.7.12, Spring v5.3.27
+10:37:47:182  INFO 5660 --- [main] com.qyp.chat.ChatApplication             : The following 1 profile is active: "dev"
+10:37:48:029  INFO 5660 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+10:37:48:033  INFO 5660 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+10:37:48:067  INFO 5660 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 19 ms. Found 0 Redis repository interfaces.
+10:37:48:527  INFO 5660 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
+10:37:48:534  INFO 5660 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+10:37:48:535  INFO 5660 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
+10:37:48:661  INFO 5660 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+10:37:48:661  INFO 5660 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1432 ms
+10:37:50:715  INFO 5660 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+10:37:50:801  INFO 5660 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
+10:37:50:982  INFO 5660 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path '/api'
+10:37:50:983  INFO 5660 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
+10:37:50:986  INFO 5660 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+10:37:51:008  INFO 5660 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+10:37:51:118  INFO 5660 --- [main] com.qyp.chat.ChatApplication             : Started ChatApplication in 4.297 seconds (JVM running for 5.58)
+10:37:51:120  INFO 5660 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+10:37:51:419  INFO 5660 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+10:37:51:759  INFO 5660 --- [main] com.qyp.chat.InitRun                     : 服务启动成功。
+10:37:51:769  INFO 5660 --- [Thread-2] c.q.c.w.netty.NettyWebSocketStarter      : netty启动
+10:38:02:423  INFO 5660 --- [http-nio-8000-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+10:38:02:424  INFO 5660 --- [http-nio-8000-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+10:38:02:425  INFO 5660 --- [http-nio-8000-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+10:38:02:555 DEBUG 5660 --- [http-nio-8000-exec-2] c.qyp.chat.mapper.UserMapper.selectOne   : ==>  Preparing: SELECT user_id,email,nick_name,join_type,sex,password,personal_signature,status,create_time,last_login_time,area_name,area_code,last_off_time FROM user WHERE (email = ?)
+10:38:02:573 DEBUG 5660 --- [http-nio-8000-exec-2] c.qyp.chat.mapper.UserMapper.selectOne   : ==> Parameters: 2740123221@qq.com(String)
+10:38:02:593 DEBUG 5660 --- [http-nio-8000-exec-2] c.qyp.chat.mapper.UserMapper.selectOne   : <==      Total: 1
+10:40:02:631  INFO 46164 --- [main] com.qyp.chat.MyTest                      : Starting MyTest using Java 11.0.12 on LAPTOP-C6F2EJ6P with PID 46164 (started by qyp in D:\Users\qyp\Documents\ideaProjects\Chat)
+10:40:02:632 DEBUG 46164 --- [main] com.qyp.chat.MyTest                      : Running with Spring Boot v2.7.12, Spring v5.3.27
+10:40:02:633  INFO 46164 --- [main] com.qyp.chat.MyTest                      : The following 1 profile is active: "dev"
+10:40:03:609  INFO 46164 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+10:40:03:613  INFO 46164 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+10:40:03:652  INFO 46164 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 19 ms. Found 0 Redis repository interfaces.
+10:40:09:696  INFO 46164 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+10:40:10:098  INFO 46164 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
+10:40:10:734  INFO 46164 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
+10:40:10:737  INFO 46164 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+10:40:10:767  INFO 46164 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+10:40:10:891  INFO 46164 --- [main] com.qyp.chat.MyTest                      : Started MyTest in 8.773 seconds (JVM running for 10.59)
+10:40:10:894  INFO 46164 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+10:40:15:462  INFO 46164 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+10:40:16:030  INFO 46164 --- [main] com.qyp.chat.InitRun                     : 服务启动成功。
+10:40:16:622  INFO 46164 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+10:40:16:642  INFO 46164 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+10:40:29:156  WARN 5660 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m37s624ms947µs).
+10:40:29:169 ERROR 5660 --- [http-nio-8000-exec-2] c.q.c.exception.GlobalExceptionHandler   : 请求地址:/api/account/login错误
+10:40:30:070  INFO 5660 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+10:40:30:085  INFO 5660 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+10:40:34:157  INFO 19152 --- [main] com.qyp.chat.ChatApplication             : Starting ChatApplication using Java 11.0.12 on LAPTOP-C6F2EJ6P with PID 19152 (D:\Users\qyp\Documents\ideaProjects\Chat\target\classes started by qyp in D:\Users\qyp\Documents\ideaProjects\Chat)
+10:40:34:160 DEBUG 19152 --- [main] com.qyp.chat.ChatApplication             : Running with Spring Boot v2.7.12, Spring v5.3.27
+10:40:34:161  INFO 19152 --- [main] com.qyp.chat.ChatApplication             : The following 1 profile is active: "dev"
+10:40:34:942  INFO 19152 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+10:40:34:944  INFO 19152 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+10:40:34:979  INFO 19152 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 22 ms. Found 0 Redis repository interfaces.
+10:40:35:456  INFO 19152 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
+10:40:35:466  INFO 19152 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+10:40:35:467  INFO 19152 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
+10:40:35:609  INFO 19152 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+10:40:35:609  INFO 19152 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1403 ms
+10:40:38:057  INFO 19152 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+10:40:38:138  INFO 19152 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
+10:40:38:333  INFO 19152 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path '/api'
+10:40:38:334  INFO 19152 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
+10:40:38:336  INFO 19152 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+10:40:38:357  INFO 19152 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+10:40:38:452  INFO 19152 --- [main] com.qyp.chat.ChatApplication             : Started ChatApplication in 4.702 seconds (JVM running for 5.788)
+10:40:38:454  INFO 19152 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+10:40:38:743  INFO 19152 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+10:40:39:098  INFO 19152 --- [main] com.qyp.chat.InitRun                     : 服务启动成功。
+10:40:39:107  INFO 19152 --- [Thread-2] c.q.c.w.netty.NettyWebSocketStarter      : netty启动
+10:40:47:563  INFO 19152 --- [http-nio-8000-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+10:40:47:564  INFO 19152 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+10:40:47:568  INFO 19152 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+10:40:47:883 DEBUG 19152 --- [http-nio-8000-exec-1] c.qyp.chat.mapper.UserMapper.selectOne   : ==>  Preparing: SELECT user_id,email,nick_name,join_type,sex,password,personal_signature,status,create_time,last_login_time,area_name,area_code,last_off_time FROM user WHERE (email = ?)
+10:40:47:918 DEBUG 19152 --- [http-nio-8000-exec-1] c.qyp.chat.mapper.UserMapper.selectOne   : ==> Parameters: 2740123221@qq.com(String)
+10:40:47:950 DEBUG 19152 --- [http-nio-8000-exec-1] c.qyp.chat.mapper.UserMapper.selectOne   : <==      Total: 1
+10:57:52:779  WARN 19152 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=6m13s687ms177µs).
