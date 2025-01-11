@@ -5,6 +5,7 @@ import com.qyp.chat.domain.R;
 import com.qyp.chat.domain.dto.UserInfoDTO;
 import com.qyp.chat.domain.entity.Group;
 import com.qyp.chat.domain.entity.User;
+import com.qyp.chat.domain.vo.GroupVO;
 import com.qyp.chat.service.IGroupService;
 import com.qyp.chat.util.UserUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,7 +49,20 @@ public class GroupController {
         UserInfoDTO userInfoDTO = userUtils.get();
         List<Group> groupList = groupService.loadMyGroup(userInfoDTO.getUserId());
         return R.success(groupList);
+    }
 
+    @PostMapping("/getGroupInfo")
+    public R getGroupInfo(String groupId){
+        UserInfoDTO userInfoDTO = userUtils.get();
+        Group group = groupService.getGroupInfo(userInfoDTO.getUserId(),groupId);
+        return R.success(group);
+    }
+
+    @PostMapping("/getGroupInfoDetail")
+    public R getGroupInfoDetail(String groupId){
+        UserInfoDTO userInfoDTO = userUtils.get();
+        GroupVO groupVO = groupService.getGroupInfoDetail(userInfoDTO.getUserId(),groupId);
+        return R.success(groupVO);
     }
 
 

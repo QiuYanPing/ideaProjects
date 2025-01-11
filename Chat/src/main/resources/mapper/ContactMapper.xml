@@ -2,4 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.qyp.chat.mapper.ContactMapper">
 
+    <select id="selectGroupMember" resultType="com.qyp.chat.domain.entity.Contact">
+        select c.*,u.nick_name,u.sex from contact c,user u
+            where c.user_id = u.user_id and c.contact_id = #{groupId}
+    </select>
 </mapper>

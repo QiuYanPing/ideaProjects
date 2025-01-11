@@ -3,6 +3,8 @@ package com.qyp.chat.service.impl;
 import cn.hutool.core.util.RandomUtil;
 import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.toolkit.support.SFunction;
+import com.baomidou.mybatisplus.extension.conditions.query.LambdaQueryChainWrapper;
 import com.qyp.chat.config.AppConfig;
 import com.qyp.chat.constant.SysConstant;
 import com.qyp.chat.domain.dto.SysSettingDTO;
@@ -11,6 +13,8 @@ import com.qyp.chat.domain.entity.Contact;
 import com.qyp.chat.domain.entity.Group;
 import com.qyp.chat.domain.enums.ContactStatusEnum;
 import com.qyp.chat.domain.enums.ContactTypeEnum;
+import com.qyp.chat.domain.enums.GroupStatusEnum;
+import com.qyp.chat.domain.vo.GroupVO;
 import com.qyp.chat.exception.BusinessException;
 import com.qyp.chat.mapper.ContactMapper;
 import com.qyp.chat.mapper.GroupMapper;
@@ -68,6 +72,7 @@ public class GroupServiceImpl extends ServiceImpl<GroupMapper, Group> implements
             contact.setContactType(ContactTypeEnum.GROUP.getType());
             contact.setContactId(groupId);
             contact.setCreateTime(dateTime);
+            contact.setLastUpdateTime(dateTime);
             contact.setStatus(ContactStatusEnum.FRIEND.getStatus());
             contactMapper.insert(contact);
 
@@ -105,6 +110,43 @@ public class GroupServiceImpl extends ServiceImpl<GroupMapper, Group> implements
         List<Group> list = lambdaQuery().eq(Group::getGroupOwnerId, userId)
                 .orderByDesc(Group::getCreateTime).list();
         return list;
+    }
+
+    @Override
+    public Group getGroupInfo(String userId, String groupId) {
+        Group group = getGroup(userId, groupId);
+        //查询群聊人数
+        LambdaQueryChainWrapper<Contact> wrapper = new LambdaQueryChainWrapper<>(contactMapper);
+        Integer count = wrapper.eq(Contact::getContactId, groupId).count();
+        group.setMemberCount(count);
+        return group;
+    }
+
+    @Override
+    public GroupVO getGroupInfoDetail(String userId, String groupId) {
+        Group group = getGroup(userId, groupId);
+        //查询群聊成员信息
+        List<Contact> contactList = contactMapper.selectGroupMember(groupId);
+        GroupVO groupVO = new GroupVO();
+        groupVO.setGroup(group);
+        groupVO.setContactList(contactList);
+        return groupVO;
+    }
+
+    private Group getGroup(String userId, String groupId) {
+        //当前用户需再群聊中
+        LambdaQueryWrapper<Contact> lambdaQueryWrapper = new LambdaQueryWrapper<>();
+        lambdaQueryWrapper.eq(Contact::getContactId, groupId)
+                .eq(Contact::getUserId, userId);
+        Contact contact = contactMapper.selectOne(lambdaQueryWrapper);
+        if(contact == null || !ContactStatusEnum.FRIEND.getStatus().equals(contact.getStatus()))
+            throw new BusinessException("你不在群聊中或群聊不存在！");
+
+        //查询的群聊应存在
+        Group group = lambdaQuery().eq(Group::getGroupId, groupId).one();
+        if(group == null || !GroupStatusEnum.NORMAL.getStatus().equals(group.getStatus()))
+            throw new BusinessException("群聊不存在或群聊已解散！");
+        return group;
     }
 
 

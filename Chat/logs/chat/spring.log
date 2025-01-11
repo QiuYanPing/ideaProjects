@@ -700,3 +700,48 @@
 18:17:53:431 DEBUG 7968 --- [http-nio-8000-exec-2] c.q.chat.mapper.GroupMapper.updateById   : <==    Updates: 1
 19:37:09:574  WARN 7968 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=58m50s488ms698µs400ns).
 20:05:04:750  WARN 7968 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=27m55s175ms637µs100ns).
+22:39:30:936  WARN 7968 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m53s792ms73µs500ns).
+22:53:54:819  INFO 59148 --- [main] com.qyp.chat.ChatApplication             : Starting ChatApplication using Java 11.0.12 on LAPTOP-C6F2EJ6P with PID 59148 (D:\Users\qyp\Documents\ideaProjects\Chat\target\classes started by qyp in D:\Users\qyp\Documents\ideaProjects\Chat)
+22:53:54:821 DEBUG 59148 --- [main] com.qyp.chat.ChatApplication             : Running with Spring Boot v2.7.12, Spring v5.3.27
+22:53:54:822  INFO 59148 --- [main] com.qyp.chat.ChatApplication             : The following 1 profile is active: "dev"
+22:53:55:368  INFO 59148 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+22:53:55:370  INFO 59148 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+22:53:55:394  INFO 59148 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14 ms. Found 0 Redis repository interfaces.
+22:53:55:752  INFO 59148 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
+22:53:55:759  INFO 59148 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+22:53:55:759  INFO 59148 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
+22:53:55:859  INFO 59148 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+22:53:55:859  INFO 59148 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 999 ms
+22:53:57:235  INFO 59148 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+22:53:57:289  INFO 59148 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
+22:53:57:409  INFO 59148 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path '/api'
+22:53:57:410  INFO 59148 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
+22:53:57:411  INFO 59148 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+22:53:57:426  INFO 59148 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+22:53:57:496  INFO 59148 --- [main] com.qyp.chat.ChatApplication             : Started ChatApplication in 2.962 seconds (JVM running for 3.657)
+22:53:57:498  INFO 59148 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+22:53:57:719  INFO 59148 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+22:53:57:955  INFO 59148 --- [main] com.qyp.chat.InitRun                     : 服务启动成功。
+22:53:57:961  INFO 59148 --- [Thread-2] c.q.c.w.netty.NettyWebSocketStarter      : netty启动
+22:56:22:331  INFO 59148 --- [http-nio-8000-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+22:56:22:331  INFO 59148 --- [http-nio-8000-exec-3] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+22:56:22:333  INFO 59148 --- [http-nio-8000-exec-3] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+22:56:22:368 ERROR 59148 --- [http-nio-8000-exec-3] c.q.c.exception.GlobalExceptionHandler   : 请求地址:/api/group/getGroupInfo错误
+22:56:45:716 DEBUG 59148 --- [http-nio-8000-exec-2] c.q.chat.mapper.ContactMapper.selectOne  : ==>  Preparing: SELECT user_id,contact_id,contact_type,create_time,status,last_update_time FROM contact WHERE (contact_id = ? AND user_id = ?)
+22:56:45:728 DEBUG 59148 --- [http-nio-8000-exec-2] c.q.chat.mapper.ContactMapper.selectOne  : ==> Parameters: G5mfgtw4v5c9(String), Uga6hklbhncl(String)
+22:56:45:741 DEBUG 59148 --- [http-nio-8000-exec-2] c.q.chat.mapper.ContactMapper.selectOne  : <==      Total: 1
+22:56:45:747 DEBUG 59148 --- [http-nio-8000-exec-2] c.qyp.chat.mapper.GroupMapper.selectOne  : ==>  Preparing: SELECT group_id,group_name,group_owner_id,create_time,group_notice,join_type,status FROM `group` WHERE (group_id = ?)
+22:56:45:747 DEBUG 59148 --- [http-nio-8000-exec-2] c.qyp.chat.mapper.GroupMapper.selectOne  : ==> Parameters: G5mfgtw4v5c9(String)
+22:56:45:749 DEBUG 59148 --- [http-nio-8000-exec-2] c.qyp.chat.mapper.GroupMapper.selectOne  : <==      Total: 1
+22:56:45:751 DEBUG 59148 --- [http-nio-8000-exec-2] c.q.c.mapper.ContactMapper.selectCount   : ==>  Preparing: SELECT COUNT( * ) FROM contact WHERE (contact_id = ?)
+22:56:45:751 DEBUG 59148 --- [http-nio-8000-exec-2] c.q.c.mapper.ContactMapper.selectCount   : ==> Parameters: G5mfgtw4v5c9(String)
+22:56:45:754 DEBUG 59148 --- [http-nio-8000-exec-2] c.q.c.mapper.ContactMapper.selectCount   : <==      Total: 1
+22:57:44:606 DEBUG 59148 --- [http-nio-8000-exec-4] c.q.chat.mapper.ContactMapper.selectOne  : ==>  Preparing: SELECT user_id,contact_id,contact_type,create_time,status,last_update_time FROM contact WHERE (contact_id = ? AND user_id = ?)
+22:57:44:607 DEBUG 59148 --- [http-nio-8000-exec-4] c.q.chat.mapper.ContactMapper.selectOne  : ==> Parameters: G5mfgtw4v5c9(String), Uga6hklbhncl(String)
+22:57:44:608 DEBUG 59148 --- [http-nio-8000-exec-4] c.q.chat.mapper.ContactMapper.selectOne  : <==      Total: 1
+22:57:44:610 DEBUG 59148 --- [http-nio-8000-exec-4] c.qyp.chat.mapper.GroupMapper.selectOne  : ==>  Preparing: SELECT group_id,group_name,group_owner_id,create_time,group_notice,join_type,status FROM `group` WHERE (group_id = ?)
+22:57:44:610 DEBUG 59148 --- [http-nio-8000-exec-4] c.qyp.chat.mapper.GroupMapper.selectOne  : ==> Parameters: G5mfgtw4v5c9(String)
+22:57:44:611 DEBUG 59148 --- [http-nio-8000-exec-4] c.qyp.chat.mapper.GroupMapper.selectOne  : <==      Total: 1
+22:57:44:612 DEBUG 59148 --- [http-nio-8000-exec-4] c.q.c.m.ContactMapper.selectGroupMember  : ==>  Preparing: select c.*,u.nick_name,u.sex from contact c,user u where c.user_id = u.user_id and c.contact_id = ?
+22:57:44:612 DEBUG 59148 --- [http-nio-8000-exec-4] c.q.c.m.ContactMapper.selectGroupMember  : ==> Parameters: G5mfgtw4v5c9(String)
+22:57:44:613 DEBUG 59148 --- [http-nio-8000-exec-4] c.q.c.m.ContactMapper.selectGroupMember  : <==      Total: 1

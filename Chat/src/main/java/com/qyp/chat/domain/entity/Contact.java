@@ -1,5 +1,6 @@
 package com.qyp.chat.domain.entity;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
 import java.time.LocalDateTime;
@@ -46,6 +47,13 @@ public class Contact implements Serializable {
 
     @ApiModelProperty(value = "最后更新时间")
     private LocalDateTime lastUpdateTime;
+
+
+    @TableField(exist = false)
+    private String nickName;
+
+    @TableField(exist = false)
+    private Integer sex;
 
 
 }

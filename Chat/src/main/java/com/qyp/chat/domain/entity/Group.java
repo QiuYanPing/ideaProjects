@@ -1,5 +1,6 @@
 package com.qyp.chat.domain.entity;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
 import java.time.LocalDateTime;
@@ -50,7 +51,10 @@ public class Group implements Serializable {
     @ApiModelProperty(value = "状态1：正常 0：解散")
     private Integer status;
 
+    @TableField(exist = false)
     private Integer memberCount;
+
+
 
 
 }
