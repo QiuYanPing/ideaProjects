@@ -35,8 +35,7 @@ public class ChannelContextUtils {
         //设置userId和channel的关系
         USER_CONTEXT_MAP.put(userId,channel);
         //Todo 遍历用户的联系人，若为群组，则将用户channel加入组中
-        String groupId = "";
-        addUser2Group(userId,groupId);
+
     }
     private void addUser2Group(String userId,String groupId){
         Channel user = USER_CONTEXT_MAP.get(userId);

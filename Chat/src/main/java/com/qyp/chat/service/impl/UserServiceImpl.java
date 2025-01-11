@@ -68,6 +68,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         User one = lambdaQuery().eq(User::getEmail, user.getEmail()).one();
         if(one == null)
             throw new BusinessException("账号不存在！");
+
         String s = DigestUtils.md5Hex(user.getPassword());
         if(!one.getPassword().equals(s))
             throw new BusinessException("密码不正确！");

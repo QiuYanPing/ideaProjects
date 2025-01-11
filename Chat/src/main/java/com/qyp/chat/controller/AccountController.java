@@ -3,6 +3,7 @@ package com.qyp.chat.controller;
 import com.qyp.chat.ChatApplication;
 import com.qyp.chat.constant.RedisConstant;
 import com.qyp.chat.domain.R;
+import com.qyp.chat.domain.dto.SysSettingDTO;
 import com.qyp.chat.domain.entity.User;
 import com.qyp.chat.domain.query.UserRegisterQuery;
 import com.qyp.chat.exception.BusinessException;
@@ -73,6 +74,9 @@ public class AccountController {
         //注册
         return userService.login(user);
     }
+
+
+
 
 
 }

@@ -1,5 +1,6 @@
 package com.qyp.chat.util;
 
+import com.qyp.chat.domain.dto.SysSettingDTO;
 import com.qyp.chat.domain.dto.UserInfoDTO;
 import org.springframework.stereotype.Component;
 
@@ -18,5 +19,10 @@ public class UserUtils {
 
     public void remove(){
         t.remove();
+    }
+
+    public SysSettingDTO getSysSetting(){
+        //获取系统设置
+        return new SysSettingDTO();
     }
 }

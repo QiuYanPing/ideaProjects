@@ -19,11 +19,10 @@ public class GlobalExceptionHandler {
         e.printStackTrace();
         R r = R.error("对不起，操作错误，请联系管理员！");
         if(e instanceof BusinessException){
-            r.setCode(600);
-            r.setMsg(((BusinessException) e).getMsg());
-        }else if(e instanceof UnauthException){
-            r.setCode(ExceptionEnum.UNAUTH.getCode());
-            r.setMsg(ExceptionEnum.UNAUTH.getMsg());
+            BusinessException error = (BusinessException) e;
+            ExceptionEnum exception = error.getException();
+            r.setCode(exception.getCode());
+            r.setMsg(exception.getMsg());
         }
         return r;
     }

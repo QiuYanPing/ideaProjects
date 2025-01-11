@@ -45,7 +45,7 @@ public class HandlerWebSocket extends SimpleChannelInboundHandler<TextWebSocketF
 
     @Override
     public void userEventTriggered(ChannelHandlerContext ctx, Object evt) throws Exception {
-        if(evt instanceof WebSocketServerProtocolHandler.HandshakeComplete){
+        if(evt instanceof WebSocketServerProtocolHandler.HandshakeComplete){ // 握手
             WebSocketServerProtocolHandler.HandshakeComplete complete= (WebSocketServerProtocolHandler.HandshakeComplete) evt;
             String uri = complete.requestUri();
             String token = getToken(uri);

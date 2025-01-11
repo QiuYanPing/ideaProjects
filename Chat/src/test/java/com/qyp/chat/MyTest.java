@@ -1,16 +1,25 @@
 package com.qyp.chat;
 
 
+import com.qyp.chat.config.AppConfig;
+import com.qyp.chat.constant.SysConstant;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.redis.core.StringRedisTemplate;
 
 import javax.annotation.Resource;
+import java.io.File;
+
 @SpringBootTest
 public class MyTest {
     @Resource
     StringRedisTemplate stringRedisTemplate ;
+    @Autowired
+    AppConfig appConfig;
+
     @Test
     public void test(){
         stringRedisTemplate.opsForValue().set("age","12");
@@ -26,7 +35,16 @@ public class MyTest {
         System.out.println("message = " + message);
 
         //解密
-        
-
+    }
+    @Test
+    public void testFolder(){
+        //上传群聊头像
+        String projectFolder = appConfig.getProjectFolder();
+        String path = projectFolder + SysConstant.FILE_FOLDER_FILE + SysConstant.FILE_FOLDER_AVATAR;
+        File fileFolder = new File(path);
+        if(!fileFolder.exists()){
+            //文件夹不存在
+            fileFolder.mkdirs();
+        }
     }
 }

@@ -13,10 +13,11 @@ public class HandlerHeartBeat extends ChannelDuplexHandler {
         if(evt instanceof IdleStateEvent){
             IdleStateEvent e = (IdleStateEvent) evt;
             if(e.state() == IdleState.READER_IDLE){
-                log.info("心跳超时");
+                log.info("读心跳超时");
                 ctx.close();
             }else  if(e.state() == IdleState.WRITER_IDLE){
                 //TODO 正确吗
+                log.info("写心跳超时");
                 ctx.writeAndFlush("heart");
             }
         }

@@ -59,6 +59,6 @@ public class RedisUtils {
     public void saveUserHeartBeat(String userId){
         stringRedisTemplate.opsForValue().setIfAbsent(RedisConstant.CHAT_WS_USER_HEART_BEAT + userId,"",
                 RedisConstant.CHAT_WS_USER_HEART_BEAT_EXPIRES,
-                TimeUnit.SECONDS);
+                TimeUnit.SECONDS); //心跳超时时间6s
     }
 }

@@ -2,6 +2,10 @@ package com.qyp.chat.service;
 
 import com.qyp.chat.domain.entity.Group;
 import com.baomidou.mybatisplus.extension.service.IService;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +17,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IGroupService extends IService<Group> {
 
+    void saveGroup(Group group, MultipartFile avatarFile, MultipartFile avatarCover) throws IOException;
+
+    List<Group> loadMyGroup(String userId);
 }

@@ -22,7 +22,7 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("group")
+@TableName("`group`")
 @ApiModel(value="Group对象", description="群聊")
 public class Group implements Serializable {
 
@@ -49,6 +49,8 @@ public class Group implements Serializable {
 
     @ApiModelProperty(value = "状态1：正常 0：解散")
     private Integer status;
+
+    private Integer memberCount;
 
 
 }
