@@ -16,19 +16,19 @@ public enum ContactTypeEnum {
         this.desc = desc;
     }
 
-    public Integer getType() {
+    public  Integer getType() {
         return type;
     }
 
-    public String getPrefix() {
+    public  String getPrefix() {
         return prefix;
     }
 
-    public String getDesc() {
+    public  String getDesc() {
         return desc;
     }
 
-    public ContactTypeEnum getByPrefix(String id){
+    public static ContactTypeEnum getByPrefix(String id){
         String prefix = id.substring(0, 1);
         for (ContactTypeEnum value : ContactTypeEnum.values()) {
             if(value.getPrefix().equals(prefix))

@@ -43,6 +43,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
 
     @Override
     public void register(UserRegisterQuery user){
+
         String email = user.getEmail();
         User one = lambdaQuery().eq(User::getEmail, email).one();
         if(one != null)
@@ -57,7 +58,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         user1.setStatus(UserStatusEnum.ENABLE.getStatus());
         user1.setJoinType(JoinTypeEnum.APPLY.getType());
         user1.setCreateTime(LocalDateTime.now());
-        user1.setLastOffTime(LocalDateTime.now().toEpochSecond(ZoneOffset.UTC));
+        user1.setLastOffTime(System.currentTimeMillis());
         save(user1);
         //todo 创建机器人好友
 

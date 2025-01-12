@@ -2,4 +2,17 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.qyp.chat.mapper.ApplyMapper">
 
+    <select id="loadApply" resultType="com.qyp.chat.domain.entity.Apply">
+        select a.*,
+               case
+                   when a.contact_type = 0 then u.nick_name
+                   when a.contact_type = 1 then g.group_name
+                   end as contactName
+        from apply a
+                 left join user u on a.apply_user_id = u.user_id
+                 left join `group` g on a.contact_id = g.group_id
+        where a.receive_user_id = #{userId}
+        order by a.last_apply_time desc
+        limit #{pageNo},#{pageSize}
+    </select>
 </mapper>

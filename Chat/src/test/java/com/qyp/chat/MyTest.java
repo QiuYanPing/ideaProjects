@@ -47,4 +47,10 @@ public class MyTest {
             fileFolder.mkdirs();
         }
     }
+
+    @Test
+    public void testApplyInfo(){
+        String s = String.format(SysConstant.APPLY_INFO, "qiuyanping");
+        System.out.println("s = " + s);
+    }
 }

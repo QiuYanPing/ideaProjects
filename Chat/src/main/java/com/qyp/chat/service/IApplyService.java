@@ -2,6 +2,9 @@ package com.qyp.chat.service;
 
 import com.qyp.chat.domain.entity.Apply;
 import com.baomidou.mybatisplus.extension.service.IService;
+import io.swagger.models.auth.In;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +16,10 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IApplyService extends IService<Apply> {
 
+    Integer applyAdd(String contactId,String applyInfo);
+
+    List<Apply> loadApply(Integer pageNo);
+
+
+    void dealWithApply(Integer applyId, Integer status);
 }

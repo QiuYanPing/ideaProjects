@@ -1,5 +1,6 @@
 package com.qyp.chat.domain.entity;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -52,6 +53,10 @@ public class Apply implements Serializable {
 
     @ApiModelProperty(value = "申请信息")
     private String applyInfo;
+
+    @TableField(exist = false)
+    @ApiModelProperty(value = "当申请好友时，显示申请人；当申请群聊时，显示群聊名称")
+    private String contactName;
 
 
 }
