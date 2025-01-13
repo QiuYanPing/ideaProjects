@@ -3,7 +3,24 @@
 <mapper namespace="com.qyp.chat.mapper.ContactMapper">
 
     <select id="selectGroupMember" resultType="com.qyp.chat.domain.entity.Contact">
+        select c.*, u.nick_name, u.sex
+        from contact c,
+             user u
+        where c.user_id = u.user_id
+          and c.contact_id = #{groupId}
+    </select>
+    <select id="loadUserContact" resultType="com.qyp.chat.domain.entity.Contact">
         select c.*,u.nick_name,u.sex from contact c,user u
-            where c.user_id = u.user_id and c.contact_id = #{groupId}
+        where c.contact_id = u.user_id and c.user_id = #{userId}
+        and c.status in
+        <foreach collection="array" open="(" close=")" separator="," item="item">#{item}</foreach>
+        order by c.last_update_time desc
+    </select>
+    <select id="loadGroupContact" resultType="com.qyp.chat.domain.entity.Contact">
+        select c.*,g.group_name nickName from contact c,`group` g
+        where c.contact_id = g.group_id and c.user_id = #{userId} and g.group_owner_id != #{userId}
+        and c.status in
+        <foreach collection="array" open="(" close=")" separator="," item="item">#{item}</foreach>
+        order by c.last_update_time desc
     </select>
 </mapper>

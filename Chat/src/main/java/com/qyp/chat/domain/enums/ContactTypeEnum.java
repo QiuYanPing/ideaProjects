@@ -36,4 +36,10 @@ public enum ContactTypeEnum {
         }
         return null;
     }
+
+
+    public static ContactTypeEnum getByName(String name){
+        ContactTypeEnum typeEnum = ContactTypeEnum.valueOf(name.toUpperCase());
+        return typeEnum == null? null:typeEnum;
+    }
 }

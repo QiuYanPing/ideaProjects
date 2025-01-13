@@ -8,7 +8,7 @@ spring:
   profiles:
     active: dev
   datasource:
-    url: jdbc:mysql://${qyp.db.host}:3306/chat?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://${qyp.db.host}:3306/chat?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&serverTimezone=Asia/Shanghai&rewriteBatchedStatements=true
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: ${qyp.db.username}
     password: ${qyp.db.password}

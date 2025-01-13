@@ -117,7 +117,8 @@ public class GroupServiceImpl extends ServiceImpl<GroupMapper, Group> implements
         Group group = getGroup(userId, groupId);
         //查询群聊人数
         LambdaQueryChainWrapper<Contact> wrapper = new LambdaQueryChainWrapper<>(contactMapper);
-        Integer count = wrapper.eq(Contact::getContactId, groupId).count();
+        Integer count = wrapper.eq(Contact::getContactId, groupId).
+                eq(Contact::getStatus,ContactStatusEnum.FRIEND.getStatus()).count();
         group.setMemberCount(count);
         return group;
     }

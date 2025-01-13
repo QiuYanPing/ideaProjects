@@ -5,6 +5,8 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
+
+import com.qyp.chat.domain.enums.ApplyStatusEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import io.swagger.models.auth.In;
@@ -59,4 +61,11 @@ public class Apply implements Serializable {
     private String contactName;
 
 
+    @TableField(exist = false)
+    private String statusName;
+
+    public String getStatusName() {
+        ApplyStatusEnum statusEnum = ApplyStatusEnum.getByStatus(status);
+        return statusEnum == null ? null :statusEnum.getDesc();
+    }
 }

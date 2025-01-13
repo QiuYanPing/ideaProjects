@@ -1,6 +1,7 @@
 package com.qyp.chat.service.impl;
 
 
+import cn.hutool.core.util.ArrayUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
@@ -8,6 +9,7 @@ import com.baomidou.mybatisplus.extension.conditions.query.LambdaQueryChainWrapp
 import com.baomidou.mybatisplus.extension.conditions.update.LambdaUpdateChainWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.qyp.chat.constant.SysConstant;
+import com.qyp.chat.domain.dto.SysSettingDTO;
 import com.qyp.chat.domain.dto.UserInfoDTO;
 import com.qyp.chat.domain.entity.Apply;
 import com.qyp.chat.domain.entity.Contact;
@@ -22,14 +24,20 @@ import com.qyp.chat.mapper.GroupMapper;
 import com.qyp.chat.mapper.UserMapper;
 import com.qyp.chat.service.IApplyService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.qyp.chat.service.IContactService;
 import com.qyp.chat.util.UserUtils;
+import io.swagger.models.auth.In;
+import net.bytebuddy.asm.Advice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
-import java.time.ZoneOffset;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+
+import static cn.hutool.core.util.NumberUtil.add;
 
 /**
  * <p>
@@ -52,6 +60,8 @@ public class ApplyServiceImpl extends ServiceImpl<ApplyMapper, Apply> implements
     ContactMapper contactMapper;
     @Autowired
     ApplyMapper applyMapper;
+    @Autowired
+    IContactService contactService;
 
     @Override
     @Transactional
@@ -66,9 +76,10 @@ public class ApplyServiceImpl extends ServiceImpl<ApplyMapper, Apply> implements
         LambdaQueryChainWrapper<Contact> wrapper = new LambdaQueryChainWrapper<>(contactMapper);
         Contact contact = wrapper.eq(Contact::getUserId, userInfoDTO.getUserId())
                 .eq(Contact::getContactId, contactId).one();
-        if(contact != null && ContactStatusEnum.BLACKlIST_BE.getStatus().equals(contact.getStatus()))
+        if (contact != null && ArrayUtil.contains(new Integer[]{
+                ContactStatusEnum.BLACKlIST_BE.getStatus(), ContactStatusEnum.FIRST_BLACKLIST_BE.getStatus()
+        }, contact.getStatus()))
             throw new BusinessException("你已被拉黑，不能发送申请！");
-
 
 
         if (ContactTypeEnum.GROUP == typeEnum) {
@@ -85,9 +96,9 @@ public class ApplyServiceImpl extends ServiceImpl<ApplyMapper, Apply> implements
         }
 
 
-        if(JoinTypeEnum.JSON.getType().equals(joinType)){
+        if (JoinTypeEnum.JSON.getType().equals(joinType)) {
             //直接加入
-            //todo 添加为联系人
+            addContact(userInfoDTO.getUserId(), receiveUserId, contactId, typeEnum.getType());
             return joinType;
         }
 
@@ -101,7 +112,7 @@ public class ApplyServiceImpl extends ServiceImpl<ApplyMapper, Apply> implements
                 String.format(SysConstant.APPLY_INFO, userInfoDTO.getNickName())
                 : applyInfo);
         apply.setLastApplyTime(time);
-        if(oldApply == null){
+        if (oldApply == null) {
             //没有发送过申请
             apply.setApplyUserId(userInfoDTO.getUserId());
             apply.setContactId(contactId);
@@ -109,16 +120,18 @@ public class ApplyServiceImpl extends ServiceImpl<ApplyMapper, Apply> implements
             apply.setReceiveUserId(receiveUserId);
             apply.setStatus(ApplyStatusEnum.INIT.getStatus());
             save(apply);
-        }else{
+        } else {
             apply.setStatus(ApplyStatusEnum.INIT.getStatus());
-            LambdaUpdateChainWrapper<Apply> updateWrapper = lambdaUpdate().eq(Apply::getApplyUserId, userInfoDTO.getUserId())
+            LambdaUpdateWrapper<Apply> updateWrapper = new LambdaUpdateWrapper<>();
+            updateWrapper.eq(Apply::getApplyUserId, userInfoDTO.getUserId())
                     .eq(Apply::getContactId, contactId)
                     .eq(Apply::getReceiveUserId, receiveUserId);
-            update(apply,updateWrapper);
+            update(apply, updateWrapper);
+
         }
 
         //首次发送申请或申请已被处理，则发送ws消息
-        if(oldApply == null || !ApplyStatusEnum.INIT.getStatus().equals(oldApply.getStatus())){
+        if (oldApply == null || !ApplyStatusEnum.INIT.getStatus().equals(oldApply.getStatus())) {
             //todo 发送ws消息
         }
 
@@ -137,8 +150,8 @@ public class ApplyServiceImpl extends ServiceImpl<ApplyMapper, Apply> implements
         //多表查询获取申请人的名称或被申请群聊名称
         Integer pageSize = SysConstant.Page_SIZE;
         //根据申请时间降序排序
-        pageNo = (pageNo -1) *pageSize;
-        List<Apply> applyList = applyMapper.loadApply(userId,pageNo,pageSize);
+        pageNo = (pageNo - 1) * pageSize;
+        List<Apply> applyList = applyMapper.loadApply(userId, pageNo, pageSize);
         return applyList;
     }
 
@@ -149,13 +162,13 @@ public class ApplyServiceImpl extends ServiceImpl<ApplyMapper, Apply> implements
         UserInfoDTO userInfoDTO = userUtils.get();
         ApplyStatusEnum statusEnum = ApplyStatusEnum.getByStatus(status);
         //非法传参判断
-        if(statusEnum == null || ApplyStatusEnum.INIT.getStatus().equals(status))
+        if (statusEnum == null || ApplyStatusEnum.INIT.getStatus().equals(status))
             throw new BusinessException(ExceptionEnum.OTHERS);
 
         //判断当前用户是否为接受人
         String userId = userInfoDTO.getUserId();
         Apply apply = getById(applyId);
-        if(apply == null || !userId.equals(apply.getReceiveUserId()))
+        if (apply == null || !userId.equals(apply.getReceiveUserId()))
             throw new BusinessException(ExceptionEnum.OTHERS);
 
         //修改申请的状态和时间
@@ -163,30 +176,29 @@ public class ApplyServiceImpl extends ServiceImpl<ApplyMapper, Apply> implements
         updateApply.setStatus(status);
         updateApply.setLastApplyTime(System.currentTimeMillis());
         LambdaUpdateWrapper<Apply> wrapper = new LambdaUpdateWrapper<>();
-        wrapper.eq(Apply::getApplyId,applyId)
-                .eq(Apply::getStatus,ApplyStatusEnum.INIT.getStatus());
+        wrapper.eq(Apply::getApplyId, applyId)
+                .eq(Apply::getStatus, ApplyStatusEnum.INIT.getStatus());
         int count = applyMapper.update(updateApply, wrapper);
         //不可重复修改申请状态
-        if(count == 0 )
+        if (count == 0)
             throw new BusinessException(ExceptionEnum.OTHERS);
 
 
-
-        if(ApplyStatusEnum.PASS == statusEnum){
-            //todo 添加联系人
+        if (ApplyStatusEnum.PASS == statusEnum) {
+            addContact(apply.getApplyUserId(), apply.getReceiveUserId(), apply.getContactId(), apply.getContactType());
         }
 
-        if(ApplyStatusEnum.BLACKLIST == statusEnum){
+        if (ApplyStatusEnum.BLACKLIST == statusEnum) {
             LambdaQueryChainWrapper<Contact> queryChainWrapper = new LambdaQueryChainWrapper<>(contactMapper);
             Contact contact = queryChainWrapper.eq(Contact::getUserId, apply.getApplyUserId())
                     .eq(Contact::getContactId, apply.getContactId()).one();
-            if(contact != null){
+            if (contact != null) {
                 LambdaUpdateChainWrapper<Contact> updateChainWrapper = new LambdaUpdateChainWrapper<>(contactMapper);
-                updateChainWrapper.set(Contact::getStatus,ContactStatusEnum.BLACKlIST_BE.getStatus())
-                        .set(Contact::getLastUpdateTime,time)
+                updateChainWrapper.set(Contact::getStatus, ContactStatusEnum.FIRST_BLACKLIST_BE.getStatus())
+                        .set(Contact::getLastUpdateTime, time)
                         .eq(Contact::getUserId, apply.getApplyUserId())
                         .eq(Contact::getContactId, apply.getContactId()).update();
-            }else{
+            } else {
                 //添加记录
                 Contact addContact = new Contact();
                 addContact.setUserId(apply.getApplyUserId());
@@ -194,10 +206,68 @@ public class ApplyServiceImpl extends ServiceImpl<ApplyMapper, Apply> implements
                 addContact.setContactType(apply.getContactType());
                 addContact.setCreateTime(time);
                 addContact.setLastUpdateTime(time);
-                addContact.setStatus(ContactStatusEnum.BLACKlIST_BE.getStatus());
+                addContact.setStatus(ContactStatusEnum.FIRST_BLACKLIST_BE.getStatus());
                 contactMapper.insert(addContact);
             }
         }
 
+    }
+
+    public void addContact(String applyUserId, String receiveUserId, String contactId, Integer contactType) {
+        //如果是群聊的话，判断是否超过最大群成员数(存在并发问题：悲观锁解决)
+        ContactTypeEnum typeEnum = ContactTypeEnum.getByPrefix(contactId);
+        if (ContactTypeEnum.GROUP == typeEnum) {
+            LambdaQueryChainWrapper<Contact> queryChainWrapper = new LambdaQueryChainWrapper<>(contactMapper);
+            Integer count = queryChainWrapper.eq(Contact::getContactId, contactId)
+                    .eq(Contact::getStatus, ContactStatusEnum.FRIEND.getStatus()).count();
+            SysSettingDTO sysSetting = userUtils.getSysSetting();
+            Integer maxGroupMember = sysSetting.getMaxGroupMember();
+            if (count < maxGroupMember) {
+                synchronized (contactId.intern()) {
+                    if (count < maxGroupMember) {
+                        //添加记录
+                        beginAdd(applyUserId, receiveUserId, contactId, contactType);
+                        return;
+                    }
+                }
+            } else {
+                throw new BusinessException("群成员已满！");
+            }
+        }
+        beginAdd(applyUserId, receiveUserId, contactId, contactType);
+        return;
+    }
+
+    private void beginAdd(String applyUserId, String receiveUserId, String contactId, Integer contactType) {
+        LocalDateTime time = LocalDateTime.now();
+
+
+        //添加申请人的contact记录
+        Contact contact = new Contact();
+        contact.setUserId(applyUserId);
+        contact.setContactId(contactId);
+        contact.setContactType(contactType);
+        contact.setCreateTime(time);
+        contact.setLastUpdateTime(time);
+        contact.setStatus(ContactStatusEnum.FRIEND.getStatus());
+        contactService.saveOrUpdate(contact,new LambdaUpdateWrapper<Contact>().eq(Contact::getUserId,contact.getUserId())
+                .eq(Contact::getContactId,contact.getContactId()));
+        //如果contactType为好友时，添加联系人的contact记录
+        if (ContactTypeEnum.USER.getType().equals(contactType)) {
+            contact = new Contact();
+            contact.setUserId(contactId);
+            contact.setContactId(applyUserId);
+            contact.setContactType(contactType);
+            contact.setCreateTime(time);
+            contact.setLastUpdateTime(time);
+            contact.setStatus(ContactStatusEnum.FRIEND.getStatus());
+            contactService.saveOrUpdate(contact,new LambdaUpdateWrapper<Contact>().eq(Contact::getUserId,contact.getUserId())
+                    .eq(Contact::getContactId,contact.getContactId()));
+        }
+
+
+        /*contactService.saveBatch(list);*/
+        //todo 创建联系人冗余： 如果为好友，将接收人添加问联系人，添加缓存
+        //todo 创建回话 发送ws信息
     }
 }

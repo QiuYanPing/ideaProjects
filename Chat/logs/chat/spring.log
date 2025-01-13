@@ -1,195 +1,633 @@
-00:29:31:569  WARN 63956 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=10m52s662ms403µs700ns).
-01:19:13:622  INFO 5348 --- [main] com.qyp.chat.ChatApplication             : Starting ChatApplication using Java 11.0.12 on LAPTOP-C6F2EJ6P with PID 5348 (D:\Users\qyp\Documents\ideaProjects\Chat\target\classes started by qyp in D:\Users\qyp\Documents\ideaProjects\Chat)
-01:19:13:624 DEBUG 5348 --- [main] com.qyp.chat.ChatApplication             : Running with Spring Boot v2.7.12, Spring v5.3.27
-01:19:13:624  INFO 5348 --- [main] com.qyp.chat.ChatApplication             : The following 1 profile is active: "dev"
-01:19:14:132  INFO 5348 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-01:19:14:134  INFO 5348 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-01:19:14:157  INFO 5348 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 0 Redis repository interfaces.
-01:19:14:486  INFO 5348 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
-01:19:14:492  INFO 5348 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-01:19:14:492  INFO 5348 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
-01:19:14:586  INFO 5348 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
-01:19:14:586  INFO 5348 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 937 ms
-01:19:15:817  INFO 5348 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-01:19:15:871  INFO 5348 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
-01:19:15:990  INFO 5348 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path '/api'
-01:19:15:990  INFO 5348 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
-01:19:15:992  INFO 5348 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-01:19:16:006  INFO 5348 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-01:19:16:080  INFO 5348 --- [main] com.qyp.chat.ChatApplication             : Started ChatApplication in 2.702 seconds (JVM running for 3.369)
-01:19:16:082  INFO 5348 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-01:19:16:296  INFO 5348 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-01:19:16:496  INFO 5348 --- [main] com.qyp.chat.InitRun                     : 服务启动成功。
-01:19:16:502  INFO 5348 --- [Thread-2] c.q.c.w.netty.NettyWebSocketStarter      : netty启动
-01:19:21:568  INFO 5348 --- [http-nio-8000-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
-01:19:21:569  INFO 5348 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-01:19:21:570  INFO 5348 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-01:19:26:257 DEBUG 5348 --- [http-nio-8000-exec-1] c.qyp.chat.mapper.ApplyMapper.loadApply  : ==>  Preparing: select a.*, case when a.contact_type = 0 then u.nick_name when a.contact_type = 1 then g.group_name end as contactName from apply a left join user u on a.apply_user_id = u.user_id left join `group` g on a.contact_id = g.group_id where a.receive_user_id = ? order by a.last_apply_time desc limit (?-1)*?,?
-01:19:26:369 DEBUG 5348 --- [http-nio-8000-exec-1] c.qyp.chat.mapper.ApplyMapper.loadApply  : ==> Parameters: Uga6hklbhncl(String), 1(Integer), 15(Integer), 15(Integer)
-01:19:40:429 ERROR 5348 --- [http-nio-8000-exec-1] c.q.c.exception.GlobalExceptionHandler   : 请求地址:/api/apply/loadApply错误
-01:23:21:559  INFO 5348 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-01:23:21:568  INFO 5348 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-01:23:25:291  INFO 73432 --- [main] com.qyp.chat.ChatApplication             : Starting ChatApplication using Java 11.0.12 on LAPTOP-C6F2EJ6P with PID 73432 (D:\Users\qyp\Documents\ideaProjects\Chat\target\classes started by qyp in D:\Users\qyp\Documents\ideaProjects\Chat)
-01:23:25:292 DEBUG 73432 --- [main] com.qyp.chat.ChatApplication             : Running with Spring Boot v2.7.12, Spring v5.3.27
-01:23:25:292  INFO 73432 --- [main] com.qyp.chat.ChatApplication             : The following 1 profile is active: "dev"
-01:23:25:750  INFO 73432 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-01:23:25:751  INFO 73432 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-01:23:25:771  INFO 73432 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12 ms. Found 0 Redis repository interfaces.
-01:23:26:066  INFO 73432 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
-01:23:26:072  INFO 73432 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-01:23:26:072  INFO 73432 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
-01:23:26:153  INFO 73432 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
-01:23:26:153  INFO 73432 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 838 ms
-01:23:27:362  INFO 73432 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-01:23:27:415  INFO 73432 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
-01:23:27:522  INFO 73432 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path '/api'
-01:23:27:523  INFO 73432 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
-01:23:27:524  INFO 73432 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-01:23:27:538  INFO 73432 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-01:23:27:602  INFO 73432 --- [main] com.qyp.chat.ChatApplication             : Started ChatApplication in 2.529 seconds (JVM running for 3.089)
-01:23:27:603  INFO 73432 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-01:23:27:764  INFO 73432 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-01:23:27:981  INFO 73432 --- [main] com.qyp.chat.InitRun                     : 服务启动成功。
-01:23:27:989  INFO 73432 --- [Thread-2] c.q.c.w.netty.NettyWebSocketStarter      : netty启动
-01:23:29:289  INFO 73432 --- [http-nio-8000-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
-01:23:29:289  INFO 73432 --- [http-nio-8000-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-01:23:29:290  INFO 73432 --- [http-nio-8000-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
-01:23:29:374 DEBUG 73432 --- [http-nio-8000-exec-2] c.qyp.chat.mapper.ApplyMapper.loadApply  : ==>  Preparing: select a.*, case when a.contact_type = 0 then u.nick_name when a.contact_type = 1 then g.group_name end as contactName from apply a left join user u on a.apply_user_id = u.user_id left join `group` g on a.contact_id = g.group_id where a.receive_user_id = ? order by a.last_apply_time desc limit (?-1)*?,?
-01:23:29:389 DEBUG 73432 --- [http-nio-8000-exec-2] c.qyp.chat.mapper.ApplyMapper.loadApply  : ==> Parameters: Uga6hklbhncl(String), 0(Integer), 15(Integer), 15(Integer)
-01:23:29:421 ERROR 73432 --- [http-nio-8000-exec-2] c.q.c.exception.GlobalExceptionHandler   : 请求地址:/api/apply/loadApply错误
-01:24:20:407  INFO 67428 --- [main] com.qyp.chat.ChatApplication             : Starting ChatApplication using Java 11.0.12 on LAPTOP-C6F2EJ6P with PID 67428 (D:\Users\qyp\Documents\ideaProjects\Chat\target\classes started by qyp in D:\Users\qyp\Documents\ideaProjects\Chat)
-01:24:20:408 DEBUG 67428 --- [main] com.qyp.chat.ChatApplication             : Running with Spring Boot v2.7.12, Spring v5.3.27
-01:24:20:408  INFO 67428 --- [main] com.qyp.chat.ChatApplication             : The following 1 profile is active: "dev"
-01:24:20:883  INFO 67428 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-01:24:20:884  INFO 67428 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-01:24:20:905  INFO 67428 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 0 Redis repository interfaces.
-01:24:21:197  INFO 67428 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
-01:24:21:201  INFO 67428 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-01:24:21:201  INFO 67428 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
-01:24:21:280  INFO 67428 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
-01:24:21:281  INFO 67428 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 846 ms
-01:24:22:413  INFO 67428 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-01:24:22:460  INFO 67428 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
-01:24:22:558  INFO 67428 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path '/api'
-01:24:22:559  INFO 67428 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
-01:24:22:561  INFO 67428 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-01:24:22:575  INFO 67428 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-01:24:22:642  INFO 67428 --- [main] com.qyp.chat.ChatApplication             : Started ChatApplication in 2.46 seconds (JVM running for 2.994)
-01:24:22:644  INFO 67428 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-01:24:22:799  INFO 67428 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-01:24:22:991  INFO 67428 --- [main] com.qyp.chat.InitRun                     : 服务启动成功。
-01:24:22:996  INFO 67428 --- [Thread-2] c.q.c.w.netty.NettyWebSocketStarter      : netty启动
-01:24:25:138  INFO 67428 --- [http-nio-8000-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
-01:24:25:138  INFO 67428 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-01:24:25:139  INFO 67428 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-01:24:25:215 DEBUG 67428 --- [http-nio-8000-exec-1] c.qyp.chat.mapper.ApplyMapper.loadApply  : ==>  Preparing: select a.*, case when a.contact_type = 0 then u.nick_name when a.contact_type = 1 then g.group_name end as contactName from apply a left join user u on a.apply_user_id = u.user_id left join `group` g on a.contact_id = g.group_id where a.receive_user_id = ? order by a.last_apply_time desc limit ?,?
-01:24:25:226 DEBUG 67428 --- [http-nio-8000-exec-1] c.qyp.chat.mapper.ApplyMapper.loadApply  : ==> Parameters: Uga6hklbhncl(String), 0(Integer), 15(Integer)
-01:24:25:242 DEBUG 67428 --- [http-nio-8000-exec-1] c.qyp.chat.mapper.ApplyMapper.loadApply  : <==      Total: 2
-01:46:28:073  WARN 67428 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m34s861ms342µs600ns).
-03:09:45:910  INFO 24880 --- [main] com.qyp.chat.ChatApplication             : Starting ChatApplication using Java 11.0.12 on LAPTOP-C6F2EJ6P with PID 24880 (D:\Users\qyp\Documents\ideaProjects\Chat\target\classes started by qyp in D:\Users\qyp\Documents\ideaProjects\Chat)
-03:09:45:912 DEBUG 24880 --- [main] com.qyp.chat.ChatApplication             : Running with Spring Boot v2.7.12, Spring v5.3.27
-03:09:45:912  INFO 24880 --- [main] com.qyp.chat.ChatApplication             : The following 1 profile is active: "dev"
-03:09:46:371  INFO 24880 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-03:09:46:373  INFO 24880 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-03:09:46:392  INFO 24880 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12 ms. Found 0 Redis repository interfaces.
-03:09:46:678  INFO 24880 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
-03:09:46:683  INFO 24880 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-03:09:46:683  INFO 24880 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
-03:09:46:765  INFO 24880 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
-03:09:46:765  INFO 24880 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 830 ms
-03:09:47:967  INFO 24880 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-03:09:48:016  INFO 24880 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
-03:09:48:117  INFO 24880 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path '/api'
-03:09:48:118  INFO 24880 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
-03:09:48:120  INFO 24880 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-03:09:48:133  INFO 24880 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-03:09:48:206  INFO 24880 --- [main] com.qyp.chat.ChatApplication             : Started ChatApplication in 2.514 seconds (JVM running for 3.095)
-03:09:48:208  INFO 24880 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-03:09:48:361  INFO 24880 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-03:09:48:554  INFO 24880 --- [main] com.qyp.chat.InitRun                     : 服务启动成功。
-03:09:48:561  INFO 24880 --- [Thread-2] c.q.c.w.netty.NettyWebSocketStarter      : netty启动
-03:09:52:031  INFO 24880 --- [http-nio-8000-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
-03:09:52:031  INFO 24880 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-03:09:52:032  INFO 24880 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
-03:09:58:810 DEBUG 24880 --- [http-nio-8000-exec-4] c.qyp.chat.mapper.ApplyMapper.loadApply  : ==>  Preparing: select a.*, case when a.contact_type = 0 then u.nick_name when a.contact_type = 1 then g.group_name end as contactName from apply a left join user u on a.apply_user_id = u.user_id left join `group` g on a.contact_id = g.group_id where a.receive_user_id = ? order by a.last_apply_time desc limit ?,?
-03:09:58:843 DEBUG 24880 --- [http-nio-8000-exec-4] c.qyp.chat.mapper.ApplyMapper.loadApply  : ==> Parameters: Uga6hklbhncl(String), 0(Integer), 15(Integer)
-03:09:58:892 DEBUG 24880 --- [http-nio-8000-exec-4] c.qyp.chat.mapper.ApplyMapper.loadApply  : <==      Total: 2
-03:11:06:429 DEBUG 24880 --- [http-nio-8000-exec-8] c.q.chat.mapper.ApplyMapper.selectById   : ==>  Preparing: SELECT apply_id,apply_user_id,receive_user_id,contact_type,contact_id,last_apply_time,status,apply_info FROM apply WHERE apply_id=?
-03:11:06:430 DEBUG 24880 --- [http-nio-8000-exec-8] c.q.chat.mapper.ApplyMapper.selectById   : ==> Parameters: 1(Integer)
-03:11:06:432 DEBUG 24880 --- [http-nio-8000-exec-8] c.q.chat.mapper.ApplyMapper.selectById   : <==      Total: 1
-03:11:06:502 DEBUG 24880 --- [http-nio-8000-exec-8] com.qyp.chat.mapper.ApplyMapper.update   : ==>  Preparing: UPDATE apply SET last_apply_time=?, status=? WHERE (apply_id = ? AND status = ?)
-03:11:06:505 DEBUG 24880 --- [http-nio-8000-exec-8] com.qyp.chat.mapper.ApplyMapper.update   : ==> Parameters: 1736709066433(Long), 1(Integer), 1(Integer), 0(Integer)
-03:11:06:511 DEBUG 24880 --- [http-nio-8000-exec-8] com.qyp.chat.mapper.ApplyMapper.update   : <==    Updates: 1
-03:11:11:925 DEBUG 24880 --- [http-nio-8000-exec-2] c.q.chat.mapper.ApplyMapper.selectById   : ==>  Preparing: SELECT apply_id,apply_user_id,receive_user_id,contact_type,contact_id,last_apply_time,status,apply_info FROM apply WHERE apply_id=?
-03:11:11:926 DEBUG 24880 --- [http-nio-8000-exec-2] c.q.chat.mapper.ApplyMapper.selectById   : ==> Parameters: 1(Integer)
-03:11:11:934 DEBUG 24880 --- [http-nio-8000-exec-2] c.q.chat.mapper.ApplyMapper.selectById   : <==      Total: 1
-03:11:11:938 DEBUG 24880 --- [http-nio-8000-exec-2] com.qyp.chat.mapper.ApplyMapper.update   : ==>  Preparing: UPDATE apply SET last_apply_time=?, status=? WHERE (apply_id = ? AND status = ?)
-03:11:11:939 DEBUG 24880 --- [http-nio-8000-exec-2] com.qyp.chat.mapper.ApplyMapper.update   : ==> Parameters: 1736709071934(Long), 2(Integer), 1(Integer), 0(Integer)
-03:11:11:941 DEBUG 24880 --- [http-nio-8000-exec-2] com.qyp.chat.mapper.ApplyMapper.update   : <==    Updates: 0
-03:11:11:947 ERROR 24880 --- [http-nio-8000-exec-2] c.q.c.exception.GlobalExceptionHandler   : 请求地址:/api/apply/dealWithApply错误
-03:11:49:939 DEBUG 24880 --- [http-nio-8000-exec-9] c.q.chat.mapper.ApplyMapper.selectById   : ==>  Preparing: SELECT apply_id,apply_user_id,receive_user_id,contact_type,contact_id,last_apply_time,status,apply_info FROM apply WHERE apply_id=?
-03:11:49:940 DEBUG 24880 --- [http-nio-8000-exec-9] c.q.chat.mapper.ApplyMapper.selectById   : ==> Parameters: 2(Integer)
-03:11:49:940 DEBUG 24880 --- [http-nio-8000-exec-9] c.q.chat.mapper.ApplyMapper.selectById   : <==      Total: 1
-03:11:49:940 DEBUG 24880 --- [http-nio-8000-exec-9] com.qyp.chat.mapper.ApplyMapper.update   : ==>  Preparing: UPDATE apply SET last_apply_time=?, status=? WHERE (apply_id = ? AND status = ?)
-03:11:49:940 DEBUG 24880 --- [http-nio-8000-exec-9] com.qyp.chat.mapper.ApplyMapper.update   : ==> Parameters: 1736709109940(Long), 2(Integer), 2(Integer), 0(Integer)
-03:11:49:940 DEBUG 24880 --- [http-nio-8000-exec-9] com.qyp.chat.mapper.ApplyMapper.update   : <==    Updates: 1
-03:12:31:740 DEBUG 24880 --- [http-nio-8000-exec-10] c.q.chat.mapper.ApplyMapper.selectById   : ==>  Preparing: SELECT apply_id,apply_user_id,receive_user_id,contact_type,contact_id,last_apply_time,status,apply_info FROM apply WHERE apply_id=?
-03:12:31:741 DEBUG 24880 --- [http-nio-8000-exec-10] c.q.chat.mapper.ApplyMapper.selectById   : ==> Parameters: 1(Integer)
-03:12:31:743 DEBUG 24880 --- [http-nio-8000-exec-10] c.q.chat.mapper.ApplyMapper.selectById   : <==      Total: 1
-03:12:31:746 DEBUG 24880 --- [http-nio-8000-exec-10] com.qyp.chat.mapper.ApplyMapper.update   : ==>  Preparing: UPDATE apply SET last_apply_time=?, status=? WHERE (apply_id = ? AND status = ?)
-03:12:31:747 DEBUG 24880 --- [http-nio-8000-exec-10] com.qyp.chat.mapper.ApplyMapper.update   : ==> Parameters: 1736709151744(Long), 3(Integer), 1(Integer), 0(Integer)
-03:12:31:752 DEBUG 24880 --- [http-nio-8000-exec-10] com.qyp.chat.mapper.ApplyMapper.update   : <==    Updates: 1
-03:12:31:758 DEBUG 24880 --- [http-nio-8000-exec-10] c.q.chat.mapper.ContactMapper.selectOne  : ==>  Preparing: SELECT user_id,contact_id,contact_type,create_time,status,last_update_time FROM contact WHERE (user_id = ? AND contact_id = ?)
-03:12:31:758 DEBUG 24880 --- [http-nio-8000-exec-10] c.q.chat.mapper.ContactMapper.selectOne  : ==> Parameters: Uga6hklbhncl(String), G5mfgtw4v5c9(String)
-03:12:31:764 DEBUG 24880 --- [http-nio-8000-exec-10] c.q.chat.mapper.ContactMapper.selectOne  : <==      Total: 1
-03:12:31:770 DEBUG 24880 --- [http-nio-8000-exec-10] c.qyp.chat.mapper.ContactMapper.update   : ==>  Preparing: UPDATE contact SET status=?,last_update_time=? WHERE (user_id = ? AND contact_id = ?)
-03:12:31:777 ERROR 24880 --- [http-nio-8000-exec-10] c.q.c.exception.GlobalExceptionHandler   : 请求地址:/api/apply/dealWithApply错误
-03:17:40:781  INFO 74180 --- [main] com.qyp.chat.ChatApplication             : Starting ChatApplication using Java 11.0.12 on LAPTOP-C6F2EJ6P with PID 74180 (D:\Users\qyp\Documents\ideaProjects\Chat\target\classes started by qyp in D:\Users\qyp\Documents\ideaProjects\Chat)
-03:17:40:797 DEBUG 74180 --- [main] com.qyp.chat.ChatApplication             : Running with Spring Boot v2.7.12, Spring v5.3.27
-03:17:40:797  INFO 74180 --- [main] com.qyp.chat.ChatApplication             : The following 1 profile is active: "dev"
-03:17:41:257  INFO 74180 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-03:17:41:257  INFO 74180 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-03:17:41:274  INFO 74180 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12 ms. Found 0 Redis repository interfaces.
-03:17:41:590  INFO 74180 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
-03:17:41:595  INFO 74180 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-03:17:41:595  INFO 74180 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
-03:17:41:675  INFO 74180 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
-03:17:41:675  INFO 74180 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 862 ms
-03:17:42:843  INFO 74180 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-03:17:42:892  INFO 74180 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
-03:17:42:986  INFO 74180 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path '/api'
-03:17:42:986  INFO 74180 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
-03:17:42:986  INFO 74180 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-03:17:43:002  INFO 74180 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-03:17:43:070  INFO 74180 --- [main] com.qyp.chat.ChatApplication             : Started ChatApplication in 2.505 seconds (JVM running for 3.083)
-03:17:43:084  INFO 74180 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-03:17:43:229  INFO 74180 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-03:17:43:452  INFO 74180 --- [main] com.qyp.chat.InitRun                     : 服务启动成功。
-03:17:43:458  INFO 74180 --- [Thread-2] c.q.c.w.netty.NettyWebSocketStarter      : netty启动
-03:17:59:137  INFO 74180 --- [http-nio-8000-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
-03:17:59:138  INFO 74180 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-03:17:59:139  INFO 74180 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-03:17:59:219 DEBUG 74180 --- [http-nio-8000-exec-1] c.q.chat.mapper.ApplyMapper.selectById   : ==>  Preparing: SELECT apply_id,apply_user_id,receive_user_id,contact_type,contact_id,last_apply_time,status,apply_info FROM apply WHERE apply_id=?
-03:17:59:231 DEBUG 74180 --- [http-nio-8000-exec-1] c.q.chat.mapper.ApplyMapper.selectById   : ==> Parameters: 1(Integer)
-03:17:59:243 DEBUG 74180 --- [http-nio-8000-exec-1] c.q.chat.mapper.ApplyMapper.selectById   : <==      Total: 1
-03:17:59:273 DEBUG 74180 --- [http-nio-8000-exec-1] com.qyp.chat.mapper.ApplyMapper.update   : ==>  Preparing: UPDATE apply SET last_apply_time=?, status=? WHERE (apply_id = ? AND status = ?)
-03:17:59:274 DEBUG 74180 --- [http-nio-8000-exec-1] com.qyp.chat.mapper.ApplyMapper.update   : ==> Parameters: 1736709479247(Long), 3(Integer), 1(Integer), 0(Integer)
-03:17:59:275 DEBUG 74180 --- [http-nio-8000-exec-1] com.qyp.chat.mapper.ApplyMapper.update   : <==    Updates: 1
-03:17:59:278 DEBUG 74180 --- [http-nio-8000-exec-1] c.q.chat.mapper.ContactMapper.selectOne  : ==>  Preparing: SELECT user_id,contact_id,contact_type,create_time,status,last_update_time FROM contact WHERE (user_id = ? AND contact_id = ?)
-03:17:59:278 DEBUG 74180 --- [http-nio-8000-exec-1] c.q.chat.mapper.ContactMapper.selectOne  : ==> Parameters: Uga6hklbhncl(String), G5mfgtw4v5c9(String)
-03:17:59:282 DEBUG 74180 --- [http-nio-8000-exec-1] c.q.chat.mapper.ContactMapper.selectOne  : <==      Total: 1
-03:17:59:284 DEBUG 74180 --- [http-nio-8000-exec-1] c.qyp.chat.mapper.ContactMapper.update   : ==>  Preparing: UPDATE contact SET status=?,last_update_time=? WHERE (user_id = ? AND contact_id = ?)
-03:17:59:286 DEBUG 74180 --- [http-nio-8000-exec-1] c.qyp.chat.mapper.ContactMapper.update   : ==> Parameters: 5(Integer), 2025-01-13T03:17:59.205006(LocalDateTime), Uga6hklbhncl(String), G5mfgtw4v5c9(String)
-03:17:59:288 DEBUG 74180 --- [http-nio-8000-exec-1] c.qyp.chat.mapper.ContactMapper.update   : <==    Updates: 1
-03:18:35:385 DEBUG 74180 --- [http-nio-8000-exec-2] c.q.chat.mapper.ApplyMapper.selectById   : ==>  Preparing: SELECT apply_id,apply_user_id,receive_user_id,contact_type,contact_id,last_apply_time,status,apply_info FROM apply WHERE apply_id=?
-03:18:35:386 DEBUG 74180 --- [http-nio-8000-exec-2] c.q.chat.mapper.ApplyMapper.selectById   : ==> Parameters: 2(Integer)
-03:18:35:388 DEBUG 74180 --- [http-nio-8000-exec-2] c.q.chat.mapper.ApplyMapper.selectById   : <==      Total: 1
-03:18:35:394 DEBUG 74180 --- [http-nio-8000-exec-2] com.qyp.chat.mapper.ApplyMapper.update   : ==>  Preparing: UPDATE apply SET last_apply_time=?, status=? WHERE (apply_id = ? AND status = ?)
-03:18:35:394 DEBUG 74180 --- [http-nio-8000-exec-2] com.qyp.chat.mapper.ApplyMapper.update   : ==> Parameters: 1736709515389(Long), 3(Integer), 2(Integer), 0(Integer)
-03:18:35:400 DEBUG 74180 --- [http-nio-8000-exec-2] com.qyp.chat.mapper.ApplyMapper.update   : <==    Updates: 1
-03:18:35:404 DEBUG 74180 --- [http-nio-8000-exec-2] c.q.chat.mapper.ContactMapper.selectOne  : ==>  Preparing: SELECT user_id,contact_id,contact_type,create_time,status,last_update_time FROM contact WHERE (user_id = ? AND contact_id = ?)
-03:18:35:404 DEBUG 74180 --- [http-nio-8000-exec-2] c.q.chat.mapper.ContactMapper.selectOne  : ==> Parameters: Uga6hklbhncl(String), Gn2zhro8l4rx(String)
-03:18:35:406 DEBUG 74180 --- [http-nio-8000-exec-2] c.q.chat.mapper.ContactMapper.selectOne  : <==      Total: 0
-03:18:35:409 DEBUG 74180 --- [http-nio-8000-exec-2] c.qyp.chat.mapper.ContactMapper.insert   : ==>  Preparing: INSERT INTO contact ( user_id, contact_id, contact_type, create_time, status, last_update_time ) VALUES ( ?, ?, ?, ?, ?, ? )
-03:18:35:410 DEBUG 74180 --- [http-nio-8000-exec-2] c.qyp.chat.mapper.ContactMapper.insert   : ==> Parameters: Uga6hklbhncl(String), Gn2zhro8l4rx(String), 1(Integer), 2025-01-13T03:18:35.385117(LocalDateTime), 5(Integer), 2025-01-13T03:18:35.385117(LocalDateTime)
-03:18:35:412 DEBUG 74180 --- [http-nio-8000-exec-2] c.qyp.chat.mapper.ContactMapper.insert   : <==    Updates: 1
+00:41:01:620  INFO 79144 --- [main] com.qyp.chat.ChatApplication             : Starting ChatApplication using Java 11.0.12 on LAPTOP-C6F2EJ6P with PID 79144 (D:\Users\qyp\Documents\ideaProjects\Chat\target\classes started by qyp in D:\Users\qyp\Documents\ideaProjects\Chat)
+00:41:01:624 DEBUG 79144 --- [main] com.qyp.chat.ChatApplication             : Running with Spring Boot v2.7.12, Spring v5.3.27
+00:41:01:625  INFO 79144 --- [main] com.qyp.chat.ChatApplication             : The following 1 profile is active: "dev"
+00:41:02:253  INFO 79144 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+00:41:02:255  INFO 79144 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+00:41:02:286  INFO 79144 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 17 ms. Found 0 Redis repository interfaces.
+00:41:02:632  INFO 79144 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
+00:41:02:649  INFO 79144 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+00:41:02:649  INFO 79144 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
+00:41:02:746  INFO 79144 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+00:41:02:746  INFO 79144 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1087 ms
+00:41:03:962  INFO 79144 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+00:41:04:014  INFO 79144 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
+00:41:04:128  INFO 79144 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path '/api'
+00:41:04:129  INFO 79144 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
+00:41:04:130  INFO 79144 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+00:41:04:144  INFO 79144 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+00:41:04:211  INFO 79144 --- [main] com.qyp.chat.ChatApplication             : Started ChatApplication in 2.892 seconds (JVM running for 3.592)
+00:41:04:213  INFO 79144 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+00:41:04:446  INFO 79144 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+00:41:04:654  INFO 79144 --- [main] com.qyp.chat.InitRun                     : 服务启动成功。
+00:41:04:659  INFO 79144 --- [Thread-2] c.q.c.w.netty.NettyWebSocketStarter      : netty启动
+00:46:55:844  INFO 78240 --- [main] com.qyp.chat.ChatApplication             : Starting ChatApplication using Java 11.0.12 on LAPTOP-C6F2EJ6P with PID 78240 (D:\Users\qyp\Documents\ideaProjects\Chat\target\classes started by qyp in D:\Users\qyp\Documents\ideaProjects\Chat)
+00:46:55:845 DEBUG 78240 --- [main] com.qyp.chat.ChatApplication             : Running with Spring Boot v2.7.12, Spring v5.3.27
+00:46:55:845  INFO 78240 --- [main] com.qyp.chat.ChatApplication             : The following 1 profile is active: "dev"
+00:46:56:302  INFO 78240 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+00:46:56:303  INFO 78240 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+00:46:56:323  INFO 78240 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12 ms. Found 0 Redis repository interfaces.
+00:46:56:620  INFO 78240 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
+00:46:56:626  INFO 78240 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+00:46:56:626  INFO 78240 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
+00:46:56:709  INFO 78240 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+00:46:56:709  INFO 78240 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 842 ms
+00:46:57:812  INFO 78240 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+00:46:57:860  INFO 78240 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
+00:46:57:956  INFO 78240 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path '/api'
+00:46:57:957  INFO 78240 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
+00:46:57:959  INFO 78240 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+00:46:57:972  INFO 78240 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+00:46:58:042  INFO 78240 --- [main] com.qyp.chat.ChatApplication             : Started ChatApplication in 2.435 seconds (JVM running for 3.237)
+00:46:58:044  INFO 78240 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+00:46:58:202  INFO 78240 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+00:46:58:392  INFO 78240 --- [main] com.qyp.chat.InitRun                     : 服务启动成功。
+00:46:58:398  INFO 78240 --- [Thread-2] c.q.c.w.netty.NettyWebSocketStarter      : netty启动
+00:47:04:979  INFO 78240 --- [http-nio-8000-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+00:47:04:979  INFO 78240 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+00:47:04:980  INFO 78240 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+00:47:25:251 DEBUG 78240 --- [http-nio-8000-exec-5] c.q.c.m.ContactMapper.loadGroupContact   : ==>  Preparing: select c.*,g.group_name nickName from contact c,group g where c.contact_id = g.group_id and c.user_id = ? and g.group_owner_id != ? and c.status in ( ? , ? , ? ) order by c.last_update_time desc
+00:47:25:290 DEBUG 78240 --- [http-nio-8000-exec-5] c.q.c.m.ContactMapper.loadGroupContact   : ==> Parameters: Uga6hklbhncl(String), Uga6hklbhncl(String), 1(Integer), 3(Integer), 5(Integer)
+00:47:25:383 ERROR 78240 --- [http-nio-8000-exec-5] c.q.c.exception.GlobalExceptionHandler   : 请求地址:/api/contact/loadContact错误
+00:48:19:573  INFO 28432 --- [main] com.qyp.chat.ChatApplication             : Starting ChatApplication using Java 11.0.12 on LAPTOP-C6F2EJ6P with PID 28432 (D:\Users\qyp\Documents\ideaProjects\Chat\target\classes started by qyp in D:\Users\qyp\Documents\ideaProjects\Chat)
+00:48:19:574 DEBUG 28432 --- [main] com.qyp.chat.ChatApplication             : Running with Spring Boot v2.7.12, Spring v5.3.27
+00:48:19:574  INFO 28432 --- [main] com.qyp.chat.ChatApplication             : The following 1 profile is active: "dev"
+00:48:20:058  INFO 28432 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+00:48:20:060  INFO 28432 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+00:48:20:081  INFO 28432 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 0 Redis repository interfaces.
+00:48:20:390  INFO 28432 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
+00:48:20:395  INFO 28432 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+00:48:20:396  INFO 28432 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
+00:48:20:480  INFO 28432 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+00:48:20:481  INFO 28432 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 877 ms
+00:48:21:606  INFO 28432 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+00:48:21:653  INFO 28432 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
+00:48:21:754  INFO 28432 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path '/api'
+00:48:21:756  INFO 28432 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
+00:48:21:757  INFO 28432 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+00:48:21:770  INFO 28432 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+00:48:21:841  INFO 28432 --- [main] com.qyp.chat.ChatApplication             : Started ChatApplication in 2.538 seconds (JVM running for 3.334)
+00:48:21:842  INFO 28432 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+00:48:21:999  INFO 28432 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+00:48:22:197  INFO 28432 --- [main] com.qyp.chat.InitRun                     : 服务启动成功。
+00:48:22:203  INFO 28432 --- [Thread-2] c.q.c.w.netty.NettyWebSocketStarter      : netty启动
+00:48:36:197  INFO 28432 --- [http-nio-8000-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+00:48:36:197  INFO 28432 --- [http-nio-8000-exec-3] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+00:48:36:198  INFO 28432 --- [http-nio-8000-exec-3] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+00:48:36:277 DEBUG 28432 --- [http-nio-8000-exec-3] c.q.c.m.ContactMapper.loadGroupContact   : ==>  Preparing: select c.*,g.group_name nickName from contact c,`group` g where c.contact_id = g.group_id and c.user_id = ? and g.group_owner_id != ? and c.status in ( ? , ? , ? ) order by c.last_update_time desc
+00:48:36:288 DEBUG 28432 --- [http-nio-8000-exec-3] c.q.c.m.ContactMapper.loadGroupContact   : ==> Parameters: Uga6hklbhncl(String), Uga6hklbhncl(String), 1(Integer), 3(Integer), 5(Integer)
+00:48:36:306 DEBUG 28432 --- [http-nio-8000-exec-3] c.q.c.m.ContactMapper.loadGroupContact   : <==      Total: 0
+00:49:08:829 DEBUG 28432 --- [http-nio-8000-exec-2] c.q.c.m.ContactMapper.loadGroupContact   : ==>  Preparing: select c.*,g.group_name nickName from contact c,`group` g where c.contact_id = g.group_id and c.user_id = ? and g.group_owner_id != ? and c.status in ( ? , ? , ? ) order by c.last_update_time desc
+00:49:08:830 DEBUG 28432 --- [http-nio-8000-exec-2] c.q.c.m.ContactMapper.loadGroupContact   : ==> Parameters: Uvg86hwhsbhg(String), Uvg86hwhsbhg(String), 1(Integer), 3(Integer), 5(Integer)
+00:49:08:837 DEBUG 28432 --- [http-nio-8000-exec-2] c.q.c.m.ContactMapper.loadGroupContact   : <==      Total: 1
+00:49:34:470 DEBUG 28432 --- [http-nio-8000-exec-1] c.q.c.m.ContactMapper.loadUserContact    : ==>  Preparing: select c.*,u.nick_name,u.sex from contact c,user u where c.contact_id = u.user_id and c.user_id = ? and c.status in ( ? , ? , ? ) order by c.last_update_time desc
+00:49:34:471 DEBUG 28432 --- [http-nio-8000-exec-1] c.q.c.m.ContactMapper.loadUserContact    : ==> Parameters: Uvg86hwhsbhg(String), 1(Integer), 3(Integer), 5(Integer)
+00:49:34:479 DEBUG 28432 --- [http-nio-8000-exec-1] c.q.c.m.ContactMapper.loadUserContact    : <==      Total: 1
+02:05:08:595  WARN 28432 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=19m45s462ms615µs).
+02:34:30:063  INFO 77600 --- [main] com.qyp.chat.ChatApplication             : Starting ChatApplication using Java 11.0.12 on LAPTOP-C6F2EJ6P with PID 77600 (D:\Users\qyp\Documents\ideaProjects\Chat\target\classes started by qyp in D:\Users\qyp\Documents\ideaProjects\Chat)
+02:34:30:064 DEBUG 77600 --- [main] com.qyp.chat.ChatApplication             : Running with Spring Boot v2.7.12, Spring v5.3.27
+02:34:30:064  INFO 77600 --- [main] com.qyp.chat.ChatApplication             : The following 1 profile is active: "dev"
+02:34:30:553  INFO 77600 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+02:34:30:554  INFO 77600 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+02:34:30:576  INFO 77600 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14 ms. Found 0 Redis repository interfaces.
+02:34:30:913  INFO 77600 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
+02:34:30:919  INFO 77600 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+02:34:30:920  INFO 77600 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
+02:34:31:012  INFO 77600 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+02:34:31:012  INFO 77600 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 923 ms
+02:34:32:265  INFO 77600 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+02:34:32:311  INFO 77600 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
+02:34:32:417  INFO 77600 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path '/api'
+02:34:32:417  INFO 77600 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
+02:34:32:419  INFO 77600 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+02:34:32:434  INFO 77600 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+02:34:32:505  INFO 77600 --- [main] com.qyp.chat.ChatApplication             : Started ChatApplication in 2.701 seconds (JVM running for 3.455)
+02:34:32:506  INFO 77600 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+02:34:32:735  INFO 77600 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+02:34:32:948  INFO 77600 --- [main] com.qyp.chat.InitRun                     : 服务启动成功。
+02:34:32:954  INFO 77600 --- [Thread-2] c.q.c.w.netty.NettyWebSocketStarter      : netty启动
+02:34:41:633  INFO 77600 --- [http-nio-8000-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+02:34:41:633  INFO 77600 --- [http-nio-8000-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+02:34:41:634  INFO 77600 --- [http-nio-8000-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+02:35:10:599 DEBUG 77600 --- [http-nio-8000-exec-6] c.q.chat.mapper.ContactMapper.selectOne  : ==>  Preparing: SELECT user_id,contact_id,contact_type,create_time,status,last_update_time FROM contact WHERE (user_id = ? AND contact_id = ?)
+02:35:10:611 DEBUG 77600 --- [http-nio-8000-exec-6] c.q.chat.mapper.ContactMapper.selectOne  : ==> Parameters: Uga6hklbhncl(String), Uvg86hwhsbhg(String)
+02:35:10:625 DEBUG 77600 --- [http-nio-8000-exec-6] c.q.chat.mapper.ContactMapper.selectOne  : <==      Total: 1
+02:35:10:634 DEBUG 77600 --- [http-nio-8000-exec-6] c.qyp.chat.mapper.UserMapper.selectById  : ==>  Preparing: SELECT user_id,email,nick_name,join_type,sex,password,personal_signature,status,create_time,last_login_time,area_name,area_code,last_off_time FROM user WHERE user_id=?
+02:35:10:634 DEBUG 77600 --- [http-nio-8000-exec-6] c.qyp.chat.mapper.UserMapper.selectById  : ==> Parameters: Uvg86hwhsbhg(String)
+02:35:10:636 DEBUG 77600 --- [http-nio-8000-exec-6] c.qyp.chat.mapper.UserMapper.selectById  : <==      Total: 1
+02:35:39:383 DEBUG 77600 --- [http-nio-8000-exec-5] c.qyp.chat.mapper.UserMapper.selectById  : ==>  Preparing: SELECT user_id,email,nick_name,join_type,sex,password,personal_signature,status,create_time,last_login_time,area_name,area_code,last_off_time FROM user WHERE user_id=?
+02:35:39:384 DEBUG 77600 --- [http-nio-8000-exec-5] c.qyp.chat.mapper.UserMapper.selectById  : ==> Parameters: Uvg86hwhsbhg(String)
+02:35:39:385 DEBUG 77600 --- [http-nio-8000-exec-5] c.qyp.chat.mapper.UserMapper.selectById  : <==      Total: 1
+02:35:39:387 DEBUG 77600 --- [http-nio-8000-exec-5] c.q.chat.mapper.ContactMapper.selectOne  : ==>  Preparing: SELECT user_id,contact_id,contact_type,create_time,status,last_update_time FROM contact WHERE (user_id = ? AND contact_id = ?)
+02:35:39:387 DEBUG 77600 --- [http-nio-8000-exec-5] c.q.chat.mapper.ContactMapper.selectOne  : ==> Parameters: Uga6hklbhncl(String), Uvg86hwhsbhg(String)
+02:35:39:388 DEBUG 77600 --- [http-nio-8000-exec-5] c.q.chat.mapper.ContactMapper.selectOne  : <==      Total: 1
+02:36:02:311 DEBUG 77600 --- [http-nio-8000-exec-4] c.q.chat.mapper.ContactMapper.selectOne  : ==>  Preparing: SELECT user_id,contact_id,contact_type,create_time,status,last_update_time FROM contact WHERE (user_id = ? AND contact_id = ?)
+02:36:02:312 DEBUG 77600 --- [http-nio-8000-exec-4] c.q.chat.mapper.ContactMapper.selectOne  : ==> Parameters: Uga6hklbhncl(String), Uvg86hwhsbhg(String)
+02:36:02:314 DEBUG 77600 --- [http-nio-8000-exec-4] c.q.chat.mapper.ContactMapper.selectOne  : <==      Total: 1
+02:36:02:325 DEBUG 77600 --- [http-nio-8000-exec-4] c.qyp.chat.mapper.ContactMapper.update   : ==>  Preparing: UPDATE contact SET status=?, last_update_time=? WHERE (user_id = ? AND contact_id = ?)
+02:36:02:330 DEBUG 77600 --- [http-nio-8000-exec-4] c.qyp.chat.mapper.ContactMapper.update   : ==> Parameters: 2(Integer), 2025-01-14T02:36:02.305435500(LocalDateTime), Uga6hklbhncl(String), Uvg86hwhsbhg(String)
+02:36:02:338 DEBUG 77600 --- [http-nio-8000-exec-4] c.qyp.chat.mapper.ContactMapper.update   : <==    Updates: 1
+02:36:02:342 DEBUG 77600 --- [http-nio-8000-exec-4] c.qyp.chat.mapper.ContactMapper.update   : ==>  Preparing: UPDATE contact SET status=?, last_update_time=? WHERE (user_id = ? AND contact_id = ?)
+02:36:02:344 DEBUG 77600 --- [http-nio-8000-exec-4] c.qyp.chat.mapper.ContactMapper.update   : ==> Parameters: 3(Integer), 2025-01-14T02:36:02.305435500(LocalDateTime), Uvg86hwhsbhg(String), Uga6hklbhncl(String)
+02:36:02:348 DEBUG 77600 --- [http-nio-8000-exec-4] c.qyp.chat.mapper.ContactMapper.update   : <==    Updates: 1
+02:37:05:398 DEBUG 77600 --- [http-nio-8000-exec-9] c.q.chat.mapper.ContactMapper.selectOne  : ==>  Preparing: SELECT user_id,contact_id,contact_type,create_time,status,last_update_time FROM contact WHERE (user_id = ? AND contact_id = ?)
+02:37:05:399 DEBUG 77600 --- [http-nio-8000-exec-9] c.q.chat.mapper.ContactMapper.selectOne  : ==> Parameters: Uga6hklbhncl(String), Uvg86hwhsbhg(String)
+02:37:05:405 DEBUG 77600 --- [http-nio-8000-exec-9] c.q.chat.mapper.ContactMapper.selectOne  : <==      Total: 1
+02:37:05:410 ERROR 77600 --- [http-nio-8000-exec-9] c.q.c.exception.GlobalExceptionHandler   : 请求地址:/api/contact/delContactUser错误
+02:37:35:919 DEBUG 77600 --- [http-nio-8000-exec-10] c.q.chat.mapper.ContactMapper.selectOne  : ==>  Preparing: SELECT user_id,contact_id,contact_type,create_time,status,last_update_time FROM contact WHERE (user_id = ? AND contact_id = ?)
+02:37:35:919 DEBUG 77600 --- [http-nio-8000-exec-10] c.q.chat.mapper.ContactMapper.selectOne  : ==> Parameters: Uga6hklbhncl(String), Uvg86hwhsbhg(String)
+02:37:35:920 DEBUG 77600 --- [http-nio-8000-exec-10] c.q.chat.mapper.ContactMapper.selectOne  : <==      Total: 1
+02:37:35:921 DEBUG 77600 --- [http-nio-8000-exec-10] c.qyp.chat.mapper.UserMapper.selectById  : ==>  Preparing: SELECT user_id,email,nick_name,join_type,sex,password,personal_signature,status,create_time,last_login_time,area_name,area_code,last_off_time FROM user WHERE user_id=?
+02:37:35:921 DEBUG 77600 --- [http-nio-8000-exec-10] c.qyp.chat.mapper.UserMapper.selectById  : ==> Parameters: Uvg86hwhsbhg(String)
+02:37:35:922 DEBUG 77600 --- [http-nio-8000-exec-10] c.qyp.chat.mapper.UserMapper.selectById  : <==      Total: 1
+02:37:35:925 DEBUG 77600 --- [http-nio-8000-exec-10] c.qyp.chat.mapper.ApplyMapper.selectOne  : ==>  Preparing: SELECT apply_id,apply_user_id,receive_user_id,contact_type,contact_id,last_apply_time,status,apply_info FROM apply WHERE (apply_user_id = ? AND contact_id = ? AND receive_user_id = ?)
+02:37:35:925 DEBUG 77600 --- [http-nio-8000-exec-10] c.qyp.chat.mapper.ApplyMapper.selectOne  : ==> Parameters: Uga6hklbhncl(String), Uvg86hwhsbhg(String), Uvg86hwhsbhg(String)
+02:37:35:930 DEBUG 77600 --- [http-nio-8000-exec-10] c.qyp.chat.mapper.ApplyMapper.selectOne  : <==      Total: 1
+02:37:35:935 ERROR 77600 --- [http-nio-8000-exec-10] c.q.c.exception.GlobalExceptionHandler   : 请求地址:/api/apply/applyAdd错误
+02:41:48:376  INFO 76204 --- [main] com.qyp.chat.ChatApplication             : Starting ChatApplication using Java 11.0.12 on LAPTOP-C6F2EJ6P with PID 76204 (D:\Users\qyp\Documents\ideaProjects\Chat\target\classes started by qyp in D:\Users\qyp\Documents\ideaProjects\Chat)
+02:41:48:378 DEBUG 76204 --- [main] com.qyp.chat.ChatApplication             : Running with Spring Boot v2.7.12, Spring v5.3.27
+02:41:48:378  INFO 76204 --- [main] com.qyp.chat.ChatApplication             : The following 1 profile is active: "dev"
+02:41:48:850  INFO 76204 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+02:41:48:851  INFO 76204 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+02:41:48:871  INFO 76204 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 0 Redis repository interfaces.
+02:41:49:166  INFO 76204 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
+02:41:49:170  INFO 76204 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+02:41:49:171  INFO 76204 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
+02:41:49:249  INFO 76204 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+02:41:49:250  INFO 76204 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 846 ms
+02:41:50:371  INFO 76204 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+02:41:50:423  INFO 76204 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
+02:41:50:525  INFO 76204 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path '/api'
+02:41:50:526  INFO 76204 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
+02:41:50:527  INFO 76204 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+02:41:50:542  INFO 76204 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+02:41:50:612  INFO 76204 --- [main] com.qyp.chat.ChatApplication             : Started ChatApplication in 2.477 seconds (JVM running for 3.101)
+02:41:50:613  INFO 76204 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+02:41:50:767  INFO 76204 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+02:41:50:969  INFO 76204 --- [main] com.qyp.chat.InitRun                     : 服务启动成功。
+02:41:50:975  INFO 76204 --- [Thread-2] c.q.c.w.netty.NettyWebSocketStarter      : netty启动
+02:41:55:238  INFO 76204 --- [http-nio-8000-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+02:41:55:238  INFO 76204 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+02:41:55:239  INFO 76204 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+02:41:55:332 DEBUG 76204 --- [http-nio-8000-exec-1] c.q.chat.mapper.ContactMapper.selectOne  : ==>  Preparing: SELECT user_id,contact_id,contact_type,create_time,status,last_update_time FROM contact WHERE (user_id = ? AND contact_id = ?)
+02:41:55:344 DEBUG 76204 --- [http-nio-8000-exec-1] c.q.chat.mapper.ContactMapper.selectOne  : ==> Parameters: Uga6hklbhncl(String), Uvg86hwhsbhg(String)
+02:41:55:360 DEBUG 76204 --- [http-nio-8000-exec-1] c.q.chat.mapper.ContactMapper.selectOne  : <==      Total: 1
+02:41:55:362 DEBUG 76204 --- [http-nio-8000-exec-1] c.qyp.chat.mapper.UserMapper.selectById  : ==>  Preparing: SELECT user_id,email,nick_name,join_type,sex,password,personal_signature,status,create_time,last_login_time,area_name,area_code,last_off_time FROM user WHERE user_id=?
+02:41:55:363 DEBUG 76204 --- [http-nio-8000-exec-1] c.qyp.chat.mapper.UserMapper.selectById  : ==> Parameters: Uvg86hwhsbhg(String)
+02:41:55:365 DEBUG 76204 --- [http-nio-8000-exec-1] c.qyp.chat.mapper.UserMapper.selectById  : <==      Total: 1
+02:41:55:367 DEBUG 76204 --- [http-nio-8000-exec-1] c.qyp.chat.mapper.ApplyMapper.selectOne  : ==>  Preparing: SELECT apply_id,apply_user_id,receive_user_id,contact_type,contact_id,last_apply_time,status,apply_info FROM apply WHERE (apply_user_id = ? AND contact_id = ? AND receive_user_id = ?)
+02:41:55:367 DEBUG 76204 --- [http-nio-8000-exec-1] c.qyp.chat.mapper.ApplyMapper.selectOne  : ==> Parameters: Uga6hklbhncl(String), Uvg86hwhsbhg(String), Uvg86hwhsbhg(String)
+02:41:55:368 DEBUG 76204 --- [http-nio-8000-exec-1] c.qyp.chat.mapper.ApplyMapper.selectOne  : <==      Total: 1
+02:41:55:372 DEBUG 76204 --- [http-nio-8000-exec-1] com.qyp.chat.mapper.ApplyMapper.update   : ==>  Preparing: UPDATE apply SET last_apply_time=?, status=?, apply_info=? WHERE (apply_user_id = ? AND contact_id = ? AND receive_user_id = ?)
+02:41:55:373 DEBUG 76204 --- [http-nio-8000-exec-1] com.qyp.chat.mapper.ApplyMapper.update   : ==> Parameters: 1736793715298(Long), 0(Integer), 我是第一人(String), Uga6hklbhncl(String), Uvg86hwhsbhg(String), Uvg86hwhsbhg(String)
+02:41:55:375 DEBUG 76204 --- [http-nio-8000-exec-1] com.qyp.chat.mapper.ApplyMapper.update   : <==    Updates: 1
+02:42:04:663 DEBUG 76204 --- [http-nio-8000-exec-3] c.qyp.chat.mapper.ApplyMapper.loadApply  : ==>  Preparing: select a.*, case when a.contact_type = 0 then u.nick_name when a.contact_type = 1 then g.group_name end as contactName from apply a left join user u on a.apply_user_id = u.user_id left join `group` g on a.contact_id = g.group_id where a.receive_user_id = ? order by a.last_apply_time desc limit ?,?
+02:42:04:664 DEBUG 76204 --- [http-nio-8000-exec-3] c.qyp.chat.mapper.ApplyMapper.loadApply  : ==> Parameters: Uga6hklbhncl(String), 0(Integer), 15(Integer)
+02:42:04:672 DEBUG 76204 --- [http-nio-8000-exec-3] c.qyp.chat.mapper.ApplyMapper.loadApply  : <==      Total: 1
+02:42:45:113 DEBUG 76204 --- [http-nio-8000-exec-2] c.qyp.chat.mapper.ApplyMapper.loadApply  : ==>  Preparing: select a.*, case when a.contact_type = 0 then u.nick_name when a.contact_type = 1 then g.group_name end as contactName from apply a left join user u on a.apply_user_id = u.user_id left join `group` g on a.contact_id = g.group_id where a.receive_user_id = ? order by a.last_apply_time desc limit ?,?
+02:42:45:114 DEBUG 76204 --- [http-nio-8000-exec-2] c.qyp.chat.mapper.ApplyMapper.loadApply  : ==> Parameters: Uvg86hwhsbhg(String), 0(Integer), 15(Integer)
+02:42:45:116 DEBUG 76204 --- [http-nio-8000-exec-2] c.qyp.chat.mapper.ApplyMapper.loadApply  : <==      Total: 1
+02:43:07:196 ERROR 76204 --- [http-nio-8000-exec-5] c.q.c.exception.GlobalExceptionHandler   : 请求地址:/api/apply/dealWithApply错误
+02:44:04:131 DEBUG 76204 --- [http-nio-8000-exec-6] c.q.chat.mapper.ApplyMapper.selectById   : ==>  Preparing: SELECT apply_id,apply_user_id,receive_user_id,contact_type,contact_id,last_apply_time,status,apply_info FROM apply WHERE apply_id=?
+02:44:04:131 DEBUG 76204 --- [http-nio-8000-exec-6] c.q.chat.mapper.ApplyMapper.selectById   : ==> Parameters: 3(Integer)
+02:44:04:133 DEBUG 76204 --- [http-nio-8000-exec-6] c.q.chat.mapper.ApplyMapper.selectById   : <==      Total: 1
+02:44:04:136 DEBUG 76204 --- [http-nio-8000-exec-6] com.qyp.chat.mapper.ApplyMapper.update   : ==>  Preparing: UPDATE apply SET last_apply_time=?, status=? WHERE (apply_id = ? AND status = ?)
+02:44:04:137 DEBUG 76204 --- [http-nio-8000-exec-6] com.qyp.chat.mapper.ApplyMapper.update   : ==> Parameters: 1736793844133(Long), 1(Integer), 3(Integer), 0(Integer)
+02:44:04:142 DEBUG 76204 --- [http-nio-8000-exec-6] com.qyp.chat.mapper.ApplyMapper.update   : <==    Updates: 1
+02:44:04:148 DEBUG 76204 --- [http-nio-8000-exec-6] c.qyp.chat.mapper.ContactMapper.insert   : ==>  Preparing: INSERT INTO contact ( user_id, contact_id, contact_type, create_time, status, last_update_time ) VALUES ( ?, ?, ?, ?, ?, ? )
+02:44:04:151 DEBUG 76204 --- [http-nio-8000-exec-6] c.qyp.chat.mapper.ContactMapper.insert   : ==> Parameters: Uga6hklbhncl(String), Uvg86hwhsbhg(String), 0(Integer), 2025-01-14T02:44:04.143338500(LocalDateTime), 1(Integer), 2025-01-14T02:44:04.143338500(LocalDateTime)
+02:44:04:152 DEBUG 76204 --- [http-nio-8000-exec-6] c.qyp.chat.mapper.ContactMapper.insert   : ==> Parameters: Uvg86hwhsbhg(String), Uga6hklbhncl(String), 0(Integer), 2025-01-14T02:44:04.143338500(LocalDateTime), 1(Integer), 2025-01-14T02:44:04.143338500(LocalDateTime)
+02:44:04:188 ERROR 76204 --- [http-nio-8000-exec-6] c.q.c.exception.GlobalExceptionHandler   : 请求地址:/api/apply/dealWithApply错误
+02:45:46:940  INFO 66384 --- [main] com.qyp.chat.ChatApplication             : Starting ChatApplication using Java 11.0.12 on LAPTOP-C6F2EJ6P with PID 66384 (D:\Users\qyp\Documents\ideaProjects\Chat\target\classes started by qyp in D:\Users\qyp\Documents\ideaProjects\Chat)
+02:45:46:941 DEBUG 66384 --- [main] com.qyp.chat.ChatApplication             : Running with Spring Boot v2.7.12, Spring v5.3.27
+02:45:46:941  INFO 66384 --- [main] com.qyp.chat.ChatApplication             : The following 1 profile is active: "dev"
+02:45:47:519  INFO 66384 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+02:45:47:521  INFO 66384 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+02:45:47:544  INFO 66384 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14 ms. Found 0 Redis repository interfaces.
+02:45:47:852  INFO 66384 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
+02:45:47:857  INFO 66384 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+02:45:47:857  INFO 66384 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
+02:45:47:944  INFO 66384 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+02:45:47:944  INFO 66384 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 980 ms
+02:45:49:041  INFO 66384 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+02:45:49:087  INFO 66384 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
+02:45:49:192  INFO 66384 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path '/api'
+02:45:49:193  INFO 66384 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
+02:45:49:195  INFO 66384 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+02:45:49:209  INFO 66384 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+02:45:49:289  INFO 66384 --- [main] com.qyp.chat.ChatApplication             : Started ChatApplication in 2.587 seconds (JVM running for 3.226)
+02:45:49:291  INFO 66384 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+02:45:49:456  INFO 66384 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+02:45:49:658  INFO 66384 --- [main] com.qyp.chat.InitRun                     : 服务启动成功。
+02:45:49:664  INFO 66384 --- [Thread-2] c.q.c.w.netty.NettyWebSocketStarter      : netty启动
+02:45:52:610  INFO 66384 --- [http-nio-8000-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+02:45:52:610  INFO 66384 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+02:45:52:611  INFO 66384 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+02:45:52:684 DEBUG 66384 --- [http-nio-8000-exec-1] c.q.chat.mapper.ApplyMapper.selectById   : ==>  Preparing: SELECT apply_id,apply_user_id,receive_user_id,contact_type,contact_id,last_apply_time,status,apply_info FROM apply WHERE apply_id=?
+02:45:52:696 DEBUG 66384 --- [http-nio-8000-exec-1] c.q.chat.mapper.ApplyMapper.selectById   : ==> Parameters: 3(Integer)
+02:45:52:708 DEBUG 66384 --- [http-nio-8000-exec-1] c.q.chat.mapper.ApplyMapper.selectById   : <==      Total: 1
+02:45:52:737 DEBUG 66384 --- [http-nio-8000-exec-1] com.qyp.chat.mapper.ApplyMapper.update   : ==>  Preparing: UPDATE apply SET last_apply_time=?, status=? WHERE (apply_id = ? AND status = ?)
+02:45:52:738 DEBUG 66384 --- [http-nio-8000-exec-1] com.qyp.chat.mapper.ApplyMapper.update   : ==> Parameters: 1736793952711(Long), 1(Integer), 3(Integer), 0(Integer)
+02:45:52:739 DEBUG 66384 --- [http-nio-8000-exec-1] com.qyp.chat.mapper.ApplyMapper.update   : <==    Updates: 1
+02:45:52:744 DEBUG 66384 --- [http-nio-8000-exec-1] c.q.c.mapper.ContactMapper.selectById    : ==>  Preparing: SELECT user_id,contact_id,contact_type,create_time,status,last_update_time FROM contact WHERE user_id=?
+02:45:52:745 DEBUG 66384 --- [http-nio-8000-exec-1] c.q.c.mapper.ContactMapper.selectById    : ==> Parameters: Uga6hklbhncl(String)
+02:45:52:748 DEBUG 66384 --- [http-nio-8000-exec-1] c.q.c.mapper.ContactMapper.selectById    : <==      Total: 3
+02:45:52:749 DEBUG 66384 --- [http-nio-8000-exec-1] c.q.c.mapper.ContactMapper.updateById    : ==>  Preparing: UPDATE contact SET contact_id=?, contact_type=?, create_time=?, status=?, last_update_time=? WHERE user_id=?
+02:45:52:750 DEBUG 66384 --- [http-nio-8000-exec-1] c.q.c.mapper.ContactMapper.updateById    : ==> Parameters: Uvg86hwhsbhg(String), 0(Integer), 2025-01-14T02:45:52.739703800(LocalDateTime), 1(Integer), 2025-01-14T02:45:52.739703800(LocalDateTime), Uga6hklbhncl(String)
+02:45:52:782 ERROR 66384 --- [http-nio-8000-exec-1] c.q.c.exception.GlobalExceptionHandler   : 请求地址:/api/apply/dealWithApply错误
+02:48:01:297  INFO 74168 --- [main] com.qyp.chat.ChatApplication             : Starting ChatApplication using Java 11.0.12 on LAPTOP-C6F2EJ6P with PID 74168 (D:\Users\qyp\Documents\ideaProjects\Chat\target\classes started by qyp in D:\Users\qyp\Documents\ideaProjects\Chat)
+02:48:01:299 DEBUG 74168 --- [main] com.qyp.chat.ChatApplication             : Running with Spring Boot v2.7.12, Spring v5.3.27
+02:48:01:299  INFO 74168 --- [main] com.qyp.chat.ChatApplication             : The following 1 profile is active: "dev"
+02:48:01:793  INFO 74168 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+02:48:01:795  INFO 74168 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+02:48:01:820  INFO 74168 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 17 ms. Found 0 Redis repository interfaces.
+02:48:02:126  INFO 74168 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
+02:48:02:132  INFO 74168 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+02:48:02:132  INFO 74168 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
+02:48:02:219  INFO 74168 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+02:48:02:219  INFO 74168 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 891 ms
+02:48:03:398  INFO 74168 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+02:48:03:448  INFO 74168 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
+02:48:03:555  INFO 74168 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path '/api'
+02:48:03:556  INFO 74168 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
+02:48:03:558  INFO 74168 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+02:48:03:572  INFO 74168 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+02:48:03:650  INFO 74168 --- [main] com.qyp.chat.ChatApplication             : Started ChatApplication in 2.61 seconds (JVM running for 3.37)
+02:48:03:652  INFO 74168 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+02:48:03:817  INFO 74168 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+02:48:04:011  INFO 74168 --- [main] com.qyp.chat.InitRun                     : 服务启动成功。
+02:48:04:017  INFO 74168 --- [Thread-2] c.q.c.w.netty.NettyWebSocketStarter      : netty启动
+02:48:07:420  INFO 74168 --- [http-nio-8000-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+02:48:07:420  INFO 74168 --- [http-nio-8000-exec-3] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+02:48:07:421  INFO 74168 --- [http-nio-8000-exec-3] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+02:48:07:499 DEBUG 74168 --- [http-nio-8000-exec-3] c.q.chat.mapper.ApplyMapper.selectById   : ==>  Preparing: SELECT apply_id,apply_user_id,receive_user_id,contact_type,contact_id,last_apply_time,status,apply_info FROM apply WHERE apply_id=?
+02:48:07:510 DEBUG 74168 --- [http-nio-8000-exec-3] c.q.chat.mapper.ApplyMapper.selectById   : ==> Parameters: 3(Integer)
+02:48:07:522 DEBUG 74168 --- [http-nio-8000-exec-3] c.q.chat.mapper.ApplyMapper.selectById   : <==      Total: 1
+02:48:07:554 DEBUG 74168 --- [http-nio-8000-exec-3] com.qyp.chat.mapper.ApplyMapper.update   : ==>  Preparing: UPDATE apply SET last_apply_time=?, status=? WHERE (apply_id = ? AND status = ?)
+02:48:07:554 DEBUG 74168 --- [http-nio-8000-exec-3] com.qyp.chat.mapper.ApplyMapper.update   : ==> Parameters: 1736794087525(Long), 1(Integer), 3(Integer), 0(Integer)
+02:48:07:560 DEBUG 74168 --- [http-nio-8000-exec-3] com.qyp.chat.mapper.ApplyMapper.update   : <==    Updates: 1
+02:48:46:612 DEBUG 74168 --- [http-nio-8000-exec-3] c.q.c.mapper.ContactMapper.selectById    : ==>  Preparing: SELECT user_id,contact_id,contact_type,create_time,status,last_update_time FROM contact WHERE user_id=?
+02:48:46:612 DEBUG 74168 --- [http-nio-8000-exec-3] c.q.c.mapper.ContactMapper.selectById    : ==> Parameters: Uga6hklbhncl(String)
+02:48:46:614 DEBUG 74168 --- [http-nio-8000-exec-3] c.q.c.mapper.ContactMapper.selectById    : <==      Total: 3
+02:48:46:615 DEBUG 74168 --- [http-nio-8000-exec-3] c.q.c.mapper.ContactMapper.updateById    : ==>  Preparing: UPDATE contact SET contact_id=?, contact_type=?, create_time=?, status=?, last_update_time=? WHERE user_id=?
+02:48:46:617 DEBUG 74168 --- [http-nio-8000-exec-3] c.q.c.mapper.ContactMapper.updateById    : ==> Parameters: Uvg86hwhsbhg(String), 0(Integer), 2025-01-14T02:48:07.560888600(LocalDateTime), 1(Integer), 2025-01-14T02:48:07.560888600(LocalDateTime), Uga6hklbhncl(String)
+02:48:46:647 ERROR 74168 --- [http-nio-8000-exec-3] c.q.c.exception.GlobalExceptionHandler   : 请求地址:/api/apply/dealWithApply错误
+02:49:44:029  INFO 74168 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+02:49:44:037  INFO 74168 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+02:49:47:527  INFO 77484 --- [main] com.qyp.chat.ChatApplication             : Starting ChatApplication using Java 11.0.12 on LAPTOP-C6F2EJ6P with PID 77484 (D:\Users\qyp\Documents\ideaProjects\Chat\target\classes started by qyp in D:\Users\qyp\Documents\ideaProjects\Chat)
+02:49:47:529 DEBUG 77484 --- [main] com.qyp.chat.ChatApplication             : Running with Spring Boot v2.7.12, Spring v5.3.27
+02:49:47:529  INFO 77484 --- [main] com.qyp.chat.ChatApplication             : The following 1 profile is active: "dev"
+02:49:48:015  INFO 77484 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+02:49:48:017  INFO 77484 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+02:49:48:038  INFO 77484 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12 ms. Found 0 Redis repository interfaces.
+02:49:48:363  INFO 77484 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
+02:49:48:369  INFO 77484 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+02:49:48:370  INFO 77484 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
+02:49:48:462  INFO 77484 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+02:49:48:462  INFO 77484 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 906 ms
+02:49:49:628  INFO 77484 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+02:49:49:693  INFO 77484 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
+02:49:49:821  INFO 77484 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path '/api'
+02:49:49:829  INFO 77484 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
+02:49:49:831  INFO 77484 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+02:49:49:846  INFO 77484 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+02:49:49:926  INFO 77484 --- [main] com.qyp.chat.ChatApplication             : Started ChatApplication in 2.628 seconds (JVM running for 3.669)
+02:49:49:927  INFO 77484 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+02:49:50:091  INFO 77484 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+02:49:50:316  INFO 77484 --- [main] com.qyp.chat.InitRun                     : 服务启动成功。
+02:49:50:323  INFO 77484 --- [Thread-2] c.q.c.w.netty.NettyWebSocketStarter      : netty启动
+02:49:50:957  INFO 77484 --- [http-nio-8000-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+02:49:50:957  INFO 77484 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+02:49:50:958  INFO 77484 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+02:49:51:036 DEBUG 77484 --- [http-nio-8000-exec-1] c.q.chat.mapper.ApplyMapper.selectById   : ==>  Preparing: SELECT apply_id,apply_user_id,receive_user_id,contact_type,contact_id,last_apply_time,status,apply_info FROM apply WHERE apply_id=?
+02:49:51:049 DEBUG 77484 --- [http-nio-8000-exec-1] c.q.chat.mapper.ApplyMapper.selectById   : ==> Parameters: 3(Integer)
+02:49:51:065 DEBUG 77484 --- [http-nio-8000-exec-1] c.q.chat.mapper.ApplyMapper.selectById   : <==      Total: 1
+02:49:51:106 DEBUG 77484 --- [http-nio-8000-exec-1] com.qyp.chat.mapper.ApplyMapper.update   : ==>  Preparing: UPDATE apply SET last_apply_time=?, status=? WHERE (apply_id = ? AND status = ?)
+02:49:51:107 DEBUG 77484 --- [http-nio-8000-exec-1] com.qyp.chat.mapper.ApplyMapper.update   : ==> Parameters: 1736794191068(Long), 1(Integer), 3(Integer), 0(Integer)
+02:49:51:110 DEBUG 77484 --- [http-nio-8000-exec-1] com.qyp.chat.mapper.ApplyMapper.update   : <==    Updates: 1
+02:53:44:850  WARN 77484 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3m54s650ms856µs100ns).
+02:53:44:940 DEBUG 77484 --- [http-nio-8000-exec-1] c.q.c.mapper.ContactMapper.selectById    : ==>  Preparing: SELECT user_id,contact_id,contact_type,create_time,status,last_update_time FROM contact WHERE user_id=?
+02:53:44:941 DEBUG 77484 --- [http-nio-8000-exec-1] c.q.c.mapper.ContactMapper.selectById    : ==> Parameters: Uga6hklbhncl(String)
+02:53:44:951 DEBUG 77484 --- [http-nio-8000-exec-1] c.q.c.mapper.ContactMapper.selectById    : <==      Total: 3
+02:53:44:954 DEBUG 77484 --- [http-nio-8000-exec-1] c.q.c.mapper.ContactMapper.updateById    : ==>  Preparing: UPDATE contact SET contact_id=?, contact_type=?, create_time=?, status=?, last_update_time=? WHERE user_id=?
+02:53:44:960 DEBUG 77484 --- [http-nio-8000-exec-1] c.q.c.mapper.ContactMapper.updateById    : ==> Parameters: Uvg86hwhsbhg(String), 0(Integer), 2025-01-14T02:49:51.110787900(LocalDateTime), 1(Integer), 2025-01-14T02:49:51.110787900(LocalDateTime), Uga6hklbhncl(String)
+02:53:45:135 ERROR 77484 --- [http-nio-8000-exec-1] c.q.c.exception.GlobalExceptionHandler   : 请求地址:/api/apply/dealWithApply错误
+02:53:45:341  INFO 77484 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+02:53:45:354  INFO 77484 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+02:53:49:649  INFO 5336 --- [main] com.qyp.chat.ChatApplication             : Starting ChatApplication using Java 11.0.12 on LAPTOP-C6F2EJ6P with PID 5336 (D:\Users\qyp\Documents\ideaProjects\Chat\target\classes started by qyp in D:\Users\qyp\Documents\ideaProjects\Chat)
+02:53:49:651 DEBUG 5336 --- [main] com.qyp.chat.ChatApplication             : Running with Spring Boot v2.7.12, Spring v5.3.27
+02:53:49:651  INFO 5336 --- [main] com.qyp.chat.ChatApplication             : The following 1 profile is active: "dev"
+02:53:50:170  INFO 5336 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+02:53:50:172  INFO 5336 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+02:53:50:192  INFO 5336 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 0 Redis repository interfaces.
+02:53:50:513  INFO 5336 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
+02:53:50:520  INFO 5336 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+02:53:50:520  INFO 5336 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
+02:53:50:607  INFO 5336 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+02:53:50:607  INFO 5336 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 919 ms
+02:53:51:110  WARN 5336 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'accountController': Unsatisfied dependency expressed through field 'userService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userServiceImpl': Unsatisfied dependency expressed through field 'baseMapper'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userMapper' defined in file [D:\Users\qyp\Documents\ideaProjects\Chat\target\classes\com\qyp\chat\mapper\UserMapper.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [com/baomidou/mybatisplus/autoconfigure/MybatisPlusAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [D:\Users\qyp\Documents\ideaProjects\Chat\target\classes\mapper\ContactMapper.xml]'; nested exception is com.baomidou.mybatisplus.core.exceptions.MybatisPlusException: @TableId can't more than one in Class: "com.qyp.chat.domain.entity.Contact".
+02:53:51:152  INFO 5336 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+02:53:51:159  INFO 5336 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+02:53:51:178 ERROR 5336 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'accountController': Unsatisfied dependency expressed through field 'userService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userServiceImpl': Unsatisfied dependency expressed through field 'baseMapper'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userMapper' defined in file [D:\Users\qyp\Documents\ideaProjects\Chat\target\classes\com\qyp\chat\mapper\UserMapper.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [com/baomidou/mybatisplus/autoconfigure/MybatisPlusAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [D:\Users\qyp\Documents\ideaProjects\Chat\target\classes\mapper\ContactMapper.xml]'; nested exception is com.baomidou.mybatisplus.core.exceptions.MybatisPlusException: @TableId can't more than one in Class: "com.qyp.chat.domain.entity.Contact".
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:660) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1431) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:955) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:920) ~[spring-context-5.3.27.jar:5.3.27]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.27.jar:5.3.27]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.12.jar:2.7.12]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:731) ~[spring-boot-2.7.12.jar:2.7.12]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.12.jar:2.7.12]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307) ~[spring-boot-2.7.12.jar:2.7.12]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303) ~[spring-boot-2.7.12.jar:2.7.12]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292) ~[spring-boot-2.7.12.jar:2.7.12]
+	at com.qyp.chat.ChatApplication.main(ChatApplication.java:19) ~[classes/:na]
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userServiceImpl': Unsatisfied dependency expressed through field 'baseMapper'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userMapper' defined in file [D:\Users\qyp\Documents\ideaProjects\Chat\target\classes\com\qyp\chat\mapper\UserMapper.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [com/baomidou/mybatisplus/autoconfigure/MybatisPlusAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [D:\Users\qyp\Documents\ideaProjects\Chat\target\classes\mapper\ContactMapper.xml]'; nested exception is com.baomidou.mybatisplus.core.exceptions.MybatisPlusException: @TableId can't more than one in Class: "com.qyp.chat.domain.entity.Contact".
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:660) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1431) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1391) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:657) ~[spring-beans-5.3.27.jar:5.3.27]
+	... 20 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userMapper' defined in file [D:\Users\qyp\Documents\ideaProjects\Chat\target\classes\com\qyp\chat\mapper\UserMapper.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [com/baomidou/mybatisplus/autoconfigure/MybatisPlusAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [D:\Users\qyp\Documents\ideaProjects\Chat\target\classes\mapper\ContactMapper.xml]'; nested exception is com.baomidou.mybatisplus.core.exceptions.MybatisPlusException: @TableId can't more than one in Class: "com.qyp.chat.domain.entity.Contact".
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireByType(AbstractAutowireCapableBeanFactory.java:1534) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1417) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1391) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:657) ~[spring-beans-5.3.27.jar:5.3.27]
+	... 34 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [com/baomidou/mybatisplus/autoconfigure/MybatisPlusAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [D:\Users\qyp\Documents\ideaProjects\Chat\target\classes\mapper\ContactMapper.xml]'; nested exception is com.baomidou.mybatisplus.core.exceptions.MybatisPlusException: @TableId can't more than one in Class: "com.qyp.chat.domain.entity.Contact".
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:658) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:638) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1352) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1195) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1391) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireByType(AbstractAutowireCapableBeanFactory.java:1519) ~[spring-beans-5.3.27.jar:5.3.27]
+	... 45 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [D:\Users\qyp\Documents\ideaProjects\Chat\target\classes\mapper\ContactMapper.xml]'; nested exception is com.baomidou.mybatisplus.core.exceptions.MybatisPlusException: @TableId can't more than one in Class: "com.qyp.chat.domain.entity.Contact".
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:185) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653) ~[spring-beans-5.3.27.jar:5.3.27]
+	... 58 common frames omitted
+Caused by: org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [D:\Users\qyp\Documents\ideaProjects\Chat\target\classes\mapper\ContactMapper.xml]'; nested exception is com.baomidou.mybatisplus.core.exceptions.MybatisPlusException: @TableId can't more than one in Class: "com.qyp.chat.domain.entity.Contact".
+	at com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean.buildSqlSessionFactory(MybatisSqlSessionFactoryBean.java:595) ~[mybatis-plus-extension-3.4.3.jar:3.4.3]
+	at com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean.afterPropertiesSet(MybatisSqlSessionFactoryBean.java:431) ~[mybatis-plus-extension-3.4.3.jar:3.4.3]
+	at com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean.getObject(MybatisSqlSessionFactoryBean.java:628) ~[mybatis-plus-extension-3.4.3.jar:3.4.3]
+	at com.baomidou.mybatisplus.autoconfigure.MybatisPlusAutoConfiguration.sqlSessionFactory(MybatisPlusAutoConfiguration.java:219) ~[mybatis-plus-boot-starter-3.4.3.jar:3.4.3]
+	at com.baomidou.mybatisplus.autoconfigure.MybatisPlusAutoConfiguration$$EnhancerBySpringCGLIB$$9b34efb3.CGLIB$sqlSessionFactory$2(<generated>) ~[mybatis-plus-boot-starter-3.4.3.jar:3.4.3]
+	at com.baomidou.mybatisplus.autoconfigure.MybatisPlusAutoConfiguration$$EnhancerBySpringCGLIB$$9b34efb3$$FastClassBySpringCGLIB$$14b31a20.invoke(<generated>) ~[mybatis-plus-boot-starter-3.4.3.jar:3.4.3]
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:244) ~[spring-core-5.3.27.jar:5.3.27]
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:331) ~[spring-context-5.3.27.jar:5.3.27]
+	at com.baomidou.mybatisplus.autoconfigure.MybatisPlusAutoConfiguration$$EnhancerBySpringCGLIB$$9b34efb3.sqlSessionFactory(<generated>) ~[mybatis-plus-boot-starter-3.4.3.jar:3.4.3]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154) ~[spring-beans-5.3.27.jar:5.3.27]
+	... 59 common frames omitted
+Caused by: com.baomidou.mybatisplus.core.exceptions.MybatisPlusException: @TableId can't more than one in Class: "com.qyp.chat.domain.entity.Contact".
+	at com.baomidou.mybatisplus.core.toolkit.ExceptionUtils.mpe(ExceptionUtils.java:49) ~[mybatis-plus-core-3.4.3.jar:3.4.3]
+	at com.baomidou.mybatisplus.core.metadata.TableInfoHelper.initTableFields(TableInfoHelper.java:299) ~[mybatis-plus-core-3.4.3.jar:3.4.3]
+	at com.baomidou.mybatisplus.core.metadata.TableInfoHelper.initTableInfo(TableInfoHelper.java:168) ~[mybatis-plus-core-3.4.3.jar:3.4.3]
+	at com.baomidou.mybatisplus.core.metadata.TableInfoHelper.initTableInfo(TableInfoHelper.java:144) ~[mybatis-plus-core-3.4.3.jar:3.4.3]
+	at com.baomidou.mybatisplus.core.injector.AbstractSqlInjector.inspectInject(AbstractSqlInjector.java:53) ~[mybatis-plus-core-3.4.3.jar:3.4.3]
+	at com.baomidou.mybatisplus.core.MybatisMapperAnnotationBuilder.parserInjector(MybatisMapperAnnotationBuilder.java:131) ~[mybatis-plus-core-3.4.3.jar:3.4.3]
+	at com.baomidou.mybatisplus.core.MybatisMapperAnnotationBuilder.parse(MybatisMapperAnnotationBuilder.java:121) ~[mybatis-plus-core-3.4.3.jar:3.4.3]
+	at com.baomidou.mybatisplus.core.MybatisMapperRegistry.addMapper(MybatisMapperRegistry.java:83) ~[mybatis-plus-core-3.4.3.jar:3.4.3]
+	at com.baomidou.mybatisplus.core.MybatisConfiguration.addMapper(MybatisConfiguration.java:120) ~[mybatis-plus-core-3.4.3.jar:3.4.3]
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.bindMapperForNamespace(XMLMapperBuilder.java:432) ~[mybatis-3.5.9.jar:3.5.9]
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.parse(XMLMapperBuilder.java:97) ~[mybatis-3.5.9.jar:3.5.9]
+	at com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean.buildSqlSessionFactory(MybatisSqlSessionFactoryBean.java:593) ~[mybatis-plus-extension-3.4.3.jar:3.4.3]
+	... 72 common frames omitted
+
+02:54:54:765  INFO 69520 --- [main] com.qyp.chat.ChatApplication             : Starting ChatApplication using Java 11.0.12 on LAPTOP-C6F2EJ6P with PID 69520 (D:\Users\qyp\Documents\ideaProjects\Chat\target\classes started by qyp in D:\Users\qyp\Documents\ideaProjects\Chat)
+02:54:54:766 DEBUG 69520 --- [main] com.qyp.chat.ChatApplication             : Running with Spring Boot v2.7.12, Spring v5.3.27
+02:54:54:767  INFO 69520 --- [main] com.qyp.chat.ChatApplication             : The following 1 profile is active: "dev"
+02:54:55:226  INFO 69520 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+02:54:55:227  INFO 69520 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+02:54:55:246  INFO 69520 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12 ms. Found 0 Redis repository interfaces.
+02:54:55:543  INFO 69520 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
+02:54:55:548  INFO 69520 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+02:54:55:549  INFO 69520 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
+02:54:55:640  INFO 69520 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+02:54:55:640  INFO 69520 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 844 ms
+02:54:56:125  WARN 69520 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'accountController': Unsatisfied dependency expressed through field 'userService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userServiceImpl': Unsatisfied dependency expressed through field 'baseMapper'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userMapper' defined in file [D:\Users\qyp\Documents\ideaProjects\Chat\target\classes\com\qyp\chat\mapper\UserMapper.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [com/baomidou/mybatisplus/autoconfigure/MybatisPlusAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [D:\Users\qyp\Documents\ideaProjects\Chat\target\classes\mapper\ContactMapper.xml]'; nested exception is com.baomidou.mybatisplus.core.exceptions.MybatisPlusException: @TableId can't more than one in Class: "com.qyp.chat.domain.entity.Contact".
+02:54:56:138  INFO 69520 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+02:54:56:144  INFO 69520 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+02:54:56:157 ERROR 69520 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'accountController': Unsatisfied dependency expressed through field 'userService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userServiceImpl': Unsatisfied dependency expressed through field 'baseMapper'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userMapper' defined in file [D:\Users\qyp\Documents\ideaProjects\Chat\target\classes\com\qyp\chat\mapper\UserMapper.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [com/baomidou/mybatisplus/autoconfigure/MybatisPlusAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [D:\Users\qyp\Documents\ideaProjects\Chat\target\classes\mapper\ContactMapper.xml]'; nested exception is com.baomidou.mybatisplus.core.exceptions.MybatisPlusException: @TableId can't more than one in Class: "com.qyp.chat.domain.entity.Contact".
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:660) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1431) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:955) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:920) ~[spring-context-5.3.27.jar:5.3.27]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.27.jar:5.3.27]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.12.jar:2.7.12]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:731) ~[spring-boot-2.7.12.jar:2.7.12]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.12.jar:2.7.12]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307) ~[spring-boot-2.7.12.jar:2.7.12]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303) ~[spring-boot-2.7.12.jar:2.7.12]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292) ~[spring-boot-2.7.12.jar:2.7.12]
+	at com.qyp.chat.ChatApplication.main(ChatApplication.java:19) ~[classes/:na]
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userServiceImpl': Unsatisfied dependency expressed through field 'baseMapper'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userMapper' defined in file [D:\Users\qyp\Documents\ideaProjects\Chat\target\classes\com\qyp\chat\mapper\UserMapper.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [com/baomidou/mybatisplus/autoconfigure/MybatisPlusAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [D:\Users\qyp\Documents\ideaProjects\Chat\target\classes\mapper\ContactMapper.xml]'; nested exception is com.baomidou.mybatisplus.core.exceptions.MybatisPlusException: @TableId can't more than one in Class: "com.qyp.chat.domain.entity.Contact".
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:660) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1431) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1391) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:657) ~[spring-beans-5.3.27.jar:5.3.27]
+	... 20 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userMapper' defined in file [D:\Users\qyp\Documents\ideaProjects\Chat\target\classes\com\qyp\chat\mapper\UserMapper.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [com/baomidou/mybatisplus/autoconfigure/MybatisPlusAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [D:\Users\qyp\Documents\ideaProjects\Chat\target\classes\mapper\ContactMapper.xml]'; nested exception is com.baomidou.mybatisplus.core.exceptions.MybatisPlusException: @TableId can't more than one in Class: "com.qyp.chat.domain.entity.Contact".
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireByType(AbstractAutowireCapableBeanFactory.java:1534) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1417) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1391) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:657) ~[spring-beans-5.3.27.jar:5.3.27]
+	... 34 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [com/baomidou/mybatisplus/autoconfigure/MybatisPlusAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [D:\Users\qyp\Documents\ideaProjects\Chat\target\classes\mapper\ContactMapper.xml]'; nested exception is com.baomidou.mybatisplus.core.exceptions.MybatisPlusException: @TableId can't more than one in Class: "com.qyp.chat.domain.entity.Contact".
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:658) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:638) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1352) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1195) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1391) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireByType(AbstractAutowireCapableBeanFactory.java:1519) ~[spring-beans-5.3.27.jar:5.3.27]
+	... 45 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [D:\Users\qyp\Documents\ideaProjects\Chat\target\classes\mapper\ContactMapper.xml]'; nested exception is com.baomidou.mybatisplus.core.exceptions.MybatisPlusException: @TableId can't more than one in Class: "com.qyp.chat.domain.entity.Contact".
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:185) ~[spring-beans-5.3.27.jar:5.3.27]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653) ~[spring-beans-5.3.27.jar:5.3.27]
+	... 58 common frames omitted
+Caused by: org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [D:\Users\qyp\Documents\ideaProjects\Chat\target\classes\mapper\ContactMapper.xml]'; nested exception is com.baomidou.mybatisplus.core.exceptions.MybatisPlusException: @TableId can't more than one in Class: "com.qyp.chat.domain.entity.Contact".
+	at com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean.buildSqlSessionFactory(MybatisSqlSessionFactoryBean.java:595) ~[mybatis-plus-extension-3.4.3.jar:3.4.3]
+	at com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean.afterPropertiesSet(MybatisSqlSessionFactoryBean.java:431) ~[mybatis-plus-extension-3.4.3.jar:3.4.3]
+	at com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean.getObject(MybatisSqlSessionFactoryBean.java:628) ~[mybatis-plus-extension-3.4.3.jar:3.4.3]
+	at com.baomidou.mybatisplus.autoconfigure.MybatisPlusAutoConfiguration.sqlSessionFactory(MybatisPlusAutoConfiguration.java:219) ~[mybatis-plus-boot-starter-3.4.3.jar:3.4.3]
+	at com.baomidou.mybatisplus.autoconfigure.MybatisPlusAutoConfiguration$$EnhancerBySpringCGLIB$$418a15ca.CGLIB$sqlSessionFactory$1(<generated>) ~[mybatis-plus-boot-starter-3.4.3.jar:3.4.3]
+	at com.baomidou.mybatisplus.autoconfigure.MybatisPlusAutoConfiguration$$EnhancerBySpringCGLIB$$418a15ca$$FastClassBySpringCGLIB$$f825e42c.invoke(<generated>) ~[mybatis-plus-boot-starter-3.4.3.jar:3.4.3]
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:244) ~[spring-core-5.3.27.jar:5.3.27]
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:331) ~[spring-context-5.3.27.jar:5.3.27]
+	at com.baomidou.mybatisplus.autoconfigure.MybatisPlusAutoConfiguration$$EnhancerBySpringCGLIB$$418a15ca.sqlSessionFactory(<generated>) ~[mybatis-plus-boot-starter-3.4.3.jar:3.4.3]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154) ~[spring-beans-5.3.27.jar:5.3.27]
+	... 59 common frames omitted
+Caused by: com.baomidou.mybatisplus.core.exceptions.MybatisPlusException: @TableId can't more than one in Class: "com.qyp.chat.domain.entity.Contact".
+	at com.baomidou.mybatisplus.core.toolkit.ExceptionUtils.mpe(ExceptionUtils.java:49) ~[mybatis-plus-core-3.4.3.jar:3.4.3]
+	at com.baomidou.mybatisplus.core.metadata.TableInfoHelper.initTableFields(TableInfoHelper.java:299) ~[mybatis-plus-core-3.4.3.jar:3.4.3]
+	at com.baomidou.mybatisplus.core.metadata.TableInfoHelper.initTableInfo(TableInfoHelper.java:168) ~[mybatis-plus-core-3.4.3.jar:3.4.3]
+	at com.baomidou.mybatisplus.core.metadata.TableInfoHelper.initTableInfo(TableInfoHelper.java:144) ~[mybatis-plus-core-3.4.3.jar:3.4.3]
+	at com.baomidou.mybatisplus.core.injector.AbstractSqlInjector.inspectInject(AbstractSqlInjector.java:53) ~[mybatis-plus-core-3.4.3.jar:3.4.3]
+	at com.baomidou.mybatisplus.core.MybatisMapperAnnotationBuilder.parserInjector(MybatisMapperAnnotationBuilder.java:131) ~[mybatis-plus-core-3.4.3.jar:3.4.3]
+	at com.baomidou.mybatisplus.core.MybatisMapperAnnotationBuilder.parse(MybatisMapperAnnotationBuilder.java:121) ~[mybatis-plus-core-3.4.3.jar:3.4.3]
+	at com.baomidou.mybatisplus.core.MybatisMapperRegistry.addMapper(MybatisMapperRegistry.java:83) ~[mybatis-plus-core-3.4.3.jar:3.4.3]
+	at com.baomidou.mybatisplus.core.MybatisConfiguration.addMapper(MybatisConfiguration.java:120) ~[mybatis-plus-core-3.4.3.jar:3.4.3]
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.bindMapperForNamespace(XMLMapperBuilder.java:432) ~[mybatis-3.5.9.jar:3.5.9]
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.parse(XMLMapperBuilder.java:97) ~[mybatis-3.5.9.jar:3.5.9]
+	at com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean.buildSqlSessionFactory(MybatisSqlSessionFactoryBean.java:593) ~[mybatis-plus-extension-3.4.3.jar:3.4.3]
+	... 72 common frames omitted
+
+02:55:48:221  INFO 71972 --- [main] com.qyp.chat.ChatApplication             : Starting ChatApplication using Java 11.0.12 on LAPTOP-C6F2EJ6P with PID 71972 (D:\Users\qyp\Documents\ideaProjects\Chat\target\classes started by qyp in D:\Users\qyp\Documents\ideaProjects\Chat)
+02:55:48:222 DEBUG 71972 --- [main] com.qyp.chat.ChatApplication             : Running with Spring Boot v2.7.12, Spring v5.3.27
+02:55:48:222  INFO 71972 --- [main] com.qyp.chat.ChatApplication             : The following 1 profile is active: "dev"
+02:55:48:676  INFO 71972 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+02:55:48:677  INFO 71972 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+02:55:48:698  INFO 71972 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 0 Redis repository interfaces.
+02:55:48:999  INFO 71972 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
+02:55:49:004  INFO 71972 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+02:55:49:004  INFO 71972 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
+02:55:49:088  INFO 71972 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+02:55:49:088  INFO 71972 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 842 ms
+02:55:50:208  INFO 71972 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+02:55:50:258  INFO 71972 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
+02:55:50:358  INFO 71972 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path '/api'
+02:55:50:359  INFO 71972 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
+02:55:50:360  INFO 71972 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+02:55:50:376  INFO 71972 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+02:55:50:449  INFO 71972 --- [main] com.qyp.chat.ChatApplication             : Started ChatApplication in 2.458 seconds (JVM running for 3.083)
+02:55:50:450  INFO 71972 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+02:55:50:605  INFO 71972 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+02:55:50:794  INFO 71972 --- [main] com.qyp.chat.InitRun                     : 服务启动成功。
+02:55:50:800  INFO 71972 --- [Thread-2] c.q.c.w.netty.NettyWebSocketStarter      : netty启动
+02:55:57:297  INFO 71972 --- [http-nio-8000-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+02:55:57:297  INFO 71972 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+02:55:57:299  INFO 71972 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+02:55:57:369 DEBUG 71972 --- [http-nio-8000-exec-1] c.q.chat.mapper.ApplyMapper.selectById   : ==>  Preparing: SELECT apply_id,apply_user_id,receive_user_id,contact_type,contact_id,last_apply_time,status,apply_info FROM apply WHERE apply_id=?
+02:55:57:379 DEBUG 71972 --- [http-nio-8000-exec-1] c.q.chat.mapper.ApplyMapper.selectById   : ==> Parameters: 3(Integer)
+02:55:57:390 DEBUG 71972 --- [http-nio-8000-exec-1] c.q.chat.mapper.ApplyMapper.selectById   : <==      Total: 1
+02:55:57:415 DEBUG 71972 --- [http-nio-8000-exec-1] com.qyp.chat.mapper.ApplyMapper.update   : ==>  Preparing: UPDATE apply SET last_apply_time=?, status=? WHERE (apply_id = ? AND status = ?)
+02:55:57:415 DEBUG 71972 --- [http-nio-8000-exec-1] com.qyp.chat.mapper.ApplyMapper.update   : ==> Parameters: 1736794557393(Long), 1(Integer), 3(Integer), 0(Integer)
+02:55:57:417 DEBUG 71972 --- [http-nio-8000-exec-1] com.qyp.chat.mapper.ApplyMapper.update   : <==    Updates: 1
+02:55:57:421 DEBUG 71972 --- [http-nio-8000-exec-1] c.q.c.mapper.ContactMapper.selectById    : ==>  Preparing: SELECT user_id,contact_id,contact_type,create_time,status,last_update_time FROM contact WHERE user_id=?
+02:55:57:421 DEBUG 71972 --- [http-nio-8000-exec-1] c.q.c.mapper.ContactMapper.selectById    : ==> Parameters: Uga6hklbhncl(String)
+02:55:57:423 DEBUG 71972 --- [http-nio-8000-exec-1] c.q.c.mapper.ContactMapper.selectById    : <==      Total: 3
+02:55:57:424 DEBUG 71972 --- [http-nio-8000-exec-1] c.q.c.mapper.ContactMapper.updateById    : ==>  Preparing: UPDATE contact SET contact_id=?, contact_type=?, create_time=?, status=?, last_update_time=? WHERE user_id=?
+02:55:57:425 DEBUG 71972 --- [http-nio-8000-exec-1] c.q.c.mapper.ContactMapper.updateById    : ==> Parameters: Uvg86hwhsbhg(String), 0(Integer), 2025-01-14T02:55:57.417962100(LocalDateTime), 1(Integer), 2025-01-14T02:55:57.417962100(LocalDateTime), Uga6hklbhncl(String)
+02:55:57:459 ERROR 71972 --- [http-nio-8000-exec-1] c.q.c.exception.GlobalExceptionHandler   : 请求地址:/api/apply/dealWithApply错误
+03:02:14:622  INFO 70940 --- [main] com.qyp.chat.ChatApplication             : Starting ChatApplication using Java 11.0.12 on LAPTOP-C6F2EJ6P with PID 70940 (D:\Users\qyp\Documents\ideaProjects\Chat\target\classes started by qyp in D:\Users\qyp\Documents\ideaProjects\Chat)
+03:02:14:623 DEBUG 70940 --- [main] com.qyp.chat.ChatApplication             : Running with Spring Boot v2.7.12, Spring v5.3.27
+03:02:14:624  INFO 70940 --- [main] com.qyp.chat.ChatApplication             : The following 1 profile is active: "dev"
+03:02:15:090  INFO 70940 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+03:02:15:091  INFO 70940 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+03:02:15:112  INFO 70940 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 0 Redis repository interfaces.
+03:02:15:444  INFO 70940 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
+03:02:15:450  INFO 70940 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+03:02:15:450  INFO 70940 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
+03:02:15:531  INFO 70940 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+03:02:15:531  INFO 70940 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 884 ms
+03:02:16:669  INFO 70940 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+03:02:16:715  INFO 70940 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
+03:02:16:812  INFO 70940 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path '/api'
+03:02:16:813  INFO 70940 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
+03:02:16:814  INFO 70940 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+03:02:16:829  INFO 70940 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+03:02:16:901  INFO 70940 --- [main] com.qyp.chat.ChatApplication             : Started ChatApplication in 2.502 seconds (JVM running for 3.302)
+03:02:16:902  INFO 70940 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+03:02:17:045  INFO 70940 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+03:02:17:242  INFO 70940 --- [main] com.qyp.chat.InitRun                     : 服务启动成功。
+03:02:17:268  INFO 70940 --- [Thread-2] c.q.c.w.netty.NettyWebSocketStarter      : netty启动
+03:02:20:192  INFO 70940 --- [http-nio-8000-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+03:02:20:192  INFO 70940 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+03:02:20:193  INFO 70940 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+03:02:20:268 DEBUG 70940 --- [http-nio-8000-exec-1] c.q.chat.mapper.ApplyMapper.selectById   : ==>  Preparing: SELECT apply_id,apply_user_id,receive_user_id,contact_type,contact_id,last_apply_time,status,apply_info FROM apply WHERE apply_id=?
+03:02:20:281 DEBUG 70940 --- [http-nio-8000-exec-1] c.q.chat.mapper.ApplyMapper.selectById   : ==> Parameters: 3(Integer)
+03:02:20:293 DEBUG 70940 --- [http-nio-8000-exec-1] c.q.chat.mapper.ApplyMapper.selectById   : <==      Total: 1
+03:02:20:323 DEBUG 70940 --- [http-nio-8000-exec-1] com.qyp.chat.mapper.ApplyMapper.update   : ==>  Preparing: UPDATE apply SET last_apply_time=?, status=? WHERE (apply_id = ? AND status = ?)
+03:02:20:324 DEBUG 70940 --- [http-nio-8000-exec-1] com.qyp.chat.mapper.ApplyMapper.update   : ==> Parameters: 1736794940297(Long), 1(Integer), 3(Integer), 0(Integer)
+03:02:20:325 DEBUG 70940 --- [http-nio-8000-exec-1] com.qyp.chat.mapper.ApplyMapper.update   : <==    Updates: 1
+03:02:20:330 DEBUG 70940 --- [http-nio-8000-exec-1] c.qyp.chat.mapper.ContactMapper.update   : ==>  Preparing: UPDATE contact SET contact_id=?, contact_type=?, create_time=?, status=?, last_update_time=? WHERE (user_id = ? AND contact_id = ?)
+03:02:20:331 DEBUG 70940 --- [http-nio-8000-exec-1] c.qyp.chat.mapper.ContactMapper.update   : ==> Parameters: Uvg86hwhsbhg(String), 0(Integer), 2025-01-14T03:02:20.325762900(LocalDateTime), 1(Integer), 2025-01-14T03:02:20.325762900(LocalDateTime), Uga6hklbhncl(String), Uvg86hwhsbhg(String)
+03:02:20:332 DEBUG 70940 --- [http-nio-8000-exec-1] c.qyp.chat.mapper.ContactMapper.update   : <==    Updates: 1
+03:02:20:333 DEBUG 70940 --- [http-nio-8000-exec-1] c.qyp.chat.mapper.ContactMapper.update   : ==>  Preparing: UPDATE contact SET contact_id=?, contact_type=?, create_time=?, status=?, last_update_time=? WHERE (user_id = ? AND contact_id = ?)
+03:02:20:334 DEBUG 70940 --- [http-nio-8000-exec-1] c.qyp.chat.mapper.ContactMapper.update   : ==> Parameters: Uga6hklbhncl(String), 0(Integer), 2025-01-14T03:02:20.325762900(LocalDateTime), 1(Integer), 2025-01-14T03:02:20.325762900(LocalDateTime), Uvg86hwhsbhg(String), Uga6hklbhncl(String)
+03:02:20:335 DEBUG 70940 --- [http-nio-8000-exec-1] c.qyp.chat.mapper.ContactMapper.update   : <==    Updates: 1

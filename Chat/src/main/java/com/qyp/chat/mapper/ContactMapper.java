@@ -16,4 +16,9 @@ import java.util.List;
 public interface ContactMapper extends BaseMapper<Contact> {
 
     List<Contact> selectGroupMember(String groupId);
+
+
+    List<Contact> loadUserContact(String userId, Integer[] array);
+
+    List<Contact> loadGroupContact(String userId, Integer[] array);
 }

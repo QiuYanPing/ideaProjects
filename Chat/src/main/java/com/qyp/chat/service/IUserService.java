@@ -3,6 +3,7 @@ package com.qyp.chat.service;
 import com.qyp.chat.domain.R;
 import com.qyp.chat.domain.entity.User;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.qyp.chat.domain.enums.ContactStatusEnum;
 import com.qyp.chat.domain.query.UserRegisterQuery;
 import com.qyp.chat.exception.BusinessException;
 
@@ -19,4 +20,7 @@ public interface IUserService extends IService<User> {
     void register(UserRegisterQuery user) ;
 
     R login(UserRegisterQuery user) ;
+
+
+    void removeContact(String contactId, ContactStatusEnum del);
 }

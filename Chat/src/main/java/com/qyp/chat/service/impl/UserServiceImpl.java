@@ -3,9 +3,14 @@ package com.qyp.chat.service.impl;
 import cn.hutool.core.util.ArrayUtil;
 import cn.hutool.core.util.RandomUtil;
 import cn.hutool.crypto.digest.DigestUtil;
+import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.Update;
+import com.baomidou.mybatisplus.extension.conditions.query.LambdaQueryChainWrapper;
 import com.qyp.chat.config.AppConfig;
 import com.qyp.chat.constant.RedisConstant;
 import com.qyp.chat.domain.dto.UserInfoDTO;
+import com.qyp.chat.domain.entity.Contact;
+import com.qyp.chat.domain.enums.ContactStatusEnum;
 import com.qyp.chat.domain.enums.ContactTypeEnum;
 import com.qyp.chat.domain.R;
 import com.qyp.chat.domain.entity.User;
@@ -13,13 +18,18 @@ import com.qyp.chat.domain.enums.JoinTypeEnum;
 import com.qyp.chat.domain.enums.UserStatusEnum;
 import com.qyp.chat.domain.query.UserRegisterQuery;
 import com.qyp.chat.exception.BusinessException;
+import com.qyp.chat.exception.enums.ExceptionEnum;
+import com.qyp.chat.mapper.ContactMapper;
 import com.qyp.chat.mapper.UserMapper;
+import com.qyp.chat.service.IContactService;
 import com.qyp.chat.service.IUserService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.qyp.chat.util.RedisUtils;
+import com.qyp.chat.util.UserUtils;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
@@ -40,6 +50,12 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     RedisUtils redisUtils;
     @Autowired
     AppConfig appConfig;
+
+    @Autowired
+    ContactMapper contactMapper;
+
+    @Autowired
+    UserUtils userUtils;
 
     @Override
     public void register(UserRegisterQuery user){
@@ -98,6 +114,42 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         }
         redisUtils.setUserInfoDTO(token,userInfoDTO);
         return R.success(userInfoDTO);
+    }
+
+    @Override
+    @Transactional
+    public void removeContact(String contactId,ContactStatusEnum statusEnum) {
+        UserInfoDTO userInfoDTO = userUtils.get();
+        String userId = userInfoDTO.getUserId();
+        LocalDateTime time = LocalDateTime.now();
+
+        LambdaQueryChainWrapper<Contact> queryChainWrapper = new LambdaQueryChainWrapper<>(contactMapper);
+        Contact contact = queryChainWrapper.eq(Contact::getUserId, userId)
+                .eq(Contact::getContactId, contactId).one();
+        if(contact == null || !ContactStatusEnum.FRIEND.getStatus().equals(contact.getStatus())){
+            throw new BusinessException(ExceptionEnum.OTHERS);
+        }
+
+        //修改contactStatus
+        Contact updateContact = new Contact();
+        updateContact.setStatus(statusEnum.getStatus());
+        updateContact.setLastUpdateTime(time);
+        LambdaUpdateWrapper<Contact> updateWrapper = new LambdaUpdateWrapper<>();
+        updateWrapper.eq(Contact::getUserId,userId)
+                .eq(Contact::getContactId,contactId);
+        contactMapper.update(updateContact,updateWrapper);
+
+        updateContact = new Contact();
+        updateContact.setStatus(ContactStatusEnum.DEL == statusEnum ?
+                ContactStatusEnum.DEL_BE.getStatus() : ContactStatusEnum.BLACKlIST_BE.getStatus());
+        updateContact.setLastUpdateTime(time);
+        updateWrapper = new LambdaUpdateWrapper<>();
+        updateWrapper.eq(Contact::getUserId,contactId)
+                .eq(Contact::getContactId,userId);
+        contactMapper.update(updateContact,updateWrapper);
+        //todo 从我的好友列表中删除缓冲
+        //todo 从好友的列表中删除我
+
     }
 
     private String createUserId() {
