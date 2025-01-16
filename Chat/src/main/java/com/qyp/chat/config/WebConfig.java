@@ -18,6 +18,6 @@ public class WebConfig implements WebMvcConfigurer {
                 .excludePathPatterns("/account/**")
                 .excludePathPatterns("/favicon.ico")
                 .excludePathPatterns("/doc.html","/swagger-resources/**","/webjars/**","/v2/**","/swagger-ui.html/**").order(1);
-        registry.addInterceptor(adminInterception).addPathPatterns("/admin/**").order(2);
+        registry.addInterceptor(adminInterception).addPathPatterns("/admin/**").addPathPatterns("/app-update/**").order(2);
     }
 }

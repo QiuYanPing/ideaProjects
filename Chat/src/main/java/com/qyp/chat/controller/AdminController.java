@@ -105,7 +105,7 @@ public class AdminController {
             avatarFile.transferTo(new File(filePath));
             avatarCover.transferTo(new File(coverPath));
         }
-        
+
         redisUtils.setSysSetting(sysSettingDTO);
         return R.success(null);
     }
