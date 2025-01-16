@@ -15,12 +15,17 @@ import com.qyp.chat.exception.enums.ExceptionEnum;
 import com.qyp.chat.mapper.ContactMapper;
 import com.qyp.chat.service.IUserService;
 import com.qyp.chat.util.UserUtils;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
 
 /**
  * <p>
@@ -88,6 +93,47 @@ public class UserController {
         return R.success(userVO);
 
     }
+
+
+    @PostMapping("/getMyself")
+    public R getMyself(){
+        UserInfoDTO userInfoDTO = userUtils.get();
+        String userId = userInfoDTO.getUserId();
+        User me = userService.getById(userId);
+        UserVO userVO = BeanUtil.toBean(me, UserVO.class);
+        userVO.setAdmin(userInfoDTO.getAdmin());
+        return R.success(userVO);
+    }
+
+    @PostMapping("/saveMyself")
+    public R saveMyself(@RequestPart User user, @RequestPart MultipartFile avatarFile ,@RequestPart MultipartFile avatarCover) throws IOException {
+        UserInfoDTO userInfoDTO = userUtils.get();
+        //一些禁止修改的字段可以置空
+        user.setUserId(userInfoDTO.getUserId());
+        user.setPassword(null);
+        user.setCreateTime(null);
+        userService.saveMyself(user,avatarFile,avatarCover);
+        return R.success(user);
+    }
+
+
+    @PostMapping("/updatePassword")
+    public R udpatePassword(String password){
+        String userId = userUtils.get().getUserId();
+        User user = new User();
+        user.setUserId(userId);
+        user.setPassword(DigestUtils.md5Hex(password));
+        userService.updateById(user);
+        //todo 强制退出，关闭ws连接
+        return R.success(null);
+    }
+
+    @PostMapping("/logout")
+    public R logout(){
+        //todo 强制退出，关闭ws连接
+        return R.success(null);
+    }
+
 
 
 

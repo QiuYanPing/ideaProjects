@@ -5,6 +5,7 @@ import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.support.SFunction;
 import com.baomidou.mybatisplus.extension.conditions.query.LambdaQueryChainWrapper;
+import com.baomidou.mybatisplus.extension.conditions.update.LambdaUpdateChainWrapper;
 import com.qyp.chat.config.AppConfig;
 import com.qyp.chat.constant.SysConstant;
 import com.qyp.chat.domain.dto.SysSettingDTO;
@@ -16,6 +17,7 @@ import com.qyp.chat.domain.enums.ContactTypeEnum;
 import com.qyp.chat.domain.enums.GroupStatusEnum;
 import com.qyp.chat.domain.vo.GroupVO;
 import com.qyp.chat.exception.BusinessException;
+import com.qyp.chat.exception.enums.ExceptionEnum;
 import com.qyp.chat.mapper.ContactMapper;
 import com.qyp.chat.mapper.GroupMapper;
 import com.qyp.chat.service.IGroupService;
@@ -47,6 +49,8 @@ public class GroupServiceImpl extends ServiceImpl<GroupMapper, Group> implements
     ContactMapper contactMapper;
     @Autowired
     AppConfig appConfig;
+    @Autowired
+    GroupMapper groupMapper;
     @Override
     @Transactional
     public void saveGroup(Group group, MultipartFile avatarFile, MultipartFile avatarCover) throws IOException {
@@ -132,6 +136,32 @@ public class GroupServiceImpl extends ServiceImpl<GroupMapper, Group> implements
         groupVO.setGroup(group);
         groupVO.setContactList(contactList);
         return groupVO;
+    }
+
+    @Override
+    public List<Group> loadGroup() {
+
+        return groupMapper.loadGroup();
+    }
+
+    @Override
+    @Transactional
+    public void dissolutionGroup(String groupOwnerId, String groupId) {
+        //判断是否有权限解散群聊
+        Group group = getById(groupId);
+        if(group == null || !groupOwnerId.equals(group.getGroupOwnerId()))
+            throw new BusinessException(ExceptionEnum.OTHERS);
+
+        lambdaUpdate().set(Group::getStatus,GroupStatusEnum.DISSOLUTION.getStatus())
+                .eq(Group::getGroupId,groupId).update();
+
+        //更新联系人信息
+        LambdaUpdateChainWrapper<Contact> contactLambdaUpdateChainWrapper = new LambdaUpdateChainWrapper<>(contactMapper);
+        contactLambdaUpdateChainWrapper.set(Contact::getStatus,ContactStatusEnum.DEL_BE.getStatus())
+                .eq(Contact::getContactId,groupId).update();
+
+        //todo 移除相关成员的联系人信息
+        //todo 1.更新会话信息 2.记录群信息 3.发生解散消息
     }
 
     private Group getGroup(String userId, String groupId) {

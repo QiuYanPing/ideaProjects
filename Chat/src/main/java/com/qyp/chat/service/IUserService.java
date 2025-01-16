@@ -6,6 +6,9 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.qyp.chat.domain.enums.ContactStatusEnum;
 import com.qyp.chat.domain.query.UserRegisterQuery;
 import com.qyp.chat.exception.BusinessException;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
 
 /**
  * <p>
@@ -23,4 +26,10 @@ public interface IUserService extends IService<User> {
 
 
     void removeContact(String contactId, ContactStatusEnum del);
+
+    void saveMyself(User user, MultipartFile avatarFile, MultipartFile avatarCover) throws IOException;
+
+    void updateUserStatus(String status, String userId);
+
+    void forceOffLine(String userId);
 }

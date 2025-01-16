@@ -3,6 +3,7 @@ package com.qyp.chat.exception;
 import com.qyp.chat.domain.R;
 import com.qyp.chat.exception.enums.ExceptionEnum;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -23,6 +24,9 @@ public class GlobalExceptionHandler {
             ExceptionEnum exception = error.getException();
             r.setCode(exception.getCode());
             r.setMsg(exception.getMsg());
+        }else if(e instanceof DuplicateKeyException){
+            r.setCode(ExceptionEnum.DUPLICATE.getCode());
+            r.setMsg(ExceptionEnum.DUPLICATE.getMsg());
         }
         return r;
     }

@@ -21,4 +21,9 @@ public enum UserStatusEnum {
     public String getDesc() {
         return desc;
     }
+
+    public static UserStatusEnum getByStatus(String name){
+        UserStatusEnum userStatusEnum = UserStatusEnum.valueOf(name.toUpperCase());
+        return userStatusEnum;
+    }
 }

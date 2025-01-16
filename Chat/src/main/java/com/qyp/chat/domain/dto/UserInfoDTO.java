@@ -12,7 +12,7 @@ public class UserInfoDTO {
     private String userId;
     private String email;
     private String nickName;
-    private boolean admin;
+    private Boolean admin;
 
     private String token;
 }

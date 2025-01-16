@@ -55,6 +55,6 @@ knife4j:
 project:
   folder: d:/web/chat/
 admin:
-  emails: 123@qq.com
+  emails: 2740123221@qq.com
 ws:
   port: 5051

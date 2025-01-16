@@ -30,7 +30,7 @@ public class Contact implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @ApiModelProperty(value = "用户id")
-    @TableId(value = "user_id")
+    @TableId(type = IdType.INPUT)
     private String userId;
 
     @ApiModelProperty(value = "联系人id或群聊id")

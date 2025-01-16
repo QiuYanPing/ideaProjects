@@ -3,6 +3,7 @@ package com.qyp.chat.util;
 
 import cn.hutool.json.JSONUtil;
 import com.qyp.chat.constant.RedisConstant;
+import com.qyp.chat.domain.dto.SysSettingDTO;
 import com.qyp.chat.domain.dto.UserInfoDTO;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
@@ -60,5 +61,14 @@ public class RedisUtils {
         stringRedisTemplate.opsForValue().setIfAbsent(RedisConstant.CHAT_WS_USER_HEART_BEAT + userId,"",
                 RedisConstant.CHAT_WS_USER_HEART_BEAT_EXPIRES,
                 TimeUnit.SECONDS); //心跳超时时间6s
+    }
+
+
+    public SysSettingDTO getSysSetting(){
+        return get(RedisConstant.CHAT_ADMIN_SYSTEM_SETTING,SysSettingDTO.class);
+    }
+
+    public void setSysSetting(SysSettingDTO sysSetting){
+        set(RedisConstant.CHAT_ADMIN_SYSTEM_SETTING,sysSetting);
     }
 }

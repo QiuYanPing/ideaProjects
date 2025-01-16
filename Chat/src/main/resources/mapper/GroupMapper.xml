@@ -2,4 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.qyp.chat.mapper.GroupMapper">
 
+    <select id="loadGroup" resultType="com.qyp.chat.domain.entity.Group">
+        select g.*,u.nick_name ownerName,(select count(*) from contact c where c.contact_id = g.group_id) memberCount
+        from   `group` g,user u
+        where g.group_owner_id = u.user_id
+        order by g.create_time desc;
+    </select>
 </mapper>

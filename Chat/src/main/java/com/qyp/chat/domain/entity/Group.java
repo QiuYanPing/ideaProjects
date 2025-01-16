@@ -53,6 +53,8 @@ public class Group implements Serializable {
 
     @TableField(exist = false)
     private Integer memberCount;
+    @TableField(exist = false)
+    private String ownerName;
 
 
 

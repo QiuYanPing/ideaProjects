@@ -8,6 +8,7 @@ import com.baomidou.mybatisplus.core.conditions.update.Update;
 import com.baomidou.mybatisplus.extension.conditions.query.LambdaQueryChainWrapper;
 import com.qyp.chat.config.AppConfig;
 import com.qyp.chat.constant.RedisConstant;
+import com.qyp.chat.constant.SysConstant;
 import com.qyp.chat.domain.dto.UserInfoDTO;
 import com.qyp.chat.domain.entity.Contact;
 import com.qyp.chat.domain.enums.ContactStatusEnum;
@@ -30,7 +31,10 @@ import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
@@ -150,6 +154,52 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         //todo 从我的好友列表中删除缓冲
         //todo 从好友的列表中删除我
 
+    }
+
+    @Override
+    @Transactional
+    public void saveMyself(User user, MultipartFile avatarFile, MultipartFile avatarCover) throws IOException {
+
+        if(avatarFile != null){
+            //更新头像
+            String basePath = appConfig.getProjectFolder() + SysConstant.FILE_FOLDER_FILE + SysConstant.FILE_FOLDER_AVATAR;
+            File file = new File(basePath);
+            if(!file.exists())
+                file.mkdirs();
+
+            String path = file.getPath()+"/"+user.getUserId()+SysConstant.IMAGE_SUFFIX;
+            String coverPath = file.getPath()+"/"+user.getUserId()+SysConstant.COVER_IMAGE_SUFFIX;
+
+            avatarFile.transferTo(new File(path));
+            avatarCover.transferTo(new File(coverPath));
+
+        }
+        //判断是否需要更新冗余
+        User dbUser = getById(user.getUserId());
+        updateById(user);
+        String contactNameUpdate = null;
+        if(user.getNickName()!= null && !dbUser.getNickName().equals(user.getNickName())){
+            contactNameUpdate = user.getNickName();
+        }
+        //todo 更新会话信息中的用户名称
+
+
+    }
+
+    @Override
+    public void updateUserStatus(String status, String userId) {
+        UserStatusEnum statusEnum = UserStatusEnum.getByStatus(status);
+        if(statusEnum == null)
+            throw new BusinessException(ExceptionEnum.OTHERS);
+
+        lambdaUpdate().set(User::getStatus,statusEnum.getStatus())
+                .eq(User::getUserId,userId).update();
+
+    }
+
+    @Override
+    public void forceOffLine(String userId) {
+        //todo 强制下线
     }
 
     private String createUserId() {

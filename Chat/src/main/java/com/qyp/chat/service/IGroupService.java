@@ -25,4 +25,8 @@ public interface IGroupService extends IService<Group> {
     Group getGroupInfo(String userId, String groupId);
 
     GroupVO getGroupInfoDetail(String userId, String groupId);
+
+    List<Group> loadGroup();
+
+    void dissolutionGroup(String groupOwnerId, String groupId);
 }
