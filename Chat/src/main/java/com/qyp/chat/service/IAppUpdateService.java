@@ -2,6 +2,7 @@ package com.qyp.chat.service;
 
 import com.qyp.chat.domain.entity.AppUpdate;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.qyp.chat.domain.vo.AppUpdateVO;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -19,4 +20,6 @@ public interface IAppUpdateService extends IService<AppUpdate> {
     void saveUpdate(AppUpdate appUpdate, MultipartFile file) throws IOException;
 
     void postUpdate(Integer id, Integer status, String grayScaleUid);
+
+    AppUpdateVO checkUpdate(String appVersion, String userId);
 }

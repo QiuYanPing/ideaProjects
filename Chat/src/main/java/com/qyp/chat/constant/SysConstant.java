@@ -10,5 +10,6 @@ public class SysConstant {
 
     public static final String APPLY_INFO = "我是%s";
     public static final Integer Page_SIZE = 15;
+    public static final String CHAT_SETUP = "chatSetup_";
 
 }

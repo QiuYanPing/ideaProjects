@@ -13,4 +13,5 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  */
 public interface AppUpdateMapper extends BaseMapper<AppUpdate> {
 
+    AppUpdate getLasterUpdate(String appVersion, String userId);
 }

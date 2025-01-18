@@ -9,10 +9,12 @@ import com.qyp.chat.domain.dto.UserInfoDTO;
 import com.qyp.chat.domain.entity.Contact;
 import com.qyp.chat.domain.entity.User;
 import com.qyp.chat.domain.enums.ContactStatusEnum;
+import com.qyp.chat.domain.vo.AppUpdateVO;
 import com.qyp.chat.domain.vo.UserVO;
 import com.qyp.chat.exception.BusinessException;
 import com.qyp.chat.exception.enums.ExceptionEnum;
 import com.qyp.chat.mapper.ContactMapper;
+import com.qyp.chat.service.IAppUpdateService;
 import com.qyp.chat.service.IUserService;
 import com.qyp.chat.util.UserUtils;
 import org.apache.commons.codec.digest.DigestUtils;
@@ -44,6 +46,9 @@ public class UserController {
     ContactMapper contactMapper;
     @Autowired
     UserUtils userUtils;
+
+    @Autowired
+    IAppUpdateService appUpdateService;
 
     @PostMapping("/getUserInfo")
     public R getUserInfo(String userId){
@@ -132,6 +137,14 @@ public class UserController {
     public R logout(){
         //todo 强制退出，关闭ws连接
         return R.success(null);
+    }
+
+
+    @PostMapping("/checkUpdate")
+    public R checkUpdate(String appVersion){
+        String userId = userUtils.get().getUserId();
+        AppUpdateVO appUpdateVO = appUpdateService.checkUpdate(appVersion,userId);
+        return R.success(appUpdateVO);
     }
 
 

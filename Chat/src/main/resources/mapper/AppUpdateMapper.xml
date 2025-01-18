@@ -2,4 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.qyp.chat.mapper.AppUpdateMapper">
 
+    <select id="getLasterUpdate" resultType="com.qyp.chat.domain.entity.AppUpdate">
+        select * from app_update where version> #{appVersion}
+                                   and (status = 2 or (status = 1 and find_in_set(#{userId},grayscale_uid)))
+        order by version desc limit 0,1;
+    </select>
 </mapper>

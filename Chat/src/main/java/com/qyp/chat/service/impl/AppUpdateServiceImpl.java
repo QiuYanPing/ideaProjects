@@ -1,10 +1,13 @@
 package com.qyp.chat.service.impl;
 
+import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.ArrayUtil;
 import com.qyp.chat.config.AppConfig;
 import com.qyp.chat.constant.SysConstant;
 import com.qyp.chat.domain.entity.AppUpdate;
 import com.qyp.chat.domain.enums.AppUpdateStatusEnum;
+import com.qyp.chat.domain.enums.AppUpdateTypeEnum;
+import com.qyp.chat.domain.vo.AppUpdateVO;
 import com.qyp.chat.exception.BusinessException;
 import com.qyp.chat.exception.enums.ExceptionEnum;
 import com.qyp.chat.mapper.AppUpdateMapper;
@@ -32,6 +35,9 @@ public class AppUpdateServiceImpl extends ServiceImpl<AppUpdateMapper, AppUpdate
 
     @Autowired
     AppConfig appConfig;
+
+    @Autowired
+    AppUpdateMapper appUpdateMapper;
     @Override
     public void saveUpdate(AppUpdate appUpdate, MultipartFile file) throws IOException {
         LocalDateTime now = LocalDateTime.now();
@@ -105,5 +111,30 @@ public class AppUpdateServiceImpl extends ServiceImpl<AppUpdateMapper, AppUpdate
         }
 
         updateById(appUpdate);
+    }
+
+    @Override
+    public AppUpdateVO checkUpdate(String appVersion, String userId) {
+        if(appVersion == null)
+            return null;
+
+        AppUpdate appUpdate = appUpdateMapper.getLasterUpdate(appVersion,userId);
+        if(appUpdate == null)
+            return null;
+
+        AppUpdateVO appUpdateVO = BeanUtil.toBean(appUpdate, AppUpdateVO.class);
+        String fileName = SysConstant.CHAT_SETUP + appUpdateVO.getVersion() + SysConstant.APP_UPDATE_SUFFIX;
+        appUpdateVO.setFileName(fileName);
+        appUpdateVO.setUpdateDescArray(appUpdate.getUpdateDescArray());
+
+        if(AppUpdateTypeEnum.LOCAL.getType().equals(appUpdate.getFileType())){
+            File file = new File(appConfig.getProjectFolder() + SysConstant.FILE_FOLDER_APP + appUpdate.getId() + SysConstant.APP_UPDATE_SUFFIX);
+            appUpdateVO.setSize(file.length());
+        }else{
+            //外链
+            appUpdateVO.setSize(0L);
+        }
+        return appUpdateVO;
+
     }
 }
