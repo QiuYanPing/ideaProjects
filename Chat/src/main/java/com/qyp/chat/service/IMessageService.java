@@ -1,6 +1,6 @@
 package com.qyp.chat.service;
 
-import com.qyp.chat.domain.entity.Messsage;
+import com.qyp.chat.domain.entity.Message;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @author 
  * @since 2024-12-06
  */
-public interface IMesssageService extends IService<Messsage> {
+public interface IMessageService extends IService<Message> {
 
 }

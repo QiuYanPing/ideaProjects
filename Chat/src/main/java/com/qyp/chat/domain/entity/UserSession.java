@@ -1,9 +1,12 @@
 package com.qyp.chat.domain.entity;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
+
+import com.qyp.chat.domain.enums.ContactTypeEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -41,4 +44,16 @@ public class UserSession implements Serializable {
     private String contactName;
 
 
+    @TableField(exist = false)
+    private String lastMessage;
+    @TableField(exist = true)
+    private Long lastReceiveTime;
+    @TableField(exist = false)
+    private Integer memberCount;
+    @TableField(exist = false)
+    private Integer contactType;
+
+    public Integer getContactType() {
+        return ContactTypeEnum.getByPrefix(contactId).getType();
+    }
 }

@@ -46,7 +46,8 @@ public class NettyWebSocketStarter implements Runnable{
                     //添加聚合器，将HttpMessage聚合到FullRequest，保证接受的http请求的完整性
                     pipeline.addLast(new HttpObjectAggregator(64*1024));
                     //设置心跳，一定时间内检查不到心跳，就断开连接
-                    pipeline.addLast(new IdleStateHandler(6,0,0, TimeUnit.SECONDS));
+                    //TODO 修改读超时时间，方便调试
+                    pipeline.addLast(new IdleStateHandler(0,0,0, TimeUnit.SECONDS));
                     pipeline.addLast(new HandlerHeartBeat());
 
                     pipeline.addLast(new WebSocketServerProtocolHandler("/ws",null,true,64*1024,true,true,10000L));

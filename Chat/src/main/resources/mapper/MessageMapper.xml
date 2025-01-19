@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qyp.chat.mapper.UserSessionMapper">
+
+    <select id="selectAllUserSession" resultType="com.qyp.chat.domain.entity.UserSession"
+            parameterType="java.lang.String">
+        select u.*
+             , s.last_message
+             , s.last_receive_time
+             , case
+                   when substring(u.contact_id, 1, 1) = 'G'
+                       then (select count(*) from `group` g where g.group_id = u.contact_id)
+                   else 0
+            end as memberCount
+        from user_session u,
+             session s
+        where u.session_id = s.session_id
+          and u.user_id = #{userId}
+        order by s.last_receive_time desc
+    </select>
+</mapper>

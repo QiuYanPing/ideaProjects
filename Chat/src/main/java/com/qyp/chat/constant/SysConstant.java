@@ -12,4 +12,6 @@ public class SysConstant {
     public static final Integer Page_SIZE = 15;
     public static final String CHAT_SETUP = "chatSetup_";
 
+    public static final Long MESSAGE_STORE_TIME = 3*24*60*60*1000l;
+
 }

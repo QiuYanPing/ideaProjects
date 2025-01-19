@@ -12,6 +12,8 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 
 import javax.annotation.Resource;
 import java.io.File;
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 
 @SpringBootTest
 public class MyTest {
@@ -52,5 +54,14 @@ public class MyTest {
     public void testApplyInfo(){
         String s = String.format(SysConstant.APPLY_INFO, "qiuyanping");
         System.out.println("s = " + s);
+    }
+
+    @Test
+    public void testTime(){
+        System.out.println("System.currentTimeMillis() = " + System.currentTimeMillis());
+        LocalDateTime time = LocalDateTime.now();
+        System.out.println("time = " + time);
+        System.out.println("time.toEpochSecond(ZoneOffset.UTC) = " + time.toEpochSecond(ZoneOffset.of("+8")));
+        System.out.println("time.toInstant(ZoneOffset.UTC).toEpochMilli() = " + time.toInstant(ZoneOffset.of("+8")).toEpochMilli());
     }
 }

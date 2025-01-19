@@ -1,9 +1,12 @@
 package com.qyp.chat.domain.entity;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
+import java.util.List;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -21,9 +24,9 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("messsage")
-@ApiModel(value="Messsage对象", description="消息")
-public class Messsage implements Serializable {
+@TableName("message")
+@ApiModel(value="Message对象", description="消息")
+public class Message implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -66,6 +69,12 @@ public class Messsage implements Serializable {
 
     @ApiModelProperty(value = "状态0：正在发送中 1：已发送")
     private Integer status;
+
+
+    @TableField(exist = false)
+    private List<String> contactList;
+    @TableField(exist = false)
+    private Long lastReceiveTime;
 
 
 }

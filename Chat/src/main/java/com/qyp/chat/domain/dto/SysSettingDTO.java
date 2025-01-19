@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 public class SysSettingDTO {
-    //todo 系统设置
+    //系统设置
     Integer MaxGroupMember = 200;
     Integer MaxGroupCount  = 10;
 

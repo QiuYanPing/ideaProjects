@@ -2,6 +2,7 @@ package com.qyp.chat.service.impl;
 
 import cn.hutool.core.util.ArrayUtil;
 import cn.hutool.core.util.RandomUtil;
+import cn.hutool.core.util.StrUtil;
 import cn.hutool.crypto.digest.DigestUtil;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.Update;
@@ -9,24 +10,22 @@ import com.baomidou.mybatisplus.extension.conditions.query.LambdaQueryChainWrapp
 import com.qyp.chat.config.AppConfig;
 import com.qyp.chat.constant.RedisConstant;
 import com.qyp.chat.constant.SysConstant;
+import com.qyp.chat.domain.dto.SysSettingDTO;
 import com.qyp.chat.domain.dto.UserInfoDTO;
-import com.qyp.chat.domain.entity.Contact;
-import com.qyp.chat.domain.enums.ContactStatusEnum;
-import com.qyp.chat.domain.enums.ContactTypeEnum;
+import com.qyp.chat.domain.entity.*;
+import com.qyp.chat.domain.enums.*;
 import com.qyp.chat.domain.R;
-import com.qyp.chat.domain.entity.User;
-import com.qyp.chat.domain.enums.JoinTypeEnum;
-import com.qyp.chat.domain.enums.UserStatusEnum;
 import com.qyp.chat.domain.query.UserRegisterQuery;
 import com.qyp.chat.exception.BusinessException;
 import com.qyp.chat.exception.enums.ExceptionEnum;
-import com.qyp.chat.mapper.ContactMapper;
-import com.qyp.chat.mapper.UserMapper;
+import com.qyp.chat.mapper.*;
 import com.qyp.chat.service.IContactService;
 import com.qyp.chat.service.IUserService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.qyp.chat.util.RedisUtils;
 import com.qyp.chat.util.UserUtils;
+import io.netty.util.internal.StringUtil;
+import lombok.RequiredArgsConstructor;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,6 +38,8 @@ import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * <p>
@@ -49,19 +50,24 @@ import java.util.Arrays;
  * @since 2024-12-06
  */
 @Service
+@RequiredArgsConstructor
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IUserService {
-    @Autowired
-    RedisUtils redisUtils;
-    @Autowired
-    AppConfig appConfig;
 
-    @Autowired
-    ContactMapper contactMapper;
+    private final RedisUtils redisUtils;
 
-    @Autowired
-    UserUtils userUtils;
+    private final AppConfig appConfig;
+
+
+    private final ContactMapper contactMapper;
+    private final SessionMapper sessionMapper;
+    private final UserSessionMapper userSessionMapper;
+    private final MessageMapper messageMapper;
+
+
+    private final UserUtils userUtils;
 
     @Override
+    @Transactional
     public void register(UserRegisterQuery user){
 
         String email = user.getEmail();
@@ -80,13 +86,74 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         user1.setCreateTime(LocalDateTime.now());
         user1.setLastOffTime(System.currentTimeMillis());
         save(user1);
-        //todo 创建机器人好友
+        //创建机器人好友
+        addContact4Robot(user1.getUserId());
 
+    }
+
+    private void addContact4Robot(String userId) {
+        SysSettingDTO sysSetting = userUtils.getSysSetting();
+        String contactId = sysSetting.getRobotUid();
+        String contactName = sysSetting.getRobotNickName();
+        String sendMessage = sysSetting.getRobotWelcome();
+        sendMessage = cleanHtml(sendMessage);
+        LocalDateTime time = LocalDateTime.now();
+        //添加联系人
+        Contact contact = new Contact();
+        contact.setUserId(userId);
+        contact.setContactId(contactId);
+        contact.setContactType(ContactTypeEnum.USER.getType());
+        contact.setCreateTime(time);
+        contact.setStatus(ContactStatusEnum.FRIEND.getStatus());
+        contact.setLastUpdateTime(time);
+        contactMapper.insert(contact);
+        //添加会话
+        Session session = new Session();
+        String sessionId = createSession(userId, contactId);
+        session.setSessionId(sessionId);
+        session.setLastMessage(sendMessage);
+        session.setLastReceiveTime(time.toInstant(ZoneOffset.of("+8")).toEpochMilli());
+        sessionMapper.insert(session);
+        //添加用户会话
+        UserSession userSession = new UserSession();
+        userSession.setUserId(userId);
+        userSession.setContactId(contactId);
+        userSession.setSessionId(sessionId);
+        userSession.setContactName(contactName);
+        userSessionMapper.insert(userSession);
+        //添加信息
+        Message message = new Message();
+        message.setSessionId(sessionId);
+        message.setSendUserId(contactId);
+        message.setSendTime(time.toInstant(ZoneOffset.of("+8")).toEpochMilli());
+        message.setContactId(userId);
+        message.setContactType(ContactTypeEnum.USER.getType());
+        message.setMessageContent(sendMessage);
+        message.setMessageType(MessageTypeEnum.CHAT.getType());
+        message.setStatus(MessageStatusEnum.SENDED.getStatus());
+        messageMapper.insert(message);
+    }
+
+    private String createSession(String userId, String contact) {
+        String[] strings = new String[2];
+        strings[0] = userId;
+        strings[1] = contact;
+        Arrays.sort(strings);
+        return DigestUtils.md5Hex(StrUtil.join("",strings));
+    }
+
+    private String cleanHtml(String sendMessage) {
+        if(StrUtil.isEmpty(sendMessage))
+            return sendMessage;
+        sendMessage = sendMessage.replace("<","&lt;");
+        sendMessage = sendMessage.replace("\r\n","<br>");
+        sendMessage = sendMessage.replace("\n","<br>");
+        return sendMessage;
     }
 
     @Override
     public R login(UserRegisterQuery user) {
-        User one = lambdaQuery().eq(User::getEmail, user.getEmail()).one();
+        User one = lambdaQuery().eq(User::getEmail, user.getEmail()).one(); // 先查出用户信息，再比较，防止sql注入问题
         if(one == null)
             throw new BusinessException("账号不存在！");
 
@@ -103,8 +170,15 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         if(userHeartBeat != null)
             throw new BusinessException("账号已登录！");
 
-        //todo 查询我的联系人
-        //todo 查询我的群聊
+        //查询我的联系人、我的群聊
+        LambdaQueryChainWrapper<Contact> wrapper = new LambdaQueryChainWrapper<>(contactMapper);
+        List<Contact> contactList = wrapper.eq(Contact::getUserId, one.getUserId())
+                .eq(Contact::getStatus, ContactStatusEnum.FRIEND.getStatus()).list();
+        //放入redis缓存中
+        List<String> allContactId = contactList.stream().map(item -> item.getContactId()).collect(Collectors.toList());
+        if(allContactId.size() != 0)
+            redisUtils.setContactList(one.getUserId(),allContactId);
+
 
         String token = DigestUtils.md5Hex(one.getUserId()+RandomUtil.randomString(20));//加上userId，降低重复概率
         UserInfoDTO userInfoDTO = new UserInfoDTO();

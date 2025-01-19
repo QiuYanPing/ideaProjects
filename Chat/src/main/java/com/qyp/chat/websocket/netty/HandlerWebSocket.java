@@ -5,6 +5,7 @@ import com.qyp.chat.domain.dto.UserInfoDTO;
 import com.qyp.chat.util.RedisUtils;
 import com.qyp.chat.websocket.ChannelContextUtils;
 import io.netty.channel.Channel;
+import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
@@ -16,6 +17,7 @@ import org.springframework.stereotype.Component;
 
 @Slf4j
 @Component
+@ChannelHandler.Sharable
 public class HandlerWebSocket extends SimpleChannelInboundHandler<TextWebSocketFrame> {
 
     @Autowired
@@ -32,6 +34,7 @@ public class HandlerWebSocket extends SimpleChannelInboundHandler<TextWebSocketF
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
         super.channelInactive(ctx);
         log.info("断开连接");
+        channelContextUtils.removeContext(ctx.channel());
     }
 
     @Override

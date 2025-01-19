@@ -1,6 +1,6 @@
 package com.qyp.chat.mapper;
 
-import com.qyp.chat.domain.entity.Messsage;
+import com.qyp.chat.domain.entity.Message;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @author 
  * @since 2024-12-06
  */
-public interface MesssageMapper extends BaseMapper<Messsage> {
+public interface MessageMapper extends BaseMapper<Message> {
 
 }

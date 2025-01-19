@@ -38,4 +38,6 @@ public class Session implements Serializable {
     private Long lastReceiveTime;
 
 
+
+
 }
