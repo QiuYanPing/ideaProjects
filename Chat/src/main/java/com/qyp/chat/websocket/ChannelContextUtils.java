@@ -1,6 +1,7 @@
 package com.qyp.chat.websocket;
 
 
+import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONUtil;
 import com.baomidou.mybatisplus.extension.conditions.query.LambdaQueryChainWrapper;
 import com.qyp.chat.constant.SysConstant;
@@ -9,6 +10,7 @@ import com.qyp.chat.domain.dto.WSInitDTO;
 import com.qyp.chat.domain.entity.*;
 import com.qyp.chat.domain.enums.ApplyStatusEnum;
 import com.qyp.chat.domain.enums.ContactTypeEnum;
+import com.qyp.chat.domain.enums.MessageTypeEnum;
 import com.qyp.chat.mapper.ApplyMapper;
 import com.qyp.chat.mapper.MessageMapper;
 import com.qyp.chat.mapper.UserMapper;
@@ -105,16 +107,6 @@ public class ChannelContextUtils {
 
     }
 
-    private void sendMsg(MessageDTO messageDTO, String userId) {
-        if(userId == null)
-            return;
-        Channel channel = USER_CONTEXT_MAP.get(userId);
-        //联系人装换
-        messageDTO.setContactId(messageDTO.getSendUserId());
-        messageDTO.setContactName(messageDTO.getSendUserNickName());
-        channel.writeAndFlush(new TextWebSocketFrame(JSONUtil.toJsonStr(messageDTO)));
-    }
-
     private void addUser2Group(String userId,String groupId){
         Channel user = USER_CONTEXT_MAP.get(userId);
         ChannelGroup group = GROUP_CONTEXT_MAP.get(groupId);
@@ -136,5 +128,54 @@ public class ChannelContextUtils {
         user.setUserId(userId);
         user.setLastOffTime(System.currentTimeMillis());
         userMapper.updateById(user);
+    }
+
+    public void sendMessage(MessageDTO messageDTO) {
+        String contactId = messageDTO.getContactId();
+        if(StrUtil.isEmpty(contactId))
+            return;
+        ContactTypeEnum typeEnum = ContactTypeEnum.getByPrefix(contactId);
+        switch (typeEnum){
+            case USER:
+                send2User(messageDTO);
+                break;
+            case GROUP:
+                send2Group(messageDTO);
+                break;
+        }
+    }
+
+    private void send2User(MessageDTO messageDTO) {
+        sendMsg(messageDTO,messageDTO.getContactId());
+        //若为强制下线，则需删除toekn
+        if(MessageTypeEnum.FORCE_OFF_LINE.getType().equals(messageDTO.getMessageType())){
+            closeContact(messageDTO.getContactId());
+        }
+    }
+
+    private void sendMsg(MessageDTO messageDTO, String userId) {
+        if(userId == null)
+            return;
+        Channel channel = USER_CONTEXT_MAP.get(userId);
+        //联系人装换
+        messageDTO.setContactId(messageDTO.getSendUserId());
+        messageDTO.setContactName(messageDTO.getSendUserNickName());
+        channel.writeAndFlush(new TextWebSocketFrame(JSONUtil.toJsonStr(messageDTO)));
+    }
+
+    private void closeContact(String userId) {
+        redisUtils.removeUserInfoDTO(userId);
+
+        Channel channel = USER_CONTEXT_MAP.get(userId);
+        if(channel != null)
+            channel.close();
+    }
+
+    private void send2Group(MessageDTO messageDTO) {
+        String groupId = messageDTO.getContactId();
+        ChannelGroup channels = GROUP_CONTEXT_MAP.get(groupId);
+        if(channels == null)
+            return;
+        channels.writeAndFlush(new TextWebSocketFrame(JSONUtil.toJsonStr(messageDTO)));
     }
 }

@@ -3,8 +3,12 @@ package com.qyp.chat.domain.dto;
 import cn.hutool.core.util.StrUtil;
 import lombok.Data;
 
+import java.io.Serializable;
+
 @Data
-public class MessageDTO <T> {
+public class MessageDTO <T> implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     private Long messageId;
     private String sessionId;
 

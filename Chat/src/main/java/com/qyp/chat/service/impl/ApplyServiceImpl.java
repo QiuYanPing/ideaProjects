@@ -9,6 +9,7 @@ import com.baomidou.mybatisplus.extension.conditions.query.LambdaQueryChainWrapp
 import com.baomidou.mybatisplus.extension.conditions.update.LambdaUpdateChainWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.qyp.chat.constant.SysConstant;
+import com.qyp.chat.domain.dto.MessageDTO;
 import com.qyp.chat.domain.dto.SysSettingDTO;
 import com.qyp.chat.domain.dto.UserInfoDTO;
 import com.qyp.chat.domain.entity.Apply;
@@ -26,6 +27,7 @@ import com.qyp.chat.service.IApplyService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.qyp.chat.service.IContactService;
 import com.qyp.chat.util.UserUtils;
+import com.qyp.chat.websocket.MessageHandler;
 import io.swagger.models.auth.In;
 import net.bytebuddy.asm.Advice;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,6 +64,8 @@ public class ApplyServiceImpl extends ServiceImpl<ApplyMapper, Apply> implements
     ApplyMapper applyMapper;
     @Autowired
     IContactService contactService;
+    @Autowired
+    MessageHandler messageHandler;
 
     @Override
     @Transactional
@@ -132,7 +136,12 @@ public class ApplyServiceImpl extends ServiceImpl<ApplyMapper, Apply> implements
 
         //首次发送申请或申请已被处理，则发送ws消息
         if (oldApply == null || !ApplyStatusEnum.INIT.getStatus().equals(oldApply.getStatus())) {
-            //todo 发送ws消息
+            // 发送ws消息
+            MessageDTO messageDTO = new MessageDTO();
+            messageDTO.setMessageContent(apply.getApplyInfo());
+            messageDTO.setMessageType(MessageTypeEnum.CONTACT_APPLY.getType());
+            messageDTO.setContactId(receiveUserId);
+            messageHandler.sendMessage(messageDTO);
         }
 
         return joinType;

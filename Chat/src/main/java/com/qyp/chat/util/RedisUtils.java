@@ -12,7 +12,9 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
+import java.util.stream.Collectors;
 
 @Component
 public class RedisUtils {
@@ -52,6 +54,13 @@ public class RedisUtils {
     }
     public void setUserInfoDTO(String token,UserInfoDTO userInfoDTO) {
         set(RedisConstant.CHAT_WS_TOKEN+token,userInfoDTO,RedisConstant.CHAT_WS_TOKEN_EXPIRE,TimeUnit.SECONDS);
+        set(RedisConstant.CHAT_WS_TOKEN+userInfoDTO.getUserId(),userInfoDTO,RedisConstant.CHAT_WS_TOKEN_EXPIRE,TimeUnit.SECONDS);
+    }
+    public void removeUserInfoDTO(String userId){
+        UserInfoDTO userInfoDTO = get(RedisConstant.CHAT_WS_TOKEN + userId, UserInfoDTO.class);
+        String token = userInfoDTO.getToken();
+        stringRedisTemplate.delete(RedisConstant.CHAT_WS_TOKEN+token);
+        stringRedisTemplate.delete(RedisConstant.CHAT_WS_TOKEN + userId);
     }
 
 
@@ -73,17 +82,18 @@ public class RedisUtils {
     public SysSettingDTO getSysSetting(){
         return get(RedisConstant.CHAT_ADMIN_SYSTEM_SETTING,SysSettingDTO.class);
     }
-
     public void setSysSetting(SysSettingDTO sysSetting){
         set(RedisConstant.CHAT_ADMIN_SYSTEM_SETTING,sysSetting);
     }
 
 
     public List<String> getContactList(String userId){
-        return stringRedisTemplate.opsForList().range(RedisConstant.CHAT_WS_USER_CONTACT + userId, 0, -1);
+        Set<String> members = stringRedisTemplate.opsForSet().members(RedisConstant.CHAT_WS_USER_CONTACT + userId);
+        return members.stream().collect(Collectors.toList());
     }
     public void setContactList(String userId,List<String> allContactId){
-        stringRedisTemplate.opsForList().leftPushAll(RedisConstant.CHAT_WS_USER_CONTACT+userId,allContactId);
+        String[] strings = allContactId.toArray(new String[0]);
+        stringRedisTemplate.opsForSet().add(RedisConstant.CHAT_WS_USER_CONTACT+userId,strings);
         stringRedisTemplate.expire(RedisConstant.CHAT_WS_USER_CONTACT+userId,RedisConstant.CHAT_WS_TOKEN_EXPIRE,TimeUnit.SECONDS);
     }
 
