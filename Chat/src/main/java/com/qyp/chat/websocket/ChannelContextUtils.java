@@ -73,7 +73,7 @@ public class ChannelContextUtils {
         user.setLastLoginTime(LocalDateTime.now());
         userMapper.updateById(user);
 
-        //发送信息
+        //发送初始信息
         User me = userMapper.selectById(userId);
         Long lastOffTime = me.getLastOffTime();
         Long time = System.currentTimeMillis() - SysConstant.MESSAGE_STORE_TIME;

@@ -23,6 +23,7 @@ import com.qyp.chat.service.IContactService;
 import com.qyp.chat.service.IUserService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.qyp.chat.util.RedisUtils;
+import com.qyp.chat.util.StringUtils;
 import com.qyp.chat.util.UserUtils;
 import io.netty.util.internal.StringUtil;
 import lombok.RequiredArgsConstructor;
@@ -65,6 +66,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
 
 
     private final UserUtils userUtils;
+    private final StringUtils stringUtils;
 
     @Override
     @Transactional
@@ -109,7 +111,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         contactMapper.insert(contact);
         //添加会话
         Session session = new Session();
-        String sessionId = createSession(userId, contactId);
+        String sessionId = stringUtils.createSession(userId, contactId);
         session.setSessionId(sessionId);
         session.setLastMessage(sendMessage);
         session.setLastReceiveTime(time.toInstant(ZoneOffset.of("+8")).toEpochMilli());
@@ -134,13 +136,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         messageMapper.insert(message);
     }
 
-    private String createSession(String userId, String contact) {
-        String[] strings = new String[2];
-        strings[0] = userId;
-        strings[1] = contact;
-        Arrays.sort(strings);
-        return DigestUtils.md5Hex(StrUtil.join("",strings));
-    }
+
 
     private String cleanHtml(String sendMessage) {
         if(StrUtil.isEmpty(sendMessage))

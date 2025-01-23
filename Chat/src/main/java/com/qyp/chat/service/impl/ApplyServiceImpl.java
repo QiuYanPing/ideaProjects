@@ -1,6 +1,8 @@
 package com.qyp.chat.service.impl;
 
 
+import ch.qos.logback.classic.spi.EventArgUtil;
+import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.ArrayUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -12,21 +14,19 @@ import com.qyp.chat.constant.SysConstant;
 import com.qyp.chat.domain.dto.MessageDTO;
 import com.qyp.chat.domain.dto.SysSettingDTO;
 import com.qyp.chat.domain.dto.UserInfoDTO;
-import com.qyp.chat.domain.entity.Apply;
-import com.qyp.chat.domain.entity.Contact;
-import com.qyp.chat.domain.entity.Group;
-import com.qyp.chat.domain.entity.User;
+import com.qyp.chat.domain.entity.*;
 import com.qyp.chat.domain.enums.*;
 import com.qyp.chat.exception.BusinessException;
 import com.qyp.chat.exception.enums.ExceptionEnum;
-import com.qyp.chat.mapper.ApplyMapper;
-import com.qyp.chat.mapper.ContactMapper;
-import com.qyp.chat.mapper.GroupMapper;
-import com.qyp.chat.mapper.UserMapper;
+import com.qyp.chat.mapper.*;
 import com.qyp.chat.service.IApplyService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.qyp.chat.service.IContactService;
+import com.qyp.chat.service.ISessionService;
+import com.qyp.chat.util.RedisUtils;
+import com.qyp.chat.util.StringUtils;
 import com.qyp.chat.util.UserUtils;
+import com.qyp.chat.websocket.ChannelContextUtils;
 import com.qyp.chat.websocket.MessageHandler;
 import io.swagger.models.auth.In;
 import net.bytebuddy.asm.Advice;
@@ -35,6 +35,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -66,6 +67,19 @@ public class ApplyServiceImpl extends ServiceImpl<ApplyMapper, Apply> implements
     IContactService contactService;
     @Autowired
     MessageHandler messageHandler;
+
+    @Autowired
+    RedisUtils redisUtils;
+    @Autowired
+    UserSessionMapper userSessionMapper;
+    @Autowired
+    ISessionService sessionService;
+    @Autowired
+    MessageMapper messageMapper;
+    @Autowired
+    StringUtils stringUtils;
+    @Autowired
+    ChannelContextUtils channelContextUtils;
 
     @Override
     @Transactional
@@ -249,6 +263,7 @@ public class ApplyServiceImpl extends ServiceImpl<ApplyMapper, Apply> implements
 
     private void beginAdd(String applyUserId, String receiveUserId, String contactId, Integer contactType) {
         LocalDateTime time = LocalDateTime.now();
+        User applyUser = userMapper.selectById(applyUserId);
 
 
         //添加申请人的contact记录
@@ -276,7 +291,61 @@ public class ApplyServiceImpl extends ServiceImpl<ApplyMapper, Apply> implements
 
 
         /*contactService.saveBatch(list);*/
-        //todo 创建联系人冗余： 如果为好友，将接收人添加问联系人，添加缓存
+        //todo 创建联系人冗余： 如果为好友，将接收人更新缓存，将申请人加入为联系人
+        redisUtils.setContactList(applyUserId,List.of(contactId));
+        if(ContactTypeEnum.USER.getType().equals(contactType)){
+            redisUtils.setContactList(contactId,List.of(applyUserId));
+        }
+        channelContextUtils.
+
         //todo 创建回话 发送ws信息
+        Apply apply = lambdaQuery().eq(Apply::getApplyUserId, applyUserId)
+                .eq(Apply::getContactId, contactId).one();
+        Session session = new Session();
+        String sessionId = stringUtils.createSession(applyUserId, contactId);
+        if(ContactTypeEnum.GROUP.getType().equals(contactType))
+            sessionId = stringUtils.createSession(contactId,"");
+        session.setSessionId(sessionId);
+        session.setLastMessage(apply.getApplyInfo());
+        session.setLastReceiveTime(time.toInstant(ZoneOffset.of("+8")).toEpochMilli());
+        sessionService.saveOrUpdate(session);//如果之前创建过，则不再创建
+
+        UserSession applySession = new UserSession();
+        applySession.setUserId(applyUserId);
+        applySession.setContactId(contactId);
+        applySession.setSessionId(sessionId);
+        Group group = groupMapper.selectById(contactId);
+        applySession.setContactName(group.getGroupName());
+        if(ContactTypeEnum.USER.getType().equals(contactType)){
+            User user = userMapper.selectById(contactId);
+            applySession.setContactName(user.getNickName());
+
+            UserSession contactSession = new UserSession();
+            contactSession.setUserId(contactId);
+            contactSession.setContactId(applyUserId);
+            contactSession.setSessionId(sessionId);
+            contactSession.setContactName(applyUser.getNickName());
+            userSessionMapper.insert(contactSession);
+        }
+        userSessionMapper.insert(applySession);
+
+        Message message = new Message();
+        message.setSessionId(sessionId);
+        message.setSendUserId(applyUserId);
+        message.setSendUserNickName(applyUser.getNickName());
+        message.setSendTime(time.toInstant(ZoneOffset.of("+8")).toEpochMilli());
+        message.setContactId(contactId);
+        message.setContactType(contactType);
+        message.setMessageContent(apply.getApplyInfo());
+        message.setMessageType(MessageTypeEnum.ADD_FRIEND.getType());
+        message.setStatus(MessageStatusEnum.SENDED.getStatus());
+        messageMapper.insert(message);
+
+        //发送ws信息
+        MessageDTO contactMessageDTO = BeanUtil.toBean(message, MessageDTO.class);
+        contactMessageDTO.setExtendData();
+        channelContextUtils
+
+
     }
 }
