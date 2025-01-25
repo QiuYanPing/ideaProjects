@@ -361,7 +361,7 @@ public class ApplyServiceImpl extends ServiceImpl<ApplyMapper, Apply> implements
             applySession.setSessionId(sessionId);
             applySession.setUserId(applyUserId);
             applySession.setContactId(contactId);
-            applySession.setContactType(contactType);
+            applySession.setContactName(groupMapper.selectById(contactId).getGroupName());
             userSessionMapper.insert(applySession);
 
             //3.信息

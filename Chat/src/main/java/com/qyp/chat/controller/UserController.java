@@ -17,6 +17,7 @@ import com.qyp.chat.mapper.ContactMapper;
 import com.qyp.chat.service.IAppUpdateService;
 import com.qyp.chat.service.IUserService;
 import com.qyp.chat.util.UserUtils;
+import com.qyp.chat.websocket.ChannelContextUtils;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
@@ -49,6 +50,8 @@ public class UserController {
 
     @Autowired
     IAppUpdateService appUpdateService;
+    @Autowired
+    ChannelContextUtils channelContextUtils;
 
     @PostMapping("/getUserInfo")
     public R getUserInfo(String userId){
@@ -130,12 +133,15 @@ public class UserController {
         user.setPassword(DigestUtils.md5Hex(password));
         userService.updateById(user);
         //todo 强制退出，关闭ws连接
+        channelContextUtils.closeContact(userId);
         return R.success(null);
     }
 
     @PostMapping("/logout")
     public R logout(){
+        UserInfoDTO userInfoDTO = userUtils.get();
         //todo 强制退出，关闭ws连接
+        channelContextUtils.closeContact(userInfoDTO.getUserId());
         return R.success(null);
     }
 

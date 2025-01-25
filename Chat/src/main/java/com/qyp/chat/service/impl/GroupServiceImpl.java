@@ -35,6 +35,7 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * <p>
@@ -130,8 +131,6 @@ public class GroupServiceImpl extends ServiceImpl<GroupMapper, Group> implements
 
             MessageDTO messageDTO = BeanUtil.toBean(message, MessageDTO.class);
             messageHandler.sendMessage(messageDTO);
-
-
         }else{
             //修改
             //判断当前用户是否为群主，只有为群主才可以对群信息进行修改
@@ -202,7 +201,7 @@ public class GroupServiceImpl extends ServiceImpl<GroupMapper, Group> implements
             throw new BusinessException(ExceptionEnum.OTHERS);
 
         lambdaUpdate().set(Group::getStatus,GroupStatusEnum.DISSOLUTION.getStatus())
-                .eq(Group::getGroupId,groupId).update();
+                .eq(Group::getGroupId,groupId).update(); //逻辑删除
 
         //更新联系人信息
         LambdaUpdateChainWrapper<Contact> contactLambdaUpdateChainWrapper = new LambdaUpdateChainWrapper<>(contactMapper);
@@ -210,7 +209,29 @@ public class GroupServiceImpl extends ServiceImpl<GroupMapper, Group> implements
                 .eq(Contact::getContactId,groupId).update();
 
         //todo 移除相关成员的联系人信息
+        LambdaQueryChainWrapper<Contact> contactLambdaQueryChainWrapper = new LambdaQueryChainWrapper<>(contactMapper);
+        List<Contact> list = contactLambdaQueryChainWrapper.eq(Contact::getContactId, groupId)
+                .eq(Contact::getStatus, ContactStatusEnum.FRIEND.getStatus()).list();
+        List<String> contactList = list.stream().map(item -> item.getUserId()).collect(Collectors.toList());
+        for (String userId : contactList) {
+            redisUtils.removeContactList(userId,groupId);
+        }
         //todo 1.更新会话信息 2.记录群信息 3.发生解散消息
+        Message message = new Message();
+        message.setSessionId(stringUtils.createSession(groupId,""));
+        message.setSendTime(System.currentTimeMillis());
+        message.setContactId(groupId);
+        message.setContactType(ContactTypeEnum.GROUP.getType());
+        message.setMessageContent(MessageTypeEnum.DISSOLUTION_GROUP.getInitMessage());
+        message.setMessageType(MessageTypeEnum.DISSOLUTION_GROUP.getType());
+        message.setStatus(MessageStatusEnum.SENDED.getStatus());
+        messageMapper.insert(message);
+
+        MessageDTO messageDTO = BeanUtil.toBean(message,MessageDTO.class);
+        messageHandler.sendMessage(messageDTO);
+
+        ChannelContextUtils.removeGroup(groupId);
+        userSessionMapper.delete(new LambdaQueryWrapper<UserSession>().eq(UserSession::getContactId,groupId));
     }
 
     private Group getGroup(String userId, String groupId) {

@@ -96,6 +96,9 @@ public class RedisUtils {
         stringRedisTemplate.opsForSet().add(RedisConstant.CHAT_WS_USER_CONTACT+userId,strings);
         stringRedisTemplate.expire(RedisConstant.CHAT_WS_USER_CONTACT+userId,RedisConstant.CHAT_WS_TOKEN_EXPIRE,TimeUnit.SECONDS);
     }
+    public void removeContactList(String userId,String contactId){
+        stringRedisTemplate.opsForSet().remove(RedisConstant.CHAT_WS_USER_CONTACT+userId,contactId);
+    }
 
 
 

@@ -45,6 +45,9 @@ public class ChannelContextUtils {
 
     private static final ConcurrentHashMap<String,Channel> USER_CONTEXT_MAP = new ConcurrentHashMap<>();
     private static final ConcurrentHashMap<String, ChannelGroup> GROUP_CONTEXT_MAP = new ConcurrentHashMap<>();
+
+
+
     public  void addContext(String userId, Channel channel){
         String channelId = channel.id().toString();
         AttributeKey attributeKey = null;
@@ -169,7 +172,7 @@ public class ChannelContextUtils {
         channel.writeAndFlush(new TextWebSocketFrame(JSONUtil.toJsonStr(messageDTO)));
     }
 
-    private void closeContact(String userId) {
+    public void closeContact(String userId) {
         redisUtils.removeUserInfoDTO(userId);
 
         Channel channel = USER_CONTEXT_MAP.get(userId);
@@ -186,4 +189,10 @@ public class ChannelContextUtils {
         messageDTO.setContactName(groupMapper.selectById(messageDTO.getContactId()).getGroupName());
         channels.writeAndFlush(new TextWebSocketFrame(JSONUtil.toJsonStr(messageDTO)));
     }
+
+
+    public static void removeGroup(String groupId) {
+        GROUP_CONTEXT_MAP.remove(groupId);
+    }
+
 }

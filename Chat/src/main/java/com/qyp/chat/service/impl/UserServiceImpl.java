@@ -7,6 +7,7 @@ import cn.hutool.crypto.digest.DigestUtil;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.Update;
 import com.baomidou.mybatisplus.extension.conditions.query.LambdaQueryChainWrapper;
+import com.baomidou.mybatisplus.extension.conditions.update.LambdaUpdateChainWrapper;
 import com.qyp.chat.config.AppConfig;
 import com.qyp.chat.constant.RedisConstant;
 import com.qyp.chat.constant.SysConstant;
@@ -25,6 +26,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.qyp.chat.util.RedisUtils;
 import com.qyp.chat.util.StringUtils;
 import com.qyp.chat.util.UserUtils;
+import com.qyp.chat.websocket.ChannelContextUtils;
 import io.netty.util.internal.StringUtil;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.codec.digest.DigestUtils;
@@ -67,6 +69,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
 
     private final UserUtils userUtils;
     private final StringUtils stringUtils;
+
+    private final ChannelContextUtils channelContextUtils;
 
     @Override
     @Transactional
@@ -222,7 +226,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
                 .eq(Contact::getContactId,userId);
         contactMapper.update(updateContact,updateWrapper);
         //todo 从我的好友列表中删除缓冲
+        redisUtils.removeContactList(userId,contactId);
         //todo 从好友的列表中删除我
+        redisUtils.removeContactList(contactId,userId);
 
     }
 
@@ -252,7 +258,10 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
             contactNameUpdate = user.getNickName();
         }
         //todo 更新会话信息中的用户名称
-
+        UserSession userSession = new UserSession();
+        userSession.setContactName(contactNameUpdate);
+        userSessionMapper.update(userSession,
+                new LambdaUpdateWrapper<UserSession>().eq(UserSession::getContactId,user.getUserId()));
 
     }
 
@@ -270,6 +279,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     @Override
     public void forceOffLine(String userId) {
         //todo 强制下线
+        channelContextUtils.closeContact(userId);
     }
 
     private String createUserId() {
