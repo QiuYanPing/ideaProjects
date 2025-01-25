@@ -11,10 +11,7 @@ import com.qyp.chat.domain.entity.*;
 import com.qyp.chat.domain.enums.ApplyStatusEnum;
 import com.qyp.chat.domain.enums.ContactTypeEnum;
 import com.qyp.chat.domain.enums.MessageTypeEnum;
-import com.qyp.chat.mapper.ApplyMapper;
-import com.qyp.chat.mapper.MessageMapper;
-import com.qyp.chat.mapper.UserMapper;
-import com.qyp.chat.mapper.UserSessionMapper;
+import com.qyp.chat.mapper.*;
 import com.qyp.chat.util.RedisUtils;
 import io.netty.channel.Channel;
 import io.netty.channel.group.ChannelGroup;
@@ -37,6 +34,8 @@ public class ChannelContextUtils {
     RedisUtils redisUtils;
     @Autowired
     UserMapper userMapper;
+    @Autowired
+    GroupMapper groupMapper;
     @Autowired
     UserSessionMapper userSessionMapper;
     @Autowired
@@ -107,7 +106,7 @@ public class ChannelContextUtils {
 
     }
 
-    private void addUser2Group(String userId,String groupId){
+    public  void addUser2Group(String userId,String groupId){
         Channel user = USER_CONTEXT_MAP.get(userId);
         ChannelGroup group = GROUP_CONTEXT_MAP.get(groupId);
         if(group == null){
@@ -158,8 +157,15 @@ public class ChannelContextUtils {
             return;
         Channel channel = USER_CONTEXT_MAP.get(userId);
         //联系人装换
-        messageDTO.setContactId(messageDTO.getSendUserId());
-        messageDTO.setContactName(messageDTO.getSendUserNickName());
+        if(MessageTypeEnum.ADD_FRIEND_SELF.getType().equals(messageDTO.getMessageType())){
+            String contactId = (String) messageDTO.getExtendData();
+            messageDTO.setContactId(contactId);
+            messageDTO.setContactName(userMapper.selectById(contactId).getNickName());
+            messageDTO.setMessageType(MessageTypeEnum.ADD_FRIEND.getType());
+        }else{
+            messageDTO.setContactId(messageDTO.getSendUserId());
+            messageDTO.setContactName(messageDTO.getSendUserNickName());
+        }
         channel.writeAndFlush(new TextWebSocketFrame(JSONUtil.toJsonStr(messageDTO)));
     }
 
@@ -176,6 +182,8 @@ public class ChannelContextUtils {
         ChannelGroup channels = GROUP_CONTEXT_MAP.get(groupId);
         if(channels == null)
             return;
+
+        messageDTO.setContactName(groupMapper.selectById(messageDTO.getContactId()).getGroupName());
         channels.writeAndFlush(new TextWebSocketFrame(JSONUtil.toJsonStr(messageDTO)));
     }
 }

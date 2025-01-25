@@ -1,8 +1,802 @@
-00:42:59:833  WARN 26532 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=4h47m17s395ms752µs).
-01:34:56:522  WARN 26532 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=44m26s550ms728µs400ns).
-03:54:04:942  WARN 26532 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m36s345ms539µs600ns).
-12:50:05:180  WARN 26532 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=8h7m59s512ms965µs900ns).
-19:37:20:068  WARN 26532 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=6h27m44s589ms496µs400ns).
-21:24:50:509  WARN 26532 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m28s880ms178µs600ns).
-22:02:05:858  WARN 26532 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=29m15s214ms146µs400ns).
-23:14:27:374  WARN 26532 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h6m51s423ms77µs900ns).
+01:43:28:094  WARN 26532 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2h20m36s202ms567µs300ns).
+12:52:22:707  WARN 26532 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=10h19m53s755ms752µs200ns).
+13:39:25:514  WARN 26532 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=44m22s651ms682µs).
+14:29:21:622 ERROR 26532 --- [redisson-timer-8-1] o.r.c.handler.PingConnectionHandler      : Unable to send PING command over channel: [id: 0x7ebdfcb4, L:/192.168.15.1:58406 - R:192.168.15.155/192.168.15.155:6379]
+
+org.redisson.client.RedisTimeoutException: Command execution timeout for command: (PING), params: [], Redis client: [addr=redis://192.168.15.155:6379]
+	at org.redisson.client.RedisConnection.lambda$async$0(RedisConnection.java:244) ~[redisson-3.17.1.jar:3.17.1]
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.run(HashedWheelTimer.java:715) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:34) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.expire(HashedWheelTimer.java:703) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$HashedWheelBucket.expireTimeouts(HashedWheelTimer.java:790) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$Worker.run(HashedWheelTimer.java:503) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+
+14:29:21:624 ERROR 26532 --- [redisson-timer-8-1] o.r.c.handler.PingConnectionHandler      : Unable to send PING command over channel: [id: 0xcb2b15a6, L:/192.168.15.1:58542 - R:192.168.15.155/192.168.15.155:6379]
+
+org.redisson.client.RedisTimeoutException: Command execution timeout for command: (PING), params: [], Redis client: [addr=redis://192.168.15.155:6379]
+	at org.redisson.client.RedisConnection.lambda$async$0(RedisConnection.java:244) ~[redisson-3.17.1.jar:3.17.1]
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.run(HashedWheelTimer.java:715) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:34) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.expire(HashedWheelTimer.java:703) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$HashedWheelBucket.expireTimeouts(HashedWheelTimer.java:790) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$Worker.run(HashedWheelTimer.java:503) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+
+14:29:21:625 ERROR 26532 --- [redisson-timer-8-1] o.r.c.handler.PingConnectionHandler      : Unable to send PING command over channel: [id: 0x61123cf7, L:/192.168.15.1:58539 - R:192.168.15.155/192.168.15.155:6379]
+
+org.redisson.client.RedisTimeoutException: Command execution timeout for command: (PING), params: [], Redis client: [addr=redis://192.168.15.155:6379]
+	at org.redisson.client.RedisConnection.lambda$async$0(RedisConnection.java:244) ~[redisson-3.17.1.jar:3.17.1]
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.run(HashedWheelTimer.java:715) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:34) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.expire(HashedWheelTimer.java:703) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$HashedWheelBucket.expireTimeouts(HashedWheelTimer.java:790) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$Worker.run(HashedWheelTimer.java:503) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+
+14:29:21:626 ERROR 26532 --- [redisson-timer-8-1] o.r.c.handler.PingConnectionHandler      : Unable to send PING command over channel: [id: 0x8d073ff1, L:/192.168.15.1:58544 - R:192.168.15.155/192.168.15.155:6379]
+
+org.redisson.client.RedisTimeoutException: Command execution timeout for command: (PING), params: [], Redis client: [addr=redis://192.168.15.155:6379]
+	at org.redisson.client.RedisConnection.lambda$async$0(RedisConnection.java:244) ~[redisson-3.17.1.jar:3.17.1]
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.run(HashedWheelTimer.java:715) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:34) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.expire(HashedWheelTimer.java:703) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$HashedWheelBucket.expireTimeouts(HashedWheelTimer.java:790) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$Worker.run(HashedWheelTimer.java:503) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+
+14:29:21:626 ERROR 26532 --- [redisson-timer-8-1] o.r.c.handler.PingConnectionHandler      : Unable to send PING command over channel: [id: 0x6ce851a2, L:/192.168.15.1:58537 - R:192.168.15.155/192.168.15.155:6379]
+
+org.redisson.client.RedisTimeoutException: Command execution timeout for command: (PING), params: [], Redis client: [addr=redis://192.168.15.155:6379]
+	at org.redisson.client.RedisConnection.lambda$async$0(RedisConnection.java:244) ~[redisson-3.17.1.jar:3.17.1]
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.run(HashedWheelTimer.java:715) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:34) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.expire(HashedWheelTimer.java:703) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$HashedWheelBucket.expireTimeouts(HashedWheelTimer.java:790) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$Worker.run(HashedWheelTimer.java:503) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+
+14:29:21:627 ERROR 26532 --- [redisson-timer-8-1] o.r.c.handler.PingConnectionHandler      : Unable to send PING command over channel: [id: 0xb98e3dcd, L:/192.168.15.1:58543 - R:192.168.15.155/192.168.15.155:6379]
+
+org.redisson.client.RedisTimeoutException: Command execution timeout for command: (PING), params: [], Redis client: [addr=redis://192.168.15.155:6379]
+	at org.redisson.client.RedisConnection.lambda$async$0(RedisConnection.java:244) ~[redisson-3.17.1.jar:3.17.1]
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.run(HashedWheelTimer.java:715) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:34) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.expire(HashedWheelTimer.java:703) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$HashedWheelBucket.expireTimeouts(HashedWheelTimer.java:790) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$Worker.run(HashedWheelTimer.java:503) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+
+14:29:21:627 ERROR 26532 --- [redisson-timer-8-1] o.r.c.handler.PingConnectionHandler      : Unable to send PING command over channel: [id: 0x176ba597, L:/192.168.15.1:58536 - R:192.168.15.155/192.168.15.155:6379]
+
+org.redisson.client.RedisTimeoutException: Command execution timeout for command: (PING), params: [], Redis client: [addr=redis://192.168.15.155:6379]
+	at org.redisson.client.RedisConnection.lambda$async$0(RedisConnection.java:244) ~[redisson-3.17.1.jar:3.17.1]
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.run(HashedWheelTimer.java:715) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:34) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.expire(HashedWheelTimer.java:703) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$HashedWheelBucket.expireTimeouts(HashedWheelTimer.java:790) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$Worker.run(HashedWheelTimer.java:503) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+
+14:29:21:628 ERROR 26532 --- [redisson-timer-8-1] o.r.c.handler.PingConnectionHandler      : Unable to send PING command over channel: [id: 0x12b56337, L:/192.168.15.1:58540 - R:192.168.15.155/192.168.15.155:6379]
+
+org.redisson.client.RedisTimeoutException: Command execution timeout for command: (PING), params: [], Redis client: [addr=redis://192.168.15.155:6379]
+	at org.redisson.client.RedisConnection.lambda$async$0(RedisConnection.java:244) ~[redisson-3.17.1.jar:3.17.1]
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.run(HashedWheelTimer.java:715) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:34) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.expire(HashedWheelTimer.java:703) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$HashedWheelBucket.expireTimeouts(HashedWheelTimer.java:790) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$Worker.run(HashedWheelTimer.java:503) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+
+14:29:21:629 ERROR 26532 --- [redisson-timer-8-1] o.r.c.handler.PingConnectionHandler      : Unable to send PING command over channel: [id: 0x6296a30a, L:/192.168.15.1:58535 - R:192.168.15.155/192.168.15.155:6379]
+
+org.redisson.client.RedisTimeoutException: Command execution timeout for command: (PING), params: [], Redis client: [addr=redis://192.168.15.155:6379]
+	at org.redisson.client.RedisConnection.lambda$async$0(RedisConnection.java:244) ~[redisson-3.17.1.jar:3.17.1]
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.run(HashedWheelTimer.java:715) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:34) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.expire(HashedWheelTimer.java:703) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$HashedWheelBucket.expireTimeouts(HashedWheelTimer.java:790) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$Worker.run(HashedWheelTimer.java:503) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+
+14:29:21:629 ERROR 26532 --- [redisson-timer-8-1] o.r.c.handler.PingConnectionHandler      : Unable to send PING command over channel: [id: 0x4ee0a9ca, L:/192.168.15.1:58538 - R:192.168.15.155/192.168.15.155:6379]
+
+org.redisson.client.RedisTimeoutException: Command execution timeout for command: (PING), params: [], Redis client: [addr=redis://192.168.15.155:6379]
+	at org.redisson.client.RedisConnection.lambda$async$0(RedisConnection.java:244) ~[redisson-3.17.1.jar:3.17.1]
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.run(HashedWheelTimer.java:715) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:34) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.expire(HashedWheelTimer.java:703) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$HashedWheelBucket.expireTimeouts(HashedWheelTimer.java:790) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$Worker.run(HashedWheelTimer.java:503) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+
+14:29:21:630 ERROR 26532 --- [redisson-timer-8-1] o.r.c.handler.PingConnectionHandler      : Unable to send PING command over channel: [id: 0x39f53419, L:/192.168.15.1:58534 - R:192.168.15.155/192.168.15.155:6379]
+
+org.redisson.client.RedisTimeoutException: Command execution timeout for command: (PING), params: [], Redis client: [addr=redis://192.168.15.155:6379]
+	at org.redisson.client.RedisConnection.lambda$async$0(RedisConnection.java:244) ~[redisson-3.17.1.jar:3.17.1]
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.run(HashedWheelTimer.java:715) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:34) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.expire(HashedWheelTimer.java:703) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$HashedWheelBucket.expireTimeouts(HashedWheelTimer.java:790) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$Worker.run(HashedWheelTimer.java:503) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+
+14:29:21:630 ERROR 26532 --- [redisson-timer-8-1] o.r.c.handler.PingConnectionHandler      : Unable to send PING command over channel: [id: 0xfccaff01, L:/192.168.15.1:58532 - R:192.168.15.155/192.168.15.155:6379]
+
+org.redisson.client.RedisTimeoutException: Command execution timeout for command: (PING), params: [], Redis client: [addr=redis://192.168.15.155:6379]
+	at org.redisson.client.RedisConnection.lambda$async$0(RedisConnection.java:244) ~[redisson-3.17.1.jar:3.17.1]
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.run(HashedWheelTimer.java:715) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:34) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.expire(HashedWheelTimer.java:703) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$HashedWheelBucket.expireTimeouts(HashedWheelTimer.java:790) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$Worker.run(HashedWheelTimer.java:503) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+
+14:29:21:630 ERROR 26532 --- [redisson-timer-8-1] o.r.c.handler.PingConnectionHandler      : Unable to send PING command over channel: [id: 0xa80ffac7, L:/192.168.15.1:58533 - R:192.168.15.155/192.168.15.155:6379]
+
+org.redisson.client.RedisTimeoutException: Command execution timeout for command: (PING), params: [], Redis client: [addr=redis://192.168.15.155:6379]
+	at org.redisson.client.RedisConnection.lambda$async$0(RedisConnection.java:244) ~[redisson-3.17.1.jar:3.17.1]
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.run(HashedWheelTimer.java:715) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:34) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.expire(HashedWheelTimer.java:703) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$HashedWheelBucket.expireTimeouts(HashedWheelTimer.java:790) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$Worker.run(HashedWheelTimer.java:503) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+
+14:29:21:631 ERROR 26532 --- [redisson-timer-8-1] o.r.c.handler.PingConnectionHandler      : Unable to send PING command over channel: [id: 0x42e1f6b2, L:/192.168.15.1:58530 - R:192.168.15.155/192.168.15.155:6379]
+
+org.redisson.client.RedisTimeoutException: Command execution timeout for command: (PING), params: [], Redis client: [addr=redis://192.168.15.155:6379]
+	at org.redisson.client.RedisConnection.lambda$async$0(RedisConnection.java:244) ~[redisson-3.17.1.jar:3.17.1]
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.run(HashedWheelTimer.java:715) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:34) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.expire(HashedWheelTimer.java:703) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$HashedWheelBucket.expireTimeouts(HashedWheelTimer.java:790) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$Worker.run(HashedWheelTimer.java:503) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+
+14:29:21:633 ERROR 26532 --- [redisson-timer-8-1] o.r.c.handler.PingConnectionHandler      : Unable to send PING command over channel: [id: 0x2d0269b0, L:/192.168.15.1:58529 - R:192.168.15.155/192.168.15.155:6379]
+
+org.redisson.client.RedisTimeoutException: Command execution timeout for command: (PING), params: [], Redis client: [addr=redis://192.168.15.155:6379]
+	at org.redisson.client.RedisConnection.lambda$async$0(RedisConnection.java:244) ~[redisson-3.17.1.jar:3.17.1]
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.run(HashedWheelTimer.java:715) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:34) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.expire(HashedWheelTimer.java:703) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$HashedWheelBucket.expireTimeouts(HashedWheelTimer.java:790) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$Worker.run(HashedWheelTimer.java:503) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+
+14:29:21:633 ERROR 26532 --- [redisson-timer-8-1] o.r.c.handler.PingConnectionHandler      : Unable to send PING command over channel: [id: 0x4f55abd8, L:/192.168.15.1:58531 - R:192.168.15.155/192.168.15.155:6379]
+
+org.redisson.client.RedisTimeoutException: Command execution timeout for command: (PING), params: [], Redis client: [addr=redis://192.168.15.155:6379]
+	at org.redisson.client.RedisConnection.lambda$async$0(RedisConnection.java:244) ~[redisson-3.17.1.jar:3.17.1]
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.run(HashedWheelTimer.java:715) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:34) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.expire(HashedWheelTimer.java:703) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$HashedWheelBucket.expireTimeouts(HashedWheelTimer.java:790) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$Worker.run(HashedWheelTimer.java:503) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+
+14:29:21:634 ERROR 26532 --- [redisson-timer-8-1] o.r.c.handler.PingConnectionHandler      : Unable to send PING command over channel: [id: 0x89bd03fe, L:/192.168.15.1:58528 - R:192.168.15.155/192.168.15.155:6379]
+
+org.redisson.client.RedisTimeoutException: Command execution timeout for command: (PING), params: [], Redis client: [addr=redis://192.168.15.155:6379]
+	at org.redisson.client.RedisConnection.lambda$async$0(RedisConnection.java:244) ~[redisson-3.17.1.jar:3.17.1]
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.run(HashedWheelTimer.java:715) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:34) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.expire(HashedWheelTimer.java:703) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$HashedWheelBucket.expireTimeouts(HashedWheelTimer.java:790) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$Worker.run(HashedWheelTimer.java:503) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+
+14:29:21:634 ERROR 26532 --- [redisson-timer-8-1] o.r.c.handler.PingConnectionHandler      : Unable to send PING command over channel: [id: 0xfccecaa2, L:/192.168.15.1:58527 - R:192.168.15.155/192.168.15.155:6379]
+
+org.redisson.client.RedisTimeoutException: Command execution timeout for command: (PING), params: [], Redis client: [addr=redis://192.168.15.155:6379]
+	at org.redisson.client.RedisConnection.lambda$async$0(RedisConnection.java:244) ~[redisson-3.17.1.jar:3.17.1]
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.run(HashedWheelTimer.java:715) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:34) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.expire(HashedWheelTimer.java:703) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$HashedWheelBucket.expireTimeouts(HashedWheelTimer.java:790) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$Worker.run(HashedWheelTimer.java:503) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+
+14:29:21:634 ERROR 26532 --- [redisson-timer-8-1] o.r.c.handler.PingConnectionHandler      : Unable to send PING command over channel: [id: 0x7bc94ac8, L:/192.168.15.1:58521 - R:192.168.15.155/192.168.15.155:6379]
+
+org.redisson.client.RedisTimeoutException: Command execution timeout for command: (PING), params: [], Redis client: [addr=redis://192.168.15.155:6379]
+	at org.redisson.client.RedisConnection.lambda$async$0(RedisConnection.java:244) ~[redisson-3.17.1.jar:3.17.1]
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.run(HashedWheelTimer.java:715) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:34) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.expire(HashedWheelTimer.java:703) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$HashedWheelBucket.expireTimeouts(HashedWheelTimer.java:790) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$Worker.run(HashedWheelTimer.java:503) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+
+14:29:21:635 ERROR 26532 --- [redisson-timer-8-1] o.r.c.handler.PingConnectionHandler      : Unable to send PING command over channel: [id: 0x4c7e1781, L:/192.168.15.1:58525 - R:192.168.15.155/192.168.15.155:6379]
+
+org.redisson.client.RedisTimeoutException: Command execution timeout for command: (PING), params: [], Redis client: [addr=redis://192.168.15.155:6379]
+	at org.redisson.client.RedisConnection.lambda$async$0(RedisConnection.java:244) ~[redisson-3.17.1.jar:3.17.1]
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.run(HashedWheelTimer.java:715) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:34) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.expire(HashedWheelTimer.java:703) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$HashedWheelBucket.expireTimeouts(HashedWheelTimer.java:790) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$Worker.run(HashedWheelTimer.java:503) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+
+14:29:21:636 ERROR 26532 --- [redisson-timer-8-1] o.r.c.handler.PingConnectionHandler      : Unable to send PING command over channel: [id: 0xf14a00a8, L:/192.168.15.1:58524 - R:192.168.15.155/192.168.15.155:6379]
+
+org.redisson.client.RedisTimeoutException: Command execution timeout for command: (PING), params: [], Redis client: [addr=redis://192.168.15.155:6379]
+	at org.redisson.client.RedisConnection.lambda$async$0(RedisConnection.java:244) ~[redisson-3.17.1.jar:3.17.1]
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.run(HashedWheelTimer.java:715) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:34) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.expire(HashedWheelTimer.java:703) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$HashedWheelBucket.expireTimeouts(HashedWheelTimer.java:790) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$Worker.run(HashedWheelTimer.java:503) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+
+14:29:21:636 ERROR 26532 --- [redisson-timer-8-1] o.r.c.handler.PingConnectionHandler      : Unable to send PING command over channel: [id: 0xf59757df, L:/192.168.15.1:58523 - R:192.168.15.155/192.168.15.155:6379]
+
+org.redisson.client.RedisTimeoutException: Command execution timeout for command: (PING), params: [], Redis client: [addr=redis://192.168.15.155:6379]
+	at org.redisson.client.RedisConnection.lambda$async$0(RedisConnection.java:244) ~[redisson-3.17.1.jar:3.17.1]
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.run(HashedWheelTimer.java:715) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:34) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.expire(HashedWheelTimer.java:703) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$HashedWheelBucket.expireTimeouts(HashedWheelTimer.java:790) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$Worker.run(HashedWheelTimer.java:503) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+
+14:29:21:636 ERROR 26532 --- [redisson-timer-8-1] o.r.c.handler.PingConnectionHandler      : Unable to send PING command over channel: [id: 0xf4796f79, L:/192.168.15.1:58522 - R:192.168.15.155/192.168.15.155:6379]
+
+org.redisson.client.RedisTimeoutException: Command execution timeout for command: (PING), params: [], Redis client: [addr=redis://192.168.15.155:6379]
+	at org.redisson.client.RedisConnection.lambda$async$0(RedisConnection.java:244) ~[redisson-3.17.1.jar:3.17.1]
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.run(HashedWheelTimer.java:715) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:34) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.expire(HashedWheelTimer.java:703) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$HashedWheelBucket.expireTimeouts(HashedWheelTimer.java:790) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$Worker.run(HashedWheelTimer.java:503) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+
+14:29:21:637 ERROR 26532 --- [redisson-timer-8-1] o.r.c.handler.PingConnectionHandler      : Unable to send PING command over channel: [id: 0x1b08061f, L:/192.168.15.1:58526 - R:192.168.15.155/192.168.15.155:6379]
+
+org.redisson.client.RedisTimeoutException: Command execution timeout for command: (PING), params: [], Redis client: [addr=redis://192.168.15.155:6379]
+	at org.redisson.client.RedisConnection.lambda$async$0(RedisConnection.java:244) ~[redisson-3.17.1.jar:3.17.1]
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.run(HashedWheelTimer.java:715) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:34) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.expire(HashedWheelTimer.java:703) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$HashedWheelBucket.expireTimeouts(HashedWheelTimer.java:790) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$Worker.run(HashedWheelTimer.java:503) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+
+14:29:21:638 ERROR 26532 --- [redisson-timer-8-1] o.r.c.handler.PingConnectionHandler      : Unable to send PING command over channel: [id: 0xb5eb6766, L:/192.168.15.1:58541 - R:192.168.15.155/192.168.15.155:6379]
+
+org.redisson.client.RedisTimeoutException: Command execution timeout for command: (PING), params: [], Redis client: [addr=redis://192.168.15.155:6379]
+	at org.redisson.client.RedisConnection.lambda$async$0(RedisConnection.java:244) ~[redisson-3.17.1.jar:3.17.1]
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.run(HashedWheelTimer.java:715) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.concurrent.ImmediateExecutor.execute(ImmediateExecutor.java:34) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$HashedWheelTimeout.expire(HashedWheelTimer.java:703) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$HashedWheelBucket.expireTimeouts(HashedWheelTimer.java:790) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.HashedWheelTimer$Worker.run(HashedWheelTimer.java:503) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.92.Final.jar:4.1.92.Final]
+	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
+
+16:42:20:374  WARN 26532 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2h8m55s116ms745µs100ns).
+17:20:20:346  WARN 26532 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=4m59s432ms259µs200ns).
+18:09:48:512  WARN 26532 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=43m58s104ms944µs300ns).
+18:44:34:758  WARN 26532 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=45s686ms87µs700ns).
+18:49:57:123  WARN 26532 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m22s320ms220µs800ns).
+20:16:52:297  WARN 26532 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=24m24s144ms219µs300ns).
+21:52:46:770  INFO 1840 --- [main] com.qyp.chat.ChatApplication             : Starting ChatApplication using Java 11.0.12 on LAPTOP-C6F2EJ6P with PID 1840 (D:\Users\qyp\Documents\ideaProjects\Chat\target\classes started by qyp in D:\Users\qyp\Documents\ideaProjects\Chat)
+21:52:46:771 DEBUG 1840 --- [main] com.qyp.chat.ChatApplication             : Running with Spring Boot v2.7.12, Spring v5.3.27
+21:52:46:772  INFO 1840 --- [main] com.qyp.chat.ChatApplication             : The following 1 profile is active: "dev"
+21:52:47:462  INFO 1840 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+21:52:47:464  INFO 1840 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+21:52:47:502  INFO 1840 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 20 ms. Found 0 Redis repository interfaces.
+21:52:48:037  INFO 1840 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
+21:52:48:048  INFO 1840 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+21:52:48:049  INFO 1840 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
+21:52:48:188  INFO 1840 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+21:52:48:189  INFO 1840 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1384 ms
+21:52:49:759  INFO 1840 --- [main] org.redisson.Version                     : Redisson 3.17.1
+21:52:49:919  INFO 1840 --- [redisson-netty-6-13] o.r.c.pool.MasterPubSubConnectionPool    : 1 connections initialized for 192.168.15.155/192.168.15.155:6379
+21:52:49:945  INFO 1840 --- [redisson-netty-6-19] o.r.c.pool.MasterConnectionPool          : 24 connections initialized for 192.168.15.155/192.168.15.155:6379
+21:52:50:356  INFO 1840 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+21:52:50:410  INFO 1840 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
+21:52:50:552  INFO 1840 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path '/api'
+21:52:50:553  INFO 1840 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
+21:52:50:555  INFO 1840 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+21:52:50:576  INFO 1840 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+21:52:50:683  INFO 1840 --- [main] com.qyp.chat.ChatApplication             : Started ChatApplication in 4.275 seconds (JVM running for 5.398)
+21:52:50:685  INFO 1840 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+21:52:50:909  INFO 1840 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+21:52:51:092  INFO 1840 --- [main] com.qyp.chat.InitRun                     : 服务启动成功。
+21:52:51:102  INFO 1840 --- [Thread-2] c.q.c.w.netty.NettyWebSocketStarter      : netty启动
+21:53:25:101  INFO 1840 --- [http-nio-8000-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+21:53:25:102  INFO 1840 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+21:53:25:103  INFO 1840 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+21:53:25:123 ERROR 1840 --- [http-nio-8000-exec-1] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
+21:53:34:903 DEBUG 1840 --- [http-nio-8000-exec-2] c.qyp.chat.mapper.UserMapper.selectOne   : ==>  Preparing: SELECT user_id,email,nick_name,join_type,sex,password,personal_signature,status,create_time,last_login_time,area_name,area_code,last_off_time FROM user WHERE (email = ?)
+21:53:34:919 DEBUG 1840 --- [http-nio-8000-exec-2] c.qyp.chat.mapper.UserMapper.selectOne   : ==> Parameters: 2740123221@qq.com(String)
+21:53:34:965 DEBUG 1840 --- [http-nio-8000-exec-2] c.qyp.chat.mapper.UserMapper.selectOne   : <==      Total: 1
+21:53:34:978 DEBUG 1840 --- [http-nio-8000-exec-2] c.q.c.mapper.ContactMapper.selectList    : ==>  Preparing: SELECT user_id,contact_id,contact_type,create_time,status,last_update_time FROM contact WHERE (user_id = ? AND status = ?)
+21:53:34:979 DEBUG 1840 --- [http-nio-8000-exec-2] c.q.c.mapper.ContactMapper.selectList    : ==> Parameters: Udkq7qzrl98r(String), 1(Integer)
+21:53:34:993 DEBUG 1840 --- [http-nio-8000-exec-2] c.q.c.mapper.ContactMapper.selectList    : <==      Total: 1
+21:53:44:266 DEBUG 1840 --- [http-nio-8000-exec-3] c.qyp.chat.mapper.UserMapper.selectOne   : ==>  Preparing: SELECT user_id,email,nick_name,join_type,sex,password,personal_signature,status,create_time,last_login_time,area_name,area_code,last_off_time FROM user WHERE (email = ?)
+21:53:44:267 DEBUG 1840 --- [http-nio-8000-exec-3] c.qyp.chat.mapper.UserMapper.selectOne   : ==> Parameters: 2740123222@qq.com(String)
+21:53:44:273 DEBUG 1840 --- [http-nio-8000-exec-3] c.qyp.chat.mapper.UserMapper.selectOne   : <==      Total: 1
+21:53:44:276 DEBUG 1840 --- [http-nio-8000-exec-3] c.q.c.mapper.ContactMapper.selectList    : ==>  Preparing: SELECT user_id,contact_id,contact_type,create_time,status,last_update_time FROM contact WHERE (user_id = ? AND status = ?)
+21:53:44:276 DEBUG 1840 --- [http-nio-8000-exec-3] c.q.c.mapper.ContactMapper.selectList    : ==> Parameters: Urgemzm17hdh(String), 1(Integer)
+21:53:44:278 DEBUG 1840 --- [http-nio-8000-exec-3] c.q.c.mapper.ContactMapper.selectList    : <==      Total: 1
+21:54:22:705  INFO 1840 --- [nioEventLoopGroup-3-1] c.q.c.websocket.netty.HandlerWebSocket   : 建立连接
+21:54:22:728  INFO 1840 --- [nioEventLoopGroup-3-1] c.q.c.websocket.netty.HandlerWebSocket   : token:4d15e29e1def4c0c3ec1eccdfebe06c2
+21:54:22:743 DEBUG 1840 --- [nioEventLoopGroup-3-1] c.qyp.chat.mapper.UserMapper.updateById  : ==>  Preparing: UPDATE user SET last_login_time=? WHERE user_id=?
+21:54:22:745 DEBUG 1840 --- [nioEventLoopGroup-3-1] c.qyp.chat.mapper.UserMapper.updateById  : ==> Parameters: 2025-01-25T21:54:22.741117200(LocalDateTime), Udkq7qzrl98r(String)
+21:54:22:758 DEBUG 1840 --- [nioEventLoopGroup-3-1] c.qyp.chat.mapper.UserMapper.updateById  : <==    Updates: 1
+21:54:22:759 DEBUG 1840 --- [nioEventLoopGroup-3-1] c.qyp.chat.mapper.UserMapper.selectById  : ==>  Preparing: SELECT user_id,email,nick_name,join_type,sex,password,personal_signature,status,create_time,last_login_time,area_name,area_code,last_off_time FROM user WHERE user_id=?
+21:54:22:759 DEBUG 1840 --- [nioEventLoopGroup-3-1] c.qyp.chat.mapper.UserMapper.selectById  : ==> Parameters: Udkq7qzrl98r(String)
+21:54:22:760 DEBUG 1840 --- [nioEventLoopGroup-3-1] c.qyp.chat.mapper.UserMapper.selectById  : <==      Total: 1
+21:54:22:761 DEBUG 1840 --- [nioEventLoopGroup-3-1] c.q.c.m.U.selectAllUserSession           : ==>  Preparing: select u.* , s.last_message , s.last_receive_time , case when substring(u.contact_id, 1, 1) = 'G' then (select count(*) from `group` g where g.group_id = u.contact_id) else 0 end as memberCount from user_session u, session s where u.session_id = s.session_id and u.user_id = ? order by s.last_receive_time desc
+21:54:22:761 DEBUG 1840 --- [nioEventLoopGroup-3-1] c.q.c.m.U.selectAllUserSession           : ==> Parameters: Udkq7qzrl98r(String)
+21:54:22:770 DEBUG 1840 --- [nioEventLoopGroup-3-1] c.q.c.m.U.selectAllUserSession           : <==      Total: 1
+21:54:22:773 DEBUG 1840 --- [nioEventLoopGroup-3-1] c.q.c.mapper.MessageMapper.selectList    : ==>  Preparing: SELECT message_id,session_id,message_type,message_content,send_user_id,send_user_nick_name,send_time,contact_id,contact_type,file_size,file_name,file_type,status FROM message WHERE (contact_id IN (?) AND send_time > ?)
+21:54:22:773 DEBUG 1840 --- [nioEventLoopGroup-3-1] c.q.c.mapper.MessageMapper.selectList    : ==> Parameters: Udkq7qzrl98r(String), 1737554062760(Long)
+21:54:22:775 DEBUG 1840 --- [nioEventLoopGroup-3-1] c.q.c.mapper.MessageMapper.selectList    : <==      Total: 0
+21:54:22:778 DEBUG 1840 --- [nioEventLoopGroup-3-1] c.q.chat.mapper.ApplyMapper.selectCount  : ==>  Preparing: SELECT COUNT( * ) FROM apply WHERE (receive_user_id = ? AND status = ? AND last_apply_time > ?)
+21:54:22:778 DEBUG 1840 --- [nioEventLoopGroup-3-1] c.q.chat.mapper.ApplyMapper.selectCount  : ==> Parameters: Udkq7qzrl98r(String), 0(Integer), 1737554062760(Long)
+21:54:22:782 DEBUG 1840 --- [nioEventLoopGroup-3-1] c.q.chat.mapper.ApplyMapper.selectCount  : <==      Total: 1
+21:54:52:871  INFO 1840 --- [nioEventLoopGroup-3-2] c.q.c.websocket.netty.HandlerWebSocket   : 建立连接
+21:54:52:874  INFO 1840 --- [nioEventLoopGroup-3-2] c.q.c.websocket.netty.HandlerWebSocket   : token:6b46f8e2c345659124585dbc1b3c663b
+21:54:52:879 DEBUG 1840 --- [nioEventLoopGroup-3-2] c.qyp.chat.mapper.UserMapper.updateById  : ==>  Preparing: UPDATE user SET last_login_time=? WHERE user_id=?
+21:54:52:879 DEBUG 1840 --- [nioEventLoopGroup-3-2] c.qyp.chat.mapper.UserMapper.updateById  : ==> Parameters: 2025-01-25T21:54:52.876331700(LocalDateTime), Urgemzm17hdh(String)
+21:54:52:887 DEBUG 1840 --- [nioEventLoopGroup-3-2] c.qyp.chat.mapper.UserMapper.updateById  : <==    Updates: 1
+21:54:52:888 DEBUG 1840 --- [nioEventLoopGroup-3-2] c.qyp.chat.mapper.UserMapper.selectById  : ==>  Preparing: SELECT user_id,email,nick_name,join_type,sex,password,personal_signature,status,create_time,last_login_time,area_name,area_code,last_off_time FROM user WHERE user_id=?
+21:54:52:888 DEBUG 1840 --- [nioEventLoopGroup-3-2] c.qyp.chat.mapper.UserMapper.selectById  : ==> Parameters: Urgemzm17hdh(String)
+21:54:52:889 DEBUG 1840 --- [nioEventLoopGroup-3-2] c.qyp.chat.mapper.UserMapper.selectById  : <==      Total: 1
+21:54:52:890 DEBUG 1840 --- [nioEventLoopGroup-3-2] c.q.c.m.U.selectAllUserSession           : ==>  Preparing: select u.* , s.last_message , s.last_receive_time , case when substring(u.contact_id, 1, 1) = 'G' then (select count(*) from `group` g where g.group_id = u.contact_id) else 0 end as memberCount from user_session u, session s where u.session_id = s.session_id and u.user_id = ? order by s.last_receive_time desc
+21:54:52:890 DEBUG 1840 --- [nioEventLoopGroup-3-2] c.q.c.m.U.selectAllUserSession           : ==> Parameters: Urgemzm17hdh(String)
+21:54:52:891 DEBUG 1840 --- [nioEventLoopGroup-3-2] c.q.c.m.U.selectAllUserSession           : <==      Total: 1
+21:54:52:892 DEBUG 1840 --- [nioEventLoopGroup-3-2] c.q.c.mapper.MessageMapper.selectList    : ==>  Preparing: SELECT message_id,session_id,message_type,message_content,send_user_id,send_user_nick_name,send_time,contact_id,contact_type,file_size,file_name,file_type,status FROM message WHERE (contact_id IN (?) AND send_time > ?)
+21:54:52:892 DEBUG 1840 --- [nioEventLoopGroup-3-2] c.q.c.mapper.MessageMapper.selectList    : ==> Parameters: Urgemzm17hdh(String), 1737554092890(Long)
+21:54:52:893 DEBUG 1840 --- [nioEventLoopGroup-3-2] c.q.c.mapper.MessageMapper.selectList    : <==      Total: 0
+21:54:52:895 DEBUG 1840 --- [nioEventLoopGroup-3-2] c.q.chat.mapper.ApplyMapper.selectCount  : ==>  Preparing: SELECT COUNT( * ) FROM apply WHERE (receive_user_id = ? AND status = ? AND last_apply_time > ?)
+21:54:52:895 DEBUG 1840 --- [nioEventLoopGroup-3-2] c.q.chat.mapper.ApplyMapper.selectCount  : ==> Parameters: Urgemzm17hdh(String), 0(Integer), 1737554092890(Long)
+21:54:52:897 DEBUG 1840 --- [nioEventLoopGroup-3-2] c.q.chat.mapper.ApplyMapper.selectCount  : <==      Total: 1
+21:55:23:954 ERROR 1840 --- [http-nio-8000-exec-5] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
+21:56:33:992 DEBUG 1840 --- [http-nio-8000-exec-7] c.q.chat.mapper.ContactMapper.selectOne  : ==>  Preparing: SELECT user_id,contact_id,contact_type,create_time,status,last_update_time FROM contact WHERE (user_id = ? AND contact_id = ?)
+21:56:33:993 DEBUG 1840 --- [http-nio-8000-exec-7] c.q.chat.mapper.ContactMapper.selectOne  : ==> Parameters: Udkq7qzrl98r(String), Urgemzm17hdh(String)
+21:56:33:994 DEBUG 1840 --- [http-nio-8000-exec-7] c.q.chat.mapper.ContactMapper.selectOne  : <==      Total: 0
+21:56:33:996 DEBUG 1840 --- [http-nio-8000-exec-7] c.qyp.chat.mapper.UserMapper.selectById  : ==>  Preparing: SELECT user_id,email,nick_name,join_type,sex,password,personal_signature,status,create_time,last_login_time,area_name,area_code,last_off_time FROM user WHERE user_id=?
+21:56:33:997 DEBUG 1840 --- [http-nio-8000-exec-7] c.qyp.chat.mapper.UserMapper.selectById  : ==> Parameters: Urgemzm17hdh(String)
+21:56:33:998 DEBUG 1840 --- [http-nio-8000-exec-7] c.qyp.chat.mapper.UserMapper.selectById  : <==      Total: 1
+21:56:34:000 DEBUG 1840 --- [http-nio-8000-exec-7] c.qyp.chat.mapper.ApplyMapper.selectOne  : ==>  Preparing: SELECT apply_id,apply_user_id,receive_user_id,contact_type,contact_id,last_apply_time,status,apply_info FROM apply WHERE (apply_user_id = ? AND contact_id = ? AND receive_user_id = ?)
+21:56:34:001 DEBUG 1840 --- [http-nio-8000-exec-7] c.qyp.chat.mapper.ApplyMapper.selectOne  : ==> Parameters: Udkq7qzrl98r(String), Urgemzm17hdh(String), Urgemzm17hdh(String)
+21:56:34:002 DEBUG 1840 --- [http-nio-8000-exec-7] c.qyp.chat.mapper.ApplyMapper.selectOne  : <==      Total: 1
+21:56:34:006 DEBUG 1840 --- [http-nio-8000-exec-7] com.qyp.chat.mapper.ApplyMapper.update   : ==>  Preparing: UPDATE apply SET last_apply_time=?, status=?, apply_info=? WHERE (apply_user_id = ? AND contact_id = ? AND receive_user_id = ?)
+21:56:34:007 DEBUG 1840 --- [http-nio-8000-exec-7] com.qyp.chat.mapper.ApplyMapper.update   : ==> Parameters: 1737813393989(Long), 0(Integer), 我是第一人(String), Udkq7qzrl98r(String), Urgemzm17hdh(String), Urgemzm17hdh(String)
+21:56:34:009 DEBUG 1840 --- [http-nio-8000-exec-7] com.qyp.chat.mapper.ApplyMapper.update   : <==    Updates: 1
+22:00:22:397 DEBUG 1840 --- [http-nio-8000-exec-6] c.q.chat.mapper.ContactMapper.selectOne  : ==>  Preparing: SELECT user_id,contact_id,contact_type,create_time,status,last_update_time FROM contact WHERE (user_id = ? AND contact_id = ?)
+22:00:22:398 DEBUG 1840 --- [http-nio-8000-exec-6] c.q.chat.mapper.ContactMapper.selectOne  : ==> Parameters: Udkq7qzrl98r(String), Urgemzm17hdh(String)
+22:00:22:400 DEBUG 1840 --- [http-nio-8000-exec-6] c.q.chat.mapper.ContactMapper.selectOne  : <==      Total: 0
+22:00:22:401 DEBUG 1840 --- [http-nio-8000-exec-6] c.qyp.chat.mapper.UserMapper.selectById  : ==>  Preparing: SELECT user_id,email,nick_name,join_type,sex,password,personal_signature,status,create_time,last_login_time,area_name,area_code,last_off_time FROM user WHERE user_id=?
+22:00:22:401 DEBUG 1840 --- [http-nio-8000-exec-6] c.qyp.chat.mapper.UserMapper.selectById  : ==> Parameters: Urgemzm17hdh(String)
+22:00:22:403 DEBUG 1840 --- [http-nio-8000-exec-6] c.qyp.chat.mapper.UserMapper.selectById  : <==      Total: 1
+22:00:22:404 DEBUG 1840 --- [http-nio-8000-exec-6] c.qyp.chat.mapper.ApplyMapper.selectOne  : ==>  Preparing: SELECT apply_id,apply_user_id,receive_user_id,contact_type,contact_id,last_apply_time,status,apply_info FROM apply WHERE (apply_user_id = ? AND contact_id = ? AND receive_user_id = ?)
+22:00:22:404 DEBUG 1840 --- [http-nio-8000-exec-6] c.qyp.chat.mapper.ApplyMapper.selectOne  : ==> Parameters: Udkq7qzrl98r(String), Urgemzm17hdh(String), Urgemzm17hdh(String)
+22:00:22:407 DEBUG 1840 --- [http-nio-8000-exec-6] c.qyp.chat.mapper.ApplyMapper.selectOne  : <==      Total: 1
+22:00:22:410 DEBUG 1840 --- [http-nio-8000-exec-6] com.qyp.chat.mapper.ApplyMapper.update   : ==>  Preparing: UPDATE apply SET last_apply_time=?, status=?, apply_info=? WHERE (apply_user_id = ? AND contact_id = ? AND receive_user_id = ?)
+22:00:22:410 DEBUG 1840 --- [http-nio-8000-exec-6] com.qyp.chat.mapper.ApplyMapper.update   : ==> Parameters: 1737813622396(Long), 0(Integer), 我是第一人(String), Udkq7qzrl98r(String), Urgemzm17hdh(String), Urgemzm17hdh(String)
+22:00:22:411 DEBUG 1840 --- [http-nio-8000-exec-6] com.qyp.chat.mapper.ApplyMapper.update   : <==    Updates: 1
+22:00:22:413 DEBUG 1840 --- [http-nio-8000-exec-6] c.q.chat.mapper.GroupMapper.selectById   : ==>  Preparing: SELECT group_id,group_name,group_owner_id,create_time,group_notice,join_type,status FROM `group` WHERE group_id=?
+22:00:22:413 DEBUG 1840 --- [http-nio-8000-exec-6] c.q.chat.mapper.GroupMapper.selectById   : ==> Parameters: Urgemzm17hdh(String)
+22:00:22:415 DEBUG 1840 --- [http-nio-8000-exec-6] c.q.chat.mapper.GroupMapper.selectById   : <==      Total: 0
+22:00:22:418 ERROR 1840 --- [http-nio-8000-exec-6] c.q.c.exception.GlobalExceptionHandler   : 请求地址:/api/apply/applyAdd错误
+22:03:59:954  INFO 24812 --- [main] com.qyp.chat.ChatApplication             : Starting ChatApplication using Java 11.0.12 on LAPTOP-C6F2EJ6P with PID 24812 (D:\Users\qyp\Documents\ideaProjects\Chat\target\classes started by qyp in D:\Users\qyp\Documents\ideaProjects\Chat)
+22:03:59:955 DEBUG 24812 --- [main] com.qyp.chat.ChatApplication             : Running with Spring Boot v2.7.12, Spring v5.3.27
+22:03:59:956  INFO 24812 --- [main] com.qyp.chat.ChatApplication             : The following 1 profile is active: "dev"
+22:04:00:561  INFO 24812 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+22:04:00:563  INFO 24812 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+22:04:00:594  INFO 24812 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 20 ms. Found 0 Redis repository interfaces.
+22:04:01:011  INFO 24812 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
+22:04:01:019  INFO 24812 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+22:04:01:020  INFO 24812 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
+22:04:01:117  INFO 24812 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+22:04:01:117  INFO 24812 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1130 ms
+22:04:02:649  INFO 24812 --- [main] org.redisson.Version                     : Redisson 3.17.1
+22:04:02:751  INFO 24812 --- [redisson-netty-6-13] o.r.c.pool.MasterPubSubConnectionPool    : 1 connections initialized for 192.168.15.155/192.168.15.155:6379
+22:04:02:777  INFO 24812 --- [redisson-netty-6-19] o.r.c.pool.MasterConnectionPool          : 24 connections initialized for 192.168.15.155/192.168.15.155:6379
+22:04:03:129  INFO 24812 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+22:04:03:180  INFO 24812 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
+22:04:03:300  INFO 24812 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path '/api'
+22:04:03:300  INFO 24812 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
+22:04:03:302  INFO 24812 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+22:04:03:318  INFO 24812 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+22:04:03:415  INFO 24812 --- [main] com.qyp.chat.ChatApplication             : Started ChatApplication in 3.811 seconds (JVM running for 5.044)
+22:04:03:418  INFO 24812 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+22:04:03:559  INFO 24812 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+22:04:03:738  INFO 24812 --- [main] com.qyp.chat.InitRun                     : 服务启动成功。
+22:04:03:745  INFO 24812 --- [Thread-2] c.q.c.w.netty.NettyWebSocketStarter      : netty启动
+22:04:08:673  INFO 24812 --- [http-nio-8000-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+22:04:08:673  INFO 24812 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+22:04:08:675  INFO 24812 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+22:04:08:811 DEBUG 24812 --- [http-nio-8000-exec-1] c.q.chat.mapper.ContactMapper.selectOne  : ==>  Preparing: SELECT user_id,contact_id,contact_type,create_time,status,last_update_time FROM contact WHERE (user_id = ? AND contact_id = ?)
+22:04:08:829 DEBUG 24812 --- [http-nio-8000-exec-1] c.q.chat.mapper.ContactMapper.selectOne  : ==> Parameters: Udkq7qzrl98r(String), Urgemzm17hdh(String)
+22:04:08:847 DEBUG 24812 --- [http-nio-8000-exec-1] c.q.chat.mapper.ContactMapper.selectOne  : <==      Total: 0
+22:04:08:852 DEBUG 24812 --- [http-nio-8000-exec-1] c.qyp.chat.mapper.UserMapper.selectById  : ==>  Preparing: SELECT user_id,email,nick_name,join_type,sex,password,personal_signature,status,create_time,last_login_time,area_name,area_code,last_off_time FROM user WHERE user_id=?
+22:04:08:853 DEBUG 24812 --- [http-nio-8000-exec-1] c.qyp.chat.mapper.UserMapper.selectById  : ==> Parameters: Urgemzm17hdh(String)
+22:04:08:856 DEBUG 24812 --- [http-nio-8000-exec-1] c.qyp.chat.mapper.UserMapper.selectById  : <==      Total: 1
+22:04:08:859 DEBUG 24812 --- [http-nio-8000-exec-1] c.qyp.chat.mapper.ApplyMapper.selectOne  : ==>  Preparing: SELECT apply_id,apply_user_id,receive_user_id,contact_type,contact_id,last_apply_time,status,apply_info FROM apply WHERE (apply_user_id = ? AND contact_id = ? AND receive_user_id = ?)
+22:04:08:859 DEBUG 24812 --- [http-nio-8000-exec-1] c.qyp.chat.mapper.ApplyMapper.selectOne  : ==> Parameters: Udkq7qzrl98r(String), Urgemzm17hdh(String), Urgemzm17hdh(String)
+22:04:08:860 DEBUG 24812 --- [http-nio-8000-exec-1] c.qyp.chat.mapper.ApplyMapper.selectOne  : <==      Total: 1
+22:04:08:865 DEBUG 24812 --- [http-nio-8000-exec-1] com.qyp.chat.mapper.ApplyMapper.update   : ==>  Preparing: UPDATE apply SET last_apply_time=?, status=?, apply_info=? WHERE (apply_user_id = ? AND contact_id = ? AND receive_user_id = ?)
+22:04:08:867 DEBUG 24812 --- [http-nio-8000-exec-1] com.qyp.chat.mapper.ApplyMapper.update   : ==> Parameters: 1737813848758(Long), 0(Integer), 我是第一人(String), Udkq7qzrl98r(String), Urgemzm17hdh(String), Urgemzm17hdh(String)
+22:04:08:869 DEBUG 24812 --- [http-nio-8000-exec-1] com.qyp.chat.mapper.ApplyMapper.update   : <==    Updates: 1
+22:04:08:929  INFO 24812 --- [redisson-7-2] com.qyp.chat.websocket.MessageHandler    : 收到广播消息：{"sendTime":1737813848758,"contactType":0,"lastMessage":"我是第一人","messageContent":"我是第一人","messageType":4}
+22:04:24:570  INFO 24812 --- [nioEventLoopGroup-3-1] c.q.c.websocket.netty.HandlerWebSocket   : 建立连接
+22:04:24:603  INFO 24812 --- [nioEventLoopGroup-3-1] c.q.c.websocket.netty.HandlerWebSocket   : token:4d15e29e1def4c0c3ec1eccdfebe06c2
+22:04:24:631 DEBUG 24812 --- [nioEventLoopGroup-3-1] c.qyp.chat.mapper.UserMapper.updateById  : ==>  Preparing: UPDATE user SET last_login_time=? WHERE user_id=?
+22:04:24:634 DEBUG 24812 --- [nioEventLoopGroup-3-1] c.qyp.chat.mapper.UserMapper.updateById  : ==> Parameters: 2025-01-25T22:04:24.626260800(LocalDateTime), Udkq7qzrl98r(String)
+22:04:24:641 DEBUG 24812 --- [nioEventLoopGroup-3-1] c.qyp.chat.mapper.UserMapper.updateById  : <==    Updates: 1
+22:04:24:642 DEBUG 24812 --- [nioEventLoopGroup-3-1] c.qyp.chat.mapper.UserMapper.selectById  : ==>  Preparing: SELECT user_id,email,nick_name,join_type,sex,password,personal_signature,status,create_time,last_login_time,area_name,area_code,last_off_time FROM user WHERE user_id=?
+22:04:24:643 DEBUG 24812 --- [nioEventLoopGroup-3-1] c.qyp.chat.mapper.UserMapper.selectById  : ==> Parameters: Udkq7qzrl98r(String)
+22:04:24:645 DEBUG 24812 --- [nioEventLoopGroup-3-1] c.qyp.chat.mapper.UserMapper.selectById  : <==      Total: 1
+22:04:24:646 DEBUG 24812 --- [nioEventLoopGroup-3-1] c.q.c.m.U.selectAllUserSession           : ==>  Preparing: select u.* , s.last_message , s.last_receive_time , case when substring(u.contact_id, 1, 1) = 'G' then (select count(*) from `group` g where g.group_id = u.contact_id) else 0 end as memberCount from user_session u, session s where u.session_id = s.session_id and u.user_id = ? order by s.last_receive_time desc
+22:04:24:646 DEBUG 24812 --- [nioEventLoopGroup-3-1] c.q.c.m.U.selectAllUserSession           : ==> Parameters: Udkq7qzrl98r(String)
+22:04:24:651 DEBUG 24812 --- [nioEventLoopGroup-3-1] c.q.c.m.U.selectAllUserSession           : <==      Total: 1
+22:04:24:655 DEBUG 24812 --- [nioEventLoopGroup-3-1] c.q.c.mapper.MessageMapper.selectList    : ==>  Preparing: SELECT message_id,session_id,message_type,message_content,send_user_id,send_user_nick_name,send_time,contact_id,contact_type,file_size,file_name,file_type,status FROM message WHERE (contact_id IN (?) AND send_time > ?)
+22:04:24:655 DEBUG 24812 --- [nioEventLoopGroup-3-1] c.q.c.mapper.MessageMapper.selectList    : ==> Parameters: Udkq7qzrl98r(String), 1737554664645(Long)
+22:04:24:656 DEBUG 24812 --- [nioEventLoopGroup-3-1] c.q.c.mapper.MessageMapper.selectList    : <==      Total: 0
+22:04:24:660 DEBUG 24812 --- [nioEventLoopGroup-3-1] c.q.chat.mapper.ApplyMapper.selectCount  : ==>  Preparing: SELECT COUNT( * ) FROM apply WHERE (receive_user_id = ? AND status = ? AND last_apply_time > ?)
+22:04:24:660 DEBUG 24812 --- [nioEventLoopGroup-3-1] c.q.chat.mapper.ApplyMapper.selectCount  : ==> Parameters: Udkq7qzrl98r(String), 0(Integer), 1737554664645(Long)
+22:04:24:662 DEBUG 24812 --- [nioEventLoopGroup-3-1] c.q.chat.mapper.ApplyMapper.selectCount  : <==      Total: 1
+22:04:26:392  INFO 24812 --- [nioEventLoopGroup-3-2] c.q.c.websocket.netty.HandlerWebSocket   : 建立连接
+22:04:26:397  INFO 24812 --- [nioEventLoopGroup-3-2] c.q.c.websocket.netty.HandlerWebSocket   : token:6b46f8e2c345659124585dbc1b3c663b
+22:04:26:405 DEBUG 24812 --- [nioEventLoopGroup-3-2] c.qyp.chat.mapper.UserMapper.updateById  : ==>  Preparing: UPDATE user SET last_login_time=? WHERE user_id=?
+22:04:26:406 DEBUG 24812 --- [nioEventLoopGroup-3-2] c.qyp.chat.mapper.UserMapper.updateById  : ==> Parameters: 2025-01-25T22:04:26.401190300(LocalDateTime), Urgemzm17hdh(String)
+22:04:26:413 DEBUG 24812 --- [nioEventLoopGroup-3-2] c.qyp.chat.mapper.UserMapper.updateById  : <==    Updates: 1
+22:04:26:414 DEBUG 24812 --- [nioEventLoopGroup-3-2] c.qyp.chat.mapper.UserMapper.selectById  : ==>  Preparing: SELECT user_id,email,nick_name,join_type,sex,password,personal_signature,status,create_time,last_login_time,area_name,area_code,last_off_time FROM user WHERE user_id=?
+22:04:26:415 DEBUG 24812 --- [nioEventLoopGroup-3-2] c.qyp.chat.mapper.UserMapper.selectById  : ==> Parameters: Urgemzm17hdh(String)
+22:04:26:416 DEBUG 24812 --- [nioEventLoopGroup-3-2] c.qyp.chat.mapper.UserMapper.selectById  : <==      Total: 1
+22:04:26:418 DEBUG 24812 --- [nioEventLoopGroup-3-2] c.q.c.m.U.selectAllUserSession           : ==>  Preparing: select u.* , s.last_message , s.last_receive_time , case when substring(u.contact_id, 1, 1) = 'G' then (select count(*) from `group` g where g.group_id = u.contact_id) else 0 end as memberCount from user_session u, session s where u.session_id = s.session_id and u.user_id = ? order by s.last_receive_time desc
+22:04:26:418 DEBUG 24812 --- [nioEventLoopGroup-3-2] c.q.c.m.U.selectAllUserSession           : ==> Parameters: Urgemzm17hdh(String)
+22:04:26:420 DEBUG 24812 --- [nioEventLoopGroup-3-2] c.q.c.m.U.selectAllUserSession           : <==      Total: 1
+22:04:26:422 DEBUG 24812 --- [nioEventLoopGroup-3-2] c.q.c.mapper.MessageMapper.selectList    : ==>  Preparing: SELECT message_id,session_id,message_type,message_content,send_user_id,send_user_nick_name,send_time,contact_id,contact_type,file_size,file_name,file_type,status FROM message WHERE (contact_id IN (?) AND send_time > ?)
+22:04:26:422 DEBUG 24812 --- [nioEventLoopGroup-3-2] c.q.c.mapper.MessageMapper.selectList    : ==> Parameters: Urgemzm17hdh(String), 1737554666417(Long)
+22:04:26:423 DEBUG 24812 --- [nioEventLoopGroup-3-2] c.q.c.mapper.MessageMapper.selectList    : <==      Total: 0
+22:04:26:425 DEBUG 24812 --- [nioEventLoopGroup-3-2] c.q.chat.mapper.ApplyMapper.selectCount  : ==>  Preparing: SELECT COUNT( * ) FROM apply WHERE (receive_user_id = ? AND status = ? AND last_apply_time > ?)
+22:04:26:426 DEBUG 24812 --- [nioEventLoopGroup-3-2] c.q.chat.mapper.ApplyMapper.selectCount  : ==> Parameters: Urgemzm17hdh(String), 0(Integer), 1737554666417(Long)
+22:04:26:427 DEBUG 24812 --- [nioEventLoopGroup-3-2] c.q.chat.mapper.ApplyMapper.selectCount  : <==      Total: 1
+22:04:41:386 DEBUG 24812 --- [http-nio-8000-exec-3] c.q.chat.mapper.ContactMapper.selectOne  : ==>  Preparing: SELECT user_id,contact_id,contact_type,create_time,status,last_update_time FROM contact WHERE (user_id = ? AND contact_id = ?)
+22:04:41:386 DEBUG 24812 --- [http-nio-8000-exec-3] c.q.chat.mapper.ContactMapper.selectOne  : ==> Parameters: Udkq7qzrl98r(String), Urgemzm17hdh(String)
+22:04:41:388 DEBUG 24812 --- [http-nio-8000-exec-3] c.q.chat.mapper.ContactMapper.selectOne  : <==      Total: 0
+22:04:41:390 DEBUG 24812 --- [http-nio-8000-exec-3] c.qyp.chat.mapper.UserMapper.selectById  : ==>  Preparing: SELECT user_id,email,nick_name,join_type,sex,password,personal_signature,status,create_time,last_login_time,area_name,area_code,last_off_time FROM user WHERE user_id=?
+22:04:41:390 DEBUG 24812 --- [http-nio-8000-exec-3] c.qyp.chat.mapper.UserMapper.selectById  : ==> Parameters: Urgemzm17hdh(String)
+22:04:41:391 DEBUG 24812 --- [http-nio-8000-exec-3] c.qyp.chat.mapper.UserMapper.selectById  : <==      Total: 1
+22:04:41:392 DEBUG 24812 --- [http-nio-8000-exec-3] c.qyp.chat.mapper.ApplyMapper.selectOne  : ==>  Preparing: SELECT apply_id,apply_user_id,receive_user_id,contact_type,contact_id,last_apply_time,status,apply_info FROM apply WHERE (apply_user_id = ? AND contact_id = ? AND receive_user_id = ?)
+22:04:41:393 DEBUG 24812 --- [http-nio-8000-exec-3] c.qyp.chat.mapper.ApplyMapper.selectOne  : ==> Parameters: Udkq7qzrl98r(String), Urgemzm17hdh(String), Urgemzm17hdh(String)
+22:04:41:394 DEBUG 24812 --- [http-nio-8000-exec-3] c.qyp.chat.mapper.ApplyMapper.selectOne  : <==      Total: 1
+22:04:41:395 DEBUG 24812 --- [http-nio-8000-exec-3] com.qyp.chat.mapper.ApplyMapper.update   : ==>  Preparing: UPDATE apply SET last_apply_time=?, status=?, apply_info=? WHERE (apply_user_id = ? AND contact_id = ? AND receive_user_id = ?)
+22:04:41:395 DEBUG 24812 --- [http-nio-8000-exec-3] com.qyp.chat.mapper.ApplyMapper.update   : ==> Parameters: 1737813881385(Long), 0(Integer), 我是第一人(String), Udkq7qzrl98r(String), Urgemzm17hdh(String), Urgemzm17hdh(String)
+22:04:41:396 DEBUG 24812 --- [http-nio-8000-exec-3] com.qyp.chat.mapper.ApplyMapper.update   : <==    Updates: 1
+22:04:41:403  INFO 24812 --- [redisson-7-3] com.qyp.chat.websocket.MessageHandler    : 收到广播消息：{"sendTime":1737813881385,"contactType":0,"lastMessage":"我是第一人","messageContent":"我是第一人","messageType":4}
+22:13:42:610  INFO 32400 --- [main] com.qyp.chat.ChatApplication             : Starting ChatApplication using Java 11.0.12 on LAPTOP-C6F2EJ6P with PID 32400 (D:\Users\qyp\Documents\ideaProjects\Chat\target\classes started by qyp in D:\Users\qyp\Documents\ideaProjects\Chat)
+22:13:42:612 DEBUG 32400 --- [main] com.qyp.chat.ChatApplication             : Running with Spring Boot v2.7.12, Spring v5.3.27
+22:13:42:612  INFO 32400 --- [main] com.qyp.chat.ChatApplication             : The following 1 profile is active: "dev"
+22:13:43:176  INFO 32400 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+22:13:43:178  INFO 32400 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+22:13:43:199  INFO 32400 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14 ms. Found 0 Redis repository interfaces.
+22:13:43:545  INFO 32400 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
+22:13:43:553  INFO 32400 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+22:13:43:554  INFO 32400 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
+22:13:43:667  INFO 32400 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+22:13:43:667  INFO 32400 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1025 ms
+22:13:44:913  INFO 32400 --- [main] org.redisson.Version                     : Redisson 3.17.1
+22:13:45:024  INFO 32400 --- [redisson-netty-6-13] o.r.c.pool.MasterPubSubConnectionPool    : 1 connections initialized for 192.168.15.155/192.168.15.155:6379
+22:13:45:057  INFO 32400 --- [redisson-netty-6-19] o.r.c.pool.MasterConnectionPool          : 24 connections initialized for 192.168.15.155/192.168.15.155:6379
+22:13:45:391  INFO 32400 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+22:13:45:441  INFO 32400 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
+22:13:45:563  INFO 32400 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path '/api'
+22:13:45:564  INFO 32400 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
+22:13:45:567  INFO 32400 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+22:13:45:588  INFO 32400 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+22:13:45:702  INFO 32400 --- [main] com.qyp.chat.ChatApplication             : Started ChatApplication in 3.375 seconds (JVM running for 4.279)
+22:13:45:704  INFO 32400 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+22:13:45:886  INFO 32400 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+22:13:46:063  INFO 32400 --- [main] com.qyp.chat.InitRun                     : 服务启动成功。
+22:13:46:071  INFO 32400 --- [Thread-2] c.q.c.w.netty.NettyWebSocketStarter      : netty启动
+22:13:59:212  INFO 32400 --- [nioEventLoopGroup-3-1] c.q.c.websocket.netty.HandlerWebSocket   : 建立连接
+22:13:59:267  INFO 32400 --- [nioEventLoopGroup-3-1] c.q.c.websocket.netty.HandlerWebSocket   : token:4d15e29e1def4c0c3ec1eccdfebe06c2
+22:13:59:309 DEBUG 32400 --- [nioEventLoopGroup-3-1] c.qyp.chat.mapper.UserMapper.updateById  : ==>  Preparing: UPDATE user SET last_login_time=? WHERE user_id=?
+22:13:59:325 DEBUG 32400 --- [nioEventLoopGroup-3-1] c.qyp.chat.mapper.UserMapper.updateById  : ==> Parameters: 2025-01-25T22:13:59.279438300(LocalDateTime), Udkq7qzrl98r(String)
+22:13:59:334 DEBUG 32400 --- [nioEventLoopGroup-3-1] c.qyp.chat.mapper.UserMapper.updateById  : <==    Updates: 1
+22:13:59:337 DEBUG 32400 --- [nioEventLoopGroup-3-1] c.qyp.chat.mapper.UserMapper.selectById  : ==>  Preparing: SELECT user_id,email,nick_name,join_type,sex,password,personal_signature,status,create_time,last_login_time,area_name,area_code,last_off_time FROM user WHERE user_id=?
+22:13:59:338 DEBUG 32400 --- [nioEventLoopGroup-3-1] c.qyp.chat.mapper.UserMapper.selectById  : ==> Parameters: Udkq7qzrl98r(String)
+22:13:59:353 DEBUG 32400 --- [nioEventLoopGroup-3-1] c.qyp.chat.mapper.UserMapper.selectById  : <==      Total: 1
+22:13:59:357 DEBUG 32400 --- [nioEventLoopGroup-3-1] c.q.c.m.U.selectAllUserSession           : ==>  Preparing: select u.* , s.last_message , s.last_receive_time , case when substring(u.contact_id, 1, 1) = 'G' then (select count(*) from `group` g where g.group_id = u.contact_id) else 0 end as memberCount from user_session u, session s where u.session_id = s.session_id and u.user_id = ? order by s.last_receive_time desc
+22:13:59:357 DEBUG 32400 --- [nioEventLoopGroup-3-1] c.q.c.m.U.selectAllUserSession           : ==> Parameters: Udkq7qzrl98r(String)
+22:13:59:362 DEBUG 32400 --- [nioEventLoopGroup-3-1] c.q.c.m.U.selectAllUserSession           : <==      Total: 1
+22:13:59:376 DEBUG 32400 --- [nioEventLoopGroup-3-1] c.q.c.mapper.MessageMapper.selectList    : ==>  Preparing: SELECT message_id,session_id,message_type,message_content,send_user_id,send_user_nick_name,send_time,contact_id,contact_type,file_size,file_name,file_type,status FROM message WHERE (contact_id IN (?) AND send_time > ?)
+22:13:59:376 DEBUG 32400 --- [nioEventLoopGroup-3-1] c.q.c.mapper.MessageMapper.selectList    : ==> Parameters: Udkq7qzrl98r(String), 1737555239356(Long)
+22:13:59:378 DEBUG 32400 --- [nioEventLoopGroup-3-1] c.q.c.mapper.MessageMapper.selectList    : <==      Total: 0
+22:13:59:380 DEBUG 32400 --- [nioEventLoopGroup-3-1] c.q.chat.mapper.ApplyMapper.selectCount  : ==>  Preparing: SELECT COUNT( * ) FROM apply WHERE (receive_user_id = ? AND status = ? AND last_apply_time > ?)
+22:13:59:380 DEBUG 32400 --- [nioEventLoopGroup-3-1] c.q.chat.mapper.ApplyMapper.selectCount  : ==> Parameters: Udkq7qzrl98r(String), 0(Integer), 1737555239356(Long)
+22:13:59:382 DEBUG 32400 --- [nioEventLoopGroup-3-1] c.q.chat.mapper.ApplyMapper.selectCount  : <==      Total: 1
+22:14:01:200  INFO 32400 --- [nioEventLoopGroup-3-2] c.q.c.websocket.netty.HandlerWebSocket   : 建立连接
+22:14:01:203  INFO 32400 --- [nioEventLoopGroup-3-2] c.q.c.websocket.netty.HandlerWebSocket   : token:6b46f8e2c345659124585dbc1b3c663b
+22:14:01:209 DEBUG 32400 --- [nioEventLoopGroup-3-2] c.qyp.chat.mapper.UserMapper.updateById  : ==>  Preparing: UPDATE user SET last_login_time=? WHERE user_id=?
+22:14:01:209 DEBUG 32400 --- [nioEventLoopGroup-3-2] c.qyp.chat.mapper.UserMapper.updateById  : ==> Parameters: 2025-01-25T22:14:01.206395(LocalDateTime), Urgemzm17hdh(String)
+22:14:01:216 DEBUG 32400 --- [nioEventLoopGroup-3-2] c.qyp.chat.mapper.UserMapper.updateById  : <==    Updates: 1
+22:14:01:216 DEBUG 32400 --- [nioEventLoopGroup-3-2] c.qyp.chat.mapper.UserMapper.selectById  : ==>  Preparing: SELECT user_id,email,nick_name,join_type,sex,password,personal_signature,status,create_time,last_login_time,area_name,area_code,last_off_time FROM user WHERE user_id=?
+22:14:01:216 DEBUG 32400 --- [nioEventLoopGroup-3-2] c.qyp.chat.mapper.UserMapper.selectById  : ==> Parameters: Urgemzm17hdh(String)
+22:14:01:218 DEBUG 32400 --- [nioEventLoopGroup-3-2] c.qyp.chat.mapper.UserMapper.selectById  : <==      Total: 1
+22:14:01:218 DEBUG 32400 --- [nioEventLoopGroup-3-2] c.q.c.m.U.selectAllUserSession           : ==>  Preparing: select u.* , s.last_message , s.last_receive_time , case when substring(u.contact_id, 1, 1) = 'G' then (select count(*) from `group` g where g.group_id = u.contact_id) else 0 end as memberCount from user_session u, session s where u.session_id = s.session_id and u.user_id = ? order by s.last_receive_time desc
+22:14:01:219 DEBUG 32400 --- [nioEventLoopGroup-3-2] c.q.c.m.U.selectAllUserSession           : ==> Parameters: Urgemzm17hdh(String)
+22:14:01:220 DEBUG 32400 --- [nioEventLoopGroup-3-2] c.q.c.m.U.selectAllUserSession           : <==      Total: 1
+22:14:01:221 DEBUG 32400 --- [nioEventLoopGroup-3-2] c.q.c.mapper.MessageMapper.selectList    : ==>  Preparing: SELECT message_id,session_id,message_type,message_content,send_user_id,send_user_nick_name,send_time,contact_id,contact_type,file_size,file_name,file_type,status FROM message WHERE (contact_id IN (?) AND send_time > ?)
+22:14:01:221 DEBUG 32400 --- [nioEventLoopGroup-3-2] c.q.c.mapper.MessageMapper.selectList    : ==> Parameters: Urgemzm17hdh(String), 1737555241218(Long)
+22:14:01:222 DEBUG 32400 --- [nioEventLoopGroup-3-2] c.q.c.mapper.MessageMapper.selectList    : <==      Total: 0
+22:14:01:224 DEBUG 32400 --- [nioEventLoopGroup-3-2] c.q.chat.mapper.ApplyMapper.selectCount  : ==>  Preparing: SELECT COUNT( * ) FROM apply WHERE (receive_user_id = ? AND status = ? AND last_apply_time > ?)
+22:14:01:224 DEBUG 32400 --- [nioEventLoopGroup-3-2] c.q.chat.mapper.ApplyMapper.selectCount  : ==> Parameters: Urgemzm17hdh(String), 0(Integer), 1737555241218(Long)
+22:14:01:225 DEBUG 32400 --- [nioEventLoopGroup-3-2] c.q.chat.mapper.ApplyMapper.selectCount  : <==      Total: 1
+22:14:30:871  INFO 32400 --- [http-nio-8000-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+22:14:30:871  INFO 32400 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+22:14:30:873  INFO 32400 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+22:14:30:913 DEBUG 32400 --- [http-nio-8000-exec-1] c.q.chat.mapper.ContactMapper.selectOne  : ==>  Preparing: SELECT user_id,contact_id,contact_type,create_time,status,last_update_time FROM contact WHERE (user_id = ? AND contact_id = ?)
+22:14:30:914 DEBUG 32400 --- [http-nio-8000-exec-1] c.q.chat.mapper.ContactMapper.selectOne  : ==> Parameters: Udkq7qzrl98r(String), Urgemzm17hdh(String)
+22:14:30:916 DEBUG 32400 --- [http-nio-8000-exec-1] c.q.chat.mapper.ContactMapper.selectOne  : <==      Total: 0
+22:14:30:918 DEBUG 32400 --- [http-nio-8000-exec-1] c.qyp.chat.mapper.UserMapper.selectById  : ==>  Preparing: SELECT user_id,email,nick_name,join_type,sex,password,personal_signature,status,create_time,last_login_time,area_name,area_code,last_off_time FROM user WHERE user_id=?
+22:14:30:918 DEBUG 32400 --- [http-nio-8000-exec-1] c.qyp.chat.mapper.UserMapper.selectById  : ==> Parameters: Urgemzm17hdh(String)
+22:14:30:920 DEBUG 32400 --- [http-nio-8000-exec-1] c.qyp.chat.mapper.UserMapper.selectById  : <==      Total: 1
+22:14:30:922 DEBUG 32400 --- [http-nio-8000-exec-1] c.qyp.chat.mapper.ApplyMapper.selectOne  : ==>  Preparing: SELECT apply_id,apply_user_id,receive_user_id,contact_type,contact_id,last_apply_time,status,apply_info FROM apply WHERE (apply_user_id = ? AND contact_id = ? AND receive_user_id = ?)
+22:14:30:923 DEBUG 32400 --- [http-nio-8000-exec-1] c.qyp.chat.mapper.ApplyMapper.selectOne  : ==> Parameters: Udkq7qzrl98r(String), Urgemzm17hdh(String), Urgemzm17hdh(String)
+22:14:30:924 DEBUG 32400 --- [http-nio-8000-exec-1] c.qyp.chat.mapper.ApplyMapper.selectOne  : <==      Total: 1
+22:14:30:928 DEBUG 32400 --- [http-nio-8000-exec-1] com.qyp.chat.mapper.ApplyMapper.update   : ==>  Preparing: UPDATE apply SET last_apply_time=?, status=?, apply_info=? WHERE (apply_user_id = ? AND contact_id = ? AND receive_user_id = ?)
+22:14:30:929 DEBUG 32400 --- [http-nio-8000-exec-1] com.qyp.chat.mapper.ApplyMapper.update   : ==> Parameters: 1737814470910(Long), 0(Integer), 我是第一人(String), Udkq7qzrl98r(String), Urgemzm17hdh(String), Urgemzm17hdh(String)
+22:14:30:931 DEBUG 32400 --- [http-nio-8000-exec-1] com.qyp.chat.mapper.ApplyMapper.update   : <==    Updates: 1
+22:14:30:975  INFO 32400 --- [redisson-7-2] com.qyp.chat.websocket.MessageHandler    : 收到广播消息：{"sendTime":1737814470910,"contactId":"Urgemzm17hdh","contactType":0,"lastMessage":"我是第一人","messageContent":"我是第一人","messageType":4}
+22:16:03:523 ERROR 32400 --- [http-nio-8000-exec-4] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
+22:16:18:171 DEBUG 32400 --- [http-nio-8000-exec-5] c.qyp.chat.mapper.ApplyMapper.loadApply  : ==>  Preparing: select a.*, case when a.contact_type = 0 then u.nick_name when a.contact_type = 1 then g.group_name end as contactName from apply a left join user u on a.apply_user_id = u.user_id left join `group` g on a.contact_id = g.group_id where a.receive_user_id = ? order by a.last_apply_time desc limit ?,?
+22:16:18:171 DEBUG 32400 --- [http-nio-8000-exec-5] c.qyp.chat.mapper.ApplyMapper.loadApply  : ==> Parameters: Urgemzm17hdh(String), 0(Integer), 15(Integer)
+22:16:18:175 DEBUG 32400 --- [http-nio-8000-exec-5] c.qyp.chat.mapper.ApplyMapper.loadApply  : <==      Total: 1
+22:16:25:002 ERROR 32400 --- [http-nio-8000-exec-2] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
+22:16:44:795 ERROR 32400 --- [http-nio-8000-exec-7] c.q.c.exception.GlobalExceptionHandler   : 请求地址:/api/apply/dealWithApply错误
+22:17:17:172 DEBUG 32400 --- [http-nio-8000-exec-9] c.q.chat.mapper.ApplyMapper.selectById   : ==>  Preparing: SELECT apply_id,apply_user_id,receive_user_id,contact_type,contact_id,last_apply_time,status,apply_info FROM apply WHERE apply_id=?
+22:17:17:173 DEBUG 32400 --- [http-nio-8000-exec-9] c.q.chat.mapper.ApplyMapper.selectById   : ==> Parameters: 8(Integer)
+22:17:17:174 DEBUG 32400 --- [http-nio-8000-exec-9] c.q.chat.mapper.ApplyMapper.selectById   : <==      Total: 1
+22:17:17:177 DEBUG 32400 --- [http-nio-8000-exec-9] com.qyp.chat.mapper.ApplyMapper.update   : ==>  Preparing: UPDATE apply SET last_apply_time=?, status=? WHERE (apply_id = ? AND status = ?)
+22:17:17:178 DEBUG 32400 --- [http-nio-8000-exec-9] com.qyp.chat.mapper.ApplyMapper.update   : ==> Parameters: 1737814637175(Long), 1(Integer), 8(Integer), 0(Integer)
+22:17:17:180 DEBUG 32400 --- [http-nio-8000-exec-9] com.qyp.chat.mapper.ApplyMapper.update   : <==    Updates: 1
+22:17:17:180 DEBUG 32400 --- [http-nio-8000-exec-9] c.qyp.chat.mapper.UserMapper.selectById  : ==>  Preparing: SELECT user_id,email,nick_name,join_type,sex,password,personal_signature,status,create_time,last_login_time,area_name,area_code,last_off_time FROM user WHERE user_id=?
+22:17:17:180 DEBUG 32400 --- [http-nio-8000-exec-9] c.qyp.chat.mapper.UserMapper.selectById  : ==> Parameters: Udkq7qzrl98r(String)
+22:17:17:181 DEBUG 32400 --- [http-nio-8000-exec-9] c.qyp.chat.mapper.UserMapper.selectById  : <==      Total: 1
+22:17:17:189 DEBUG 32400 --- [http-nio-8000-exec-9] c.qyp.chat.mapper.ContactMapper.update   : ==>  Preparing: UPDATE contact SET contact_id=?, contact_type=?, create_time=?, status=?, last_update_time=? WHERE (user_id = ? AND contact_id = ?)
+22:17:17:189 DEBUG 32400 --- [http-nio-8000-exec-9] c.qyp.chat.mapper.ContactMapper.update   : ==> Parameters: Urgemzm17hdh(String), 0(Integer), 2025-01-25T22:17:17.180154400(LocalDateTime), 1(Integer), 2025-01-25T22:17:17.180154400(LocalDateTime), Udkq7qzrl98r(String), Urgemzm17hdh(String)
+22:17:17:192 DEBUG 32400 --- [http-nio-8000-exec-9] c.qyp.chat.mapper.ContactMapper.update   : <==    Updates: 0
+22:17:17:193 DEBUG 32400 --- [http-nio-8000-exec-9] c.q.c.mapper.ContactMapper.selectById    : ==>  Preparing: SELECT user_id,contact_id,contact_type,create_time,status,last_update_time FROM contact WHERE user_id=?
+22:17:17:193 DEBUG 32400 --- [http-nio-8000-exec-9] c.q.c.mapper.ContactMapper.selectById    : ==> Parameters: Udkq7qzrl98r(String)
+22:17:17:194 DEBUG 32400 --- [http-nio-8000-exec-9] c.q.c.mapper.ContactMapper.selectById    : <==      Total: 1
+22:17:17:195 DEBUG 32400 --- [http-nio-8000-exec-9] c.q.c.mapper.ContactMapper.updateById    : ==>  Preparing: UPDATE contact SET contact_id=?, contact_type=?, create_time=?, status=?, last_update_time=? WHERE user_id=?
+22:17:17:196 DEBUG 32400 --- [http-nio-8000-exec-9] c.q.c.mapper.ContactMapper.updateById    : ==> Parameters: Urgemzm17hdh(String), 0(Integer), 2025-01-25T22:17:17.180154400(LocalDateTime), 1(Integer), 2025-01-25T22:17:17.180154400(LocalDateTime), Udkq7qzrl98r(String)
+22:17:17:200 DEBUG 32400 --- [http-nio-8000-exec-9] c.q.c.mapper.ContactMapper.updateById    : <==    Updates: 1
+22:17:17:202 DEBUG 32400 --- [http-nio-8000-exec-9] c.qyp.chat.mapper.ContactMapper.update   : ==>  Preparing: UPDATE contact SET contact_id=?, contact_type=?, create_time=?, status=?, last_update_time=? WHERE (user_id = ? AND contact_id = ?)
+22:17:17:202 DEBUG 32400 --- [http-nio-8000-exec-9] c.qyp.chat.mapper.ContactMapper.update   : ==> Parameters: Udkq7qzrl98r(String), 0(Integer), 2025-01-25T22:17:17.180154400(LocalDateTime), 1(Integer), 2025-01-25T22:17:17.180154400(LocalDateTime), Urgemzm17hdh(String), Udkq7qzrl98r(String)
+22:17:17:203 DEBUG 32400 --- [http-nio-8000-exec-9] c.qyp.chat.mapper.ContactMapper.update   : <==    Updates: 0
+22:17:17:204 DEBUG 32400 --- [http-nio-8000-exec-9] c.q.c.mapper.ContactMapper.selectById    : ==>  Preparing: SELECT user_id,contact_id,contact_type,create_time,status,last_update_time FROM contact WHERE user_id=?
+22:17:17:204 DEBUG 32400 --- [http-nio-8000-exec-9] c.q.c.mapper.ContactMapper.selectById    : ==> Parameters: Urgemzm17hdh(String)
+22:17:17:205 DEBUG 32400 --- [http-nio-8000-exec-9] c.q.c.mapper.ContactMapper.selectById    : <==      Total: 1
+22:17:17:207 DEBUG 32400 --- [http-nio-8000-exec-9] c.q.c.mapper.ContactMapper.updateById    : ==>  Preparing: UPDATE contact SET contact_id=?, contact_type=?, create_time=?, status=?, last_update_time=? WHERE user_id=?
+22:17:17:207 DEBUG 32400 --- [http-nio-8000-exec-9] c.q.c.mapper.ContactMapper.updateById    : ==> Parameters: Udkq7qzrl98r(String), 0(Integer), 2025-01-25T22:17:17.180154400(LocalDateTime), 1(Integer), 2025-01-25T22:17:17.180154400(LocalDateTime), Urgemzm17hdh(String)
+22:17:17:208 DEBUG 32400 --- [http-nio-8000-exec-9] c.q.c.mapper.ContactMapper.updateById    : <==    Updates: 1
+22:17:17:211 DEBUG 32400 --- [http-nio-8000-exec-9] c.qyp.chat.mapper.ApplyMapper.selectOne  : ==>  Preparing: SELECT apply_id,apply_user_id,receive_user_id,contact_type,contact_id,last_apply_time,status,apply_info FROM apply WHERE (apply_user_id = ? AND contact_id = ?)
+22:17:17:211 DEBUG 32400 --- [http-nio-8000-exec-9] c.qyp.chat.mapper.ApplyMapper.selectOne  : ==> Parameters: Udkq7qzrl98r(String), Urgemzm17hdh(String)
+22:17:17:212 DEBUG 32400 --- [http-nio-8000-exec-9] c.qyp.chat.mapper.ApplyMapper.selectOne  : <==      Total: 1
+22:17:17:232 DEBUG 32400 --- [http-nio-8000-exec-9] c.q.c.mapper.SessionMapper.selectById    : ==>  Preparing: SELECT session_id,last_message,last_receive_time FROM session WHERE session_id=?
+22:17:17:233 DEBUG 32400 --- [http-nio-8000-exec-9] c.q.c.mapper.SessionMapper.selectById    : ==> Parameters: caf91685da06cb7e21b79fc061128aa8(String)
+22:17:17:233 DEBUG 32400 --- [http-nio-8000-exec-9] c.q.c.mapper.SessionMapper.selectById    : <==      Total: 0
+22:17:17:234 DEBUG 32400 --- [http-nio-8000-exec-9] c.qyp.chat.mapper.SessionMapper.insert   : ==>  Preparing: INSERT INTO session ( session_id, last_message, last_receive_time ) VALUES ( ?, ?, ? )
+22:17:17:235 DEBUG 32400 --- [http-nio-8000-exec-9] c.qyp.chat.mapper.SessionMapper.insert   : ==> Parameters: caf91685da06cb7e21b79fc061128aa8(String), 我是第一人(String), 1737814637180(Long)
+22:17:17:237 DEBUG 32400 --- [http-nio-8000-exec-9] c.qyp.chat.mapper.SessionMapper.insert   : <==    Updates: 1
+22:17:17:237 DEBUG 32400 --- [http-nio-8000-exec-9] c.qyp.chat.mapper.UserMapper.selectById  : ==>  Preparing: SELECT user_id,email,nick_name,join_type,sex,password,personal_signature,status,create_time,last_login_time,area_name,area_code,last_off_time FROM user WHERE user_id=?
+22:17:17:237 DEBUG 32400 --- [http-nio-8000-exec-9] c.qyp.chat.mapper.UserMapper.selectById  : ==> Parameters: Urgemzm17hdh(String)
+22:17:17:238 DEBUG 32400 --- [http-nio-8000-exec-9] c.qyp.chat.mapper.UserMapper.selectById  : <==      Total: 1
+22:17:17:239 DEBUG 32400 --- [http-nio-8000-exec-9] c.q.c.mapper.UserSessionMapper.insert    : ==>  Preparing: INSERT INTO user_session ( user_id, contact_id, session_id, contact_name ) VALUES ( ?, ?, ?, ? )
+22:17:17:239 DEBUG 32400 --- [http-nio-8000-exec-9] c.q.c.mapper.UserSessionMapper.insert    : ==> Parameters: Udkq7qzrl98r(String), Urgemzm17hdh(String), caf91685da06cb7e21b79fc061128aa8(String), 第二人(String)
+22:17:17:241 DEBUG 32400 --- [http-nio-8000-exec-9] c.q.c.mapper.UserSessionMapper.insert    : <==    Updates: 1
+22:17:17:241 DEBUG 32400 --- [http-nio-8000-exec-9] c.q.c.mapper.UserSessionMapper.insert    : ==>  Preparing: INSERT INTO user_session ( user_id, contact_id, session_id, contact_name ) VALUES ( ?, ?, ?, ? )
+22:17:17:242 DEBUG 32400 --- [http-nio-8000-exec-9] c.q.c.mapper.UserSessionMapper.insert    : ==> Parameters: Urgemzm17hdh(String), Udkq7qzrl98r(String), caf91685da06cb7e21b79fc061128aa8(String), 第一人(String)
+22:17:17:243 DEBUG 32400 --- [http-nio-8000-exec-9] c.q.c.mapper.UserSessionMapper.insert    : <==    Updates: 1
+22:17:17:245 DEBUG 32400 --- [http-nio-8000-exec-9] c.qyp.chat.mapper.MessageMapper.insert   : ==>  Preparing: INSERT INTO message ( session_id, message_type, message_content, send_user_id, send_user_nick_name, send_time, contact_id, contact_type, status ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ? )
+22:17:17:246 DEBUG 32400 --- [http-nio-8000-exec-9] c.qyp.chat.mapper.MessageMapper.insert   : ==> Parameters: caf91685da06cb7e21b79fc061128aa8(String), 1(Integer), 我是第一人(String), Udkq7qzrl98r(String), 第一人(String), 1737814637180(Long), Urgemzm17hdh(String), 0(Integer), 1(Integer)
+22:17:17:249 DEBUG 32400 --- [http-nio-8000-exec-9] c.qyp.chat.mapper.MessageMapper.insert   : <==    Updates: 1
+22:17:17:257  INFO 32400 --- [redisson-7-3] com.qyp.chat.websocket.MessageHandler    : 收到广播消息：{"messageId":6,"sessionId":"caf91685da06cb7e21b79fc061128aa8","sendUserId":"Udkq7qzrl98r","sendUserNickName":"第一人","sendTime":1737814637180,"contactId":"Urgemzm17hdh","contactType":0,"lastMessage":"我是第一人","messageContent":"我是第一人","messageType":1,"status":1}
+22:17:17:258  INFO 32400 --- [redisson-7-4] com.qyp.chat.websocket.MessageHandler    : 收到广播消息：{"messageId":6,"sessionId":"caf91685da06cb7e21b79fc061128aa8","sendUserId":"Udkq7qzrl98r","sendUserNickName":"第一人","sendTime":1737814637180,"contactId":"Udkq7qzrl98r","contactType":0,"lastMessage":"我是第一人","messageContent":"我是第一人","messageType":13,"status":1,"extendData":"Urgemzm17hdh"}
+22:17:17:259 DEBUG 32400 --- [redisson-7-4] c.qyp.chat.mapper.UserMapper.selectById  : ==>  Preparing: SELECT user_id,email,nick_name,join_type,sex,password,personal_signature,status,create_time,last_login_time,area_name,area_code,last_off_time FROM user WHERE user_id=?
+22:17:17:260 DEBUG 32400 --- [redisson-7-4] c.qyp.chat.mapper.UserMapper.selectById  : ==> Parameters: Urgemzm17hdh(String)
+22:17:17:262 DEBUG 32400 --- [redisson-7-4] c.qyp.chat.mapper.UserMapper.selectById  : <==      Total: 1
+22:53:34:586  INFO 22900 --- [main] com.qyp.chat.ChatApplication             : Starting ChatApplication using Java 11.0.12 on LAPTOP-C6F2EJ6P with PID 22900 (D:\Users\qyp\Documents\ideaProjects\Chat\target\classes started by qyp in D:\Users\qyp\Documents\ideaProjects\Chat)
+22:53:34:588 DEBUG 22900 --- [main] com.qyp.chat.ChatApplication             : Running with Spring Boot v2.7.12, Spring v5.3.27
+22:53:34:588  INFO 22900 --- [main] com.qyp.chat.ChatApplication             : The following 1 profile is active: "dev"
+22:53:35:242  INFO 22900 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+22:53:35:243  INFO 22900 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+22:53:35:269  INFO 22900 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 16 ms. Found 0 Redis repository interfaces.
+22:53:35:734  INFO 22900 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
+22:53:35:740  INFO 22900 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+22:53:35:741  INFO 22900 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
+22:53:35:838  INFO 22900 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+22:53:35:838  INFO 22900 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1215 ms
+22:53:37:113  INFO 22900 --- [main] org.redisson.Version                     : Redisson 3.17.1
+22:53:37:238  INFO 22900 --- [redisson-netty-6-13] o.r.c.pool.MasterPubSubConnectionPool    : 1 connections initialized for 192.168.15.155/192.168.15.155:6379
+22:53:37:286  INFO 22900 --- [redisson-netty-6-19] o.r.c.pool.MasterConnectionPool          : 24 connections initialized for 192.168.15.155/192.168.15.155:6379
+22:53:37:678  INFO 22900 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+22:53:37:753  INFO 22900 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
+22:53:37:929  INFO 22900 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path '/api'
+22:53:37:930  INFO 22900 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
+22:53:37:932  INFO 22900 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+22:53:37:948  INFO 22900 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+22:53:38:053  INFO 22900 --- [main] com.qyp.chat.ChatApplication             : Started ChatApplication in 3.819 seconds (JVM running for 4.836)
+22:53:38:055  INFO 22900 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+22:53:38:213  INFO 22900 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+22:53:38:363  INFO 22900 --- [main] com.qyp.chat.InitRun                     : 服务启动成功。
+22:53:38:371  INFO 22900 --- [Thread-2] c.q.c.w.netty.NettyWebSocketStarter      : netty启动
+22:53:42:306  INFO 22900 --- [nioEventLoopGroup-3-1] c.q.c.websocket.netty.HandlerWebSocket   : 建立连接
+22:53:42:384  INFO 22900 --- [nioEventLoopGroup-3-1] c.q.c.websocket.netty.HandlerWebSocket   : token:4d15e29e1def4c0c3ec1eccdfebe06c2
+22:53:42:455 DEBUG 22900 --- [nioEventLoopGroup-3-1] c.qyp.chat.mapper.UserMapper.updateById  : ==>  Preparing: UPDATE user SET last_login_time=? WHERE user_id=?
+22:53:42:482 DEBUG 22900 --- [nioEventLoopGroup-3-1] c.qyp.chat.mapper.UserMapper.updateById  : ==> Parameters: 2025-01-25T22:53:42.404808300(LocalDateTime), Udkq7qzrl98r(String)
+22:53:42:491 DEBUG 22900 --- [nioEventLoopGroup-3-1] c.qyp.chat.mapper.UserMapper.updateById  : <==    Updates: 1
+22:53:42:499 DEBUG 22900 --- [nioEventLoopGroup-3-1] c.qyp.chat.mapper.UserMapper.selectById  : ==>  Preparing: SELECT user_id,email,nick_name,join_type,sex,password,personal_signature,status,create_time,last_login_time,area_name,area_code,last_off_time FROM user WHERE user_id=?
+22:53:42:500 DEBUG 22900 --- [nioEventLoopGroup-3-1] c.qyp.chat.mapper.UserMapper.selectById  : ==> Parameters: Udkq7qzrl98r(String)
+22:53:42:517 DEBUG 22900 --- [nioEventLoopGroup-3-1] c.qyp.chat.mapper.UserMapper.selectById  : <==      Total: 1
+22:53:42:521 DEBUG 22900 --- [nioEventLoopGroup-3-1] c.q.c.m.U.selectAllUserSession           : ==>  Preparing: select u.* , s.last_message , s.last_receive_time , case when substring(u.contact_id, 1, 1) = 'G' then (select count(*) from `group` g where g.group_id = u.contact_id) else 0 end as memberCount from user_session u, session s where u.session_id = s.session_id and u.user_id = ? order by s.last_receive_time desc
+22:53:42:522 DEBUG 22900 --- [nioEventLoopGroup-3-1] c.q.c.m.U.selectAllUserSession           : ==> Parameters: Udkq7qzrl98r(String)
+22:53:42:527 DEBUG 22900 --- [nioEventLoopGroup-3-1] c.q.c.m.U.selectAllUserSession           : <==      Total: 2
+22:53:42:552 DEBUG 22900 --- [nioEventLoopGroup-3-1] c.q.c.mapper.MessageMapper.selectList    : ==>  Preparing: SELECT message_id,session_id,message_type,message_content,send_user_id,send_user_nick_name,send_time,contact_id,contact_type,file_size,file_name,file_type,status FROM message WHERE (contact_id IN (?) AND send_time > ?)
+22:53:42:553 DEBUG 22900 --- [nioEventLoopGroup-3-1] c.q.c.mapper.MessageMapper.selectList    : ==> Parameters: Udkq7qzrl98r(String), 1737557622520(Long)
+22:53:42:555 DEBUG 22900 --- [nioEventLoopGroup-3-1] c.q.c.mapper.MessageMapper.selectList    : <==      Total: 0
+22:53:42:559 DEBUG 22900 --- [nioEventLoopGroup-3-1] c.q.chat.mapper.ApplyMapper.selectCount  : ==>  Preparing: SELECT COUNT( * ) FROM apply WHERE (receive_user_id = ? AND status = ? AND last_apply_time > ?)
+22:53:42:559 DEBUG 22900 --- [nioEventLoopGroup-3-1] c.q.chat.mapper.ApplyMapper.selectCount  : ==> Parameters: Udkq7qzrl98r(String), 0(Integer), 1737557622520(Long)
+22:53:42:561 DEBUG 22900 --- [nioEventLoopGroup-3-1] c.q.chat.mapper.ApplyMapper.selectCount  : <==      Total: 1
+22:53:44:366  INFO 22900 --- [nioEventLoopGroup-3-2] c.q.c.websocket.netty.HandlerWebSocket   : 建立连接
+22:53:44:370  INFO 22900 --- [nioEventLoopGroup-3-2] c.q.c.websocket.netty.HandlerWebSocket   : token:6b46f8e2c345659124585dbc1b3c663b
+22:53:44:377 DEBUG 22900 --- [nioEventLoopGroup-3-2] c.qyp.chat.mapper.UserMapper.updateById  : ==>  Preparing: UPDATE user SET last_login_time=? WHERE user_id=?
+22:53:44:377 DEBUG 22900 --- [nioEventLoopGroup-3-2] c.qyp.chat.mapper.UserMapper.updateById  : ==> Parameters: 2025-01-25T22:53:44.373149400(LocalDateTime), Urgemzm17hdh(String)
+22:53:44:380 DEBUG 22900 --- [nioEventLoopGroup-3-2] c.qyp.chat.mapper.UserMapper.updateById  : <==    Updates: 1
+22:53:44:381 DEBUG 22900 --- [nioEventLoopGroup-3-2] c.qyp.chat.mapper.UserMapper.selectById  : ==>  Preparing: SELECT user_id,email,nick_name,join_type,sex,password,personal_signature,status,create_time,last_login_time,area_name,area_code,last_off_time FROM user WHERE user_id=?
+22:53:44:382 DEBUG 22900 --- [nioEventLoopGroup-3-2] c.qyp.chat.mapper.UserMapper.selectById  : ==> Parameters: Urgemzm17hdh(String)
+22:53:44:383 DEBUG 22900 --- [nioEventLoopGroup-3-2] c.qyp.chat.mapper.UserMapper.selectById  : <==      Total: 1
+22:53:44:384 DEBUG 22900 --- [nioEventLoopGroup-3-2] c.q.c.m.U.selectAllUserSession           : ==>  Preparing: select u.* , s.last_message , s.last_receive_time , case when substring(u.contact_id, 1, 1) = 'G' then (select count(*) from `group` g where g.group_id = u.contact_id) else 0 end as memberCount from user_session u, session s where u.session_id = s.session_id and u.user_id = ? order by s.last_receive_time desc
+22:53:44:384 DEBUG 22900 --- [nioEventLoopGroup-3-2] c.q.c.m.U.selectAllUserSession           : ==> Parameters: Urgemzm17hdh(String)
+22:53:44:386 DEBUG 22900 --- [nioEventLoopGroup-3-2] c.q.c.m.U.selectAllUserSession           : <==      Total: 2
+22:53:44:388 DEBUG 22900 --- [nioEventLoopGroup-3-2] c.q.c.mapper.MessageMapper.selectList    : ==>  Preparing: SELECT message_id,session_id,message_type,message_content,send_user_id,send_user_nick_name,send_time,contact_id,contact_type,file_size,file_name,file_type,status FROM message WHERE (contact_id IN (?) AND send_time > ?)
+22:53:44:388 DEBUG 22900 --- [nioEventLoopGroup-3-2] c.q.c.mapper.MessageMapper.selectList    : ==> Parameters: Urgemzm17hdh(String), 1737557624383(Long)
+22:53:44:389 DEBUG 22900 --- [nioEventLoopGroup-3-2] c.q.c.mapper.MessageMapper.selectList    : <==      Total: 1
+22:53:44:390 DEBUG 22900 --- [nioEventLoopGroup-3-2] c.q.chat.mapper.ApplyMapper.selectCount  : ==>  Preparing: SELECT COUNT( * ) FROM apply WHERE (receive_user_id = ? AND status = ? AND last_apply_time > ?)
+22:53:44:390 DEBUG 22900 --- [nioEventLoopGroup-3-2] c.q.chat.mapper.ApplyMapper.selectCount  : ==> Parameters: Urgemzm17hdh(String), 0(Integer), 1737557624383(Long)
+22:53:44:392 DEBUG 22900 --- [nioEventLoopGroup-3-2] c.q.chat.mapper.ApplyMapper.selectCount  : <==      Total: 1
+22:54:18:046  INFO 22900 --- [nioEventLoopGroup-3-2] c.q.c.websocket.netty.HandlerWebSocket   : 断开连接
+22:54:18:051 DEBUG 22900 --- [nioEventLoopGroup-3-2] c.qyp.chat.mapper.UserMapper.updateById  : ==>  Preparing: UPDATE user SET last_off_time=? WHERE user_id=?
+22:54:18:052 DEBUG 22900 --- [nioEventLoopGroup-3-2] c.qyp.chat.mapper.UserMapper.updateById  : ==> Parameters: 1737816858050(Long), Urgemzm17hdh(String)
+22:54:18:054 DEBUG 22900 --- [nioEventLoopGroup-3-2] c.qyp.chat.mapper.UserMapper.updateById  : <==    Updates: 1
+22:54:19:155  INFO 22900 --- [nioEventLoopGroup-3-3] c.q.c.websocket.netty.HandlerWebSocket   : 建立连接
+22:54:19:159  INFO 22900 --- [nioEventLoopGroup-3-3] c.q.c.websocket.netty.HandlerWebSocket   : token:6b46f8e2c345659124585dbc1b3c663b
+22:54:19:163 DEBUG 22900 --- [nioEventLoopGroup-3-3] c.qyp.chat.mapper.UserMapper.updateById  : ==>  Preparing: UPDATE user SET last_login_time=? WHERE user_id=?
+22:54:19:164 DEBUG 22900 --- [nioEventLoopGroup-3-3] c.qyp.chat.mapper.UserMapper.updateById  : ==> Parameters: 2025-01-25T22:54:19.160857500(LocalDateTime), Urgemzm17hdh(String)
+22:54:19:168 DEBUG 22900 --- [nioEventLoopGroup-3-3] c.qyp.chat.mapper.UserMapper.updateById  : <==    Updates: 1
+22:54:19:169 DEBUG 22900 --- [nioEventLoopGroup-3-3] c.qyp.chat.mapper.UserMapper.selectById  : ==>  Preparing: SELECT user_id,email,nick_name,join_type,sex,password,personal_signature,status,create_time,last_login_time,area_name,area_code,last_off_time FROM user WHERE user_id=?
+22:54:19:169 DEBUG 22900 --- [nioEventLoopGroup-3-3] c.qyp.chat.mapper.UserMapper.selectById  : ==> Parameters: Urgemzm17hdh(String)
+22:54:19:170 DEBUG 22900 --- [nioEventLoopGroup-3-3] c.qyp.chat.mapper.UserMapper.selectById  : <==      Total: 1
+22:54:19:171 DEBUG 22900 --- [nioEventLoopGroup-3-3] c.q.c.m.U.selectAllUserSession           : ==>  Preparing: select u.* , s.last_message , s.last_receive_time , case when substring(u.contact_id, 1, 1) = 'G' then (select count(*) from `group` g where g.group_id = u.contact_id) else 0 end as memberCount from user_session u, session s where u.session_id = s.session_id and u.user_id = ? order by s.last_receive_time desc
+22:54:19:171 DEBUG 22900 --- [nioEventLoopGroup-3-3] c.q.c.m.U.selectAllUserSession           : ==> Parameters: Urgemzm17hdh(String)
+22:54:19:172 DEBUG 22900 --- [nioEventLoopGroup-3-3] c.q.c.m.U.selectAllUserSession           : <==      Total: 2
+22:54:19:174 DEBUG 22900 --- [nioEventLoopGroup-3-3] c.q.c.mapper.MessageMapper.selectList    : ==>  Preparing: SELECT message_id,session_id,message_type,message_content,send_user_id,send_user_nick_name,send_time,contact_id,contact_type,file_size,file_name,file_type,status FROM message WHERE (contact_id IN (?) AND send_time > ?)
+22:54:19:175 DEBUG 22900 --- [nioEventLoopGroup-3-3] c.q.c.mapper.MessageMapper.selectList    : ==> Parameters: Urgemzm17hdh(String), 1737816858050(Long)
+22:54:19:176 DEBUG 22900 --- [nioEventLoopGroup-3-3] c.q.c.mapper.MessageMapper.selectList    : <==      Total: 0
+22:54:19:177 DEBUG 22900 --- [nioEventLoopGroup-3-3] c.q.chat.mapper.ApplyMapper.selectCount  : ==>  Preparing: SELECT COUNT( * ) FROM apply WHERE (receive_user_id = ? AND status = ? AND last_apply_time > ?)
+22:54:19:178 DEBUG 22900 --- [nioEventLoopGroup-3-3] c.q.chat.mapper.ApplyMapper.selectCount  : ==> Parameters: Urgemzm17hdh(String), 0(Integer), 1737816858050(Long)
+22:54:19:179 DEBUG 22900 --- [nioEventLoopGroup-3-3] c.q.chat.mapper.ApplyMapper.selectCount  : <==      Total: 1
+22:54:41:798  INFO 22900 --- [http-nio-8000-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+22:54:41:799  INFO 22900 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+22:54:41:801  INFO 22900 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+22:54:41:829 ERROR 22900 --- [http-nio-8000-exec-1] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
+22:59:46:764 ERROR 22900 --- [http-nio-8000-exec-3] c.q.c.exception.GlobalExceptionHandler   : 请求地址:/api/group/saveGroup错误
+22:59:56:026 DEBUG 22900 --- [http-nio-8000-exec-4] c.q.chat.mapper.GroupMapper.selectCount  : ==>  Preparing: SELECT COUNT( * ) FROM `group` WHERE (group_owner_id = ?)
+22:59:56:027 DEBUG 22900 --- [http-nio-8000-exec-4] c.q.chat.mapper.GroupMapper.selectCount  : ==> Parameters: Udkq7qzrl98r(String)
+22:59:56:028 DEBUG 22900 --- [http-nio-8000-exec-4] c.q.chat.mapper.GroupMapper.selectCount  : <==      Total: 1
+22:59:56:031 DEBUG 22900 --- [http-nio-8000-exec-4] com.qyp.chat.mapper.GroupMapper.insert   : ==>  Preparing: INSERT INTO `group` ( group_id, group_name, group_owner_id, create_time ) VALUES ( ?, ?, ?, ? )
+22:59:56:031 DEBUG 22900 --- [http-nio-8000-exec-4] com.qyp.chat.mapper.GroupMapper.insert   : ==> Parameters: Glxgg18b0z5n(String), 第一人的第一个群(String), Udkq7qzrl98r(String), 2025-01-25T22:59:56.021976300(LocalDateTime)
+22:59:56:033 DEBUG 22900 --- [http-nio-8000-exec-4] com.qyp.chat.mapper.GroupMapper.insert   : <==    Updates: 1
+22:59:56:034 DEBUG 22900 --- [http-nio-8000-exec-4] c.qyp.chat.mapper.ContactMapper.insert   : ==>  Preparing: INSERT INTO contact ( user_id, contact_id, contact_type, create_time, status, last_update_time ) VALUES ( ?, ?, ?, ?, ?, ? )
+22:59:56:035 DEBUG 22900 --- [http-nio-8000-exec-4] c.qyp.chat.mapper.ContactMapper.insert   : ==> Parameters: Udkq7qzrl98r(String), Glxgg18b0z5n(String), 1(Integer), 2025-01-25T22:59:56.021976300(LocalDateTime), 1(Integer), 2025-01-25T22:59:56.021976300(LocalDateTime)
+22:59:56:036 DEBUG 22900 --- [http-nio-8000-exec-4] c.qyp.chat.mapper.ContactMapper.insert   : <==    Updates: 1
+22:59:56:041 DEBUG 22900 --- [http-nio-8000-exec-4] c.qyp.chat.mapper.SessionMapper.insert   : ==>  Preparing: INSERT INTO session ( session_id, last_message, last_receive_time ) VALUES ( ?, ?, ? )
+22:59:56:042 DEBUG 22900 --- [http-nio-8000-exec-4] c.qyp.chat.mapper.SessionMapper.insert   : ==> Parameters: 9deaf5fe89961027f14b4d0924bc7226(String), 群聊已经创建好，可以和好友一起畅聊了(String), 1737817196021(Long)
+22:59:56:043 DEBUG 22900 --- [http-nio-8000-exec-4] c.qyp.chat.mapper.SessionMapper.insert   : <==    Updates: 1
+22:59:56:044 DEBUG 22900 --- [http-nio-8000-exec-4] c.q.c.mapper.UserSessionMapper.insert    : ==>  Preparing: INSERT INTO user_session ( user_id, contact_id, session_id, contact_name ) VALUES ( ?, ?, ?, ? )
+22:59:56:045 DEBUG 22900 --- [http-nio-8000-exec-4] c.q.c.mapper.UserSessionMapper.insert    : ==> Parameters: Udkq7qzrl98r(String), Glxgg18b0z5n(String), 9deaf5fe89961027f14b4d0924bc7226(String), 第一人的第一个群(String)
+22:59:56:046 DEBUG 22900 --- [http-nio-8000-exec-4] c.q.c.mapper.UserSessionMapper.insert    : <==    Updates: 1
+22:59:56:051 DEBUG 22900 --- [http-nio-8000-exec-4] c.qyp.chat.mapper.MessageMapper.insert   : ==>  Preparing: INSERT INTO message ( session_id, message_type, message_content, send_time, contact_id, contact_type, status ) VALUES ( ?, ?, ?, ?, ?, ?, ? )
+22:59:56:052 DEBUG 22900 --- [http-nio-8000-exec-4] c.qyp.chat.mapper.MessageMapper.insert   : ==> Parameters: 9deaf5fe89961027f14b4d0924bc7226(String), 3(Integer), 群聊已经创建好，可以和好友一起畅聊了(String), 1737817196021(Long), Glxgg18b0z5n(String), 1(Integer), 1(Integer)
+22:59:56:053 DEBUG 22900 --- [http-nio-8000-exec-4] c.qyp.chat.mapper.MessageMapper.insert   : <==    Updates: 1
+22:59:56:095  INFO 22900 --- [redisson-7-2] com.qyp.chat.websocket.MessageHandler    : 收到广播消息：{"messageId":7,"sessionId":"9deaf5fe89961027f14b4d0924bc7226","sendTime":1737817196021,"contactId":"Glxgg18b0z5n","contactType":1,"lastMessage":"群聊已经创建好，可以和好友一起畅聊了","messageContent":"群聊已经创建好，可以和好友一起畅聊了","messageType":3,"status":1}
+22:59:56:096 DEBUG 22900 --- [redisson-7-2] c.q.chat.mapper.GroupMapper.selectById   : ==>  Preparing: SELECT group_id,group_name,group_owner_id,create_time,group_notice,join_type,status FROM `group` WHERE group_id=?
+22:59:56:096 DEBUG 22900 --- [redisson-7-2] c.q.chat.mapper.GroupMapper.selectById   : ==> Parameters: Glxgg18b0z5n(String)
+22:59:56:097 DEBUG 22900 --- [redisson-7-2] c.q.chat.mapper.GroupMapper.selectById   : <==      Total: 1
+23:00:55:977 ERROR 22900 --- [http-nio-8000-exec-5] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
+23:02:10:664 DEBUG 22900 --- [http-nio-8000-exec-7] c.q.chat.mapper.ContactMapper.selectOne  : ==>  Preparing: SELECT user_id,contact_id,contact_type,create_time,status,last_update_time FROM contact WHERE (user_id = ? AND contact_id = ?)
+23:02:10:664 DEBUG 22900 --- [http-nio-8000-exec-7] c.q.chat.mapper.ContactMapper.selectOne  : ==> Parameters: Urgemzm17hdh(String), Glxgg18b0z5n(String)
+23:02:10:666 DEBUG 22900 --- [http-nio-8000-exec-7] c.q.chat.mapper.ContactMapper.selectOne  : <==      Total: 0
+23:02:10:667 DEBUG 22900 --- [http-nio-8000-exec-7] c.q.chat.mapper.GroupMapper.selectById   : ==>  Preparing: SELECT group_id,group_name,group_owner_id,create_time,group_notice,join_type,status FROM `group` WHERE group_id=?
+23:02:10:668 DEBUG 22900 --- [http-nio-8000-exec-7] c.q.chat.mapper.GroupMapper.selectById   : ==> Parameters: Glxgg18b0z5n(String)
+23:02:10:669 DEBUG 22900 --- [http-nio-8000-exec-7] c.q.chat.mapper.GroupMapper.selectById   : <==      Total: 1
+23:02:10:674 DEBUG 22900 --- [http-nio-8000-exec-7] c.qyp.chat.mapper.ApplyMapper.selectOne  : ==>  Preparing: SELECT apply_id,apply_user_id,receive_user_id,contact_type,contact_id,last_apply_time,status,apply_info FROM apply WHERE (apply_user_id = ? AND contact_id = ? AND receive_user_id = ?)
+23:02:10:674 DEBUG 22900 --- [http-nio-8000-exec-7] c.qyp.chat.mapper.ApplyMapper.selectOne  : ==> Parameters: Urgemzm17hdh(String), Glxgg18b0z5n(String), Udkq7qzrl98r(String)
+23:02:10:681 DEBUG 22900 --- [http-nio-8000-exec-7] c.qyp.chat.mapper.ApplyMapper.selectOne  : <==      Total: 0
+23:02:10:682 DEBUG 22900 --- [http-nio-8000-exec-7] com.qyp.chat.mapper.ApplyMapper.insert   : ==>  Preparing: INSERT INTO apply ( apply_user_id, receive_user_id, contact_type, contact_id, last_apply_time, status, apply_info ) VALUES ( ?, ?, ?, ?, ?, ?, ? )
+23:02:10:682 DEBUG 22900 --- [http-nio-8000-exec-7] com.qyp.chat.mapper.ApplyMapper.insert   : ==> Parameters: Urgemzm17hdh(String), Udkq7qzrl98r(String), 1(Integer), Glxgg18b0z5n(String), 1737817330661(Long), 0(Integer), 第二人想要加入你的群，麻烦同意(String)
+23:02:10:684 DEBUG 22900 --- [http-nio-8000-exec-7] com.qyp.chat.mapper.ApplyMapper.insert   : <==    Updates: 1
+23:02:10:689  INFO 22900 --- [redisson-7-3] com.qyp.chat.websocket.MessageHandler    : 收到广播消息：{"sendTime":1737817330661,"contactId":"Udkq7qzrl98r","contactType":0,"lastMessage":"第二人想要加入你的群，麻烦同意","messageContent":"第二人想要加入你的群，麻烦同意","messageType":4}
+23:03:04:982 ERROR 22900 --- [http-nio-8000-exec-8] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
+23:03:21:801 ERROR 22900 --- [http-nio-8000-exec-9] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
+23:03:34:697 DEBUG 22900 --- [http-nio-8000-exec-10] c.qyp.chat.mapper.ApplyMapper.loadApply  : ==>  Preparing: select a.*, case when a.contact_type = 0 then u.nick_name when a.contact_type = 1 then g.group_name end as contactName from apply a left join user u on a.apply_user_id = u.user_id left join `group` g on a.contact_id = g.group_id where a.receive_user_id = ? order by a.last_apply_time desc limit ?,?
+23:03:34:697 DEBUG 22900 --- [http-nio-8000-exec-10] c.qyp.chat.mapper.ApplyMapper.loadApply  : ==> Parameters: Udkq7qzrl98r(String), 0(Integer), 15(Integer)
+23:03:34:704 DEBUG 22900 --- [http-nio-8000-exec-10] c.qyp.chat.mapper.ApplyMapper.loadApply  : <==      Total: 1
+23:03:41:877 ERROR 22900 --- [http-nio-8000-exec-1] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
+23:04:06:305 DEBUG 22900 --- [http-nio-8000-exec-2] c.q.chat.mapper.ApplyMapper.selectById   : ==>  Preparing: SELECT apply_id,apply_user_id,receive_user_id,contact_type,contact_id,last_apply_time,status,apply_info FROM apply WHERE apply_id=?
+23:04:06:305 DEBUG 22900 --- [http-nio-8000-exec-2] c.q.chat.mapper.ApplyMapper.selectById   : ==> Parameters: 9(Integer)
+23:04:06:306 DEBUG 22900 --- [http-nio-8000-exec-2] c.q.chat.mapper.ApplyMapper.selectById   : <==      Total: 1
+23:04:06:310 DEBUG 22900 --- [http-nio-8000-exec-2] com.qyp.chat.mapper.ApplyMapper.update   : ==>  Preparing: UPDATE apply SET last_apply_time=?, status=? WHERE (apply_id = ? AND status = ?)
+23:04:06:311 DEBUG 22900 --- [http-nio-8000-exec-2] com.qyp.chat.mapper.ApplyMapper.update   : ==> Parameters: 1737817446307(Long), 1(Integer), 9(Integer), 0(Integer)
+23:04:06:314 DEBUG 22900 --- [http-nio-8000-exec-2] com.qyp.chat.mapper.ApplyMapper.update   : <==    Updates: 1
+23:04:06:316 DEBUG 22900 --- [http-nio-8000-exec-2] c.q.c.mapper.ContactMapper.selectCount   : ==>  Preparing: SELECT COUNT( * ) FROM contact WHERE (contact_id = ? AND status = ?)
+23:04:06:317 DEBUG 22900 --- [http-nio-8000-exec-2] c.q.c.mapper.ContactMapper.selectCount   : ==> Parameters: Glxgg18b0z5n(String), 1(Integer)
+23:04:06:318 DEBUG 22900 --- [http-nio-8000-exec-2] c.q.c.mapper.ContactMapper.selectCount   : <==      Total: 1
+23:04:06:320 DEBUG 22900 --- [http-nio-8000-exec-2] c.qyp.chat.mapper.UserMapper.selectById  : ==>  Preparing: SELECT user_id,email,nick_name,join_type,sex,password,personal_signature,status,create_time,last_login_time,area_name,area_code,last_off_time FROM user WHERE user_id=?
+23:04:06:320 DEBUG 22900 --- [http-nio-8000-exec-2] c.qyp.chat.mapper.UserMapper.selectById  : ==> Parameters: Urgemzm17hdh(String)
+23:04:06:321 DEBUG 22900 --- [http-nio-8000-exec-2] c.qyp.chat.mapper.UserMapper.selectById  : <==      Total: 1
+23:04:06:327 DEBUG 22900 --- [http-nio-8000-exec-2] c.qyp.chat.mapper.ContactMapper.update   : ==>  Preparing: UPDATE contact SET contact_id=?, contact_type=?, create_time=?, status=?, last_update_time=? WHERE (user_id = ? AND contact_id = ?)
+23:04:06:327 DEBUG 22900 --- [http-nio-8000-exec-2] c.qyp.chat.mapper.ContactMapper.update   : ==> Parameters: Glxgg18b0z5n(String), 1(Integer), 2025-01-25T23:04:06.320342(LocalDateTime), 1(Integer), 2025-01-25T23:04:06.320342(LocalDateTime), Urgemzm17hdh(String), Glxgg18b0z5n(String)
+23:04:06:329 DEBUG 22900 --- [http-nio-8000-exec-2] c.qyp.chat.mapper.ContactMapper.update   : <==    Updates: 0
+23:04:06:329 DEBUG 22900 --- [http-nio-8000-exec-2] c.q.c.mapper.ContactMapper.selectById    : ==>  Preparing: SELECT user_id,contact_id,contact_type,create_time,status,last_update_time FROM contact WHERE user_id=?
+23:04:06:329 DEBUG 22900 --- [http-nio-8000-exec-2] c.q.c.mapper.ContactMapper.selectById    : ==> Parameters: Urgemzm17hdh(String)
+23:04:06:330 DEBUG 22900 --- [http-nio-8000-exec-2] c.q.c.mapper.ContactMapper.selectById    : <==      Total: 1
+23:04:06:331 DEBUG 22900 --- [http-nio-8000-exec-2] c.q.c.mapper.ContactMapper.updateById    : ==>  Preparing: UPDATE contact SET contact_id=?, contact_type=?, create_time=?, status=?, last_update_time=? WHERE user_id=?
+23:04:06:331 DEBUG 22900 --- [http-nio-8000-exec-2] c.q.c.mapper.ContactMapper.updateById    : ==> Parameters: Glxgg18b0z5n(String), 1(Integer), 2025-01-25T23:04:06.320342(LocalDateTime), 1(Integer), 2025-01-25T23:04:06.320342(LocalDateTime), Urgemzm17hdh(String)
+23:04:06:332 DEBUG 22900 --- [http-nio-8000-exec-2] c.q.c.mapper.ContactMapper.updateById    : <==    Updates: 1
+23:04:06:333 DEBUG 22900 --- [http-nio-8000-exec-2] c.qyp.chat.mapper.ApplyMapper.selectOne  : ==>  Preparing: SELECT apply_id,apply_user_id,receive_user_id,contact_type,contact_id,last_apply_time,status,apply_info FROM apply WHERE (apply_user_id = ? AND contact_id = ?)
+23:04:06:334 DEBUG 22900 --- [http-nio-8000-exec-2] c.qyp.chat.mapper.ApplyMapper.selectOne  : ==> Parameters: Urgemzm17hdh(String), Glxgg18b0z5n(String)
+23:04:06:335 DEBUG 22900 --- [http-nio-8000-exec-2] c.qyp.chat.mapper.ApplyMapper.selectOne  : <==      Total: 1
+23:04:06:341 DEBUG 22900 --- [http-nio-8000-exec-2] c.q.c.mapper.SessionMapper.selectById    : ==>  Preparing: SELECT session_id,last_message,last_receive_time FROM session WHERE session_id=?
+23:04:06:342 DEBUG 22900 --- [http-nio-8000-exec-2] c.q.c.mapper.SessionMapper.selectById    : ==> Parameters: 9deaf5fe89961027f14b4d0924bc7226(String)
+23:04:06:343 DEBUG 22900 --- [http-nio-8000-exec-2] c.q.c.mapper.SessionMapper.selectById    : <==      Total: 1
+23:04:06:343 DEBUG 22900 --- [http-nio-8000-exec-2] c.q.c.mapper.SessionMapper.updateById    : ==>  Preparing: UPDATE session SET last_message=?, last_receive_time=? WHERE session_id=?
+23:04:06:344 DEBUG 22900 --- [http-nio-8000-exec-2] c.q.c.mapper.SessionMapper.updateById    : ==> Parameters: 第二人加入了群聊(String), 1737817446320(Long), 9deaf5fe89961027f14b4d0924bc7226(String)
+23:04:06:345 DEBUG 22900 --- [http-nio-8000-exec-2] c.q.c.mapper.SessionMapper.updateById    : <==    Updates: 1
+23:04:06:345 DEBUG 22900 --- [http-nio-8000-exec-2] c.q.c.mapper.UserSessionMapper.insert    : ==>  Preparing: INSERT INTO user_session ( user_id, contact_id, session_id ) VALUES ( ?, ?, ? )
+23:04:06:345 DEBUG 22900 --- [http-nio-8000-exec-2] c.q.c.mapper.UserSessionMapper.insert    : ==> Parameters: Urgemzm17hdh(String), Glxgg18b0z5n(String), 9deaf5fe89961027f14b4d0924bc7226(String)
+23:04:06:347 DEBUG 22900 --- [http-nio-8000-exec-2] c.q.c.mapper.UserSessionMapper.insert    : <==    Updates: 1
+23:04:06:347 DEBUG 22900 --- [http-nio-8000-exec-2] c.qyp.chat.mapper.MessageMapper.insert   : ==>  Preparing: INSERT INTO message ( session_id, message_type, message_content, send_time, contact_id, contact_type, status ) VALUES ( ?, ?, ?, ?, ?, ?, ? )
+23:04:06:347 DEBUG 22900 --- [http-nio-8000-exec-2] c.qyp.chat.mapper.MessageMapper.insert   : ==> Parameters: 9deaf5fe89961027f14b4d0924bc7226(String), 9(Integer), 第二人加入了群聊(String), 1737817446320(Long), Glxgg18b0z5n(String), 1(Integer), 1(Integer)
+23:04:06:350 DEBUG 22900 --- [http-nio-8000-exec-2] c.qyp.chat.mapper.MessageMapper.insert   : <==    Updates: 1
+23:04:06:354  INFO 22900 --- [redisson-7-4] com.qyp.chat.websocket.MessageHandler    : 收到广播消息：{"messageId":8,"sessionId":"9deaf5fe89961027f14b4d0924bc7226","sendTime":1737817446320,"contactId":"Glxgg18b0z5n","contactType":1,"lastMessage":"第二人加入了群聊","messageContent":"第二人加入了群聊","messageType":9,"status":1}
+23:04:06:354 DEBUG 22900 --- [redisson-7-4] c.q.chat.mapper.GroupMapper.selectById   : ==>  Preparing: SELECT group_id,group_name,group_owner_id,create_time,group_notice,join_type,status FROM `group` WHERE group_id=?
+23:04:06:355 DEBUG 22900 --- [redisson-7-4] c.q.chat.mapper.GroupMapper.selectById   : ==> Parameters: Glxgg18b0z5n(String)
+23:04:06:356 DEBUG 22900 --- [redisson-7-4] c.q.chat.mapper.GroupMapper.selectById   : <==      Total: 1

@@ -1,5 +1,6 @@
 package com.qyp.chat.service.impl;
 
+import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.RandomUtil;
 import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
@@ -8,21 +9,22 @@ import com.baomidou.mybatisplus.extension.conditions.query.LambdaQueryChainWrapp
 import com.baomidou.mybatisplus.extension.conditions.update.LambdaUpdateChainWrapper;
 import com.qyp.chat.config.AppConfig;
 import com.qyp.chat.constant.SysConstant;
+import com.qyp.chat.domain.dto.MessageDTO;
 import com.qyp.chat.domain.dto.SysSettingDTO;
 import com.qyp.chat.domain.dto.UserInfoDTO;
-import com.qyp.chat.domain.entity.Contact;
-import com.qyp.chat.domain.entity.Group;
-import com.qyp.chat.domain.enums.ContactStatusEnum;
-import com.qyp.chat.domain.enums.ContactTypeEnum;
-import com.qyp.chat.domain.enums.GroupStatusEnum;
+import com.qyp.chat.domain.entity.*;
+import com.qyp.chat.domain.enums.*;
 import com.qyp.chat.domain.vo.GroupVO;
 import com.qyp.chat.exception.BusinessException;
 import com.qyp.chat.exception.enums.ExceptionEnum;
-import com.qyp.chat.mapper.ContactMapper;
-import com.qyp.chat.mapper.GroupMapper;
+import com.qyp.chat.mapper.*;
 import com.qyp.chat.service.IGroupService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.qyp.chat.util.RedisUtils;
+import com.qyp.chat.util.StringUtils;
 import com.qyp.chat.util.UserUtils;
+import com.qyp.chat.websocket.ChannelContextUtils;
+import com.qyp.chat.websocket.MessageHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -31,6 +33,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 import java.util.List;
 
 /**
@@ -51,6 +54,21 @@ public class GroupServiceImpl extends ServiceImpl<GroupMapper, Group> implements
     AppConfig appConfig;
     @Autowired
     GroupMapper groupMapper;
+    @Autowired
+    StringUtils stringUtils;
+    @Autowired
+    SessionMapper sessionMapper;
+    @Autowired
+    UserSessionMapper userSessionMapper;
+    @Autowired
+    MessageMapper messageMapper;
+    @Autowired
+    RedisUtils redisUtils;
+    @Autowired
+    ChannelContextUtils channelContextUtils;
+    @Autowired
+    MessageHandler messageHandler;
+
     @Override
     @Transactional
     public void saveGroup(Group group, MultipartFile avatarFile, MultipartFile avatarCover) throws IOException {
@@ -81,7 +99,38 @@ public class GroupServiceImpl extends ServiceImpl<GroupMapper, Group> implements
             contactMapper.insert(contact);
 
             //todo 创建回话
+            Session session = new Session();
+            String sessionId = stringUtils.createSession(groupId, "");
+            session.setSessionId(sessionId);
+            session.setLastMessage(MessageTypeEnum.GROUP_CREATE.getInitMessage());
+            session.setLastReceiveTime(dateTime.toInstant(ZoneOffset.of("+8")).toEpochMilli());
+            sessionMapper.insert(session);
+
+            UserSession userSession = new UserSession();
+            userSession.setUserId(userInfoDTO.getUserId());
+            userSession.setContactId(groupId);
+            userSession.setSessionId(sessionId);
+            userSession.setContactName(group.getGroupName());
+            userSessionMapper.insert(userSession);
+            //更新冗余
+            redisUtils.setContactList(userInfoDTO.getUserId(),List.of(groupId));
+            channelContextUtils.addUser2Group(userInfoDTO.getUserId(),groupId);
+
             //todo 发送创建群聊成功的信息
+            Message message = new Message();
+            message.setSessionId(sessionId);
+            message.setSendTime(dateTime.toInstant(ZoneOffset.of("+8")).toEpochMilli());
+            message.setContactId(groupId);
+            message.setContactType(ContactTypeEnum.GROUP.getType());
+            message.setMessageContent(MessageTypeEnum.GROUP_CREATE.getInitMessage());
+            message.setMessageType(MessageTypeEnum.GROUP_CREATE.getType());
+            message.setStatus(MessageStatusEnum.SENDED.getStatus());
+            messageMapper.insert(message);
+
+
+            MessageDTO messageDTO = BeanUtil.toBean(message, MessageDTO.class);
+            messageHandler.sendMessage(messageDTO);
+
 
         }else{
             //修改

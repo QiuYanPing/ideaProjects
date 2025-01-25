@@ -2,6 +2,10 @@ package com.qyp.chat.websocket;
 
 import cn.hutool.json.JSONUtil;
 import com.qyp.chat.domain.dto.MessageDTO;
+import com.qyp.chat.domain.enums.ContactTypeEnum;
+import com.qyp.chat.domain.enums.MessageTypeEnum;
+import com.qyp.chat.mapper.GroupMapper;
+import com.qyp.chat.mapper.UserMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.redisson.api.RTopic;
 import org.redisson.api.RedissonClient;
@@ -16,6 +20,10 @@ import javax.annotation.PostConstruct;
 public class MessageHandler {
     @Autowired
     RedissonClient redissonClient;
+    @Autowired
+    UserMapper userMapper;
+    @Autowired
+    GroupMapper groupMapper;
 
     @Autowired
     ChannelContextUtils channelContextUtils;
@@ -32,6 +40,7 @@ public class MessageHandler {
 
     public void sendMessage(MessageDTO messageDTO){
         RTopic topic = redissonClient.getTopic(MESSAGE_TOPIC);
+
         topic.publish(messageDTO);
     }
 

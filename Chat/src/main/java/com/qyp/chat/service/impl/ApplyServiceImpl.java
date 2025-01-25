@@ -31,6 +31,7 @@ import com.qyp.chat.websocket.MessageHandler;
 import io.swagger.models.auth.In;
 import net.bytebuddy.asm.Advice;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -152,9 +153,11 @@ public class ApplyServiceImpl extends ServiceImpl<ApplyMapper, Apply> implements
         if (oldApply == null || !ApplyStatusEnum.INIT.getStatus().equals(oldApply.getStatus())) {
             // 发送ws消息
             MessageDTO messageDTO = new MessageDTO();
+            messageDTO.setSendTime(time);
+            messageDTO.setContactId(receiveUserId);
+            messageDTO.setContactType(ContactTypeEnum.USER.getType());
             messageDTO.setMessageContent(apply.getApplyInfo());
             messageDTO.setMessageType(MessageTypeEnum.CONTACT_APPLY.getType());
-            messageDTO.setContactId(receiveUserId);
             messageHandler.sendMessage(messageDTO);
         }
 
@@ -291,60 +294,91 @@ public class ApplyServiceImpl extends ServiceImpl<ApplyMapper, Apply> implements
 
 
         /*contactService.saveBatch(list);*/
-        //todo 创建联系人冗余： 如果为好友，将接收人更新缓存，将申请人加入为联系人
-        redisUtils.setContactList(applyUserId,List.of(contactId));
-        if(ContactTypeEnum.USER.getType().equals(contactType)){
-            redisUtils.setContactList(contactId,List.of(applyUserId));
-        }
-        channelContextUtils.
-
-        //todo 创建回话 发送ws信息
+        //todo 创建联系人冗余： 如果为好友，更新接收人缓存，将申请人加入为联系人
         Apply apply = lambdaQuery().eq(Apply::getApplyUserId, applyUserId)
                 .eq(Apply::getContactId, contactId).one();
-        Session session = new Session();
-        String sessionId = stringUtils.createSession(applyUserId, contactId);
-        if(ContactTypeEnum.GROUP.getType().equals(contactType))
-            sessionId = stringUtils.createSession(contactId,"");
-        session.setSessionId(sessionId);
-        session.setLastMessage(apply.getApplyInfo());
-        session.setLastReceiveTime(time.toInstant(ZoneOffset.of("+8")).toEpochMilli());
-        sessionService.saveOrUpdate(session);//如果之前创建过，则不再创建
+        redisUtils.setContactList(applyUserId,List.of(contactId));
 
-        UserSession applySession = new UserSession();
-        applySession.setUserId(applyUserId);
-        applySession.setContactId(contactId);
-        applySession.setSessionId(sessionId);
-        Group group = groupMapper.selectById(contactId);
-        applySession.setContactName(group.getGroupName());
         if(ContactTypeEnum.USER.getType().equals(contactType)){
-            User user = userMapper.selectById(contactId);
-            applySession.setContactName(user.getNickName());
+            redisUtils.setContactList(contactId,List.of(applyUserId));
 
+            //todo 创建回话 发送ws信息
+            //1.创建会话
+            Session session = new Session();
+            String sessionId = stringUtils.createSession(applyUserId, contactId);
+            session.setSessionId(sessionId);
+            session.setLastMessage(apply.getApplyInfo());
+            session.setLastReceiveTime(time.toInstant(ZoneOffset.of("+8")).toEpochMilli());
+            sessionService.saveOrUpdate(session);//之前已经加为好友，就不需要重新创建回话，使用之前的
+            //2.申请人会话
+            UserSession applySession = new UserSession();
+            User contactUser = userMapper.selectById(contactId);
+            applySession.setUserId(applyUserId);
+            applySession.setContactId(contactId);
+            applySession.setContactName(contactUser.getNickName());
+            applySession.setSessionId(sessionId);
+            //3.接收人会话
             UserSession contactSession = new UserSession();
+            contactSession.setSessionId(sessionId);
             contactSession.setUserId(contactId);
             contactSession.setContactId(applyUserId);
-            contactSession.setSessionId(sessionId);
             contactSession.setContactName(applyUser.getNickName());
+            userSessionMapper.insert(applySession);
             userSessionMapper.insert(contactSession);
+            //4.信息
+            Message message = new Message();
+            message.setSessionId(sessionId);
+            message.setSendUserId(applyUserId);
+            message.setSendUserNickName(applyUser.getNickName());
+            message.setSendTime(time.toInstant(ZoneOffset.of("+8")).toEpochMilli());
+            message.setContactId(contactId);
+            message.setContactType(contactType);
+            message.setMessageContent(apply.getApplyInfo());
+            message.setMessageType(MessageTypeEnum.ADD_FRIEND.getType());
+            message.setStatus(MessageStatusEnum.SENDED.getStatus());
+            messageMapper.insert(message);
+            //发送ws信息
+            MessageDTO  messageDTO = BeanUtil.toBean(message,MessageDTO.class);
+            messageHandler.sendMessage(messageDTO);
+
+            messageDTO.setContactId(applyUserId);
+            messageDTO.setExtendData(contactId);
+            messageDTO.setMessageType(MessageTypeEnum.ADD_FRIEND_SELF.getType());
+            messageHandler.sendMessage(messageDTO);
+        }else{
+            channelContextUtils.addUser2Group(applyUserId,contactId);
+
+            //1.创建会话
+            Session session = new Session();
+            String sessionId = stringUtils.createSession(contactId,"");
+            session.setSessionId(sessionId);
+            session.setLastMessage(String.format(MessageTypeEnum.ADD_GROUP.getInitMessage(),applyUser.getNickName()));
+            session.setLastReceiveTime(time.toInstant(ZoneOffset.of("+8")).toEpochMilli());
+            sessionService.saveOrUpdate(session);//之前已经加为好友，就不需要重新创建回话，使用之前的
+
+            //2.申请人会话
+            UserSession applySession = new UserSession();
+            applySession.setSessionId(sessionId);
+            applySession.setUserId(applyUserId);
+            applySession.setContactId(contactId);
+            applySession.setContactType(contactType);
+            userSessionMapper.insert(applySession);
+
+            //3.信息
+            Message message = new Message();
+            message.setSessionId(sessionId);
+            message.setSendTime(time.toInstant(ZoneOffset.of("+8")).toEpochMilli());
+            message.setContactId(contactId);
+            message.setContactType(ContactTypeEnum.GROUP.getType());
+            message.setMessageContent(String.format(MessageTypeEnum.ADD_GROUP.getInitMessage(),applyUser.getNickName()));
+            message.setMessageType(MessageTypeEnum.ADD_GROUP.getType());
+            message.setStatus(MessageStatusEnum.SENDED.getStatus());
+            messageMapper.insert(message);
+            //4.发送信息
+            MessageDTO messageDTO = BeanUtil.toBean(message, MessageDTO.class);
+            messageHandler.sendMessage(messageDTO);
         }
-        userSessionMapper.insert(applySession);
 
-        Message message = new Message();
-        message.setSessionId(sessionId);
-        message.setSendUserId(applyUserId);
-        message.setSendUserNickName(applyUser.getNickName());
-        message.setSendTime(time.toInstant(ZoneOffset.of("+8")).toEpochMilli());
-        message.setContactId(contactId);
-        message.setContactType(contactType);
-        message.setMessageContent(apply.getApplyInfo());
-        message.setMessageType(MessageTypeEnum.ADD_FRIEND.getType());
-        message.setStatus(MessageStatusEnum.SENDED.getStatus());
-        messageMapper.insert(message);
-
-        //发送ws信息
-        MessageDTO contactMessageDTO = BeanUtil.toBean(message, MessageDTO.class);
-        contactMessageDTO.setExtendData();
-        channelContextUtils
 
 
     }
