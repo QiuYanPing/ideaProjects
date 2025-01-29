@@ -165,6 +165,7 @@ public class ChannelContextUtils {
             messageDTO.setContactId(contactId);
             messageDTO.setContactName(userMapper.selectById(contactId).getNickName());
             messageDTO.setMessageType(MessageTypeEnum.ADD_FRIEND.getType());
+            messageDTO.setExtendData(null);
         }else{
             messageDTO.setContactId(messageDTO.getSendUserId());
             messageDTO.setContactName(messageDTO.getSendUserNickName());

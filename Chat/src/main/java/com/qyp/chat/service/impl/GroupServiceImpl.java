@@ -4,6 +4,7 @@ import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.RandomUtil;
 import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.toolkit.support.SFunction;
 import com.baomidou.mybatisplus.extension.conditions.query.LambdaQueryChainWrapper;
 import com.baomidou.mybatisplus.extension.conditions.update.LambdaUpdateChainWrapper;
@@ -134,10 +135,35 @@ public class GroupServiceImpl extends ServiceImpl<GroupMapper, Group> implements
         }else{
             //修改
             //判断当前用户是否为群主，只有为群主才可以对群信息进行修改
-            Group  group1 = getById(group.getGroupId());
-            if(!userInfoDTO.getUserId().equals(group1.getGroupOwnerId()))
+            Group  dbGroup = getById(group.getGroupId());
+            if(!userInfoDTO.getUserId().equals(dbGroup.getGroupOwnerId()))
                 throw new BusinessException("非法修改！！");
             updateById(group);
+
+            //todo 更新冗余信息
+            String updateName = null;
+            if(group.getGroupName()!= null && !dbGroup.getGroupName().equals(group.getGroupName())){
+                updateName = group.getGroupName();
+            }
+            if(updateName == null)
+                return;
+            UserSession userSession = new UserSession();
+            userSession.setContactName(updateName);
+            userSessionMapper.update(userSession,
+                    new LambdaUpdateWrapper<UserSession>().eq(UserSession::getContactId,group.getGroupId()));
+            //todo 发送ws信息
+            Message message = new Message();
+            message.setSessionId(stringUtils.createSession(group.getGroupId(),""));
+            message.setSendTime(dateTime.toInstant(ZoneOffset.of("+8")).toEpochMilli());
+            message.setContactId(group.getGroupId());
+            message.setContactType(ContactTypeEnum.GROUP.getType());
+            message.setMessageContent(MessageTypeEnum.GROUP_NAME_UPDATE.getInitMessage());
+            message.setMessageType(MessageTypeEnum.GROUP_NAME_UPDATE.getType());
+            message.setStatus(MessageStatusEnum.SENDED.getStatus());
+            messageMapper.insert(message);
+
+            MessageDTO messageDTO = BeanUtil.toBean(message,MessageDTO.class);
+            messageHandler.sendMessage(messageDTO);
         }
         if(avatarFile == null){
            return;

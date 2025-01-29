@@ -15,4 +15,13 @@ public class StringUtils {
         Arrays.sort(strings);
         return DigestUtils.md5Hex(StrUtil.join("",strings));
     }
+
+    public String cleanHtml(String sendMessage) {
+        if(StrUtil.isEmpty(sendMessage))
+            return sendMessage;
+        sendMessage = sendMessage.replace("<","&lt;");
+        sendMessage = sendMessage.replace("\r\n","<br>");
+        sendMessage = sendMessage.replace("\n","<br>");
+        return sendMessage;
+    }
 }

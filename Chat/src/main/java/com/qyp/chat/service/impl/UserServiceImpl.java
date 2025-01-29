@@ -102,7 +102,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         String contactId = sysSetting.getRobotUid();
         String contactName = sysSetting.getRobotNickName();
         String sendMessage = sysSetting.getRobotWelcome();
-        sendMessage = cleanHtml(sendMessage);
+        sendMessage = stringUtils.cleanHtml(sendMessage);
         LocalDateTime time = LocalDateTime.now();
         //添加联系人
         Contact contact = new Contact();
@@ -142,14 +142,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
 
 
 
-    private String cleanHtml(String sendMessage) {
-        if(StrUtil.isEmpty(sendMessage))
-            return sendMessage;
-        sendMessage = sendMessage.replace("<","&lt;");
-        sendMessage = sendMessage.replace("\r\n","<br>");
-        sendMessage = sendMessage.replace("\n","<br>");
-        return sendMessage;
-    }
+
 
     @Override
     public R login(UserRegisterQuery user) {
@@ -262,6 +255,11 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         userSession.setContactName(contactNameUpdate);
         userSessionMapper.update(userSession,
                 new LambdaUpdateWrapper<UserSession>().eq(UserSession::getContactId,user.getUserId()));
+
+        String token = userUtils.get().getToken();
+        UserInfoDTO userInfoDTO = redisUtils.getUserInfoDTO(token, UserInfoDTO.class);
+        userInfoDTO.setNickName(contactNameUpdate);
+        redisUtils.setUserInfoDTO(token,userInfoDTO);
 
     }
 

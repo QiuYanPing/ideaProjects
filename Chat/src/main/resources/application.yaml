@@ -22,6 +22,10 @@ spring:
         max-idle: 10
         min-idle: 1
         time-between-eviction-runs: 10s
+  servlet:
+    multipart:
+      max-request-size: 500MB
+      max-file-size: 500MB
 
 mybatis-plus:
   configuration:
