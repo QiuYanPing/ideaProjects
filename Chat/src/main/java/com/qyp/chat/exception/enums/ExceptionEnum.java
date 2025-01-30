@@ -3,7 +3,9 @@ package com.qyp.chat.exception.enums;
 public enum ExceptionEnum {
     UNAUTH(404,"权限不足"),
     OTHERS(600,"其他异常"),
-    DUPLICATE(601,"重复信息");
+    DUPLICATE(601,"重复信息"),
+    NOT_FRIEND(901,"您不是对方的好友"),
+    NOT_IN_GROUP(902,"您不在群聊中");
 
     private Integer code;
     private String msg;

@@ -13,8 +13,8 @@ public class SysSettingDTO {
     String RobotUid = "U12345678901";
     String RobotWelcome = "你好啊！！";
 
-    Integer MaxFileSize;
-    Integer MaxImageSize;
-    Integer MaxVideoSize;
+    Integer MaxFileSize = 500;
+    Integer MaxImageSize = 500;
+    Integer MaxVideoSize = 500; //单位MB
 
 }
