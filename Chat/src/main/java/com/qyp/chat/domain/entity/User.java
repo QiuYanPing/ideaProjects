@@ -68,5 +68,8 @@ public class User implements Serializable {
     @ApiModelProperty(value = "最后离线时间")
     private Long lastOffTime;
 
+    @ApiModelProperty(value = "金币")
+    private Integer coins;
+
 
 }
