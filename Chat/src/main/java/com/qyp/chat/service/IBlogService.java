@@ -2,6 +2,7 @@ package com.qyp.chat.service;
 
 import com.qyp.chat.domain.entity.Blog;
 import com.baomidou.mybatisplus.extension.service.IService;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * <p>
@@ -13,4 +14,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IBlogService extends IService<Blog> {
 
+    void saveBlog(Blog blog, MultipartFile[] files);
 }

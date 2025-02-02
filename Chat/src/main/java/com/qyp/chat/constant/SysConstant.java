@@ -17,4 +17,6 @@ public class SysConstant {
 
     public static final Long MESSAGE_STORE_TIME = 3*24*60*60*1000l;
 
+    public static final Integer BLOG_CONTENT_SIZE = 1000;
+
 }

@@ -1,9 +1,12 @@
 package com.qyp.chat.domain.entity;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
+import java.time.LocalDateTime;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -43,5 +46,15 @@ public class Blog implements Serializable {
     @ApiModelProperty(value = "点赞数")
     private Integer likes;
 
+    @ApiModelProperty(value = "发表时间")
+    private LocalDateTime createTime;
 
+    @TableField(exist = false)
+    private String[] fileDesc;
+
+    public String[] getFileDesc() {
+        if(file != null)
+            return file.split("\\|");
+        return null;
+    }
 }
