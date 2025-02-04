@@ -599,3 +599,8 @@ Caused by: io.lettuce.core.RedisException: Connection is closed
 10:41:12:852 DEBUG 31116 --- [http-nio-8000-exec-7] c.qyp.chat.mapper.BlogMapper.selectList  : ==> Parameters: Udkq7qzrl98r(String)
 10:41:12:856 DEBUG 31116 --- [http-nio-8000-exec-7] c.qyp.chat.mapper.BlogMapper.selectList  : <==      Total: 1
 10:41:28:944 ERROR 31116 --- [http-nio-8000-exec-5] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
+14:48:43:286  WARN 31116 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=4h5s123ms530µs600ns).
+16:28:51:759  WARN 31116 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h38m3s401ms656µs500ns).
+19:09:58:736  WARN 31116 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=51m4s912ms694µs100ns).
+19:45:33:735  WARN 31116 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=33m4s944ms3µs300ns).
+20:38:08:875  WARN 31116 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=21m34s623ms55µs900ns).
