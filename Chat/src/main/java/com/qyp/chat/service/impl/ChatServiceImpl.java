@@ -238,23 +238,20 @@ public class ChatServiceImpl implements IChatService {
             if (isCover)
                 file = new File(filePath.getPath() + "/" + messageId + SysConstant.COVER_IMAGE_SUFFIX);
         }
+        response.setContentType("application/x-msdownload;charset=UTF-8");
+        response.setHeader("Content-Disposition","attachment;");
+        response.setContentLengthLong(file.length());
         //下载文件
         OutputStream out = null;
         FileInputStream in = null;
-        FileOutputStream fileOutputStream = null;
-        File localPath = new File(appConfig.getProjectFolder() + "/" + userInfoDTO.getUserId());
-        if(!localPath.exists()){
-            localPath.mkdirs();
-        }
+
         try {
             in = new FileInputStream(file);
             out = response.getOutputStream();
-            fileOutputStream = new FileOutputStream(new File(localPath.getPath()+"/"+file.getName()));;
             byte[] bytes = new byte[1024*64];
             int len = 0;
             while ((len = in.read(bytes)) != -1){
                 out.write(bytes,0,len);
-                fileOutputStream.write(bytes,0,len);
             }
         } catch (IOException e) {
             throw new BusinessException("文件下载失败");
@@ -263,13 +260,6 @@ public class ChatServiceImpl implements IChatService {
             if(out != null){
                 try {
                     out.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-            if(fileOutputStream != null){
-                try {
-                    fileOutputStream.close();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

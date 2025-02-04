@@ -7,11 +7,12 @@ import com.qyp.chat.domain.entity.Blog;
 import com.qyp.chat.service.IBlogService;
 import com.qyp.chat.util.UserUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
+import java.util.List;
 
 /**
  * <p>
@@ -32,7 +33,7 @@ public class BlogController {
 
 
     @PostMapping("/saveBlog")
-    public R saveBlog(String content, MultipartFile[] files){
+    public R saveBlog(String content, MultipartFile[] files) throws IOException {
         UserInfoDTO userInfoDTO = userUtils.get();
         Blog blog = new Blog();
         blog.setUserId(userInfoDTO.getUserId());
@@ -41,4 +42,31 @@ public class BlogController {
         return R.success(null);
     }
 
+    @PostMapping("/removeBlog")
+    public R removeBlog(Integer id){
+        blogService.removeBlog(id);
+        return R.success(null);
+    }
+
+
+    @PostMapping("/getBlogs")
+    public R getBlogs(String userId, @RequestParam(defaultValue = "1") Integer pageNo ,
+                      @RequestParam(defaultValue = "10") Integer pageSize){
+        List<Blog> blogList = blogService.getBlogs(userId,pageNo,pageSize);
+        return R.success(blogList);
+    }
+
+    @PostMapping("/loadMyBlogs")
+    public R loadMyBlogs (){
+        List<Blog> blogList = blogService.loadMyBlogs();
+        return R.success(blogList);
+    }
+
+
+    @PostMapping("/likeBlog")
+    public R likeBlog(Integer blogId){
+        UserInfoDTO userInfoDTO = userUtils.get();
+        blogService.likeBlog(userInfoDTO.getUserId(),blogId);
+        return R.success(null);
+    }
 }

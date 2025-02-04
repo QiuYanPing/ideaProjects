@@ -4,6 +4,7 @@ public class SysConstant {
     public static final String FILE_FOLDER_FILE = "file/";
     public static final String FILE_FOLDER_APP = "app/";
     public static final String FILE_FOLDER_AVATAR = "avatar/";
+    public static final String FILE_FOLDER_BLOG = "blog/";
     public static final String IMAGE_SUFFIX = ".png";
     public static final String COVER_IMAGE_SUFFIX = "_cover.png";
     public static final String APP_UPDATE_SUFFIX = ".exe";

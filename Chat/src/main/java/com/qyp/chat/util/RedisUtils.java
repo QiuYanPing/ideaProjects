@@ -101,5 +101,20 @@ public class RedisUtils {
     }
 
 
+    public List<String> getBlogLike(Integer blogId){
+        Set<String> members = stringRedisTemplate.opsForSet().members(RedisConstant.CHAT_BLOG_LIKE + blogId);
+        return members.stream().collect(Collectors.toList());
+    }
+    public void setBlogLike(Integer blogId,String userId){
+        stringRedisTemplate.opsForSet().add(RedisConstant.CHAT_BLOG_LIKE+blogId,userId);
+    }
+    public void removeBlogLike(Integer blogId,String userId){
+        stringRedisTemplate.opsForSet().remove(RedisConstant.CHAT_BLOG_LIKE+blogId,userId);
+    }
+    public boolean isLike(Integer blogId,String userId){
+        return stringRedisTemplate.opsForSet().isMember(RedisConstant.CHAT_BLOG_LIKE+blogId,userId);
+    }
+
+
 
 }

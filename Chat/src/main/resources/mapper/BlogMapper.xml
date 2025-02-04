@@ -2,4 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.qyp.chat.mapper.BlogMapper">
 
+    <select id="selectAllBlogs" resultType="com.qyp.chat.domain.entity.Blog">
+        select b.*, u.nick_name
+        from blog b,
+             user u
+        where b.user_id = u.user_id
+        limit #{pageNo},#{pageSize};
+    </select>
 </mapper>
