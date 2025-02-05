@@ -2,4 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.qyp.chat.mapper.BlogCommentsMapper">
 
+    <select id="selectAllComments" resultType="com.qyp.chat.domain.entity.BlogComments"
+            parameterType="java.lang.Integer">
+        select b.*,u.nick_name from blog_comments b,user u
+        where b.user_id = u.user_id and b.blog_id = #{blog_id}
+    </select>
 </mapper>

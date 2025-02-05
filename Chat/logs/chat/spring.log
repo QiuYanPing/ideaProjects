@@ -1,606 +1,514 @@
-03:21:33:776  WARN 8200 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=7h3m23s375ms334µs700ns).
-04:17:13:250  INFO 31440 --- [main] com.qyp.chat.ChatApplication             : Starting ChatApplication using Java 11.0.12 on LAPTOP-C6F2EJ6P with PID 31440 (D:\Users\qyp\Documents\ideaProjects\Chat\target\classes started by qyp in D:\Users\qyp\Documents\ideaProjects\Chat)
-04:17:13:251 DEBUG 31440 --- [main] com.qyp.chat.ChatApplication             : Running with Spring Boot v2.7.12, Spring v5.3.27
-04:17:13:252  INFO 31440 --- [main] com.qyp.chat.ChatApplication             : The following 1 profile is active: "dev"
-04:17:13:761  INFO 31440 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-04:17:13:762  INFO 31440 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-04:17:13:787  INFO 31440 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 15 ms. Found 0 Redis repository interfaces.
-04:17:14:121  INFO 31440 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
-04:17:14:127  INFO 31440 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-04:17:14:128  INFO 31440 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
-04:17:14:217  INFO 31440 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
-04:17:14:217  INFO 31440 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 941 ms
-04:17:14:835  WARN 31440 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.qyp.chat.domain.entity.ExchangeCoupons".
-04:17:15:304  INFO 31440 --- [main] org.redisson.Version                     : Redisson 3.17.1
-04:17:15:426  INFO 31440 --- [redisson-netty-6-13] o.r.c.pool.MasterPubSubConnectionPool    : 1 connections initialized for 192.168.15.155/192.168.15.155:6379
-04:17:15:457  INFO 31440 --- [redisson-netty-6-19] o.r.c.pool.MasterConnectionPool          : 24 connections initialized for 192.168.15.155/192.168.15.155:6379
-04:17:15:779  INFO 31440 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-04:17:15:829  INFO 31440 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
-04:17:15:957  INFO 31440 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path '/api'
-04:17:15:958  INFO 31440 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
-04:17:15:959  INFO 31440 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-04:17:15:975  INFO 31440 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-04:17:16:048  WARN 31440 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType org.springframework.web.multipart.MultipartFile[]
-04:17:16:076  INFO 31440 --- [main] com.qyp.chat.ChatApplication             : Started ChatApplication in 3.065 seconds (JVM running for 3.838)
-04:17:16:078  INFO 31440 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-04:17:16:257  INFO 31440 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-04:17:16:400  INFO 31440 --- [main] com.qyp.chat.InitRun                     : 服务启动成功。
-04:17:16:408  INFO 31440 --- [Thread-2] c.q.c.w.netty.NettyWebSocketStarter      : netty启动
-04:31:16:068  INFO 31440 --- [http-nio-8000-exec-5] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
-04:31:16:069  INFO 31440 --- [http-nio-8000-exec-5] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-04:31:16:071  INFO 31440 --- [http-nio-8000-exec-5] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-04:31:16:100 ERROR 31440 --- [http-nio-8000-exec-5] c.qyp.chat.interceptor.LoginInterceptor  : /api/image/4-0.png
-04:32:28:325  INFO 23580 --- [main] com.qyp.chat.ChatApplication             : Starting ChatApplication using Java 11.0.12 on LAPTOP-C6F2EJ6P with PID 23580 (D:\Users\qyp\Documents\ideaProjects\Chat\target\classes started by qyp in D:\Users\qyp\Documents\ideaProjects\Chat)
-04:32:28:329 DEBUG 23580 --- [main] com.qyp.chat.ChatApplication             : Running with Spring Boot v2.7.12, Spring v5.3.27
-04:32:28:329  INFO 23580 --- [main] com.qyp.chat.ChatApplication             : The following 1 profile is active: "dev"
-04:32:28:866  INFO 23580 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-04:32:28:867  INFO 23580 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-04:32:28:889  INFO 23580 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14 ms. Found 0 Redis repository interfaces.
-04:32:29:200  INFO 23580 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
-04:32:29:205  INFO 23580 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-04:32:29:205  INFO 23580 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
-04:32:29:297  INFO 23580 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
-04:32:29:298  INFO 23580 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 937 ms
-04:32:29:894  WARN 23580 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.qyp.chat.domain.entity.ExchangeCoupons".
-04:32:30:407  INFO 23580 --- [main] org.redisson.Version                     : Redisson 3.17.1
-04:32:30:505  INFO 23580 --- [redisson-netty-6-13] o.r.c.pool.MasterPubSubConnectionPool    : 1 connections initialized for 192.168.15.155/192.168.15.155:6379
-04:32:30:534  INFO 23580 --- [redisson-netty-6-19] o.r.c.pool.MasterConnectionPool          : 24 connections initialized for 192.168.15.155/192.168.15.155:6379
-04:32:30:871  INFO 23580 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-04:32:30:920  INFO 23580 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
-04:32:31:036  INFO 23580 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path '/api'
-04:32:31:037  INFO 23580 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
-04:32:31:038  INFO 23580 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-04:32:31:054  INFO 23580 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-04:32:31:130  WARN 23580 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType org.springframework.web.multipart.MultipartFile[]
-04:32:31:160  INFO 23580 --- [main] com.qyp.chat.ChatApplication             : Started ChatApplication in 3.103 seconds (JVM running for 3.735)
-04:32:31:161  INFO 23580 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-04:32:31:308  INFO 23580 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-04:32:31:451  INFO 23580 --- [main] com.qyp.chat.InitRun                     : 服务启动成功。
-04:32:31:456  INFO 23580 --- [Thread-2] c.q.c.w.netty.NettyWebSocketStarter      : netty启动
-04:32:34:512  INFO 23580 --- [http-nio-8000-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
-04:32:34:512  INFO 23580 --- [http-nio-8000-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-04:32:34:513  INFO 23580 --- [http-nio-8000-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-04:33:25:932 ERROR 23580 --- [http-nio-8000-exec-4] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
-04:33:31:004 ERROR 23580 --- [http-nio-8000-exec-3] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
-04:33:52:084 ERROR 23580 --- [http-nio-8000-exec-5] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
-04:34:14:524 ERROR 23580 --- [http-nio-8000-exec-6] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
-04:36:35:261  INFO 27004 --- [main] com.qyp.chat.ChatApplication             : Starting ChatApplication using Java 11.0.12 on LAPTOP-C6F2EJ6P with PID 27004 (D:\Users\qyp\Documents\ideaProjects\Chat\target\classes started by qyp in D:\Users\qyp\Documents\ideaProjects\Chat)
-04:36:35:262 DEBUG 27004 --- [main] com.qyp.chat.ChatApplication             : Running with Spring Boot v2.7.12, Spring v5.3.27
-04:36:35:262  INFO 27004 --- [main] com.qyp.chat.ChatApplication             : The following 1 profile is active: "dev"
-04:36:35:735  INFO 27004 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-04:36:35:736  INFO 27004 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-04:36:35:758  INFO 27004 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14 ms. Found 0 Redis repository interfaces.
-04:36:36:062  INFO 27004 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
-04:36:36:067  INFO 27004 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-04:36:36:067  INFO 27004 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
-04:36:36:152  INFO 27004 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
-04:36:36:152  INFO 27004 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 868 ms
-04:36:36:738  WARN 27004 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.qyp.chat.domain.entity.ExchangeCoupons".
-04:36:37:214  INFO 27004 --- [main] org.redisson.Version                     : Redisson 3.17.1
-04:36:37:337  INFO 27004 --- [redisson-netty-6-13] o.r.c.pool.MasterPubSubConnectionPool    : 1 connections initialized for 192.168.15.155/192.168.15.155:6379
-04:36:39:228  INFO 28344 --- [main] com.qyp.chat.ChatApplication             : Starting ChatApplication using Java 11.0.12 on LAPTOP-C6F2EJ6P with PID 28344 (D:\Users\qyp\Documents\ideaProjects\Chat\target\classes started by qyp in D:\Users\qyp\Documents\ideaProjects\Chat)
-04:36:39:229 DEBUG 28344 --- [main] com.qyp.chat.ChatApplication             : Running with Spring Boot v2.7.12, Spring v5.3.27
-04:36:39:229  INFO 28344 --- [main] com.qyp.chat.ChatApplication             : The following 1 profile is active: "dev"
-04:36:39:784  INFO 28344 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-04:36:39:785  INFO 28344 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-04:36:39:809  INFO 28344 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 15 ms. Found 0 Redis repository interfaces.
-04:36:40:160  INFO 28344 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
-04:36:40:166  INFO 28344 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-04:36:40:166  INFO 28344 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
-04:36:40:255  INFO 28344 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
-04:36:40:255  INFO 28344 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 996 ms
-04:36:40:901  WARN 28344 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.qyp.chat.domain.entity.ExchangeCoupons".
-04:36:41:407  INFO 28344 --- [main] org.redisson.Version                     : Redisson 3.17.1
-04:36:41:507  INFO 28344 --- [redisson-netty-6-13] o.r.c.pool.MasterPubSubConnectionPool    : 1 connections initialized for 192.168.15.155/192.168.15.155:6379
-04:36:41:534  INFO 28344 --- [redisson-netty-6-19] o.r.c.pool.MasterConnectionPool          : 24 connections initialized for 192.168.15.155/192.168.15.155:6379
-04:36:50:152  INFO 28344 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-04:36:50:207  INFO 28344 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
-04:36:50:341  INFO 28344 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path '/api'
-04:36:50:341  INFO 28344 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
-04:36:50:343  INFO 28344 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-04:36:50:361  INFO 28344 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-04:36:50:435  WARN 28344 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType org.springframework.web.multipart.MultipartFile[]
-04:36:50:461  INFO 28344 --- [main] com.qyp.chat.ChatApplication             : Started ChatApplication in 11.497 seconds (JVM running for 12.339)
-04:36:50:463  INFO 28344 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-04:36:50:600  INFO 28344 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-04:36:50:647  INFO 28344 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-04:36:50:650  INFO 28344 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-04:36:50:746 ERROR 28344 --- [main] com.qyp.chat.InitRun                     : 服务启动失败
-
-org.springframework.data.redis.RedisSystemException: Redis exception; nested exception is io.lettuce.core.RedisException: Connection is closed
-	at org.springframework.data.redis.connection.lettuce.LettuceExceptionConverter.convert(LettuceExceptionConverter.java:74) ~[spring-data-redis-2.7.12.jar:2.7.12]
-	at org.springframework.data.redis.connection.lettuce.LettuceExceptionConverter.convert(LettuceExceptionConverter.java:41) ~[spring-data-redis-2.7.12.jar:2.7.12]
-	at org.springframework.data.redis.PassThroughExceptionTranslationStrategy.translate(PassThroughExceptionTranslationStrategy.java:44) ~[spring-data-redis-2.7.12.jar:2.7.12]
-	at org.springframework.data.redis.FallbackExceptionTranslationStrategy.translate(FallbackExceptionTranslationStrategy.java:42) ~[spring-data-redis-2.7.12.jar:2.7.12]
-	at org.springframework.data.redis.connection.lettuce.LettuceConnection.convertLettuceAccessException(LettuceConnection.java:277) ~[spring-data-redis-2.7.12.jar:2.7.12]
-	at org.springframework.data.redis.connection.lettuce.LettuceConnection.await(LettuceConnection.java:1085) ~[spring-data-redis-2.7.12.jar:2.7.12]
-	at org.springframework.data.redis.connection.lettuce.LettuceConnection.lambda$doInvoke$4(LettuceConnection.java:938) ~[spring-data-redis-2.7.12.jar:2.7.12]
-	at org.springframework.data.redis.connection.lettuce.LettuceInvoker$Synchronizer.invoke(LettuceInvoker.java:673) ~[spring-data-redis-2.7.12.jar:2.7.12]
-	at org.springframework.data.redis.connection.lettuce.LettuceInvoker$DefaultSingleInvocationSpec.get(LettuceInvoker.java:589) ~[spring-data-redis-2.7.12.jar:2.7.12]
-	at org.springframework.data.redis.connection.lettuce.LettuceStringCommands.set(LettuceStringCommands.java:123) ~[spring-data-redis-2.7.12.jar:2.7.12]
-	at org.springframework.data.redis.connection.DefaultedRedisConnection.set(DefaultedRedisConnection.java:314) ~[spring-data-redis-2.7.12.jar:2.7.12]
-	at org.springframework.data.redis.connection.DefaultStringRedisConnection.set(DefaultStringRedisConnection.java:1121) ~[spring-data-redis-2.7.12.jar:2.7.12]
-	at org.springframework.data.redis.core.DefaultValueOperations$7.inRedis(DefaultValueOperations.java:309) ~[spring-data-redis-2.7.12.jar:2.7.12]
-	at org.springframework.data.redis.core.AbstractOperations$ValueDeserializingRedisCallback.doInRedis(AbstractOperations.java:61) ~[spring-data-redis-2.7.12.jar:2.7.12]
-	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:224) ~[spring-data-redis-2.7.12.jar:2.7.12]
-	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:191) ~[spring-data-redis-2.7.12.jar:2.7.12]
-	at org.springframework.data.redis.core.AbstractOperations.execute(AbstractOperations.java:97) ~[spring-data-redis-2.7.12.jar:2.7.12]
-	at org.springframework.data.redis.core.DefaultValueOperations.set(DefaultValueOperations.java:305) ~[spring-data-redis-2.7.12.jar:2.7.12]
-	at com.qyp.chat.util.RedisUtils.test(RedisUtils.java:47) ~[classes/:na]
-	at com.qyp.chat.InitRun.run(InitRun.java:32) ~[classes/:na]
-	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:759) ~[spring-boot-2.7.12.jar:2.7.12]
-	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:749) ~[spring-boot-2.7.12.jar:2.7.12]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:314) ~[spring-boot-2.7.12.jar:2.7.12]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303) ~[spring-boot-2.7.12.jar:2.7.12]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292) ~[spring-boot-2.7.12.jar:2.7.12]
-	at com.qyp.chat.ChatApplication.main(ChatApplication.java:19) ~[classes/:na]
-Caused by: io.lettuce.core.RedisException: Connection is closed
-	at io.lettuce.core.protocol.DefaultEndpoint.validateWrite(DefaultEndpoint.java:284) ~[lettuce-core-6.1.10.RELEASE.jar:6.1.10.RELEASE]
-	at io.lettuce.core.protocol.DefaultEndpoint.write(DefaultEndpoint.java:180) ~[lettuce-core-6.1.10.RELEASE.jar:6.1.10.RELEASE]
-	at io.lettuce.core.protocol.CommandExpiryWriter.write(CommandExpiryWriter.java:116) ~[lettuce-core-6.1.10.RELEASE.jar:6.1.10.RELEASE]
-	at io.lettuce.core.RedisChannelHandler.dispatch(RedisChannelHandler.java:191) ~[lettuce-core-6.1.10.RELEASE.jar:6.1.10.RELEASE]
-	at io.lettuce.core.StatefulRedisConnectionImpl.dispatch(StatefulRedisConnectionImpl.java:163) ~[lettuce-core-6.1.10.RELEASE.jar:6.1.10.RELEASE]
-	at io.lettuce.core.AbstractRedisAsyncCommands.dispatch(AbstractRedisAsyncCommands.java:627) ~[lettuce-core-6.1.10.RELEASE.jar:6.1.10.RELEASE]
-	at io.lettuce.core.AbstractRedisAsyncCommands.set(AbstractRedisAsyncCommands.java:1541) ~[lettuce-core-6.1.10.RELEASE.jar:6.1.10.RELEASE]
-	at org.springframework.data.redis.connection.lettuce.LettuceInvoker.lambda$from$9(LettuceInvoker.java:203) ~[spring-data-redis-2.7.12.jar:2.7.12]
-	at org.springframework.data.redis.connection.lettuce.LettuceInvoker.lambda$from$7(LettuceInvoker.java:174) ~[spring-data-redis-2.7.12.jar:2.7.12]
-	... 20 common frames omitted
-
-04:36:53:696  INFO 19308 --- [main] com.qyp.chat.ChatApplication             : Starting ChatApplication using Java 11.0.12 on LAPTOP-C6F2EJ6P with PID 19308 (D:\Users\qyp\Documents\ideaProjects\Chat\target\classes started by qyp in D:\Users\qyp\Documents\ideaProjects\Chat)
-04:36:53:701 DEBUG 19308 --- [main] com.qyp.chat.ChatApplication             : Running with Spring Boot v2.7.12, Spring v5.3.27
-04:36:53:701  INFO 19308 --- [main] com.qyp.chat.ChatApplication             : The following 1 profile is active: "dev"
-04:36:54:191  INFO 19308 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-04:36:54:193  INFO 19308 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-04:36:54:215  INFO 19308 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14 ms. Found 0 Redis repository interfaces.
-04:36:54:540  INFO 19308 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
-04:36:54:545  INFO 19308 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-04:36:54:546  INFO 19308 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
-04:36:54:630  INFO 19308 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
-04:36:54:630  INFO 19308 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 903 ms
-04:36:55:232  WARN 19308 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.qyp.chat.domain.entity.ExchangeCoupons".
-04:36:55:719  INFO 19308 --- [main] org.redisson.Version                     : Redisson 3.17.1
-04:36:55:814  INFO 19308 --- [redisson-netty-6-13] o.r.c.pool.MasterPubSubConnectionPool    : 1 connections initialized for 192.168.15.155/192.168.15.155:6379
-04:36:55:846  INFO 19308 --- [redisson-netty-6-19] o.r.c.pool.MasterConnectionPool          : 24 connections initialized for 192.168.15.155/192.168.15.155:6379
-04:37:04:749  INFO 19308 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-04:37:15:518  INFO 19308 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
-04:37:15:631  INFO 19308 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path '/api'
-04:37:15:631  INFO 19308 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
-04:37:15:633  INFO 19308 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-04:37:15:650  INFO 19308 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-04:37:15:727  WARN 19308 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType org.springframework.web.multipart.MultipartFile[]
-04:37:15:755  INFO 19308 --- [main] com.qyp.chat.ChatApplication             : Started ChatApplication in 22.285 seconds (JVM running for 23.182)
-04:37:15:757  INFO 19308 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-04:37:15:897  INFO 19308 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-04:37:16:033  INFO 19308 --- [main] com.qyp.chat.InitRun                     : 服务启动成功。
-04:37:16:039  INFO 19308 --- [Thread-2] c.q.c.w.netty.NettyWebSocketStarter      : netty启动
-04:38:37:760  INFO 19308 --- [http-nio-8000-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
-04:38:37:761  INFO 19308 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-04:38:37:762  INFO 19308 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-04:38:37:779 ERROR 19308 --- [http-nio-8000-exec-1] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
-04:40:14:475 ERROR 19308 --- [http-nio-8000-exec-2] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
-04:40:26:933 ERROR 19308 --- [http-nio-8000-exec-5] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
-04:41:24:733 ERROR 19308 --- [http-nio-8000-exec-6] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
-04:44:47:262 ERROR 19308 --- [http-nio-8000-exec-7] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
-04:44:48:189 ERROR 19308 --- [http-nio-8000-exec-8] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
-04:44:49:362 ERROR 19308 --- [http-nio-8000-exec-9] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
-04:45:46:060 ERROR 19308 --- [http-nio-8000-exec-4] c.q.c.exception.GlobalExceptionHandler   : 请求地址:/api/account/checkCode错误
-04:46:37:412 ERROR 19308 --- [http-nio-8000-exec-1] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
-04:47:07:505  INFO 19308 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-04:47:07:530  INFO 19308 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-04:47:11:133  INFO 30240 --- [main] com.qyp.chat.ChatApplication             : Starting ChatApplication using Java 11.0.12 on LAPTOP-C6F2EJ6P with PID 30240 (D:\Users\qyp\Documents\ideaProjects\Chat\target\classes started by qyp in D:\Users\qyp\Documents\ideaProjects\Chat)
-04:47:11:134 DEBUG 30240 --- [main] com.qyp.chat.ChatApplication             : Running with Spring Boot v2.7.12, Spring v5.3.27
-04:47:11:134  INFO 30240 --- [main] com.qyp.chat.ChatApplication             : The following 1 profile is active: "dev"
-04:47:11:598  INFO 30240 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-04:47:11:599  INFO 30240 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-04:47:11:622  INFO 30240 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 15 ms. Found 0 Redis repository interfaces.
-04:47:11:926  INFO 30240 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
-04:47:11:934  INFO 30240 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-04:47:11:934  INFO 30240 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
-04:47:12:018  INFO 30240 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
-04:47:12:018  INFO 30240 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 860 ms
-04:47:12:608  WARN 30240 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.qyp.chat.domain.entity.ExchangeCoupons".
-04:47:13:087  INFO 30240 --- [main] org.redisson.Version                     : Redisson 3.17.1
-04:47:13:187  INFO 30240 --- [redisson-netty-6-13] o.r.c.pool.MasterPubSubConnectionPool    : 1 connections initialized for 192.168.15.155/192.168.15.155:6379
-04:47:13:217  INFO 30240 --- [redisson-netty-6-19] o.r.c.pool.MasterConnectionPool          : 24 connections initialized for 192.168.15.155/192.168.15.155:6379
-04:47:13:632  INFO 30240 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-04:47:13:680  INFO 30240 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
-04:47:13:810  INFO 30240 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path '/api'
-04:47:13:811  INFO 30240 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
-04:47:13:812  INFO 30240 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-04:47:13:832  INFO 30240 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-04:47:13:910  WARN 30240 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType org.springframework.web.multipart.MultipartFile[]
-04:47:13:935  INFO 30240 --- [main] com.qyp.chat.ChatApplication             : Started ChatApplication in 3.041 seconds (JVM running for 3.687)
-04:47:13:937  INFO 30240 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-04:47:14:076  INFO 30240 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-04:47:14:210  INFO 30240 --- [main] com.qyp.chat.InitRun                     : 服务启动成功。
-04:47:14:215  INFO 30240 --- [Thread-2] c.q.c.w.netty.NettyWebSocketStarter      : netty启动
-04:47:16:538  INFO 30240 --- [http-nio-8000-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
-04:47:16:538  INFO 30240 --- [http-nio-8000-exec-3] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-04:47:16:540  INFO 30240 --- [http-nio-8000-exec-3] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-04:48:37:691  INFO 32540 --- [main] com.qyp.chat.ChatApplication             : Starting ChatApplication using Java 11.0.12 on LAPTOP-C6F2EJ6P with PID 32540 (D:\Users\qyp\Documents\ideaProjects\Chat\target\classes started by qyp in D:\Users\qyp\Documents\ideaProjects\Chat)
-04:48:37:691 DEBUG 32540 --- [main] com.qyp.chat.ChatApplication             : Running with Spring Boot v2.7.12, Spring v5.3.27
-04:48:37:692  INFO 32540 --- [main] com.qyp.chat.ChatApplication             : The following 1 profile is active: "dev"
-04:48:38:156  INFO 32540 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-04:48:38:157  INFO 32540 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-04:48:38:178  INFO 32540 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14 ms. Found 0 Redis repository interfaces.
-04:48:38:486  INFO 32540 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
-04:48:38:495  INFO 32540 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-04:48:38:496  INFO 32540 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
-04:48:38:582  INFO 32540 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
-04:48:38:582  INFO 32540 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 868 ms
-04:48:39:153  WARN 32540 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.qyp.chat.domain.entity.ExchangeCoupons".
-04:48:39:677  INFO 32540 --- [main] org.redisson.Version                     : Redisson 3.17.1
-04:48:39:786  INFO 32540 --- [redisson-netty-6-13] o.r.c.pool.MasterPubSubConnectionPool    : 1 connections initialized for 192.168.15.155/192.168.15.155:6379
-04:48:39:812  INFO 32540 --- [redisson-netty-6-19] o.r.c.pool.MasterConnectionPool          : 24 connections initialized for 192.168.15.155/192.168.15.155:6379
-04:48:40:124  INFO 32540 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-04:48:40:177  INFO 32540 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
-04:48:40:293  INFO 32540 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path '/api'
-04:48:40:294  INFO 32540 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
-04:48:40:296  INFO 32540 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-04:48:40:312  INFO 32540 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-04:48:40:383  WARN 32540 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType org.springframework.web.multipart.MultipartFile[]
-04:48:40:408  INFO 32540 --- [main] com.qyp.chat.ChatApplication             : Started ChatApplication in 2.945 seconds (JVM running for 3.562)
-04:48:40:409  INFO 32540 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-04:48:40:543  INFO 32540 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-04:48:40:672  INFO 32540 --- [main] com.qyp.chat.InitRun                     : 服务启动成功。
-04:48:40:678  INFO 32540 --- [Thread-2] c.q.c.w.netty.NettyWebSocketStarter      : netty启动
-04:49:10:140  INFO 32540 --- [http-nio-8000-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
-04:49:10:140  INFO 32540 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-04:49:10:141  INFO 32540 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
-04:49:10:157 ERROR 32540 --- [http-nio-8000-exec-1] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
-04:49:31:961 ERROR 32540 --- [http-nio-8000-exec-4] c.qyp.chat.interceptor.LoginInterceptor  : /api/images
-04:49:41:307 ERROR 32540 --- [http-nio-8000-exec-5] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
-05:30:18:151  WARN 32540 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m7s93ms579µs100ns).
-06:47:32:370  WARN 32540 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=33m43s427ms260µs300ns).
-07:32:31:255  WARN 32540 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m28s416ms98µs800ns).
-08:07:15:512  INFO 5656 --- [main] com.qyp.chat.ChatApplication             : Starting ChatApplication using Java 11.0.12 on LAPTOP-C6F2EJ6P with PID 5656 (D:\Users\qyp\Documents\ideaProjects\Chat\target\classes started by qyp in D:\Users\qyp\Documents\ideaProjects\Chat)
-08:07:15:514 DEBUG 5656 --- [main] com.qyp.chat.ChatApplication             : Running with Spring Boot v2.7.12, Spring v5.3.27
-08:07:15:514  INFO 5656 --- [main] com.qyp.chat.ChatApplication             : The following 1 profile is active: "dev"
-08:07:16:002  INFO 5656 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-08:07:16:003  INFO 5656 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-08:07:16:025  INFO 5656 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 15 ms. Found 0 Redis repository interfaces.
-08:07:16:347  INFO 5656 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
-08:07:16:353  INFO 5656 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-08:07:16:353  INFO 5656 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
-08:07:16:447  INFO 5656 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
-08:07:16:447  INFO 5656 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 905 ms
-08:07:17:077  WARN 5656 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.qyp.chat.domain.entity.ExchangeCoupons".
-08:07:17:556  INFO 5656 --- [main] org.redisson.Version                     : Redisson 3.17.1
-08:07:17:696  INFO 5656 --- [redisson-netty-6-13] o.r.c.pool.MasterPubSubConnectionPool    : 1 connections initialized for 192.168.15.155/192.168.15.155:6379
-08:07:17:745  INFO 5656 --- [redisson-netty-6-19] o.r.c.pool.MasterConnectionPool          : 24 connections initialized for 192.168.15.155/192.168.15.155:6379
-08:07:18:064  INFO 5656 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-08:07:18:112  INFO 5656 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
-08:07:18:236  INFO 5656 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path '/api'
-08:07:18:237  INFO 5656 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
-08:07:18:238  INFO 5656 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-08:07:18:254  INFO 5656 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-08:07:18:327  WARN 5656 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType org.springframework.web.multipart.MultipartFile[]
-08:07:18:353  INFO 5656 --- [main] com.qyp.chat.ChatApplication             : Started ChatApplication in 3.087 seconds (JVM running for 3.78)
-08:07:18:355  INFO 5656 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-08:07:18:525  INFO 5656 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-08:07:18:662  INFO 5656 --- [main] com.qyp.chat.InitRun                     : 服务启动成功。
-08:07:18:668  INFO 5656 --- [Thread-2] c.q.c.w.netty.NettyWebSocketStarter      : netty启动
-08:07:47:000  INFO 5656 --- [http-nio-8000-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
-08:07:47:001  INFO 5656 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-08:07:47:003  INFO 5656 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-08:07:47:359 ERROR 5656 --- [http-nio-8000-exec-3] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
-08:07:50:445 ERROR 5656 --- [http-nio-8000-exec-10] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
-08:07:55:863 ERROR 5656 --- [http-nio-8000-exec-5] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
-08:08:38:577 DEBUG 5656 --- [http-nio-8000-exec-7] c.qyp.chat.mapper.UserMapper.selectById  : ==>  Preparing: SELECT user_id,email,nick_name,join_type,sex,password,personal_signature,status,create_time,last_login_time,area_name,area_code,last_off_time,coins FROM user WHERE user_id=?
-08:08:38:620 DEBUG 5656 --- [http-nio-8000-exec-7] c.qyp.chat.mapper.UserMapper.selectById  : ==> Parameters: Udkq7qzrl98r(String)
-08:08:38:666 DEBUG 5656 --- [http-nio-8000-exec-7] c.qyp.chat.mapper.UserMapper.selectById  : <==      Total: 1
-08:08:38:708 DEBUG 5656 --- [http-nio-8000-exec-7] com.qyp.chat.mapper.BlogMapper.insert    : ==>  Preparing: INSERT INTO blog ( user_id, content, likes, create_time ) VALUES ( ?, ?, ?, ? )
-08:08:38:712 DEBUG 5656 --- [http-nio-8000-exec-7] com.qyp.chat.mapper.BlogMapper.insert    : ==> Parameters: Udkq7qzrl98r(String), 我的第二篇文章。(String), 0(Integer), 2025-02-04T08:08:38.507237600(LocalDateTime)
-08:08:38:718 DEBUG 5656 --- [http-nio-8000-exec-7] com.qyp.chat.mapper.BlogMapper.insert    : <==    Updates: 1
-08:08:38:819  INFO 5656 --- [redisson-7-2] com.qyp.chat.websocket.MessageHandler    : 收到广播消息：{"sendUserId":"Udkq7qzrl98r","sendUserNickName":"第一人","sendTime":1738627718507,"contactId":"Urgemzm17hdh","contactType":0,"messageType":14,"status":1,"extendData":{"blogId":10,"userId":"Udkq7qzrl98r","content":"我的第二篇文章。","likes":0,"createTime":1738627718507,"avator":"/avatar/Udkq7qzrl98r.png"}}
-08:11:17:607  INFO 20216 --- [main] com.qyp.chat.ChatApplication             : Starting ChatApplication using Java 11.0.12 on LAPTOP-C6F2EJ6P with PID 20216 (D:\Users\qyp\Documents\ideaProjects\Chat\target\classes started by qyp in D:\Users\qyp\Documents\ideaProjects\Chat)
-08:11:17:608 DEBUG 20216 --- [main] com.qyp.chat.ChatApplication             : Running with Spring Boot v2.7.12, Spring v5.3.27
-08:11:17:608  INFO 20216 --- [main] com.qyp.chat.ChatApplication             : The following 1 profile is active: "dev"
-08:11:18:119  INFO 20216 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-08:11:18:120  INFO 20216 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-08:11:18:143  INFO 20216 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14 ms. Found 0 Redis repository interfaces.
-08:11:18:500  INFO 20216 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
-08:11:18:506  INFO 20216 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-08:11:18:506  INFO 20216 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
-08:11:18:598  INFO 20216 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
-08:11:18:598  INFO 20216 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 963 ms
-08:11:19:195  WARN 20216 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.qyp.chat.domain.entity.ExchangeCoupons".
-08:11:19:695  INFO 20216 --- [main] org.redisson.Version                     : Redisson 3.17.1
-08:11:19:797  INFO 20216 --- [redisson-netty-6-13] o.r.c.pool.MasterPubSubConnectionPool    : 1 connections initialized for 192.168.15.155/192.168.15.155:6379
-08:11:19:824  INFO 20216 --- [redisson-netty-6-19] o.r.c.pool.MasterConnectionPool          : 24 connections initialized for 192.168.15.155/192.168.15.155:6379
-08:11:20:179  INFO 20216 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-08:11:20:235  INFO 20216 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
-08:11:20:358  INFO 20216 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path '/api'
-08:11:20:359  INFO 20216 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
-08:11:20:361  INFO 20216 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-08:11:20:377  INFO 20216 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-08:11:20:451  WARN 20216 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType org.springframework.web.multipart.MultipartFile[]
-08:11:20:477  INFO 20216 --- [main] com.qyp.chat.ChatApplication             : Started ChatApplication in 3.132 seconds (JVM running for 3.874)
-08:11:20:479  INFO 20216 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-08:11:20:623  INFO 20216 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-08:11:20:769  INFO 20216 --- [main] com.qyp.chat.InitRun                     : 服务启动成功。
-08:11:20:777  INFO 20216 --- [Thread-2] c.q.c.w.netty.NettyWebSocketStarter      : netty启动
-08:11:28:492  INFO 20216 --- [http-nio-8000-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
-08:11:28:492  INFO 20216 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-08:11:28:493  INFO 20216 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-08:11:28:580 DEBUG 20216 --- [http-nio-8000-exec-1] c.qyp.chat.mapper.UserMapper.selectById  : ==>  Preparing: SELECT user_id,email,nick_name,join_type,sex,password,personal_signature,status,create_time,last_login_time,area_name,area_code,last_off_time,coins FROM user WHERE user_id=?
-08:11:28:592 DEBUG 20216 --- [http-nio-8000-exec-1] c.qyp.chat.mapper.UserMapper.selectById  : ==> Parameters: Udkq7qzrl98r(String)
-08:11:28:610 DEBUG 20216 --- [http-nio-8000-exec-1] c.qyp.chat.mapper.UserMapper.selectById  : <==      Total: 1
-08:11:28:623 DEBUG 20216 --- [http-nio-8000-exec-1] com.qyp.chat.mapper.BlogMapper.insert    : ==>  Preparing: INSERT INTO blog ( user_id, content, likes, create_time ) VALUES ( ?, ?, ?, ? )
-08:11:28:625 DEBUG 20216 --- [http-nio-8000-exec-1] com.qyp.chat.mapper.BlogMapper.insert    : ==> Parameters: Udkq7qzrl98r(String), 我的第二篇文章。(String), 0(Integer), 2025-02-04T08:11:28.566733700(LocalDateTime)
-08:11:28:626 DEBUG 20216 --- [http-nio-8000-exec-1] com.qyp.chat.mapper.BlogMapper.insert    : <==    Updates: 1
-08:11:47:936  INFO 20216 --- [redisson-7-2] com.qyp.chat.websocket.MessageHandler    : 收到广播消息：{"sendUserId":"Udkq7qzrl98r","sendUserNickName":"第一人","sendTime":1738627888566,"contactId":"Urgemzm17hdh","contactType":0,"messageType":14,"status":1,"extendData":{"blogId":11,"userId":"Udkq7qzrl98r","content":"我的第二篇文章。","likes":0,"createTime":1738627888566,"avator":"/avatar/Udkq7qzrl98r.png"}}
-08:11:56:381 DEBUG 20216 --- [http-nio-8000-exec-2] c.qyp.chat.mapper.UserMapper.selectById  : ==>  Preparing: SELECT user_id,email,nick_name,join_type,sex,password,personal_signature,status,create_time,last_login_time,area_name,area_code,last_off_time,coins FROM user WHERE user_id=?
-08:11:56:382 DEBUG 20216 --- [http-nio-8000-exec-2] c.qyp.chat.mapper.UserMapper.selectById  : ==> Parameters: Udkq7qzrl98r(String)
-08:11:56:384 DEBUG 20216 --- [http-nio-8000-exec-2] c.qyp.chat.mapper.UserMapper.selectById  : <==      Total: 1
-08:11:56:385 DEBUG 20216 --- [http-nio-8000-exec-2] com.qyp.chat.mapper.BlogMapper.insert    : ==>  Preparing: INSERT INTO blog ( user_id, content, likes, create_time ) VALUES ( ?, ?, ?, ? )
-08:11:56:386 DEBUG 20216 --- [http-nio-8000-exec-2] com.qyp.chat.mapper.BlogMapper.insert    : ==> Parameters: Udkq7qzrl98r(String), 我的第二篇文章。(String), 0(Integer), 2025-02-04T08:11:56.380912800(LocalDateTime)
-08:11:56:388 DEBUG 20216 --- [http-nio-8000-exec-2] com.qyp.chat.mapper.BlogMapper.insert    : <==    Updates: 1
-08:14:01:889  INFO 20216 --- [redisson-7-4] com.qyp.chat.websocket.MessageHandler    : 收到广播消息：{"sendUserId":"Udkq7qzrl98r","sendUserNickName":"第一人","sendTime":1738627916380,"contactId":"Urgemzm17hdh","contactType":0,"messageType":14,"status":1,"extendData":{"blogId":12,"userId":"Udkq7qzrl98r","content":"我的第二篇文章。","file":"/blog/12-0.jpg","likes":0,"createTime":1738627916380,"fileDesc":["/blog/12-0.jpg"],"avator":"/avatar/Udkq7qzrl98r.png"}}
-08:14:02:062  INFO 20216 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-08:14:02:072  INFO 20216 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-08:14:06:317  INFO 20548 --- [main] com.qyp.chat.ChatApplication             : Starting ChatApplication using Java 11.0.12 on LAPTOP-C6F2EJ6P with PID 20548 (D:\Users\qyp\Documents\ideaProjects\Chat\target\classes started by qyp in D:\Users\qyp\Documents\ideaProjects\Chat)
-08:14:06:318 DEBUG 20548 --- [main] com.qyp.chat.ChatApplication             : Running with Spring Boot v2.7.12, Spring v5.3.27
-08:14:06:319  INFO 20548 --- [main] com.qyp.chat.ChatApplication             : The following 1 profile is active: "dev"
-08:14:06:825  INFO 20548 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-08:14:06:826  INFO 20548 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-08:14:06:853  INFO 20548 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 18 ms. Found 0 Redis repository interfaces.
-08:14:07:165  INFO 20548 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
-08:14:07:170  INFO 20548 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-08:14:07:171  INFO 20548 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
-08:14:07:255  INFO 20548 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
-08:14:07:255  INFO 20548 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 912 ms
-08:14:07:865  WARN 20548 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.qyp.chat.domain.entity.ExchangeCoupons".
-08:14:08:398  INFO 20548 --- [main] org.redisson.Version                     : Redisson 3.17.1
-08:14:08:503  INFO 20548 --- [redisson-netty-6-13] o.r.c.pool.MasterPubSubConnectionPool    : 1 connections initialized for 192.168.15.155/192.168.15.155:6379
-08:14:08:554  INFO 20548 --- [redisson-netty-6-19] o.r.c.pool.MasterConnectionPool          : 24 connections initialized for 192.168.15.155/192.168.15.155:6379
-08:14:09:229  INFO 20548 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-08:14:09:316  INFO 20548 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
-08:14:09:428  INFO 20548 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path '/api'
-08:14:09:430  INFO 20548 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
-08:14:09:431  INFO 20548 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-08:14:09:448  INFO 20548 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-08:14:09:522  WARN 20548 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType org.springframework.web.multipart.MultipartFile[]
-08:14:09:548  INFO 20548 --- [main] com.qyp.chat.ChatApplication             : Started ChatApplication in 3.494 seconds (JVM running for 4.341)
-08:14:09:551  INFO 20548 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-08:14:09:694  INFO 20548 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-08:14:09:829  INFO 20548 --- [main] com.qyp.chat.InitRun                     : 服务启动成功。
-08:14:09:835  INFO 20548 --- [Thread-2] c.q.c.w.netty.NettyWebSocketStarter      : netty启动
-08:14:51:123  INFO 20548 --- [http-nio-8000-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
-08:14:51:124  INFO 20548 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-08:14:51:126  INFO 20548 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-08:14:51:408 DEBUG 20548 --- [http-nio-8000-exec-1] c.qyp.chat.mapper.UserMapper.selectById  : ==>  Preparing: SELECT user_id,email,nick_name,join_type,sex,password,personal_signature,status,create_time,last_login_time,area_name,area_code,last_off_time,coins FROM user WHERE user_id=?
-08:14:51:444 DEBUG 20548 --- [http-nio-8000-exec-1] c.qyp.chat.mapper.UserMapper.selectById  : ==> Parameters: Udkq7qzrl98r(String)
-08:14:51:481 DEBUG 20548 --- [http-nio-8000-exec-1] c.qyp.chat.mapper.UserMapper.selectById  : <==      Total: 1
-08:14:51:518 DEBUG 20548 --- [http-nio-8000-exec-1] com.qyp.chat.mapper.BlogMapper.insert    : ==>  Preparing: INSERT INTO blog ( user_id, content, likes, create_time ) VALUES ( ?, ?, ?, ? )
-08:14:51:522 DEBUG 20548 --- [http-nio-8000-exec-1] com.qyp.chat.mapper.BlogMapper.insert    : ==> Parameters: Udkq7qzrl98r(String), 我的第一篇文章。(String), 0(Integer), 2025-02-04T08:14:51.375494400(LocalDateTime)
-08:14:51:525 DEBUG 20548 --- [http-nio-8000-exec-1] com.qyp.chat.mapper.BlogMapper.insert    : <==    Updates: 1
-08:14:53:801 DEBUG 20548 --- [http-nio-8000-exec-1] com.qyp.chat.mapper.BlogMapper.update    : ==>  Preparing: UPDATE blog SET file=? WHERE (blog_id = ?)
-08:14:53:804 DEBUG 20548 --- [http-nio-8000-exec-1] com.qyp.chat.mapper.BlogMapper.update    : ==> Parameters: /blog/13-0.jpg(String), 13(Integer)
-08:14:53:807 DEBUG 20548 --- [http-nio-8000-exec-1] com.qyp.chat.mapper.BlogMapper.update    : <==    Updates: 1
-08:14:53:938  INFO 20548 --- [redisson-7-2] com.qyp.chat.websocket.MessageHandler    : 收到广播消息：{"sendUserId":"Udkq7qzrl98r","sendUserNickName":"第一人","sendTime":1738628091375,"contactId":"Urgemzm17hdh","contactType":0,"messageType":14,"status":1,"extendData":{"blogId":13,"userId":"Udkq7qzrl98r","content":"我的第一篇文章。","file":"/blog/13-0.jpg","likes":0,"createTime":1738628091375,"fileDesc":["/blog/13-0.jpg"],"avator":"/avatar/Udkq7qzrl98r.png"}}
-08:15:29:764 ERROR 20548 --- [http-nio-8000-exec-2] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
-08:15:32:772 ERROR 20548 --- [http-nio-8000-exec-3] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
-08:15:36:709 ERROR 20548 --- [http-nio-8000-exec-4] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
-08:15:46:824 DEBUG 20548 --- [http-nio-8000-exec-6] c.qyp.chat.mapper.BlogMapper.selectById  : ==>  Preparing: SELECT blog_id,user_id,content,file,likes,create_time FROM blog WHERE blog_id=?
-08:15:46:825 DEBUG 20548 --- [http-nio-8000-exec-6] c.qyp.chat.mapper.BlogMapper.selectById  : ==> Parameters: 13(Integer)
-08:15:46:827 DEBUG 20548 --- [http-nio-8000-exec-6] c.qyp.chat.mapper.BlogMapper.selectById  : <==      Total: 1
-08:15:46:834 DEBUG 20548 --- [http-nio-8000-exec-6] com.qyp.chat.mapper.BlogMapper.update    : ==>  Preparing: UPDATE blog SET likes = likes -1 WHERE (blog_id = ?)
-08:15:46:838 DEBUG 20548 --- [http-nio-8000-exec-6] com.qyp.chat.mapper.BlogMapper.update    : ==> Parameters: Blog(blogId=13, userId=Udkq7qzrl98r, content=我的第一篇文章。, file=/blog/13-0.jpg, likes=0, createTime=2025-02-04T08:14:51, fileDesc=[/blog/13-0.jpg], nickName=null, avator=/avatar/Udkq7qzrl98r.png, isLike=null)(Blog)
-08:15:46:943 ERROR 20548 --- [http-nio-8000-exec-6] c.q.c.exception.GlobalExceptionHandler   : 请求地址:/api/blog/likeBlog错误
-08:44:31:949  WARN 20548 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=20m52s21ms761µs400ns).
-10:12:24:295  INFO 20548 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-10:12:24:303  INFO 20548 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-10:12:27:175  INFO 11272 --- [main] com.qyp.chat.ChatApplication             : Starting ChatApplication using Java 11.0.12 on LAPTOP-C6F2EJ6P with PID 11272 (D:\Users\qyp\Documents\ideaProjects\Chat\target\classes started by qyp in D:\Users\qyp\Documents\ideaProjects\Chat)
-10:12:27:176 DEBUG 11272 --- [main] com.qyp.chat.ChatApplication             : Running with Spring Boot v2.7.12, Spring v5.3.27
-10:12:27:176  INFO 11272 --- [main] com.qyp.chat.ChatApplication             : The following 1 profile is active: "dev"
-10:12:27:657  INFO 11272 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-10:12:27:658  INFO 11272 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-10:12:27:681  INFO 11272 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 15 ms. Found 0 Redis repository interfaces.
-10:12:27:993  INFO 11272 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
-10:12:27:998  INFO 11272 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-10:12:27:998  INFO 11272 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
-10:12:28:085  INFO 11272 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
-10:12:28:085  INFO 11272 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 884 ms
-10:12:28:653  WARN 11272 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.qyp.chat.domain.entity.ExchangeCoupons".
-10:12:29:118  INFO 11272 --- [main] org.redisson.Version                     : Redisson 3.17.1
-10:12:29:231  INFO 11272 --- [redisson-netty-6-18] o.r.c.pool.MasterPubSubConnectionPool    : 1 connections initialized for 192.168.15.155/192.168.15.155:6379
-10:12:29:254  INFO 11272 --- [redisson-netty-6-19] o.r.c.pool.MasterConnectionPool          : 24 connections initialized for 192.168.15.155/192.168.15.155:6379
-10:12:29:570  INFO 11272 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-10:12:29:621  INFO 11272 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
-10:12:29:735  INFO 11272 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path '/api'
-10:12:29:736  INFO 11272 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
-10:12:29:737  INFO 11272 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-10:12:29:753  INFO 11272 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-10:12:29:826  WARN 11272 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType org.springframework.web.multipart.MultipartFile[]
-10:12:29:853  INFO 11272 --- [main] com.qyp.chat.ChatApplication             : Started ChatApplication in 2.917 seconds (JVM running for 3.669)
-10:12:29:855  INFO 11272 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-10:12:29:999  INFO 11272 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-10:12:30:129  INFO 11272 --- [main] com.qyp.chat.InitRun                     : 服务启动成功。
-10:12:30:135  INFO 11272 --- [Thread-2] c.q.c.w.netty.NettyWebSocketStarter      : netty启动
-10:12:41:473  INFO 11272 --- [http-nio-8000-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
-10:12:41:473  INFO 11272 --- [http-nio-8000-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-10:12:41:474  INFO 11272 --- [http-nio-8000-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-10:12:41:572 DEBUG 11272 --- [http-nio-8000-exec-2] c.qyp.chat.mapper.BlogMapper.selectById  : ==>  Preparing: SELECT blog_id,user_id,content,file,likes,create_time FROM blog WHERE blog_id=?
-10:12:41:611 DEBUG 11272 --- [http-nio-8000-exec-2] c.qyp.chat.mapper.BlogMapper.selectById  : ==> Parameters: 13(Integer)
-10:12:41:651 DEBUG 11272 --- [http-nio-8000-exec-2] c.qyp.chat.mapper.BlogMapper.selectById  : <==      Total: 1
-10:12:41:732 DEBUG 11272 --- [http-nio-8000-exec-2] com.qyp.chat.mapper.BlogMapper.update    : ==>  Preparing: UPDATE blog SET likes = likes -1 WHERE (blog_id = ?)
-10:12:41:765 DEBUG 11272 --- [http-nio-8000-exec-2] com.qyp.chat.mapper.BlogMapper.update    : ==> Parameters: Blog(blogId=13, userId=Udkq7qzrl98r, content=我的第一篇文章。, file=/blog/13-0.jpg, likes=-1, createTime=2025-02-04T08:14:51, fileDesc=[/blog/13-0.jpg], nickName=null, avator=/avatar/Udkq7qzrl98r.png, isLike=null)(Blog)
-10:12:41:851 ERROR 11272 --- [http-nio-8000-exec-2] c.q.c.exception.GlobalExceptionHandler   : 请求地址:/api/blog/likeBlog错误
-10:16:32:472  INFO 13472 --- [main] com.qyp.chat.ChatApplication             : Starting ChatApplication using Java 11.0.12 on LAPTOP-C6F2EJ6P with PID 13472 (D:\Users\qyp\Documents\ideaProjects\Chat\target\classes started by qyp in D:\Users\qyp\Documents\ideaProjects\Chat)
-10:16:32:473 DEBUG 13472 --- [main] com.qyp.chat.ChatApplication             : Running with Spring Boot v2.7.12, Spring v5.3.27
-10:16:32:473  INFO 13472 --- [main] com.qyp.chat.ChatApplication             : The following 1 profile is active: "dev"
-10:16:32:933  INFO 13472 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-10:16:32:934  INFO 13472 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-10:16:32:955  INFO 13472 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 0 Redis repository interfaces.
-10:16:33:257  INFO 13472 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
-10:16:33:263  INFO 13472 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-10:16:33:263  INFO 13472 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
-10:16:33:344  INFO 13472 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
-10:16:33:344  INFO 13472 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 847 ms
-10:16:33:923  WARN 13472 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.qyp.chat.domain.entity.ExchangeCoupons".
-10:16:34:385  INFO 13472 --- [main] org.redisson.Version                     : Redisson 3.17.1
-10:16:34:474  INFO 13472 --- [redisson-netty-6-13] o.r.c.pool.MasterPubSubConnectionPool    : 1 connections initialized for 192.168.15.155/192.168.15.155:6379
-10:16:34:500  INFO 13472 --- [redisson-netty-6-19] o.r.c.pool.MasterConnectionPool          : 24 connections initialized for 192.168.15.155/192.168.15.155:6379
-10:16:34:815  INFO 13472 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-10:16:34:861  INFO 13472 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
-10:16:34:976  INFO 13472 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path '/api'
-10:16:34:977  INFO 13472 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
-10:16:34:978  INFO 13472 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-10:16:34:993  INFO 13472 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-10:16:35:059  WARN 13472 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType org.springframework.web.multipart.MultipartFile[]
-10:16:35:083  INFO 13472 --- [main] com.qyp.chat.ChatApplication             : Started ChatApplication in 2.846 seconds (JVM running for 3.493)
-10:16:35:084  INFO 13472 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-10:16:35:225  INFO 13472 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-10:16:35:362  INFO 13472 --- [main] com.qyp.chat.InitRun                     : 服务启动成功。
-10:16:35:367  INFO 13472 --- [Thread-2] c.q.c.w.netty.NettyWebSocketStarter      : netty启动
-10:16:42:183  INFO 13472 --- [http-nio-8000-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
-10:16:42:183  INFO 13472 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-10:16:42:184  INFO 13472 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-10:16:42:482 ERROR 13472 --- [http-nio-8000-exec-10] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
-10:16:47:848 ERROR 13472 --- [http-nio-8000-exec-9] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
-10:16:51:451 ERROR 13472 --- [http-nio-8000-exec-5] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
-10:16:54:613 DEBUG 13472 --- [http-nio-8000-exec-4] c.qyp.chat.mapper.BlogMapper.selectById  : ==>  Preparing: SELECT blog_id,user_id,content,file,likes,create_time FROM blog WHERE blog_id=?
-10:16:54:648 DEBUG 13472 --- [http-nio-8000-exec-4] c.qyp.chat.mapper.BlogMapper.selectById  : ==> Parameters: null
-10:16:54:683 DEBUG 13472 --- [http-nio-8000-exec-4] c.qyp.chat.mapper.BlogMapper.selectById  : <==      Total: 0
-10:16:54:696 ERROR 13472 --- [http-nio-8000-exec-4] c.q.c.exception.GlobalExceptionHandler   : 请求地址:/api/blog/likeBlog错误
-10:17:23:263 DEBUG 13472 --- [http-nio-8000-exec-1] c.qyp.chat.mapper.BlogMapper.selectById  : ==>  Preparing: SELECT blog_id,user_id,content,file,likes,create_time FROM blog WHERE blog_id=?
-10:17:23:264 DEBUG 13472 --- [http-nio-8000-exec-1] c.qyp.chat.mapper.BlogMapper.selectById  : ==> Parameters: 13(Integer)
-10:17:23:267 DEBUG 13472 --- [http-nio-8000-exec-1] c.qyp.chat.mapper.BlogMapper.selectById  : <==      Total: 1
-10:17:23:295 DEBUG 13472 --- [http-nio-8000-exec-1] com.qyp.chat.mapper.BlogMapper.update    : ==>  Preparing: UPDATE blog SET likes = likes -1 WHERE (blog_id = ?)
-10:17:23:296 DEBUG 13472 --- [http-nio-8000-exec-1] com.qyp.chat.mapper.BlogMapper.update    : ==> Parameters: 13(Integer)
-10:17:23:300 DEBUG 13472 --- [http-nio-8000-exec-1] com.qyp.chat.mapper.BlogMapper.update    : <==    Updates: 1
-10:18:17:449  INFO 20628 --- [main] com.qyp.chat.ChatApplication             : Starting ChatApplication using Java 11.0.12 on LAPTOP-C6F2EJ6P with PID 20628 (D:\Users\qyp\Documents\ideaProjects\Chat\target\classes started by qyp in D:\Users\qyp\Documents\ideaProjects\Chat)
-10:18:17:450 DEBUG 20628 --- [main] com.qyp.chat.ChatApplication             : Running with Spring Boot v2.7.12, Spring v5.3.27
-10:18:17:450  INFO 20628 --- [main] com.qyp.chat.ChatApplication             : The following 1 profile is active: "dev"
-10:18:17:921  INFO 20628 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-10:18:17:922  INFO 20628 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-10:18:17:943  INFO 20628 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14 ms. Found 0 Redis repository interfaces.
-10:18:18:250  INFO 20628 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
-10:18:18:255  INFO 20628 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-10:18:18:255  INFO 20628 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
-10:18:18:337  INFO 20628 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
-10:18:18:337  INFO 20628 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 861 ms
-10:18:18:924  WARN 20628 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.qyp.chat.domain.entity.ExchangeCoupons".
-10:18:19:392  INFO 20628 --- [main] org.redisson.Version                     : Redisson 3.17.1
-10:18:19:519  INFO 20628 --- [redisson-netty-6-13] o.r.c.pool.MasterPubSubConnectionPool    : 1 connections initialized for 192.168.15.155/192.168.15.155:6379
-10:18:19:546  INFO 20628 --- [redisson-netty-6-19] o.r.c.pool.MasterConnectionPool          : 24 connections initialized for 192.168.15.155/192.168.15.155:6379
-10:18:19:903  INFO 20628 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-10:18:19:951  INFO 20628 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
-10:18:20:068  INFO 20628 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path '/api'
-10:18:20:069  INFO 20628 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
-10:18:20:071  INFO 20628 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-10:18:20:087  INFO 20628 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-10:18:20:159  WARN 20628 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType org.springframework.web.multipart.MultipartFile[]
-10:18:20:184  INFO 20628 --- [main] com.qyp.chat.ChatApplication             : Started ChatApplication in 2.971 seconds (JVM running for 3.639)
-10:18:20:186  INFO 20628 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-10:18:20:314  INFO 20628 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-10:18:20:447  INFO 20628 --- [main] com.qyp.chat.InitRun                     : 服务启动成功。
-10:18:20:454  INFO 20628 --- [Thread-2] c.q.c.w.netty.NettyWebSocketStarter      : netty启动
-10:18:23:451  INFO 20628 --- [http-nio-8000-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
-10:18:23:451  INFO 20628 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-10:18:23:452  INFO 20628 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
-10:18:23:517 DEBUG 20628 --- [http-nio-8000-exec-1] c.qyp.chat.mapper.BlogMapper.selectById  : ==>  Preparing: SELECT blog_id,user_id,content,file,likes,create_time FROM blog WHERE blog_id=?
-10:18:23:528 DEBUG 20628 --- [http-nio-8000-exec-1] c.qyp.chat.mapper.BlogMapper.selectById  : ==> Parameters: 13(Integer)
-10:18:23:545 DEBUG 20628 --- [http-nio-8000-exec-1] c.qyp.chat.mapper.BlogMapper.selectById  : <==      Total: 1
-10:18:23:574 DEBUG 20628 --- [http-nio-8000-exec-1] com.qyp.chat.mapper.BlogMapper.update    : ==>  Preparing: UPDATE blog SET likes = likes + 1 WHERE (blog_id = ?)
-10:18:23:575 DEBUG 20628 --- [http-nio-8000-exec-1] com.qyp.chat.mapper.BlogMapper.update    : ==> Parameters: 13(Integer)
-10:18:23:578 DEBUG 20628 --- [http-nio-8000-exec-1] com.qyp.chat.mapper.BlogMapper.update    : <==    Updates: 1
-10:18:55:781 ERROR 20628 --- [http-nio-8000-exec-3] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
-10:19:07:115 DEBUG 20628 --- [http-nio-8000-exec-2] c.q.c.mapper.BlogMapper.selectAllBlogs   : ==>  Preparing: select b.*, u.nick_name from blog b, user u where b.user_id = u.user_id limit ?,?;
-10:19:07:116 DEBUG 20628 --- [http-nio-8000-exec-2] c.q.c.mapper.BlogMapper.selectAllBlogs   : ==> Parameters: 0(Integer), 10(Integer)
-10:19:07:122 DEBUG 20628 --- [http-nio-8000-exec-2] c.q.c.mapper.BlogMapper.selectAllBlogs   : <==      Total: 1
-10:20:17:360 ERROR 20628 --- [http-nio-8000-exec-5] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
-10:20:22:937 ERROR 20628 --- [http-nio-8000-exec-6] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
-10:26:49:320  INFO 9864 --- [main] com.qyp.chat.ChatApplication             : Starting ChatApplication using Java 11.0.12 on LAPTOP-C6F2EJ6P with PID 9864 (D:\Users\qyp\Documents\ideaProjects\Chat\target\classes started by qyp in D:\Users\qyp\Documents\ideaProjects\Chat)
-10:26:49:322 DEBUG 9864 --- [main] com.qyp.chat.ChatApplication             : Running with Spring Boot v2.7.12, Spring v5.3.27
-10:26:49:322  INFO 9864 --- [main] com.qyp.chat.ChatApplication             : The following 1 profile is active: "dev"
-10:26:49:789  INFO 9864 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-10:26:49:790  INFO 9864 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-10:26:49:813  INFO 9864 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 15 ms. Found 0 Redis repository interfaces.
-10:26:50:116  INFO 9864 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
-10:26:50:121  INFO 9864 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-10:26:50:121  INFO 9864 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
-10:26:50:202  INFO 9864 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
-10:26:50:202  INFO 9864 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 857 ms
-10:26:50:776  WARN 9864 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.qyp.chat.domain.entity.ExchangeCoupons".
-10:26:51:273  INFO 9864 --- [main] org.redisson.Version                     : Redisson 3.17.1
-10:26:51:383  INFO 9864 --- [redisson-netty-6-13] o.r.c.pool.MasterPubSubConnectionPool    : 1 connections initialized for 192.168.15.155/192.168.15.155:6379
-10:26:51:407  INFO 9864 --- [redisson-netty-6-19] o.r.c.pool.MasterConnectionPool          : 24 connections initialized for 192.168.15.155/192.168.15.155:6379
-10:26:51:720  INFO 9864 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-10:26:51:765  INFO 9864 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
-10:26:51:880  INFO 9864 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path '/api'
-10:26:51:880  INFO 9864 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
-10:26:51:882  INFO 9864 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-10:26:51:899  INFO 9864 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-10:26:51:969  WARN 9864 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType org.springframework.web.multipart.MultipartFile[]
-10:26:51:994  INFO 9864 --- [main] com.qyp.chat.ChatApplication             : Started ChatApplication in 2.911 seconds (JVM running for 3.722)
-10:26:51:996  INFO 9864 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-10:26:52:124  INFO 9864 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-10:26:52:252  INFO 9864 --- [main] com.qyp.chat.InitRun                     : 服务启动成功。
-10:26:52:257  INFO 9864 --- [Thread-2] c.q.c.w.netty.NettyWebSocketStarter      : netty启动
-10:26:57:820  INFO 9864 --- [http-nio-8000-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
-10:26:57:820  INFO 9864 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-10:26:57:821  INFO 9864 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-10:26:57:888 DEBUG 9864 --- [http-nio-8000-exec-1] c.q.c.mapper.BlogMapper.selectAllBlogs   : ==>  Preparing: select b.*, u.nick_name from blog b, user u where b.user_id = u.user_id limit ?,?;
-10:26:57:901 DEBUG 9864 --- [http-nio-8000-exec-1] c.q.c.mapper.BlogMapper.selectAllBlogs   : ==> Parameters: 0(Integer), 10(Integer)
-10:26:57:915 DEBUG 9864 --- [http-nio-8000-exec-1] c.q.c.mapper.BlogMapper.selectAllBlogs   : <==      Total: 1
-10:26:57:953 ERROR 9864 --- [http-nio-8000-exec-1] c.q.c.exception.GlobalExceptionHandler   : 请求地址:/api/blog/getBlogs错误
-10:27:14:575 DEBUG 9864 --- [http-nio-8000-exec-7] c.q.c.mapper.BlogMapper.selectAllBlogs   : ==>  Preparing: select b.*, u.nick_name from blog b, user u where b.user_id = u.user_id limit ?,?;
-10:27:14:576 DEBUG 9864 --- [http-nio-8000-exec-7] c.q.c.mapper.BlogMapper.selectAllBlogs   : ==> Parameters: 0(Integer), 10(Integer)
-10:27:14:578 DEBUG 9864 --- [http-nio-8000-exec-7] c.q.c.mapper.BlogMapper.selectAllBlogs   : <==      Total: 1
-10:27:14:582 ERROR 9864 --- [http-nio-8000-exec-7] c.q.c.exception.GlobalExceptionHandler   : 请求地址:/api/blog/getBlogs错误
-10:31:04:872  INFO 31116 --- [main] com.qyp.chat.ChatApplication             : Starting ChatApplication using Java 11.0.12 on LAPTOP-C6F2EJ6P with PID 31116 (D:\Users\qyp\Documents\ideaProjects\Chat\target\classes started by qyp in D:\Users\qyp\Documents\ideaProjects\Chat)
-10:31:04:874 DEBUG 31116 --- [main] com.qyp.chat.ChatApplication             : Running with Spring Boot v2.7.12, Spring v5.3.27
-10:31:04:874  INFO 31116 --- [main] com.qyp.chat.ChatApplication             : The following 1 profile is active: "dev"
-10:31:05:351  INFO 31116 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-10:31:05:352  INFO 31116 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-10:31:05:375  INFO 31116 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 15 ms. Found 0 Redis repository interfaces.
-10:31:05:677  INFO 31116 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
-10:31:05:683  INFO 31116 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-10:31:05:683  INFO 31116 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
-10:31:05:771  INFO 31116 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
-10:31:05:771  INFO 31116 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 872 ms
-10:31:06:363  WARN 31116 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.qyp.chat.domain.entity.ExchangeCoupons".
-10:31:06:830  INFO 31116 --- [main] org.redisson.Version                     : Redisson 3.17.1
-10:31:06:945  INFO 31116 --- [redisson-netty-6-13] o.r.c.pool.MasterPubSubConnectionPool    : 1 connections initialized for 192.168.15.155/192.168.15.155:6379
-10:31:06:972  INFO 31116 --- [redisson-netty-6-18] o.r.c.pool.MasterConnectionPool          : 24 connections initialized for 192.168.15.155/192.168.15.155:6379
-10:31:07:322  INFO 31116 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-10:31:07:371  INFO 31116 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
-10:31:07:484  INFO 31116 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path '/api'
-10:31:07:485  INFO 31116 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
-10:31:07:487  INFO 31116 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-10:31:07:502  INFO 31116 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-10:31:07:574  WARN 31116 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType org.springframework.web.multipart.MultipartFile[]
-10:31:07:598  INFO 31116 --- [main] com.qyp.chat.ChatApplication             : Started ChatApplication in 2.958 seconds (JVM running for 3.747)
-10:31:07:600  INFO 31116 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-10:31:07:732  INFO 31116 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-10:31:07:864  INFO 31116 --- [main] com.qyp.chat.InitRun                     : 服务启动成功。
-10:31:07:869  INFO 31116 --- [Thread-2] c.q.c.w.netty.NettyWebSocketStarter      : netty启动
-10:31:12:491  INFO 31116 --- [http-nio-8000-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
-10:31:12:491  INFO 31116 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-10:31:12:492  INFO 31116 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-10:31:12:567 DEBUG 31116 --- [http-nio-8000-exec-1] c.q.c.mapper.BlogMapper.selectAllBlogs   : ==>  Preparing: select b.*, u.nick_name from blog b, user u where b.user_id = u.user_id limit ?,?;
-10:31:12:586 DEBUG 31116 --- [http-nio-8000-exec-1] c.q.c.mapper.BlogMapper.selectAllBlogs   : ==> Parameters: 0(Integer), 10(Integer)
-10:31:12:605 DEBUG 31116 --- [http-nio-8000-exec-1] c.q.c.mapper.BlogMapper.selectAllBlogs   : <==      Total: 1
-10:34:17:794 ERROR 31116 --- [http-nio-8000-exec-10] c.qyp.chat.interceptor.LoginInterceptor  : /api/avatar/default.png
-10:34:30:445 ERROR 31116 --- [http-nio-8000-exec-3] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
-10:34:46:539 ERROR 31116 --- [http-nio-8000-exec-4] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
-10:35:05:091 ERROR 31116 --- [http-nio-8000-exec-7] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
-10:39:24:189 ERROR 31116 --- [http-nio-8000-exec-8] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
-10:40:41:295 DEBUG 31116 --- [http-nio-8000-exec-6] c.q.c.mapper.BlogMapper.selectAllBlogs   : ==>  Preparing: select b.*, u.nick_name from blog b, user u where b.user_id = u.user_id limit ?,?;
-10:40:41:296 DEBUG 31116 --- [http-nio-8000-exec-6] c.q.c.mapper.BlogMapper.selectAllBlogs   : ==> Parameters: 0(Integer), 10(Integer)
-10:40:41:298 DEBUG 31116 --- [http-nio-8000-exec-6] c.q.c.mapper.BlogMapper.selectAllBlogs   : <==      Total: 1
-10:41:00:239 ERROR 31116 --- [http-nio-8000-exec-2] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
-10:41:01:239 ERROR 31116 --- [http-nio-8000-exec-10] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
-10:41:06:402 ERROR 31116 --- [http-nio-8000-exec-3] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
-10:41:07:708 ERROR 31116 --- [http-nio-8000-exec-4] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
-10:41:12:851 DEBUG 31116 --- [http-nio-8000-exec-7] c.qyp.chat.mapper.BlogMapper.selectList  : ==>  Preparing: SELECT blog_id,user_id,content,file,likes,create_time FROM blog WHERE (user_id = ?)
-10:41:12:852 DEBUG 31116 --- [http-nio-8000-exec-7] c.qyp.chat.mapper.BlogMapper.selectList  : ==> Parameters: Udkq7qzrl98r(String)
-10:41:12:856 DEBUG 31116 --- [http-nio-8000-exec-7] c.qyp.chat.mapper.BlogMapper.selectList  : <==      Total: 1
-10:41:28:944 ERROR 31116 --- [http-nio-8000-exec-5] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
-14:48:43:286  WARN 31116 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=4h5s123ms530µs600ns).
-16:28:51:759  WARN 31116 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h38m3s401ms656µs500ns).
-19:09:58:736  WARN 31116 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=51m4s912ms694µs100ns).
-19:45:33:735  WARN 31116 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=33m4s944ms3µs300ns).
-20:38:08:875  WARN 31116 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=21m34s623ms55µs900ns).
+12:35:50:226  WARN 31116 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15h50m41s260ms523µs).
+14:45:52:639  WARN 31116 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=57m55s200ms557µs400ns).
+15:19:44:727  WARN 31116 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=9m21s665ms462µs800ns).
+15:26:20:883  INFO 31820 --- [main] com.qyp.chat.ChatApplication             : Starting ChatApplication using Java 11.0.12 on LAPTOP-C6F2EJ6P with PID 31820 (D:\Users\qyp\Documents\ideaProjects\Chat\target\classes started by qyp in D:\Users\qyp\Documents\ideaProjects\Chat)
+15:26:20:885 DEBUG 31820 --- [main] com.qyp.chat.ChatApplication             : Running with Spring Boot v2.7.12, Spring v5.3.27
+15:26:20:885  INFO 31820 --- [main] com.qyp.chat.ChatApplication             : The following 1 profile is active: "dev"
+15:26:21:688  INFO 31820 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+15:26:21:689  INFO 31820 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+15:26:21:727  INFO 31820 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 22 ms. Found 0 Redis repository interfaces.
+15:26:22:221  INFO 31820 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
+15:26:22:230  INFO 31820 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+15:26:22:230  INFO 31820 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
+15:26:22:373  INFO 31820 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+15:26:22:373  INFO 31820 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1453 ms
+15:26:23:262  WARN 31820 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.qyp.chat.domain.entity.ExchangeCoupons".
+15:26:24:029  INFO 31820 --- [main] org.redisson.Version                     : Redisson 3.17.1
+15:26:24:221  INFO 31820 --- [redisson-netty-6-10] o.r.c.pool.MasterPubSubConnectionPool    : 1 connections initialized for 192.168.15.155/192.168.15.155:6379
+15:26:24:262  INFO 31820 --- [redisson-netty-6-19] o.r.c.pool.MasterConnectionPool          : 24 connections initialized for 192.168.15.155/192.168.15.155:6379
+15:26:24:738  INFO 31820 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+15:26:24:798  INFO 31820 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
+15:26:24:954  INFO 31820 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path '/api'
+15:26:24:955  INFO 31820 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
+15:26:24:957  INFO 31820 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+15:26:24:982  INFO 31820 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+15:26:25:068  WARN 31820 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType org.springframework.web.multipart.MultipartFile[]
+15:26:25:099  INFO 31820 --- [main] com.qyp.chat.ChatApplication             : Started ChatApplication in 4.592 seconds (JVM running for 5.772)
+15:26:25:101  INFO 31820 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+15:26:25:351  INFO 31820 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+15:26:25:544  INFO 31820 --- [main] com.qyp.chat.InitRun                     : 服务启动成功。
+15:26:25:553  INFO 31820 --- [Thread-2] c.q.c.w.netty.NettyWebSocketStarter      : netty启动
+15:26:43:832  INFO 31820 --- [http-nio-8000-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+15:26:43:833  INFO 31820 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+15:26:43:837  INFO 31820 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+15:26:43:876 ERROR 31820 --- [http-nio-8000-exec-1] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
+15:26:49:577 DEBUG 31820 --- [http-nio-8000-exec-3] c.qyp.chat.mapper.UserMapper.selectOne   : ==>  Preparing: SELECT user_id,email,nick_name,join_type,sex,password,personal_signature,status,create_time,last_login_time,area_name,area_code,last_off_time,coins FROM user WHERE (email = ?)
+15:26:49:626 DEBUG 31820 --- [http-nio-8000-exec-3] c.qyp.chat.mapper.UserMapper.selectOne   : ==> Parameters: 2740123221@qq.com(String)
+15:26:49:694 DEBUG 31820 --- [http-nio-8000-exec-3] c.qyp.chat.mapper.UserMapper.selectOne   : <==      Total: 1
+15:26:49:723 DEBUG 31820 --- [http-nio-8000-exec-3] c.q.c.mapper.ContactMapper.selectList    : ==>  Preparing: SELECT user_id,contact_id,contact_type,create_time,status,last_update_time FROM contact WHERE (user_id = ? AND status = ?)
+15:26:49:724 DEBUG 31820 --- [http-nio-8000-exec-3] c.q.c.mapper.ContactMapper.selectList    : ==> Parameters: Udkq7qzrl98r(String), 1(Integer)
+15:26:49:735 DEBUG 31820 --- [http-nio-8000-exec-3] c.q.c.mapper.ContactMapper.selectList    : <==      Total: 2
+15:26:55:395 ERROR 31820 --- [http-nio-8000-exec-2] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
+15:26:57:153 ERROR 31820 --- [http-nio-8000-exec-4] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
+15:27:48:846 ERROR 31820 --- [http-nio-8000-exec-5] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
+15:27:52:868 ERROR 31820 --- [http-nio-8000-exec-6] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
+15:27:53:485 ERROR 31820 --- [http-nio-8000-exec-7] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
+15:27:58:895 ERROR 31820 --- [http-nio-8000-exec-8] c.qyp.chat.interceptor.LoginInterceptor  : /api/blog/getBlogs
+15:28:08:464 ERROR 31820 --- [http-nio-8000-exec-6] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
+15:28:14:318 DEBUG 31820 --- [http-nio-8000-exec-7] c.q.c.mapper.BlogMapper.selectAllBlogs   : ==>  Preparing: select b.*, u.nick_name from blog b, user u where b.user_id = u.user_id limit ?,?;
+15:28:14:319 DEBUG 31820 --- [http-nio-8000-exec-7] c.q.c.mapper.BlogMapper.selectAllBlogs   : ==> Parameters: 0(Integer), 10(Integer)
+15:28:14:328 DEBUG 31820 --- [http-nio-8000-exec-7] c.q.c.mapper.BlogMapper.selectAllBlogs   : <==      Total: 1
+15:28:36:625 ERROR 31820 --- [http-nio-8000-exec-8] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
+15:28:40:369 DEBUG 31820 --- [http-nio-8000-exec-10] c.qyp.chat.mapper.BlogMapper.selectById  : ==>  Preparing: SELECT blog_id,user_id,content,file,likes,create_time FROM blog WHERE blog_id=?
+15:28:40:370 DEBUG 31820 --- [http-nio-8000-exec-10] c.qyp.chat.mapper.BlogMapper.selectById  : ==> Parameters: null
+15:28:40:372 DEBUG 31820 --- [http-nio-8000-exec-10] c.qyp.chat.mapper.BlogMapper.selectById  : <==      Total: 0
+15:28:40:375 ERROR 31820 --- [http-nio-8000-exec-10] c.q.c.exception.GlobalExceptionHandler   : 请求地址:/api/blog/likeBlog错误
+15:28:45:399 DEBUG 31820 --- [http-nio-8000-exec-1] c.qyp.chat.mapper.BlogMapper.selectById  : ==>  Preparing: SELECT blog_id,user_id,content,file,likes,create_time FROM blog WHERE blog_id=?
+15:28:45:400 DEBUG 31820 --- [http-nio-8000-exec-1] c.qyp.chat.mapper.BlogMapper.selectById  : ==> Parameters: 13(Integer)
+15:28:45:402 DEBUG 31820 --- [http-nio-8000-exec-1] c.qyp.chat.mapper.BlogMapper.selectById  : <==      Total: 1
+15:28:45:411 DEBUG 31820 --- [http-nio-8000-exec-1] com.qyp.chat.mapper.BlogMapper.update    : ==>  Preparing: UPDATE blog SET likes = likes -1 WHERE (blog_id = ?)
+15:28:45:413 DEBUG 31820 --- [http-nio-8000-exec-1] com.qyp.chat.mapper.BlogMapper.update    : ==> Parameters: 13(Integer)
+15:28:45:451 DEBUG 31820 --- [http-nio-8000-exec-1] com.qyp.chat.mapper.BlogMapper.update    : <==    Updates: 1
+15:28:47:434 ERROR 31820 --- [http-nio-8000-exec-9] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
+15:28:49:145 DEBUG 31820 --- [http-nio-8000-exec-3] c.q.c.mapper.BlogMapper.selectAllBlogs   : ==>  Preparing: select b.*, u.nick_name from blog b, user u where b.user_id = u.user_id limit ?,?;
+15:28:49:145 DEBUG 31820 --- [http-nio-8000-exec-3] c.q.c.mapper.BlogMapper.selectAllBlogs   : ==> Parameters: 0(Integer), 10(Integer)
+15:28:49:147 DEBUG 31820 --- [http-nio-8000-exec-3] c.q.c.mapper.BlogMapper.selectAllBlogs   : <==      Total: 1
+15:28:51:398 ERROR 31820 --- [http-nio-8000-exec-2] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
+15:28:52:670 DEBUG 31820 --- [http-nio-8000-exec-4] c.qyp.chat.mapper.BlogMapper.selectById  : ==>  Preparing: SELECT blog_id,user_id,content,file,likes,create_time FROM blog WHERE blog_id=?
+15:28:52:670 DEBUG 31820 --- [http-nio-8000-exec-4] c.qyp.chat.mapper.BlogMapper.selectById  : ==> Parameters: 13(Integer)
+15:28:52:672 DEBUG 31820 --- [http-nio-8000-exec-4] c.qyp.chat.mapper.BlogMapper.selectById  : <==      Total: 1
+15:28:52:678 DEBUG 31820 --- [http-nio-8000-exec-4] com.qyp.chat.mapper.BlogMapper.update    : ==>  Preparing: UPDATE blog SET likes = likes + 1 WHERE (blog_id = ?)
+15:28:52:678 DEBUG 31820 --- [http-nio-8000-exec-4] com.qyp.chat.mapper.BlogMapper.update    : ==> Parameters: 13(Integer)
+15:28:52:708 DEBUG 31820 --- [http-nio-8000-exec-4] com.qyp.chat.mapper.BlogMapper.update    : <==    Updates: 1
+15:28:57:072 ERROR 31820 --- [http-nio-8000-exec-6] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
+15:29:16:224 DEBUG 31820 --- [http-nio-8000-exec-5] c.qyp.chat.mapper.UserMapper.selectById  : ==>  Preparing: SELECT user_id,email,nick_name,join_type,sex,password,personal_signature,status,create_time,last_login_time,area_name,area_code,last_off_time,coins FROM user WHERE user_id=?
+15:29:16:225 DEBUG 31820 --- [http-nio-8000-exec-5] c.qyp.chat.mapper.UserMapper.selectById  : ==> Parameters: Udkq7qzrl98r(String)
+15:29:16:228 DEBUG 31820 --- [http-nio-8000-exec-5] c.qyp.chat.mapper.UserMapper.selectById  : <==      Total: 1
+15:29:16:235 DEBUG 31820 --- [http-nio-8000-exec-5] com.qyp.chat.mapper.BlogMapper.insert    : ==>  Preparing: INSERT INTO blog ( user_id, content, likes, create_time ) VALUES ( ?, ?, ?, ? )
+15:29:16:240 DEBUG 31820 --- [http-nio-8000-exec-5] com.qyp.chat.mapper.BlogMapper.insert    : ==> Parameters: Udkq7qzrl98r(String), 我的第二篇文章(String), 0(Integer), 2025-02-05T15:29:16.221957700(LocalDateTime)
+15:29:16:244 DEBUG 31820 --- [http-nio-8000-exec-5] com.qyp.chat.mapper.BlogMapper.insert    : <==    Updates: 1
+15:29:16:277 DEBUG 31820 --- [http-nio-8000-exec-5] com.qyp.chat.mapper.BlogMapper.update    : ==>  Preparing: UPDATE blog SET file=? WHERE (blog_id = ?)
+15:29:16:278 DEBUG 31820 --- [http-nio-8000-exec-5] com.qyp.chat.mapper.BlogMapper.update    : ==> Parameters: /blog/14-0.jpg(String), 14(Integer)
+15:29:16:281 DEBUG 31820 --- [http-nio-8000-exec-5] com.qyp.chat.mapper.BlogMapper.update    : <==    Updates: 1
+15:29:16:407  INFO 31820 --- [redisson-7-2] com.qyp.chat.websocket.MessageHandler    : 收到广播消息：{"sendUserId":"Udkq7qzrl98r","sendUserNickName":"第一人","sendTime":1738740556221,"contactId":"Urgemzm17hdh","contactType":0,"messageType":14,"status":1,"extendData":{"blogId":14,"userId":"Udkq7qzrl98r","content":"我的第二篇文章","file":"/blog/14-0.jpg","likes":0,"createTime":1738740556221,"fileDesc":["/blog/14-0.jpg"],"avatar":"/avatar/default.png"}}
+15:29:25:380 ERROR 31820 --- [http-nio-8000-exec-9] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
+15:29:38:815 ERROR 31820 --- [http-nio-8000-exec-3] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
+15:29:43:939 DEBUG 31820 --- [http-nio-8000-exec-2] c.qyp.chat.mapper.UserMapper.selectOne   : ==>  Preparing: SELECT user_id,email,nick_name,join_type,sex,password,personal_signature,status,create_time,last_login_time,area_name,area_code,last_off_time,coins FROM user WHERE (email = ?)
+15:29:43:940 DEBUG 31820 --- [http-nio-8000-exec-2] c.qyp.chat.mapper.UserMapper.selectOne   : ==> Parameters: 2740123221@qq.com(String)
+15:29:43:942 DEBUG 31820 --- [http-nio-8000-exec-2] c.qyp.chat.mapper.UserMapper.selectOne   : <==      Total: 1
+15:29:43:946 DEBUG 31820 --- [http-nio-8000-exec-2] c.q.c.mapper.ContactMapper.selectList    : ==>  Preparing: SELECT user_id,contact_id,contact_type,create_time,status,last_update_time FROM contact WHERE (user_id = ? AND status = ?)
+15:29:43:946 DEBUG 31820 --- [http-nio-8000-exec-2] c.q.c.mapper.ContactMapper.selectList    : ==> Parameters: Udkq7qzrl98r(String), 1(Integer)
+15:29:43:949 DEBUG 31820 --- [http-nio-8000-exec-2] c.q.c.mapper.ContactMapper.selectList    : <==      Total: 2
+15:29:49:349 ERROR 31820 --- [http-nio-8000-exec-4] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
+15:29:54:883 ERROR 31820 --- [http-nio-8000-exec-8] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
+15:31:52:826 ERROR 31820 --- [http-nio-8000-exec-9] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
+15:32:01:387 ERROR 31820 --- [http-nio-8000-exec-1] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
+15:32:05:037 DEBUG 31820 --- [http-nio-8000-exec-3] c.qyp.chat.mapper.UserMapper.selectOne   : ==>  Preparing: SELECT user_id,email,nick_name,join_type,sex,password,personal_signature,status,create_time,last_login_time,area_name,area_code,last_off_time,coins FROM user WHERE (email = ?)
+15:32:05:037 DEBUG 31820 --- [http-nio-8000-exec-3] c.qyp.chat.mapper.UserMapper.selectOne   : ==> Parameters: 2740123221@qq.com(String)
+15:32:05:039 DEBUG 31820 --- [http-nio-8000-exec-3] c.qyp.chat.mapper.UserMapper.selectOne   : <==      Total: 1
+15:32:05:046 DEBUG 31820 --- [http-nio-8000-exec-3] c.q.c.mapper.ContactMapper.selectList    : ==>  Preparing: SELECT user_id,contact_id,contact_type,create_time,status,last_update_time FROM contact WHERE (user_id = ? AND status = ?)
+15:32:05:047 DEBUG 31820 --- [http-nio-8000-exec-3] c.q.c.mapper.ContactMapper.selectList    : ==> Parameters: Udkq7qzrl98r(String), 1(Integer)
+15:32:05:050 DEBUG 31820 --- [http-nio-8000-exec-3] c.q.c.mapper.ContactMapper.selectList    : <==      Total: 2
+15:32:11:875 ERROR 31820 --- [http-nio-8000-exec-2] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
+15:32:38:020 DEBUG 31820 --- [http-nio-8000-exec-4] c.qyp.chat.mapper.UserMapper.selectOne   : ==>  Preparing: SELECT user_id,email,nick_name,join_type,sex,password,personal_signature,status,create_time,last_login_time,area_name,area_code,last_off_time,coins FROM user WHERE (email = ?)
+15:32:38:021 DEBUG 31820 --- [http-nio-8000-exec-4] c.qyp.chat.mapper.UserMapper.selectOne   : ==> Parameters: 2740123222@qq.com(String)
+15:32:38:024 DEBUG 31820 --- [http-nio-8000-exec-4] c.qyp.chat.mapper.UserMapper.selectOne   : <==      Total: 1
+15:32:38:028 DEBUG 31820 --- [http-nio-8000-exec-4] c.q.c.mapper.ContactMapper.selectList    : ==>  Preparing: SELECT user_id,contact_id,contact_type,create_time,status,last_update_time FROM contact WHERE (user_id = ? AND status = ?)
+15:32:38:028 DEBUG 31820 --- [http-nio-8000-exec-4] c.q.c.mapper.ContactMapper.selectList    : ==> Parameters: Urgemzm17hdh(String), 1(Integer)
+15:32:38:030 DEBUG 31820 --- [http-nio-8000-exec-4] c.q.c.mapper.ContactMapper.selectList    : <==      Total: 1
+15:32:44:858 ERROR 31820 --- [http-nio-8000-exec-6] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
+15:32:50:086 ERROR 31820 --- [http-nio-8000-exec-10] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
+15:33:34:939 ERROR 31820 --- [http-nio-8000-exec-9] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
+15:33:38:231 ERROR 31820 --- [http-nio-8000-exec-1] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
+15:33:40:278 ERROR 31820 --- [http-nio-8000-exec-3] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
+15:33:43:333 DEBUG 31820 --- [http-nio-8000-exec-2] c.q.c.mapper.BlogMapper.selectAllBlogs   : ==>  Preparing: select b.*, u.nick_name from blog b, user u where b.user_id = u.user_id limit ?,?;
+15:33:43:335 DEBUG 31820 --- [http-nio-8000-exec-2] c.q.c.mapper.BlogMapper.selectAllBlogs   : ==> Parameters: 0(Integer), 10(Integer)
+15:33:43:338 DEBUG 31820 --- [http-nio-8000-exec-2] c.q.c.mapper.BlogMapper.selectAllBlogs   : <==      Total: 2
+15:34:10:112  INFO 31820 --- [nioEventLoopGroup-3-1] c.q.c.websocket.netty.HandlerWebSocket   : 建立连接
+15:34:10:153  INFO 31820 --- [nioEventLoopGroup-3-1] c.q.c.websocket.netty.HandlerWebSocket   : token:6de7a89ef1a62200b56e523a288188de
+15:34:10:174 DEBUG 31820 --- [nioEventLoopGroup-3-1] c.qyp.chat.mapper.UserMapper.updateById  : ==>  Preparing: UPDATE user SET last_login_time=? WHERE user_id=?
+15:34:10:175 DEBUG 31820 --- [nioEventLoopGroup-3-1] c.qyp.chat.mapper.UserMapper.updateById  : ==> Parameters: 2025-02-05T15:34:10.172002(LocalDateTime), Udkq7qzrl98r(String)
+15:34:10:179 DEBUG 31820 --- [nioEventLoopGroup-3-1] c.qyp.chat.mapper.UserMapper.updateById  : <==    Updates: 1
+15:34:10:180 DEBUG 31820 --- [nioEventLoopGroup-3-1] c.qyp.chat.mapper.UserMapper.selectById  : ==>  Preparing: SELECT user_id,email,nick_name,join_type,sex,password,personal_signature,status,create_time,last_login_time,area_name,area_code,last_off_time,coins FROM user WHERE user_id=?
+15:34:10:181 DEBUG 31820 --- [nioEventLoopGroup-3-1] c.qyp.chat.mapper.UserMapper.selectById  : ==> Parameters: Udkq7qzrl98r(String)
+15:34:10:183 DEBUG 31820 --- [nioEventLoopGroup-3-1] c.qyp.chat.mapper.UserMapper.selectById  : <==      Total: 1
+15:34:10:184 DEBUG 31820 --- [nioEventLoopGroup-3-1] c.q.c.m.U.selectAllUserSession           : ==>  Preparing: select u.* , s.last_message , s.last_receive_time , case when substring(u.contact_id, 1, 1) = 'G' then (select count(*) from `group` g where g.group_id = u.contact_id) else 0 end as memberCount from user_session u, session s where u.session_id = s.session_id and u.user_id = ? order by s.last_receive_time desc
+15:34:10:184 DEBUG 31820 --- [nioEventLoopGroup-3-1] c.q.c.m.U.selectAllUserSession           : ==> Parameters: Udkq7qzrl98r(String)
+15:34:10:194 DEBUG 31820 --- [nioEventLoopGroup-3-1] c.q.c.m.U.selectAllUserSession           : <==      Total: 3
+15:34:10:197 DEBUG 31820 --- [nioEventLoopGroup-3-1] c.q.c.mapper.MessageMapper.selectList    : ==>  Preparing: SELECT message_id,session_id,message_type,message_content,send_user_id,send_user_nick_name,send_time,contact_id,contact_type,file_size,file_name,file_type,status FROM message WHERE (contact_id IN (?,?) AND send_time > ?)
+15:34:10:197 DEBUG 31820 --- [nioEventLoopGroup-3-1] c.q.c.mapper.MessageMapper.selectList    : ==> Parameters: Glxgg18b0z5n(String), Udkq7qzrl98r(String), 1738481650184(Long)
+15:34:10:206 DEBUG 31820 --- [nioEventLoopGroup-3-1] c.q.c.mapper.MessageMapper.selectList    : <==      Total: 0
+15:34:10:208 DEBUG 31820 --- [nioEventLoopGroup-3-1] c.q.chat.mapper.ApplyMapper.selectCount  : ==>  Preparing: SELECT COUNT( * ) FROM apply WHERE (receive_user_id = ? AND status = ? AND last_apply_time > ?)
+15:34:10:209 DEBUG 31820 --- [nioEventLoopGroup-3-1] c.q.chat.mapper.ApplyMapper.selectCount  : ==> Parameters: Udkq7qzrl98r(String), 0(Integer), 1738481650184(Long)
+15:34:10:212 DEBUG 31820 --- [nioEventLoopGroup-3-1] c.q.chat.mapper.ApplyMapper.selectCount  : <==      Total: 1
+15:34:21:031  INFO 31820 --- [nioEventLoopGroup-3-2] c.q.c.websocket.netty.HandlerWebSocket   : 建立连接
+15:34:21:037  INFO 31820 --- [nioEventLoopGroup-3-2] c.q.c.websocket.netty.HandlerWebSocket   : token:e4fa4c392b5c35f84b8e977c9bfd3605
+15:34:21:045 DEBUG 31820 --- [nioEventLoopGroup-3-2] c.qyp.chat.mapper.UserMapper.updateById  : ==>  Preparing: UPDATE user SET last_login_time=? WHERE user_id=?
+15:34:21:046 DEBUG 31820 --- [nioEventLoopGroup-3-2] c.qyp.chat.mapper.UserMapper.updateById  : ==> Parameters: 2025-02-05T15:34:21.040139300(LocalDateTime), Urgemzm17hdh(String)
+15:34:21:051 DEBUG 31820 --- [nioEventLoopGroup-3-2] c.qyp.chat.mapper.UserMapper.updateById  : <==    Updates: 1
+15:34:21:053 DEBUG 31820 --- [nioEventLoopGroup-3-2] c.qyp.chat.mapper.UserMapper.selectById  : ==>  Preparing: SELECT user_id,email,nick_name,join_type,sex,password,personal_signature,status,create_time,last_login_time,area_name,area_code,last_off_time,coins FROM user WHERE user_id=?
+15:34:21:054 DEBUG 31820 --- [nioEventLoopGroup-3-2] c.qyp.chat.mapper.UserMapper.selectById  : ==> Parameters: Urgemzm17hdh(String)
+15:34:21:055 DEBUG 31820 --- [nioEventLoopGroup-3-2] c.qyp.chat.mapper.UserMapper.selectById  : <==      Total: 1
+15:34:21:055 DEBUG 31820 --- [nioEventLoopGroup-3-2] c.q.c.m.U.selectAllUserSession           : ==>  Preparing: select u.* , s.last_message , s.last_receive_time , case when substring(u.contact_id, 1, 1) = 'G' then (select count(*) from `group` g where g.group_id = u.contact_id) else 0 end as memberCount from user_session u, session s where u.session_id = s.session_id and u.user_id = ? order by s.last_receive_time desc
+15:34:21:055 DEBUG 31820 --- [nioEventLoopGroup-3-2] c.q.c.m.U.selectAllUserSession           : ==> Parameters: Urgemzm17hdh(String)
+15:34:21:058 DEBUG 31820 --- [nioEventLoopGroup-3-2] c.q.c.m.U.selectAllUserSession           : <==      Total: 3
+15:34:21:059 DEBUG 31820 --- [nioEventLoopGroup-3-2] c.q.c.mapper.MessageMapper.selectList    : ==>  Preparing: SELECT message_id,session_id,message_type,message_content,send_user_id,send_user_nick_name,send_time,contact_id,contact_type,file_size,file_name,file_type,status FROM message WHERE (contact_id IN (?,?) AND send_time > ?)
+15:34:21:060 DEBUG 31820 --- [nioEventLoopGroup-3-2] c.q.c.mapper.MessageMapper.selectList    : ==> Parameters: Glxgg18b0z5n(String), Urgemzm17hdh(String), 1738481661055(Long)
+15:34:21:061 DEBUG 31820 --- [nioEventLoopGroup-3-2] c.q.c.mapper.MessageMapper.selectList    : <==      Total: 0
+15:34:21:063 DEBUG 31820 --- [nioEventLoopGroup-3-2] c.q.chat.mapper.ApplyMapper.selectCount  : ==>  Preparing: SELECT COUNT( * ) FROM apply WHERE (receive_user_id = ? AND status = ? AND last_apply_time > ?)
+15:34:21:063 DEBUG 31820 --- [nioEventLoopGroup-3-2] c.q.chat.mapper.ApplyMapper.selectCount  : ==> Parameters: Urgemzm17hdh(String), 0(Integer), 1738481661055(Long)
+15:34:21:065 DEBUG 31820 --- [nioEventLoopGroup-3-2] c.q.chat.mapper.ApplyMapper.selectCount  : <==      Total: 1
+15:34:29:144 ERROR 31820 --- [http-nio-8000-exec-4] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
+15:35:16:074 DEBUG 31820 --- [http-nio-8000-exec-6] c.q.c.mapper.BlogCommentsMapper.insert   : ==>  Preparing: INSERT INTO blog_comments ( user_id, blog_id, `comment`, create_time, likes ) VALUES ( ?, ?, ?, ?, ? )
+15:35:16:076 DEBUG 31820 --- [http-nio-8000-exec-6] c.q.c.mapper.BlogCommentsMapper.insert   : ==> Parameters: Urgemzm17hdh(String), 13(Integer), 真漂亮(String), 2025-02-05T15:35:16.072060700(LocalDateTime), 0(Integer)
+15:35:16:113 DEBUG 31820 --- [http-nio-8000-exec-6] c.q.c.mapper.BlogCommentsMapper.insert   : <==    Updates: 1
+15:35:16:115 DEBUG 31820 --- [http-nio-8000-exec-6] c.qyp.chat.mapper.UserMapper.selectById  : ==>  Preparing: SELECT user_id,email,nick_name,join_type,sex,password,personal_signature,status,create_time,last_login_time,area_name,area_code,last_off_time,coins FROM user WHERE user_id=?
+15:35:16:116 DEBUG 31820 --- [http-nio-8000-exec-6] c.qyp.chat.mapper.UserMapper.selectById  : ==> Parameters: Urgemzm17hdh(String)
+15:35:16:119 DEBUG 31820 --- [http-nio-8000-exec-6] c.qyp.chat.mapper.UserMapper.selectById  : <==      Total: 1
+15:35:16:120 DEBUG 31820 --- [http-nio-8000-exec-6] c.qyp.chat.mapper.BlogMapper.selectById  : ==>  Preparing: SELECT blog_id,user_id,content,file,likes,create_time FROM blog WHERE blog_id=?
+15:35:16:121 DEBUG 31820 --- [http-nio-8000-exec-6] c.qyp.chat.mapper.BlogMapper.selectById  : ==> Parameters: 13(Integer)
+15:35:16:123 DEBUG 31820 --- [http-nio-8000-exec-6] c.qyp.chat.mapper.BlogMapper.selectById  : <==      Total: 1
+15:35:16:138  INFO 31820 --- [redisson-7-4] com.qyp.chat.websocket.MessageHandler    : 收到广播消息：{"sendUserId":"Urgemzm17hdh","sendUserNickName":"第二人","sendTime":1738740916072,"contactId":"Udkq7qzrl98r","contactType":0,"messageType":15,"status":1,"extendData":{"commentId":1,"userId":"Urgemzm17hdh","blogId":13,"comment":"真漂亮","createTime":1738740916072,"likes":0,"avatar":"/avatar/default.png"}}
+15:35:47:103 ERROR 31820 --- [http-nio-8000-exec-5] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
+15:36:18:980 DEBUG 31820 --- [http-nio-8000-exec-8] c.q.c.m.BlogCommentsMapper.selectById    : ==>  Preparing: SELECT comment_id,user_id,blog_id,`comment`,create_time,likes FROM blog_comments WHERE comment_id=?
+15:36:18:981 DEBUG 31820 --- [http-nio-8000-exec-8] c.q.c.m.BlogCommentsMapper.selectById    : ==> Parameters: 1(Long)
+15:36:18:983 DEBUG 31820 --- [http-nio-8000-exec-8] c.q.c.m.BlogCommentsMapper.selectById    : <==      Total: 1
+15:36:18:991 DEBUG 31820 --- [http-nio-8000-exec-8] c.q.c.mapper.BlogCommentsMapper.update   : ==>  Preparing: UPDATE blog_comments SET likes = likes + 1 WHERE (comment_id = ?)
+15:36:18:991 DEBUG 31820 --- [http-nio-8000-exec-8] c.q.c.mapper.BlogCommentsMapper.update   : ==> Parameters: 1(Long)
+15:36:19:025 DEBUG 31820 --- [http-nio-8000-exec-8] c.q.c.mapper.BlogCommentsMapper.update   : <==    Updates: 1
+15:36:41:082 ERROR 31820 --- [http-nio-8000-exec-7] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
+15:36:46:514 DEBUG 31820 --- [http-nio-8000-exec-10] c.qyp.chat.mapper.BlogMapper.selectById  : ==>  Preparing: SELECT blog_id,user_id,content,file,likes,create_time FROM blog WHERE blog_id=?
+15:36:46:515 DEBUG 31820 --- [http-nio-8000-exec-10] c.qyp.chat.mapper.BlogMapper.selectById  : ==> Parameters: 13(Integer)
+15:36:46:544 DEBUG 31820 --- [http-nio-8000-exec-10] c.qyp.chat.mapper.BlogMapper.selectById  : <==      Total: 1
+15:36:46:545 DEBUG 31820 --- [http-nio-8000-exec-10] c.q.c.m.B.selectAllComments              : ==>  Preparing: select c.*,u.nick_name from blog_comments b,user u where b.user_id = u.user_id and b.blog_id = ?
+15:36:46:546 DEBUG 31820 --- [http-nio-8000-exec-10] c.q.c.m.B.selectAllComments              : ==> Parameters: 13(Integer)
+15:36:46:672 ERROR 31820 --- [http-nio-8000-exec-10] c.q.c.exception.GlobalExceptionHandler   : 请求地址:/api/blog-comments/loadComments错误
+15:37:33:344  INFO 30268 --- [main] com.qyp.chat.ChatApplication             : Starting ChatApplication using Java 11.0.12 on LAPTOP-C6F2EJ6P with PID 30268 (D:\Users\qyp\Documents\ideaProjects\Chat\target\classes started by qyp in D:\Users\qyp\Documents\ideaProjects\Chat)
+15:37:33:345 DEBUG 30268 --- [main] com.qyp.chat.ChatApplication             : Running with Spring Boot v2.7.12, Spring v5.3.27
+15:37:33:345  INFO 30268 --- [main] com.qyp.chat.ChatApplication             : The following 1 profile is active: "dev"
+15:37:33:949  INFO 30268 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+15:37:33:950  INFO 30268 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+15:37:33:976  INFO 30268 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 17 ms. Found 0 Redis repository interfaces.
+15:37:34:397  INFO 30268 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
+15:37:34:405  INFO 30268 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+15:37:34:406  INFO 30268 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
+15:37:34:519  INFO 30268 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+15:37:34:519  INFO 30268 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1148 ms
+15:37:35:374  WARN 30268 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.qyp.chat.domain.entity.ExchangeCoupons".
+15:37:36:089  INFO 30268 --- [main] org.redisson.Version                     : Redisson 3.17.1
+15:37:36:263  INFO 30268 --- [redisson-netty-6-13] o.r.c.pool.MasterPubSubConnectionPool    : 1 connections initialized for 192.168.15.155/192.168.15.155:6379
+15:37:36:305  INFO 30268 --- [redisson-netty-6-19] o.r.c.pool.MasterConnectionPool          : 24 connections initialized for 192.168.15.155/192.168.15.155:6379
+15:37:36:754  INFO 30268 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+15:37:36:820  INFO 30268 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
+15:37:36:985  INFO 30268 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path '/api'
+15:37:36:986  INFO 30268 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
+15:37:36:989  INFO 30268 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+15:37:37:012  INFO 30268 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+15:37:37:118  WARN 30268 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType org.springframework.web.multipart.MultipartFile[]
+15:37:37:152  INFO 30268 --- [main] com.qyp.chat.ChatApplication             : Started ChatApplication in 4.08 seconds (JVM running for 5.299)
+15:37:37:154  INFO 30268 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+15:37:37:345  INFO 30268 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+15:37:37:544  INFO 30268 --- [main] com.qyp.chat.InitRun                     : 服务启动成功。
+15:37:37:557  INFO 30268 --- [Thread-2] c.q.c.w.netty.NettyWebSocketStarter      : netty启动
+15:37:40:317  INFO 30268 --- [nioEventLoopGroup-3-1] c.q.c.websocket.netty.HandlerWebSocket   : 建立连接
+15:37:40:383  INFO 30268 --- [nioEventLoopGroup-3-1] c.q.c.websocket.netty.HandlerWebSocket   : token:6de7a89ef1a62200b56e523a288188de
+15:37:40:435 DEBUG 30268 --- [nioEventLoopGroup-3-1] c.qyp.chat.mapper.UserMapper.updateById  : ==>  Preparing: UPDATE user SET last_login_time=? WHERE user_id=?
+15:37:40:455 DEBUG 30268 --- [nioEventLoopGroup-3-1] c.qyp.chat.mapper.UserMapper.updateById  : ==> Parameters: 2025-02-05T15:37:40.398863500(LocalDateTime), Udkq7qzrl98r(String)
+15:37:40:488 DEBUG 30268 --- [nioEventLoopGroup-3-1] c.qyp.chat.mapper.UserMapper.updateById  : <==    Updates: 1
+15:37:40:496 DEBUG 30268 --- [nioEventLoopGroup-3-1] c.qyp.chat.mapper.UserMapper.selectById  : ==>  Preparing: SELECT user_id,email,nick_name,join_type,sex,password,personal_signature,status,create_time,last_login_time,area_name,area_code,last_off_time,coins FROM user WHERE user_id=?
+15:37:40:496 DEBUG 30268 --- [nioEventLoopGroup-3-1] c.qyp.chat.mapper.UserMapper.selectById  : ==> Parameters: Udkq7qzrl98r(String)
+15:37:40:516 DEBUG 30268 --- [nioEventLoopGroup-3-1] c.qyp.chat.mapper.UserMapper.selectById  : <==      Total: 1
+15:37:40:521 DEBUG 30268 --- [nioEventLoopGroup-3-1] c.q.c.m.U.selectAllUserSession           : ==>  Preparing: select u.* , s.last_message , s.last_receive_time , case when substring(u.contact_id, 1, 1) = 'G' then (select count(*) from `group` g where g.group_id = u.contact_id) else 0 end as memberCount from user_session u, session s where u.session_id = s.session_id and u.user_id = ? order by s.last_receive_time desc
+15:37:40:521 DEBUG 30268 --- [nioEventLoopGroup-3-1] c.q.c.m.U.selectAllUserSession           : ==> Parameters: Udkq7qzrl98r(String)
+15:37:40:528 DEBUG 30268 --- [nioEventLoopGroup-3-1] c.q.c.m.U.selectAllUserSession           : <==      Total: 3
+15:37:40:560 DEBUG 30268 --- [nioEventLoopGroup-3-1] c.q.c.mapper.MessageMapper.selectList    : ==>  Preparing: SELECT message_id,session_id,message_type,message_content,send_user_id,send_user_nick_name,send_time,contact_id,contact_type,file_size,file_name,file_type,status FROM message WHERE (contact_id IN (?,?) AND send_time > ?)
+15:37:40:560 DEBUG 30268 --- [nioEventLoopGroup-3-1] c.q.c.mapper.MessageMapper.selectList    : ==> Parameters: Glxgg18b0z5n(String), Udkq7qzrl98r(String), 1738481860520(Long)
+15:37:40:565 DEBUG 30268 --- [nioEventLoopGroup-3-1] c.q.c.mapper.MessageMapper.selectList    : <==      Total: 0
+15:37:40:569 DEBUG 30268 --- [nioEventLoopGroup-3-1] c.q.chat.mapper.ApplyMapper.selectCount  : ==>  Preparing: SELECT COUNT( * ) FROM apply WHERE (receive_user_id = ? AND status = ? AND last_apply_time > ?)
+15:37:40:570 DEBUG 30268 --- [nioEventLoopGroup-3-1] c.q.chat.mapper.ApplyMapper.selectCount  : ==> Parameters: Udkq7qzrl98r(String), 0(Integer), 1738481860520(Long)
+15:37:40:572 DEBUG 30268 --- [nioEventLoopGroup-3-1] c.q.chat.mapper.ApplyMapper.selectCount  : <==      Total: 1
+15:37:42:200  INFO 30268 --- [nioEventLoopGroup-3-2] c.q.c.websocket.netty.HandlerWebSocket   : 建立连接
+15:37:42:205  INFO 30268 --- [nioEventLoopGroup-3-2] c.q.c.websocket.netty.HandlerWebSocket   : token:e4fa4c392b5c35f84b8e977c9bfd3605
+15:37:42:210 DEBUG 30268 --- [nioEventLoopGroup-3-2] c.qyp.chat.mapper.UserMapper.updateById  : ==>  Preparing: UPDATE user SET last_login_time=? WHERE user_id=?
+15:37:42:211 DEBUG 30268 --- [nioEventLoopGroup-3-2] c.qyp.chat.mapper.UserMapper.updateById  : ==> Parameters: 2025-02-05T15:37:42.208506700(LocalDateTime), Urgemzm17hdh(String)
+15:37:42:215 DEBUG 30268 --- [nioEventLoopGroup-3-2] c.qyp.chat.mapper.UserMapper.updateById  : <==    Updates: 1
+15:37:42:215 DEBUG 30268 --- [nioEventLoopGroup-3-2] c.qyp.chat.mapper.UserMapper.selectById  : ==>  Preparing: SELECT user_id,email,nick_name,join_type,sex,password,personal_signature,status,create_time,last_login_time,area_name,area_code,last_off_time,coins FROM user WHERE user_id=?
+15:37:42:215 DEBUG 30268 --- [nioEventLoopGroup-3-2] c.qyp.chat.mapper.UserMapper.selectById  : ==> Parameters: Urgemzm17hdh(String)
+15:37:42:216 DEBUG 30268 --- [nioEventLoopGroup-3-2] c.qyp.chat.mapper.UserMapper.selectById  : <==      Total: 1
+15:37:42:217 DEBUG 30268 --- [nioEventLoopGroup-3-2] c.q.c.m.U.selectAllUserSession           : ==>  Preparing: select u.* , s.last_message , s.last_receive_time , case when substring(u.contact_id, 1, 1) = 'G' then (select count(*) from `group` g where g.group_id = u.contact_id) else 0 end as memberCount from user_session u, session s where u.session_id = s.session_id and u.user_id = ? order by s.last_receive_time desc
+15:37:42:218 DEBUG 30268 --- [nioEventLoopGroup-3-2] c.q.c.m.U.selectAllUserSession           : ==> Parameters: Urgemzm17hdh(String)
+15:37:42:219 DEBUG 30268 --- [nioEventLoopGroup-3-2] c.q.c.m.U.selectAllUserSession           : <==      Total: 3
+15:37:42:221 DEBUG 30268 --- [nioEventLoopGroup-3-2] c.q.c.mapper.MessageMapper.selectList    : ==>  Preparing: SELECT message_id,session_id,message_type,message_content,send_user_id,send_user_nick_name,send_time,contact_id,contact_type,file_size,file_name,file_type,status FROM message WHERE (contact_id IN (?,?) AND send_time > ?)
+15:37:42:221 DEBUG 30268 --- [nioEventLoopGroup-3-2] c.q.c.mapper.MessageMapper.selectList    : ==> Parameters: Glxgg18b0z5n(String), Urgemzm17hdh(String), 1738481862216(Long)
+15:37:42:223 DEBUG 30268 --- [nioEventLoopGroup-3-2] c.q.c.mapper.MessageMapper.selectList    : <==      Total: 0
+15:37:42:225 DEBUG 30268 --- [nioEventLoopGroup-3-2] c.q.chat.mapper.ApplyMapper.selectCount  : ==>  Preparing: SELECT COUNT( * ) FROM apply WHERE (receive_user_id = ? AND status = ? AND last_apply_time > ?)
+15:37:42:225 DEBUG 30268 --- [nioEventLoopGroup-3-2] c.q.chat.mapper.ApplyMapper.selectCount  : ==> Parameters: Urgemzm17hdh(String), 0(Integer), 1738481862216(Long)
+15:37:42:226 DEBUG 30268 --- [nioEventLoopGroup-3-2] c.q.chat.mapper.ApplyMapper.selectCount  : <==      Total: 1
+15:37:46:852  INFO 30268 --- [http-nio-8000-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+15:37:46:853  INFO 30268 --- [http-nio-8000-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+15:37:46:856  INFO 30268 --- [http-nio-8000-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+15:37:46:964 DEBUG 30268 --- [http-nio-8000-exec-2] c.qyp.chat.mapper.BlogMapper.selectById  : ==>  Preparing: SELECT blog_id,user_id,content,file,likes,create_time FROM blog WHERE blog_id=?
+15:37:46:966 DEBUG 30268 --- [http-nio-8000-exec-2] c.qyp.chat.mapper.BlogMapper.selectById  : ==> Parameters: 13(Integer)
+15:37:46:970 DEBUG 30268 --- [http-nio-8000-exec-2] c.qyp.chat.mapper.BlogMapper.selectById  : <==      Total: 1
+15:37:46:972 DEBUG 30268 --- [http-nio-8000-exec-2] c.q.c.m.B.selectAllComments              : ==>  Preparing: select b.*,u.nick_name from blog_comments b,user u where b.user_id = u.user_id and b.blog_id = ?
+15:37:46:972 DEBUG 30268 --- [http-nio-8000-exec-2] c.q.c.m.B.selectAllComments              : ==> Parameters: 13(Integer)
+15:37:47:002 DEBUG 30268 --- [http-nio-8000-exec-2] c.q.c.m.B.selectAllComments              : <==      Total: 1
+15:39:51:551  INFO 23848 --- [main] com.qyp.chat.ChatApplication             : Starting ChatApplication using Java 11.0.12 on LAPTOP-C6F2EJ6P with PID 23848 (D:\Users\qyp\Documents\ideaProjects\Chat\target\classes started by qyp in D:\Users\qyp\Documents\ideaProjects\Chat)
+15:39:51:553 DEBUG 23848 --- [main] com.qyp.chat.ChatApplication             : Running with Spring Boot v2.7.12, Spring v5.3.27
+15:39:51:553  INFO 23848 --- [main] com.qyp.chat.ChatApplication             : The following 1 profile is active: "dev"
+15:39:52:300  INFO 23848 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+15:39:52:301  INFO 23848 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+15:39:52:337  INFO 23848 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 24 ms. Found 0 Redis repository interfaces.
+15:39:52:864  INFO 23848 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
+15:39:52:873  INFO 23848 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+15:39:52:874  INFO 23848 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
+15:39:53:058  INFO 23848 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+15:39:53:059  INFO 23848 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1471 ms
+15:39:54:018  WARN 23848 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.qyp.chat.domain.entity.ExchangeCoupons".
+15:39:54:824  INFO 23848 --- [main] org.redisson.Version                     : Redisson 3.17.1
+15:39:55:014  INFO 23848 --- [redisson-netty-6-13] o.r.c.pool.MasterPubSubConnectionPool    : 1 connections initialized for 192.168.15.155/192.168.15.155:6379
+15:39:55:054  INFO 23848 --- [redisson-netty-6-19] o.r.c.pool.MasterConnectionPool          : 24 connections initialized for 192.168.15.155/192.168.15.155:6379
+15:39:55:566  INFO 23848 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+15:39:55:636  INFO 23848 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
+15:39:55:807  INFO 23848 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path '/api'
+15:39:55:808  INFO 23848 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
+15:39:55:810  INFO 23848 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+15:39:55:836  INFO 23848 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+15:39:56:097  WARN 23848 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType org.springframework.web.multipart.MultipartFile[]
+15:39:56:132  INFO 23848 --- [main] com.qyp.chat.ChatApplication             : Started ChatApplication in 4.942 seconds (JVM running for 5.82)
+15:39:56:134  INFO 23848 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+15:39:56:362  INFO 23848 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+15:39:56:573  INFO 23848 --- [main] com.qyp.chat.InitRun                     : 服务启动成功。
+15:39:56:582  INFO 23848 --- [Thread-2] c.q.c.w.netty.NettyWebSocketStarter      : netty启动
+15:40:02:363  INFO 23848 --- [nioEventLoopGroup-3-1] c.q.c.websocket.netty.HandlerWebSocket   : 建立连接
+15:40:02:428  INFO 23848 --- [nioEventLoopGroup-3-1] c.q.c.websocket.netty.HandlerWebSocket   : token:e4fa4c392b5c35f84b8e977c9bfd3605
+15:40:02:479 DEBUG 23848 --- [nioEventLoopGroup-3-1] c.qyp.chat.mapper.UserMapper.updateById  : ==>  Preparing: UPDATE user SET last_login_time=? WHERE user_id=?
+15:40:02:497 DEBUG 23848 --- [nioEventLoopGroup-3-1] c.qyp.chat.mapper.UserMapper.updateById  : ==> Parameters: 2025-02-05T15:40:02.443040100(LocalDateTime), Urgemzm17hdh(String)
+15:40:02:503 DEBUG 23848 --- [nioEventLoopGroup-3-1] c.qyp.chat.mapper.UserMapper.updateById  : <==    Updates: 1
+15:40:02:507 DEBUG 23848 --- [nioEventLoopGroup-3-1] c.qyp.chat.mapper.UserMapper.selectById  : ==>  Preparing: SELECT user_id,email,nick_name,join_type,sex,password,personal_signature,status,create_time,last_login_time,area_name,area_code,last_off_time,coins FROM user WHERE user_id=?
+15:40:02:507 DEBUG 23848 --- [nioEventLoopGroup-3-1] c.qyp.chat.mapper.UserMapper.selectById  : ==> Parameters: Urgemzm17hdh(String)
+15:40:02:525 DEBUG 23848 --- [nioEventLoopGroup-3-1] c.qyp.chat.mapper.UserMapper.selectById  : <==      Total: 1
+15:40:02:528 DEBUG 23848 --- [nioEventLoopGroup-3-1] c.q.c.m.U.selectAllUserSession           : ==>  Preparing: select u.* , s.last_message , s.last_receive_time , case when substring(u.contact_id, 1, 1) = 'G' then (select count(*) from `group` g where g.group_id = u.contact_id) else 0 end as memberCount from user_session u, session s where u.session_id = s.session_id and u.user_id = ? order by s.last_receive_time desc
+15:40:02:529 DEBUG 23848 --- [nioEventLoopGroup-3-1] c.q.c.m.U.selectAllUserSession           : ==> Parameters: Urgemzm17hdh(String)
+15:40:02:532 DEBUG 23848 --- [nioEventLoopGroup-3-1] c.q.c.m.U.selectAllUserSession           : <==      Total: 3
+15:40:02:549 DEBUG 23848 --- [nioEventLoopGroup-3-1] c.q.c.mapper.MessageMapper.selectList    : ==>  Preparing: SELECT message_id,session_id,message_type,message_content,send_user_id,send_user_nick_name,send_time,contact_id,contact_type,file_size,file_name,file_type,status FROM message WHERE (contact_id IN (?,?) AND send_time > ?)
+15:40:02:549 DEBUG 23848 --- [nioEventLoopGroup-3-1] c.q.c.mapper.MessageMapper.selectList    : ==> Parameters: Glxgg18b0z5n(String), Urgemzm17hdh(String), 1738482002528(Long)
+15:40:02:551 DEBUG 23848 --- [nioEventLoopGroup-3-1] c.q.c.mapper.MessageMapper.selectList    : <==      Total: 0
+15:40:02:553 DEBUG 23848 --- [nioEventLoopGroup-3-1] c.q.chat.mapper.ApplyMapper.selectCount  : ==>  Preparing: SELECT COUNT( * ) FROM apply WHERE (receive_user_id = ? AND status = ? AND last_apply_time > ?)
+15:40:02:554 DEBUG 23848 --- [nioEventLoopGroup-3-1] c.q.chat.mapper.ApplyMapper.selectCount  : ==> Parameters: Urgemzm17hdh(String), 0(Integer), 1738482002528(Long)
+15:40:02:556 DEBUG 23848 --- [nioEventLoopGroup-3-1] c.q.chat.mapper.ApplyMapper.selectCount  : <==      Total: 1
+15:40:04:310  INFO 23848 --- [nioEventLoopGroup-3-2] c.q.c.websocket.netty.HandlerWebSocket   : 建立连接
+15:40:04:323  INFO 23848 --- [nioEventLoopGroup-3-2] c.q.c.websocket.netty.HandlerWebSocket   : token:6de7a89ef1a62200b56e523a288188de
+15:40:04:335 DEBUG 23848 --- [nioEventLoopGroup-3-2] c.qyp.chat.mapper.UserMapper.updateById  : ==>  Preparing: UPDATE user SET last_login_time=? WHERE user_id=?
+15:40:04:335 DEBUG 23848 --- [nioEventLoopGroup-3-2] c.qyp.chat.mapper.UserMapper.updateById  : ==> Parameters: 2025-02-05T15:40:04.326800300(LocalDateTime), Udkq7qzrl98r(String)
+15:40:04:358 DEBUG 23848 --- [nioEventLoopGroup-3-2] c.qyp.chat.mapper.UserMapper.updateById  : <==    Updates: 1
+15:40:04:359 DEBUG 23848 --- [nioEventLoopGroup-3-2] c.qyp.chat.mapper.UserMapper.selectById  : ==>  Preparing: SELECT user_id,email,nick_name,join_type,sex,password,personal_signature,status,create_time,last_login_time,area_name,area_code,last_off_time,coins FROM user WHERE user_id=?
+15:40:04:359 DEBUG 23848 --- [nioEventLoopGroup-3-2] c.qyp.chat.mapper.UserMapper.selectById  : ==> Parameters: Udkq7qzrl98r(String)
+15:40:04:362 DEBUG 23848 --- [nioEventLoopGroup-3-2] c.qyp.chat.mapper.UserMapper.selectById  : <==      Total: 1
+15:40:04:363 DEBUG 23848 --- [nioEventLoopGroup-3-2] c.q.c.m.U.selectAllUserSession           : ==>  Preparing: select u.* , s.last_message , s.last_receive_time , case when substring(u.contact_id, 1, 1) = 'G' then (select count(*) from `group` g where g.group_id = u.contact_id) else 0 end as memberCount from user_session u, session s where u.session_id = s.session_id and u.user_id = ? order by s.last_receive_time desc
+15:40:04:364 DEBUG 23848 --- [nioEventLoopGroup-3-2] c.q.c.m.U.selectAllUserSession           : ==> Parameters: Udkq7qzrl98r(String)
+15:40:04:366 DEBUG 23848 --- [nioEventLoopGroup-3-2] c.q.c.m.U.selectAllUserSession           : <==      Total: 3
+15:40:04:376 DEBUG 23848 --- [nioEventLoopGroup-3-2] c.q.c.mapper.MessageMapper.selectList    : ==>  Preparing: SELECT message_id,session_id,message_type,message_content,send_user_id,send_user_nick_name,send_time,contact_id,contact_type,file_size,file_name,file_type,status FROM message WHERE (contact_id IN (?,?) AND send_time > ?)
+15:40:04:378 DEBUG 23848 --- [nioEventLoopGroup-3-2] c.q.c.mapper.MessageMapper.selectList    : ==> Parameters: Glxgg18b0z5n(String), Udkq7qzrl98r(String), 1738482004362(Long)
+15:40:04:381 DEBUG 23848 --- [nioEventLoopGroup-3-2] c.q.c.mapper.MessageMapper.selectList    : <==      Total: 0
+15:40:04:383 DEBUG 23848 --- [nioEventLoopGroup-3-2] c.q.chat.mapper.ApplyMapper.selectCount  : ==>  Preparing: SELECT COUNT( * ) FROM apply WHERE (receive_user_id = ? AND status = ? AND last_apply_time > ?)
+15:40:04:383 DEBUG 23848 --- [nioEventLoopGroup-3-2] c.q.chat.mapper.ApplyMapper.selectCount  : ==> Parameters: Udkq7qzrl98r(String), 0(Integer), 1738482004362(Long)
+15:40:04:385 DEBUG 23848 --- [nioEventLoopGroup-3-2] c.q.chat.mapper.ApplyMapper.selectCount  : <==      Total: 1
+15:40:08:275  INFO 23848 --- [http-nio-8000-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+15:40:08:276  INFO 23848 --- [http-nio-8000-exec-3] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+15:40:08:280  INFO 23848 --- [http-nio-8000-exec-3] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+15:40:08:376 DEBUG 23848 --- [http-nio-8000-exec-3] c.qyp.chat.mapper.BlogMapper.selectById  : ==>  Preparing: SELECT blog_id,user_id,content,file,likes,create_time FROM blog WHERE blog_id=?
+15:40:08:377 DEBUG 23848 --- [http-nio-8000-exec-3] c.qyp.chat.mapper.BlogMapper.selectById  : ==> Parameters: 13(Integer)
+15:40:08:400 DEBUG 23848 --- [http-nio-8000-exec-3] c.qyp.chat.mapper.BlogMapper.selectById  : <==      Total: 1
+15:40:08:402 DEBUG 23848 --- [http-nio-8000-exec-3] c.q.c.m.B.selectAllComments              : ==>  Preparing: select b.*,u.nick_name from blog_comments b,user u where b.user_id = u.user_id and b.blog_id = ?
+15:40:08:402 DEBUG 23848 --- [http-nio-8000-exec-3] c.q.c.m.B.selectAllComments              : ==> Parameters: 13(Integer)
+15:40:08:410 DEBUG 23848 --- [http-nio-8000-exec-3] c.q.c.m.B.selectAllComments              : <==      Total: 1
+15:40:23:451 ERROR 23848 --- [http-nio-8000-exec-1] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
+15:40:41:826 DEBUG 23848 --- [http-nio-8000-exec-2] c.qyp.chat.mapper.BlogMapper.selectById  : ==>  Preparing: SELECT blog_id,user_id,content,file,likes,create_time FROM blog WHERE blog_id=?
+15:40:41:828 DEBUG 23848 --- [http-nio-8000-exec-2] c.qyp.chat.mapper.BlogMapper.selectById  : ==> Parameters: 1(Integer)
+15:40:41:831 DEBUG 23848 --- [http-nio-8000-exec-2] c.qyp.chat.mapper.BlogMapper.selectById  : <==      Total: 0
+15:40:41:836 ERROR 23848 --- [http-nio-8000-exec-2] c.q.c.exception.GlobalExceptionHandler   : 请求地址:/api/blog/removeBlog错误
+15:40:50:479 ERROR 23848 --- [http-nio-8000-exec-4] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
+15:40:57:404 DEBUG 23848 --- [http-nio-8000-exec-5] c.q.c.m.BlogCommentsMapper.selectById    : ==>  Preparing: SELECT comment_id,user_id,blog_id,`comment`,create_time,likes FROM blog_comments WHERE comment_id=?
+15:40:57:405 DEBUG 23848 --- [http-nio-8000-exec-5] c.q.c.m.BlogCommentsMapper.selectById    : ==> Parameters: 1(Long)
+15:40:57:407 DEBUG 23848 --- [http-nio-8000-exec-5] c.q.c.m.BlogCommentsMapper.selectById    : <==      Total: 1
+15:40:57:409 DEBUG 23848 --- [http-nio-8000-exec-5] c.qyp.chat.mapper.BlogMapper.selectById  : ==>  Preparing: SELECT blog_id,user_id,content,file,likes,create_time FROM blog WHERE blog_id=?
+15:40:57:409 DEBUG 23848 --- [http-nio-8000-exec-5] c.qyp.chat.mapper.BlogMapper.selectById  : ==> Parameters: 13(Integer)
+15:40:57:411 DEBUG 23848 --- [http-nio-8000-exec-5] c.qyp.chat.mapper.BlogMapper.selectById  : <==      Total: 1
+15:40:57:413 DEBUG 23848 --- [http-nio-8000-exec-5] c.q.c.m.BlogCommentsMapper.deleteById    : ==>  Preparing: DELETE FROM blog_comments WHERE comment_id=?
+15:40:57:415 DEBUG 23848 --- [http-nio-8000-exec-5] c.q.c.m.BlogCommentsMapper.deleteById    : ==> Parameters: 1(Long)
+15:40:57:449 DEBUG 23848 --- [http-nio-8000-exec-5] c.q.c.m.BlogCommentsMapper.deleteById    : <==    Updates: 1
+15:40:57:451 DEBUG 23848 --- [http-nio-8000-exec-5] c.qyp.chat.mapper.UserMapper.selectById  : ==>  Preparing: SELECT user_id,email,nick_name,join_type,sex,password,personal_signature,status,create_time,last_login_time,area_name,area_code,last_off_time,coins FROM user WHERE user_id=?
+15:40:57:452 DEBUG 23848 --- [http-nio-8000-exec-5] c.qyp.chat.mapper.UserMapper.selectById  : ==> Parameters: Udkq7qzrl98r(String)
+15:40:57:456 DEBUG 23848 --- [http-nio-8000-exec-5] c.qyp.chat.mapper.UserMapper.selectById  : <==      Total: 1
+15:40:57:584  INFO 23848 --- [redisson-7-2] com.qyp.chat.websocket.MessageHandler    : 收到广播消息：{"sendUserId":"Udkq7qzrl98r","sendUserNickName":"第一人","sendTime":1738741257457,"contactId":"Urgemzm17hdh","contactType":0,"messageType":16,"status":1,"extendData":{"commentId":1,"userId":"Urgemzm17hdh","blogId":13,"comment":"真漂亮","createTime":1738740916000,"likes":1,"avatar":"/avatar/default.png"}}
+15:41:13:765 DEBUG 23848 --- [http-nio-8000-exec-6] c.qyp.chat.mapper.BlogMapper.selectById  : ==>  Preparing: SELECT blog_id,user_id,content,file,likes,create_time FROM blog WHERE blog_id=?
+15:41:13:766 DEBUG 23848 --- [http-nio-8000-exec-6] c.qyp.chat.mapper.BlogMapper.selectById  : ==> Parameters: 13(Integer)
+15:41:13:768 DEBUG 23848 --- [http-nio-8000-exec-6] c.qyp.chat.mapper.BlogMapper.selectById  : <==      Total: 1
+15:41:13:770 DEBUG 23848 --- [http-nio-8000-exec-6] c.q.c.m.B.selectAllComments              : ==>  Preparing: select b.*,u.nick_name from blog_comments b,user u where b.user_id = u.user_id and b.blog_id = ?
+15:41:13:771 DEBUG 23848 --- [http-nio-8000-exec-6] c.q.c.m.B.selectAllComments              : ==> Parameters: 13(Integer)
+15:41:13:774 DEBUG 23848 --- [http-nio-8000-exec-6] c.q.c.m.B.selectAllComments              : <==      Total: 0
+15:42:02:440 ERROR 23848 --- [http-nio-8000-exec-7] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
+15:42:04:193 DEBUG 23848 --- [http-nio-8000-exec-9] c.q.c.mapper.BlogCommentsMapper.insert   : ==>  Preparing: INSERT INTO blog_comments ( user_id, blog_id, `comment`, create_time, likes ) VALUES ( ?, ?, ?, ?, ? )
+15:42:04:196 DEBUG 23848 --- [http-nio-8000-exec-9] c.q.c.mapper.BlogCommentsMapper.insert   : ==> Parameters: Urgemzm17hdh(String), 13(Integer), 真漂亮(String), 2025-02-05T15:42:04.189821400(LocalDateTime), 0(Integer)
+15:42:04:229 DEBUG 23848 --- [http-nio-8000-exec-9] c.q.c.mapper.BlogCommentsMapper.insert   : <==    Updates: 1
+15:42:04:234 DEBUG 23848 --- [http-nio-8000-exec-9] c.qyp.chat.mapper.UserMapper.selectById  : ==>  Preparing: SELECT user_id,email,nick_name,join_type,sex,password,personal_signature,status,create_time,last_login_time,area_name,area_code,last_off_time,coins FROM user WHERE user_id=?
+15:42:04:236 DEBUG 23848 --- [http-nio-8000-exec-9] c.qyp.chat.mapper.UserMapper.selectById  : ==> Parameters: Urgemzm17hdh(String)
+15:42:04:238 DEBUG 23848 --- [http-nio-8000-exec-9] c.qyp.chat.mapper.UserMapper.selectById  : <==      Total: 1
+15:42:04:239 DEBUG 23848 --- [http-nio-8000-exec-9] c.qyp.chat.mapper.BlogMapper.selectById  : ==>  Preparing: SELECT blog_id,user_id,content,file,likes,create_time FROM blog WHERE blog_id=?
+15:42:04:240 DEBUG 23848 --- [http-nio-8000-exec-9] c.qyp.chat.mapper.BlogMapper.selectById  : ==> Parameters: 13(Integer)
+15:42:04:245 DEBUG 23848 --- [http-nio-8000-exec-9] c.qyp.chat.mapper.BlogMapper.selectById  : <==      Total: 1
+15:42:04:255  INFO 23848 --- [redisson-7-3] com.qyp.chat.websocket.MessageHandler    : 收到广播消息：{"sendUserId":"Urgemzm17hdh","sendUserNickName":"第二人","sendTime":1738741324189,"contactId":"Udkq7qzrl98r","contactType":0,"messageType":15,"status":1,"extendData":{"commentId":2,"userId":"Urgemzm17hdh","blogId":13,"comment":"真漂亮","createTime":1738741324189,"likes":0,"avatar":"/avatar/default.png"}}
+15:42:06:312 ERROR 23848 --- [http-nio-8000-exec-8] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
+15:42:07:126 DEBUG 23848 --- [http-nio-8000-exec-10] c.qyp.chat.mapper.BlogMapper.selectById  : ==>  Preparing: SELECT blog_id,user_id,content,file,likes,create_time FROM blog WHERE blog_id=?
+15:42:07:127 DEBUG 23848 --- [http-nio-8000-exec-10] c.qyp.chat.mapper.BlogMapper.selectById  : ==> Parameters: 13(Integer)
+15:42:07:155 DEBUG 23848 --- [http-nio-8000-exec-10] c.qyp.chat.mapper.BlogMapper.selectById  : <==      Total: 1
+15:42:07:160 DEBUG 23848 --- [http-nio-8000-exec-10] c.q.c.m.B.selectAllComments              : ==>  Preparing: select b.*,u.nick_name from blog_comments b,user u where b.user_id = u.user_id and b.blog_id = ?
+15:42:07:161 DEBUG 23848 --- [http-nio-8000-exec-10] c.q.c.m.B.selectAllComments              : ==> Parameters: 13(Integer)
+15:42:07:168 DEBUG 23848 --- [http-nio-8000-exec-10] c.q.c.m.B.selectAllComments              : <==      Total: 1
+15:42:09:311 ERROR 23848 --- [http-nio-8000-exec-3] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
+15:42:12:481 DEBUG 23848 --- [http-nio-8000-exec-1] c.q.c.m.BlogCommentsMapper.selectById    : ==>  Preparing: SELECT comment_id,user_id,blog_id,`comment`,create_time,likes FROM blog_comments WHERE comment_id=?
+15:42:12:482 DEBUG 23848 --- [http-nio-8000-exec-1] c.q.c.m.BlogCommentsMapper.selectById    : ==> Parameters: 13(Long)
+15:42:12:484 DEBUG 23848 --- [http-nio-8000-exec-1] c.q.c.m.BlogCommentsMapper.selectById    : <==      Total: 0
+15:42:12:485 ERROR 23848 --- [http-nio-8000-exec-1] c.q.c.exception.GlobalExceptionHandler   : 请求地址:/api/blog-comments/like错误
+15:42:17:206 ERROR 23848 --- [http-nio-8000-exec-2] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
+15:42:18:166 ERROR 23848 --- [http-nio-8000-exec-4] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
+15:42:19:174 ERROR 23848 --- [http-nio-8000-exec-5] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
+15:42:20:245 ERROR 23848 --- [http-nio-8000-exec-6] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
+15:42:22:964 ERROR 23848 --- [http-nio-8000-exec-7] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
+15:42:25:171 DEBUG 23848 --- [http-nio-8000-exec-9] c.q.c.m.BlogCommentsMapper.selectById    : ==>  Preparing: SELECT comment_id,user_id,blog_id,`comment`,create_time,likes FROM blog_comments WHERE comment_id=?
+15:42:25:172 DEBUG 23848 --- [http-nio-8000-exec-9] c.q.c.m.BlogCommentsMapper.selectById    : ==> Parameters: 2(Long)
+15:42:25:175 DEBUG 23848 --- [http-nio-8000-exec-9] c.q.c.m.BlogCommentsMapper.selectById    : <==      Total: 1
+15:42:25:188 DEBUG 23848 --- [http-nio-8000-exec-9] c.q.c.mapper.BlogCommentsMapper.update   : ==>  Preparing: UPDATE blog_comments SET likes = likes + 1 WHERE (comment_id = ?)
+15:42:25:190 DEBUG 23848 --- [http-nio-8000-exec-9] c.q.c.mapper.BlogCommentsMapper.update   : ==> Parameters: 2(Long)
+15:42:25:195 DEBUG 23848 --- [http-nio-8000-exec-9] c.q.c.mapper.BlogCommentsMapper.update   : <==    Updates: 1
+15:44:11:622 ERROR 23848 --- [http-nio-8000-exec-10] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
+15:44:13:698 DEBUG 23848 --- [http-nio-8000-exec-3] c.qyp.chat.mapper.BlogMapper.selectById  : ==>  Preparing: SELECT blog_id,user_id,content,file,likes,create_time FROM blog WHERE blog_id=?
+15:44:13:699 DEBUG 23848 --- [http-nio-8000-exec-3] c.qyp.chat.mapper.BlogMapper.selectById  : ==> Parameters: 13(Integer)
+15:44:13:701 DEBUG 23848 --- [http-nio-8000-exec-3] c.qyp.chat.mapper.BlogMapper.selectById  : <==      Total: 1
+15:44:13:701 DEBUG 23848 --- [http-nio-8000-exec-3] c.q.c.m.B.selectAllComments              : ==>  Preparing: select b.*,u.nick_name from blog_comments b,user u where b.user_id = u.user_id and b.blog_id = ?
+15:44:13:702 DEBUG 23848 --- [http-nio-8000-exec-3] c.q.c.m.B.selectAllComments              : ==> Parameters: 13(Integer)
+15:44:13:703 DEBUG 23848 --- [http-nio-8000-exec-3] c.q.c.m.B.selectAllComments              : <==      Total: 1
+15:44:41:949 ERROR 23848 --- [http-nio-8000-exec-1] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
+15:44:45:177 ERROR 23848 --- [http-nio-8000-exec-2] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
+15:44:53:475 DEBUG 23848 --- [http-nio-8000-exec-4] c.q.c.m.BlogCommentsMapper.selectById    : ==>  Preparing: SELECT comment_id,user_id,blog_id,`comment`,create_time,likes FROM blog_comments WHERE comment_id=?
+15:44:53:475 DEBUG 23848 --- [http-nio-8000-exec-4] c.q.c.m.BlogCommentsMapper.selectById    : ==> Parameters: 2(Long)
+15:44:53:478 DEBUG 23848 --- [http-nio-8000-exec-4] c.q.c.m.BlogCommentsMapper.selectById    : <==      Total: 1
+15:44:53:482 DEBUG 23848 --- [http-nio-8000-exec-4] c.q.c.mapper.BlogCommentsMapper.update   : ==>  Preparing: UPDATE blog_comments SET likes = likes + 1 WHERE (comment_id = ?)
+15:44:53:483 DEBUG 23848 --- [http-nio-8000-exec-4] c.q.c.mapper.BlogCommentsMapper.update   : ==> Parameters: 2(Long)
+15:44:53:512 DEBUG 23848 --- [http-nio-8000-exec-4] c.q.c.mapper.BlogCommentsMapper.update   : <==    Updates: 1
+15:46:27:299  INFO 30104 --- [main] com.qyp.chat.ChatApplication             : Starting ChatApplication using Java 11.0.12 on LAPTOP-C6F2EJ6P with PID 30104 (D:\Users\qyp\Documents\ideaProjects\Chat\target\classes started by qyp in D:\Users\qyp\Documents\ideaProjects\Chat)
+15:46:27:300 DEBUG 30104 --- [main] com.qyp.chat.ChatApplication             : Running with Spring Boot v2.7.12, Spring v5.3.27
+15:46:27:301  INFO 30104 --- [main] com.qyp.chat.ChatApplication             : The following 1 profile is active: "dev"
+15:46:27:923  INFO 30104 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+15:46:27:924  INFO 30104 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+15:46:27:950  INFO 30104 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 17 ms. Found 0 Redis repository interfaces.
+15:46:28:389  INFO 30104 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
+15:46:28:396  INFO 30104 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+15:46:28:397  INFO 30104 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
+15:46:28:526  INFO 30104 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+15:46:28:526  INFO 30104 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1199 ms
+15:46:29:388  WARN 30104 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.qyp.chat.domain.entity.ExchangeCoupons".
+15:46:30:115  INFO 30104 --- [main] org.redisson.Version                     : Redisson 3.17.1
+15:46:30:301  INFO 30104 --- [redisson-netty-6-13] o.r.c.pool.MasterPubSubConnectionPool    : 1 connections initialized for 192.168.15.155/192.168.15.155:6379
+15:46:30:344  INFO 30104 --- [redisson-netty-6-19] o.r.c.pool.MasterConnectionPool          : 24 connections initialized for 192.168.15.155/192.168.15.155:6379
+15:46:30:811  INFO 30104 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+15:46:30:878  INFO 30104 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
+15:46:31:062  INFO 30104 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path '/api'
+15:46:31:063  INFO 30104 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
+15:46:31:066  INFO 30104 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+15:46:31:094  INFO 30104 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+15:46:31:200  WARN 30104 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType org.springframework.web.multipart.MultipartFile[]
+15:46:31:236  INFO 30104 --- [main] com.qyp.chat.ChatApplication             : Started ChatApplication in 4.207 seconds (JVM running for 5.23)
+15:46:31:238  INFO 30104 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+15:46:31:563  INFO 30104 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+15:46:31:834  INFO 30104 --- [main] com.qyp.chat.InitRun                     : 服务启动成功。
+15:46:31:842  INFO 30104 --- [Thread-2] c.q.c.w.netty.NettyWebSocketStarter      : netty启动
+15:46:43:596  INFO 30104 --- [http-nio-8000-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+15:46:43:597  INFO 30104 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+15:46:43:602  INFO 30104 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+15:46:43:875 DEBUG 30104 --- [http-nio-8000-exec-1] c.q.c.m.BlogCommentsMapper.selectById    : ==>  Preparing: SELECT comment_id,user_id,blog_id,`comment`,create_time,likes FROM blog_comments WHERE comment_id=?
+15:46:43:916 DEBUG 30104 --- [http-nio-8000-exec-1] c.q.c.m.BlogCommentsMapper.selectById    : ==> Parameters: 2(Long)
+15:46:43:985 DEBUG 30104 --- [http-nio-8000-exec-1] c.q.c.m.BlogCommentsMapper.selectById    : <==      Total: 1
+15:46:44:102 DEBUG 30104 --- [http-nio-8000-exec-1] c.q.c.mapper.BlogCommentsMapper.update   : ==>  Preparing: UPDATE blog_comments SET likes = likes + 1 WHERE (comment_id = ?)
+15:46:44:105 DEBUG 30104 --- [http-nio-8000-exec-1] c.q.c.mapper.BlogCommentsMapper.update   : ==> Parameters: 2(Long)
+15:46:44:118 DEBUG 30104 --- [http-nio-8000-exec-1] c.q.c.mapper.BlogCommentsMapper.update   : <==    Updates: 1
+15:47:14:049  INFO 476 --- [main] com.qyp.chat.ChatApplication             : Starting ChatApplication using Java 11.0.12 on LAPTOP-C6F2EJ6P with PID 476 (D:\Users\qyp\Documents\ideaProjects\Chat\target\classes started by qyp in D:\Users\qyp\Documents\ideaProjects\Chat)
+15:47:14:051 DEBUG 476 --- [main] com.qyp.chat.ChatApplication             : Running with Spring Boot v2.7.12, Spring v5.3.27
+15:47:14:052  INFO 476 --- [main] com.qyp.chat.ChatApplication             : The following 1 profile is active: "dev"
+15:47:14:837  INFO 476 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+15:47:14:839  INFO 476 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+15:47:14:873  INFO 476 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 22 ms. Found 0 Redis repository interfaces.
+15:47:15:377  INFO 476 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
+15:47:15:385  INFO 476 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+15:47:15:386  INFO 476 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
+15:47:15:513  INFO 476 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+15:47:15:513  INFO 476 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1414 ms
+15:47:17:541  WARN 476 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.qyp.chat.domain.entity.ExchangeCoupons".
+15:47:18:901  INFO 476 --- [main] org.redisson.Version                     : Redisson 3.17.1
+15:47:19:431  INFO 476 --- [redisson-netty-6-13] o.r.c.pool.MasterPubSubConnectionPool    : 1 connections initialized for 192.168.15.155/192.168.15.155:6379
+15:47:19:503  INFO 476 --- [redisson-netty-6-19] o.r.c.pool.MasterConnectionPool          : 24 connections initialized for 192.168.15.155/192.168.15.155:6379
+15:47:20:809  INFO 476 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+15:47:21:014  INFO 476 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
+15:47:21:452  INFO 476 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path '/api'
+15:47:21:454  INFO 476 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
+15:47:21:463  INFO 476 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+15:47:21:517  INFO 476 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+15:47:21:626  INFO 476 --- [http-nio-8000-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+15:47:21:626  INFO 476 --- [http-nio-8000-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+15:47:21:627  INFO 476 --- [http-nio-8000-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+15:47:21:744  WARN 476 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType org.springframework.web.multipart.MultipartFile[]
+15:47:21:806  INFO 476 --- [main] com.qyp.chat.ChatApplication             : Started ChatApplication in 8.113 seconds (JVM running for 9.403)
+15:47:21:812  INFO 476 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+15:47:22:458  INFO 476 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+15:47:22:471 DEBUG 476 --- [http-nio-8000-exec-2] c.q.c.m.BlogCommentsMapper.selectById    : ==>  Preparing: SELECT comment_id,user_id,blog_id,`comment`,create_time,likes FROM blog_comments WHERE comment_id=?
+15:47:22:498  INFO 476 --- [main] com.qyp.chat.InitRun                     : 服务启动成功。
+15:47:22:504 DEBUG 476 --- [http-nio-8000-exec-2] c.q.c.m.BlogCommentsMapper.selectById    : ==> Parameters: 2(Long)
+15:47:22:520  INFO 476 --- [Thread-2] c.q.c.w.netty.NettyWebSocketStarter      : netty启动
+15:47:22:543 DEBUG 476 --- [http-nio-8000-exec-2] c.q.c.m.BlogCommentsMapper.selectById    : <==      Total: 1
+15:47:33:729 DEBUG 476 --- [http-nio-8000-exec-2] c.q.c.mapper.BlogCommentsMapper.update   : ==>  Preparing: UPDATE blog_comments SET likes = likes + 1 WHERE (comment_id = ?)
+15:47:33:744 DEBUG 476 --- [http-nio-8000-exec-2] c.q.c.mapper.BlogCommentsMapper.update   : ==> Parameters: 2(Long)
+15:47:33:773 DEBUG 476 --- [http-nio-8000-exec-2] c.q.c.mapper.BlogCommentsMapper.update   : <==    Updates: 1
+15:47:57:194  INFO 476 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+15:47:57:207  INFO 476 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+15:48:02:169  INFO 33836 --- [main] com.qyp.chat.ChatApplication             : Starting ChatApplication using Java 11.0.12 on LAPTOP-C6F2EJ6P with PID 33836 (D:\Users\qyp\Documents\ideaProjects\Chat\target\classes started by qyp in D:\Users\qyp\Documents\ideaProjects\Chat)
+15:48:02:170 DEBUG 33836 --- [main] com.qyp.chat.ChatApplication             : Running with Spring Boot v2.7.12, Spring v5.3.27
+15:48:02:171  INFO 33836 --- [main] com.qyp.chat.ChatApplication             : The following 1 profile is active: "dev"
+15:48:02:780  INFO 33836 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+15:48:02:782  INFO 33836 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+15:48:02:811  INFO 33836 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 19 ms. Found 0 Redis repository interfaces.
+15:48:03:284  INFO 33836 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
+15:48:03:291  INFO 33836 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+15:48:03:292  INFO 33836 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
+15:48:03:464  INFO 33836 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+15:48:03:464  INFO 33836 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1264 ms
+15:48:04:356  WARN 33836 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.qyp.chat.domain.entity.ExchangeCoupons".
+15:48:05:076  INFO 33836 --- [main] org.redisson.Version                     : Redisson 3.17.1
+15:48:05:272  INFO 33836 --- [redisson-netty-6-13] o.r.c.pool.MasterPubSubConnectionPool    : 1 connections initialized for 192.168.15.155/192.168.15.155:6379
+15:48:05:316  INFO 33836 --- [redisson-netty-6-19] o.r.c.pool.MasterConnectionPool          : 24 connections initialized for 192.168.15.155/192.168.15.155:6379
+15:48:05:775  INFO 33836 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+15:48:05:846  INFO 33836 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
+15:48:06:028  INFO 33836 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path '/api'
+15:48:06:029  INFO 33836 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
+15:48:06:032  INFO 33836 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+15:48:06:056  INFO 33836 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+15:48:06:161  WARN 33836 --- [main] s.d.s.w.r.p.ParameterDataTypeReader      : Trying to infer dataType org.springframework.web.multipart.MultipartFile[]
+15:48:06:199  INFO 33836 --- [main] com.qyp.chat.ChatApplication             : Started ChatApplication in 4.301 seconds (JVM running for 5.365)
+15:48:06:201  INFO 33836 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+15:48:06:419  INFO 33836 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+15:48:06:634  INFO 33836 --- [main] com.qyp.chat.InitRun                     : 服务启动成功。
+15:48:06:644  INFO 33836 --- [Thread-2] c.q.c.w.netty.NettyWebSocketStarter      : netty启动
+15:48:15:418  INFO 33836 --- [http-nio-8000-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+15:48:15:420  INFO 33836 --- [http-nio-8000-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+15:48:15:422  INFO 33836 --- [http-nio-8000-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+15:48:15:733 DEBUG 33836 --- [http-nio-8000-exec-2] c.q.c.m.BlogCommentsMapper.selectById    : ==>  Preparing: SELECT comment_id,user_id,blog_id,`comment`,create_time,likes FROM blog_comments WHERE comment_id=?
+15:48:15:771 DEBUG 33836 --- [http-nio-8000-exec-2] c.q.c.m.BlogCommentsMapper.selectById    : ==> Parameters: 2(Long)
+15:48:15:840 DEBUG 33836 --- [http-nio-8000-exec-2] c.q.c.m.BlogCommentsMapper.selectById    : <==      Total: 1
+15:48:15:957 DEBUG 33836 --- [http-nio-8000-exec-2] c.q.c.mapper.BlogCommentsMapper.update   : ==>  Preparing: UPDATE blog_comments SET likes = likes + 1 WHERE (comment_id = ?)
+15:48:15:959 DEBUG 33836 --- [http-nio-8000-exec-2] c.q.c.mapper.BlogCommentsMapper.update   : ==> Parameters: 2(Long)
+15:48:15:989 DEBUG 33836 --- [http-nio-8000-exec-2] c.q.c.mapper.BlogCommentsMapper.update   : <==    Updates: 1
+15:48:32:834 ERROR 33836 --- [http-nio-8000-exec-3] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
+15:48:35:208 DEBUG 33836 --- [http-nio-8000-exec-1] c.q.c.m.BlogCommentsMapper.selectById    : ==>  Preparing: SELECT comment_id,user_id,blog_id,`comment`,create_time,likes FROM blog_comments WHERE comment_id=?
+15:48:35:209 DEBUG 33836 --- [http-nio-8000-exec-1] c.q.c.m.BlogCommentsMapper.selectById    : ==> Parameters: 2(Long)
+15:48:35:212 DEBUG 33836 --- [http-nio-8000-exec-1] c.q.c.m.BlogCommentsMapper.selectById    : <==      Total: 1
+15:48:35:219 DEBUG 33836 --- [http-nio-8000-exec-1] c.q.c.mapper.BlogCommentsMapper.update   : ==>  Preparing: UPDATE blog_comments SET likes = likes + 1 WHERE (comment_id = ?)
+15:48:35:221 DEBUG 33836 --- [http-nio-8000-exec-1] c.q.c.mapper.BlogCommentsMapper.update   : ==> Parameters: 2(Long)
+15:48:35:229 DEBUG 33836 --- [http-nio-8000-exec-1] c.q.c.mapper.BlogCommentsMapper.update   : <==    Updates: 1
+15:48:50:297 ERROR 33836 --- [http-nio-8000-exec-4] c.qyp.chat.interceptor.LoginInterceptor  : /api/error
+15:48:53:756 DEBUG 33836 --- [http-nio-8000-exec-5] c.qyp.chat.mapper.BlogMapper.selectById  : ==>  Preparing: SELECT blog_id,user_id,content,file,likes,create_time FROM blog WHERE blog_id=?
+15:48:53:763 DEBUG 33836 --- [http-nio-8000-exec-5] c.qyp.chat.mapper.BlogMapper.selectById  : ==> Parameters: 13(Integer)
+15:48:53:771 DEBUG 33836 --- [http-nio-8000-exec-5] c.qyp.chat.mapper.BlogMapper.selectById  : <==      Total: 1
+15:48:53:773 DEBUG 33836 --- [http-nio-8000-exec-5] c.q.c.m.B.selectAllComments              : ==>  Preparing: select b.*,u.nick_name from blog_comments b,user u where b.user_id = u.user_id and b.blog_id = ?
+15:48:53:774 DEBUG 33836 --- [http-nio-8000-exec-5] c.q.c.m.B.selectAllComments              : ==> Parameters: 13(Integer)
+15:48:53:778 DEBUG 33836 --- [http-nio-8000-exec-5] c.q.c.m.B.selectAllComments              : <==      Total: 1
+15:49:18:978 ERROR 33836 --- [http-nio-8000-exec-6] c.qyp.chat.interceptor.LoginInterceptor  : /api/error

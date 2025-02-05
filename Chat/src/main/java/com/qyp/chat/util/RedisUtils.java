@@ -117,4 +117,20 @@ public class RedisUtils {
 
 
 
+    public List<String> getCommentLike(Long commentId){
+        Set<String> members = stringRedisTemplate.opsForSet().members(RedisConstant.CHAT_COMMENT_LIKE + commentId);
+        return members.stream().collect(Collectors.toList());
+    }
+    public void setCommentLike(Long commentId,String userId){
+        stringRedisTemplate.opsForSet().add(RedisConstant.CHAT_COMMENT_LIKE + commentId,userId);
+    }
+    public void removeCommentLike(Long commentId,String userId){
+        stringRedisTemplate.opsForSet().remove(RedisConstant.CHAT_COMMENT_LIKE + commentId,userId);
+    }
+    public boolean isLike(Long commentId,String userId){
+        return stringRedisTemplate.opsForSet().isMember(RedisConstant.CHAT_COMMENT_LIKE + commentId,userId);
+    }
+
+
+
 }

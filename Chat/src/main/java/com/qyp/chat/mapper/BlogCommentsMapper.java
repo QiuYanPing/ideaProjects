@@ -3,6 +3,8 @@ package com.qyp.chat.mapper;
 import com.qyp.chat.domain.entity.BlogComments;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
+import java.util.List;
+
 /**
  * <p>
  * 博文评论表 Mapper 接口
@@ -13,4 +15,5 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  */
 public interface BlogCommentsMapper extends BaseMapper<BlogComments> {
 
+    List<BlogComments> selectAllComments(Integer blogId);
 }
