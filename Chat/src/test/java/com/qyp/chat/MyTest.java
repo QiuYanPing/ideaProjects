@@ -3,6 +3,7 @@ package com.qyp.chat;
 
 import com.qyp.chat.config.AppConfig;
 import com.qyp.chat.constant.SysConstant;
+import com.qyp.chat.util.RedisUtils;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,8 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import javax.annotation.Resource;
 import java.io.*;
 import java.time.LocalDateTime;
+import java.time.Month;
+import java.time.Year;
 import java.time.ZoneOffset;
 
 @SpringBootTest
@@ -88,5 +91,28 @@ public class MyTest {
                 in.close();
             }
         }
+    }
+
+    @Test
+    public void dayOfMonth(){
+        LocalDateTime now = LocalDateTime.now();
+        Month month = now.getMonth();
+        int length = month.length(Year.isLeap(now.getYear()));
+        int year = now.getYear();
+        System.out.println("year = " + year);
+        Year of = Year.of(now.getYear());
+        System.out.println("of = " + of);
+        System.out.println(now.getYear()+"");
+        System.out.println("length = " + length);
+        System.out.println(now.getDayOfYear());
+    }
+    @Autowired
+    RedisUtils redisUtils;
+    @Test
+    public void setSign(){
+        String userId = "Udkq7qzrl98r";
+        redisUtils.sign(userId,Year.now(),34);
+        redisUtils.sign(userId,Year.now(),35);
+
     }
 }

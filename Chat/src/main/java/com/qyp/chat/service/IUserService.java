@@ -32,4 +32,8 @@ public interface IUserService extends IService<User> {
     void updateUserStatus(String status, String userId);
 
     void forceOffLine(String userId);
+
+    void sign(String userId);
+
+    Integer continueDays(String userId);
 }

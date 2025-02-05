@@ -28,6 +28,7 @@ import com.qyp.chat.util.StringUtils;
 import com.qyp.chat.util.UserUtils;
 import com.qyp.chat.websocket.ChannelContextUtils;
 import io.netty.util.internal.StringUtil;
+import io.swagger.models.auth.In;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +39,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.time.Year;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
@@ -278,6 +280,44 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     public void forceOffLine(String userId) {
         //todo 强制下线
         channelContextUtils.closeContact(userId);
+    }
+
+    @Override
+    public void sign(String userId) {
+        LocalDateTime time = LocalDateTime.now();
+        int dayOfYear = time.getDayOfYear();
+        //判断是否已经签到
+        Boolean sign = redisUtils.isSign(userId, Year.now(), dayOfYear - 1);
+        if(sign)
+            throw new BusinessException("已经签到了");
+
+        redisUtils.sign(userId, Year.now(),dayOfYear-1);
+        //领取金币
+        lambdaUpdate().setSql("coins = coins + 10 ")
+                .eq(User::getUserId,userId).update();
+
+    }
+
+    @Override
+    public Integer continueDays(String userId) {
+        User user = getById(userId);
+        LocalDateTime createTime = user.getCreateTime();
+        LocalDateTime time = LocalDateTime.now();
+        //从现在计算到创建开始的连续签到天数
+        Integer count = 0;
+        count += redisUtils.continueDay(userId,Year.now(),time.getDayOfYear());
+        if(count < time.getDayOfYear())
+            return count;
+
+        //计算往年的天数
+        for (int i = time.getYear()-1; i >= createTime.getYear() ; i--) {
+            Integer days = redisUtils.continueDay(userId, Year.of(i),Year.of(i).length());
+            count += days;
+            if(days < Year.of(i).length())
+                break;
+        }
+
+        return count;
     }
 
     private String createUserId() {

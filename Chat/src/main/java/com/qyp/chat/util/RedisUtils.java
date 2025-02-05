@@ -7,10 +7,16 @@ import com.qyp.chat.constant.SysConstant;
 import com.qyp.chat.domain.dto.SysSettingDTO;
 import com.qyp.chat.domain.dto.UserInfoDTO;
 import com.qyp.chat.domain.entity.Contact;
+import com.qyp.chat.domain.entity.User;
+import org.springframework.data.redis.connection.BitFieldSubCommands;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
+import java.time.LocalDateTime;
+import java.time.Month;
+import java.time.Year;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
@@ -131,6 +137,45 @@ public class RedisUtils {
         return stringRedisTemplate.opsForSet().isMember(RedisConstant.CHAT_COMMENT_LIKE + commentId,userId);
     }
 
+
+
+    public void sign(String userId,Year year,Integer index){
+        stringRedisTemplate.opsForValue().setBit(RedisConstant.CHAT_USER_SIGN+ userId+":"+year,index,true);
+    }
+    public Boolean isSign(String userId,Year year,Integer index){
+         return stringRedisTemplate.opsForValue().getBit(RedisConstant.CHAT_USER_SIGN + userId + ":" + year, index);
+    }
+    public  Integer continueDay(String userId, Year year,Integer totalDays){
+        int chunkSize = 63;
+        List<Long> allResults = new ArrayList<>();
+
+        for (int i = 0; i < totalDays; i += chunkSize) {
+            int currentSize = Math.min(chunkSize, totalDays - i);
+            List<Long> res = stringRedisTemplate.opsForValue().bitField(
+                    RedisConstant.CHAT_USER_SIGN + userId + ":" + year,
+                    BitFieldSubCommands.create()
+                            .get(BitFieldSubCommands.BitFieldType.unsigned(currentSize)).valueAt(i)
+            );
+            if (res != null && !res.isEmpty()) {
+                allResults.add(res.get(0));
+            }
+        }
+
+        // 合并结果并计算连续签到天数
+        long combinedDays = 0;
+        for (int i = 0; i < allResults.size(); i++) {
+            combinedDays |= (allResults.get(i) << (i * chunkSize));
+        }
+
+
+        Integer count = 0;
+        //计算天数
+        while((combinedDays & 1) != 0){
+            count++;
+            combinedDays >>>= 1;
+        }
+        return count;
+    }
 
 
 }

@@ -17,4 +17,6 @@ public class RedisConstant {
     public static final String CHAT_BLOG_LIKE = "chat:blog:like:";
     public static final String CHAT_COMMENT_LIKE = "chat:comment:like:";
 
+    public static final String CHAT_USER_SIGN = "chat:user:sign:";
+
 }

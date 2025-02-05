@@ -154,6 +154,17 @@ public class UserController {
     }
 
 
-
+    @PostMapping("/sign")
+    public R sign(){
+        UserInfoDTO userInfoDTO = userUtils.get();
+        userService.sign(userInfoDTO.getUserId());
+        return R.success(null);
+    }
+    @PostMapping("/continueDays")
+    public R continueDays(){
+        UserInfoDTO userInfoDTO = userUtils.get();
+        Integer days = userService.continueDays(userInfoDTO.getUserId());
+        return R.success(days);
+    }
 
 }
