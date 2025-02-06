@@ -1,6 +1,8 @@
 package com.qyp.chat.controller;
 
 
+import com.qyp.chat.domain.R;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RestController;
@@ -16,5 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/coupons")
 public class CouponsController {
+
 
 }

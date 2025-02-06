@@ -2,6 +2,9 @@ package com.qyp.chat.service;
 
 import com.qyp.chat.domain.entity.Coupons;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.qyp.chat.domain.vo.CouponsVO;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +16,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface ICouponsService extends IService<Coupons> {
 
+    void saveCoupons(Coupons coupons);
+
+    List<CouponsVO> loadCoupons(Integer pageNo, Integer pageSize);
 }

@@ -13,4 +13,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IExchangeCouponsService extends IService<ExchangeCoupons> {
 
+    void exchange(String userId, Integer couponsId);
+
+    void record(String userId, Integer couponsId);
 }

@@ -105,6 +105,8 @@ public class MyTest {
         System.out.println(now.getYear()+"");
         System.out.println("length = " + length);
         System.out.println(now.getDayOfYear());
+        System.out.println(now);
+        System.out.println(now.toInstant(ZoneOffset.of("+8")).toEpochMilli());
     }
     @Autowired
     RedisUtils redisUtils;
